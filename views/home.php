@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
 </head>
