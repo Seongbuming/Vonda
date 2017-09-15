@@ -5,11 +5,19 @@
 
 header .area_links {
     background-color: #f0f0f0;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
 }
 header .area_links .menu {
     list-style: none;
+}
+header .area_links .menu_left {
+    float: left;
+    padding-left: 1.5em;
+}
+header .area_links .menu_right {
+    float: right;
+    padding-right: 1.5em;
 }
 header .area_links .menu li {
     float: left;
