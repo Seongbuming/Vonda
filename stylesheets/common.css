@@ -29,3 +29,13 @@ header .area_links .menu li:nth-child(n+2)::before {
     content: '|';
     margin: 0 .5em;
 }
+
+header .area_logo {
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 35px 0;
+}
+header .area_logo .logo {
+    width: 300px;
+}
