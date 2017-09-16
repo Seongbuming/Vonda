@@ -109,3 +109,9 @@ header .area_logo .area_search .submit_search {
     background-position: center;
     cursor: pointer;
 }
+
+#contents {
+    clear: both;
+    width: 1180px;
+    margin: 0 auto;
+}

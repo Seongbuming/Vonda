@@ -1,0 +1,7 @@
+#contents .banner {
+    border: none;
+}
+#contents .banner li img {
+    float: left;
+    width: 236px;
+}
