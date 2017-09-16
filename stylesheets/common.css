@@ -75,9 +75,11 @@ header .area_logo {
     text-align: center;
     padding: 35px 0;
 }
-header .area_logo .logo {
+header .area_logo .logo_wrapper {
     display: block;
     margin: 0 auto;
+}
+header .area_logo .logo_wrapper .logo {
     width: 250px;
 }
 header .area_logo .area_search {
