@@ -12,7 +12,9 @@
 </div>
 
 <div class="area_logo">
-    <img class="logo" src="images/logo.png" alt="로고" />
+    <a href=".">
+        <img class="logo" src="images/logo.png" alt="로고" />
+    </a>
     <div class="area_search">
         <input class="search input_search" type="text" title="검색 입력" />
         <button class="search submit_search" title="검색"></button>
