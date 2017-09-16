@@ -1,5 +1,6 @@
 #contents .banner {
     border: none;
+    margin-bottom: 0;
 }
 #contents .banner li img {
     float: left;
