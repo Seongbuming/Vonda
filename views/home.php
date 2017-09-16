@@ -8,5 +8,9 @@
     <header>
         <?=$this->loadLayout("header")?>
     </header>
+
+    <footer>
+        <?=$this->loadLayout("footer")?>
+    </footer>
 </body>
 </html>
