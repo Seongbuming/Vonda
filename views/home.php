@@ -37,13 +37,13 @@
             </li>
         </ul>
 
-        <ul class="category">
+        <ul class="category_menu">
             <li class="actived"><a href=".">Best Seller</a></li>
             <li><a href=".">New</a></li>
             <li>&nbsp;</li>
         </ul>
 
-        <ul class="category">
+        <ul class="category_menu">
             <li class="actived"><a href=".">Creator</a></li>
             <li>&nbsp;</li>
         </ul>
