@@ -97,6 +97,7 @@ header .area_logo .area_search .search {
     border: none;
 }
 header .area_logo .area_search .input_search {
+    float: left;
     width: 230px;
     height: 20px;
     line-height: 20px;
@@ -105,9 +106,9 @@ header .area_logo .area_search .input_search {
     outline: none;
 }
 header .area_logo .area_search .submit_search {
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
+    float: left;
+    width: 36px;
+    height: 36px;
     padding: 0;
     background: url("../images/buttons/search.png");
     background-repeat: no-repeat;
