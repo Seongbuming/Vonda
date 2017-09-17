@@ -42,6 +42,11 @@ table {
     border-spacing: 0;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 header .area_links {
     background-color: #f0f0f0;
     height: 35px;

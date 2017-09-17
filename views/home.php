@@ -12,6 +12,14 @@
     </header>
 
     <div id="contents">
+        <a class="floating" href=".">
+            <p>CART</p>
+            <div class="badge">
+                <img class="badge_image" src="images/buttons/shopping-cart.png" alt="CART" />
+                <span class="badge_text">2</span>
+            </div>
+        </a>
+
         <ul class="bxslider">
             <li>
                 <img src="images/banner/banner1.png" alt="배너 이미지 1" />
