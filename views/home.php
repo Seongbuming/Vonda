@@ -36,6 +36,11 @@
                 <img src="images/banner/banner10.png" alt="배너 이미지 10" />
             </li>
         </ul>
+
+        <ul class="category">
+            <li class="actived">Best Seller</li>
+            <li>New</li>
+        </ul>
     </div>
 
     <footer>
