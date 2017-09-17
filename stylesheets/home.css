@@ -45,6 +45,7 @@
     font-weight: bold;
     font-size: 1.2em;
     margin-top: 50px;
+    width: 100%;
 }
 #contents .category::after {
     content: ' ';
@@ -61,10 +62,13 @@
     color: #e69a83;
     border-bottom: 1px solid #e69a83;
 }
-#contents .category li:nth-child(n+2) {
+#contents .category li:last-child {
+    float: none;
+}
+#contents .category li:nth-child(n+2):nth-last-child(n+2) {
     padding-left: 0;
 }
-#contents .category li:nth-child(n+2)::before {
+#contents .category li:nth-child(n+2):nth-last-child(n+2)::before {
     content: '|';
     padding-right: 1em;
     font-weight: lighter;

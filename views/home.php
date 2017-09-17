@@ -38,8 +38,9 @@
         </ul>
 
         <ul class="category">
-            <li class="actived">Best Seller</li>
-            <li>New</li>
+            <li class="actived"><a href=".">Best Seller</a></li>
+            <li><a href=".">New</a></li>
+            <li>&nbsp;</li>
         </ul>
     </div>
 
