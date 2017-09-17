@@ -42,6 +42,11 @@
             <li><a href=".">New</a></li>
             <li>&nbsp;</li>
         </ul>
+
+        <ul class="category">
+            <li class="actived"><a href=".">Creator</a></li>
+            <li>&nbsp;</li>
+        </ul>
     </div>
 
     <footer>
