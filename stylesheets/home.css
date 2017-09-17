@@ -26,6 +26,7 @@
     height: 1em;
     line-height: .9em;
     border-radius: 1em;
+    font-weight: bold;
     background-color: red;
     color: white;
 }
