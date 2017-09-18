@@ -42,6 +42,13 @@
             <li><a href=".">New</a></li>
             <li>&nbsp;</li>
         </ul>
+        <div class="category best_seller">
+            <img src="images/products/product1.png" alt="상품 이미지 1" />
+            <img src="images/products/product2.png" alt="상품 이미지 2" />
+            <img src="images/products/product3.png" alt="상품 이미지 3" style="width: 413px; height: 250px;" />
+            <img src="images/products/product4.png" alt="상품 이미지 4" />
+            <img src="images/products/product5.png" alt="상품 이미지 5" style="width: 413px; height: 250px;" />
+        </div>
 
         <ul class="category_menu">
             <li class="actived"><a href=".">Creator</a></li>

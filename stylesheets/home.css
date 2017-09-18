@@ -45,6 +45,7 @@
     font-weight: bold;
     font-size: 1.2em;
     margin-top: 50px;
+    margin-bottom: 30px;
     width: 100%;
 }
 #contents .category_menu::after {
@@ -72,4 +73,13 @@
     content: '|';
     padding-right: 1em;
     font-weight: lighter;
+}
+
+#contents .category::after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+#contents .category img {
+    float: left;
 }
