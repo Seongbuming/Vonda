@@ -67,7 +67,19 @@
             <div class="item">
                 <img src="images/creators/creator4.png" alt="크리에이터 이미지 4" />
             </div>
-            <div class="creator_detail">
+            <div class="item">
+                <img src="images/creators/creator5.png" alt="크리에이터 이미지 5" />
+            </div>
+            <div class="item">
+                <img src="images/creators/creator6.png" alt="크리에이터 이미지 6" />
+            </div>
+            <div class="item">
+                <img src="images/creators/creator7.png" alt="크리에이터 이미지 7" />
+            </div>
+            <div class="item">
+                <img src="images/creators/creator8.png" alt="크리에이터 이미지 8" />
+            </div>
+            <template class="creator_detail_template">
                 <img class="creator_background" src="images/creators/creator_background4.png" alt="크리에이터 배경 이미지" />
                 <div class="creator_image">
                     <img src="images/creators/creator2.png" alt="크리에이터 이미지" />
@@ -83,19 +95,7 @@
                         <a href="."><img src="images/icons/home_sns/AfreecaTV_logo.png" alt="AfreecaTV" /></a>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <img src="images/creators/creator5.png" alt="크리에이터 이미지 5" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator6.png" alt="크리에이터 이미지 6" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator7.png" alt="크리에이터 이미지 7" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator8.png" alt="크리에이터 이미지 8" />
-            </div>
+            </template>
         </div>
     </div>
 
@@ -105,15 +105,6 @@
     
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="libraries/jquery.bxslider.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#contents .bxslider').bxSlider({
-                wrapperClass: "banner bx-wrapper",
-                auto: true,
-                pause: 5000,
-                pager: false
-            });
-        });
-    </script>
+    <script src="javascripts/home.js"></script>
 </body>
 </html>

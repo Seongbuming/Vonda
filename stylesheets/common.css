@@ -46,6 +46,9 @@ a {
     text-decoration: none;
     color: inherit;
 }
+template {
+    display: none;
+}
 
 header .area_links {
     background-color: #f0f0f0;
