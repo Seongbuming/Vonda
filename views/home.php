@@ -22,11 +22,36 @@
 
         <ul class="bxslider">
             <li>
-                <img src="images/banner/banner1.png" alt="배너 이미지 1" />
-                <img src="images/banner/banner2.png" alt="배너 이미지 2" />
-                <img src="images/banner/banner3.png" alt="배너 이미지 3" />
-                <img src="images/banner/banner4.png" alt="배너 이미지 4" />
-                <img src="images/banner/banner5.png" alt="배너 이미지 5" />
+                <div class="overlay_container">
+                    <img src="images/banner/banner1.png" alt="배너 이미지 1" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </div>
+                <div class="overlay_container">
+                    <img src="images/banner/banner2.png" alt="배너 이미지 2" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </div>
+                <div class="overlay_container">
+                    <img src="images/banner/banner3.png" alt="배너 이미지 3" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </div>
+                <div class="overlay_container">
+                    <img src="images/banner/banner4.png" alt="배너 이미지 4" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </div>
+                <div class="overlay_container">
+                    <img src="images/banner/banner5.png" alt="배너 이미지 5" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </div>
             </li>
             <li>
                 <img src="images/banner/banner6.png" alt="배너 이미지 6" />
@@ -43,11 +68,41 @@
             <li>&nbsp;</li>
         </ul>
         <div class="category best_seller">
-            <img src="images/products/product1.png" alt="상품 이미지 1" />
-            <img src="images/products/product2.png" alt="상품 이미지 2" />
-            <img src="images/products/product3.png" alt="상품 이미지 3" style="width: 413px; height: 250px;" />
-            <img src="images/products/product4.png" alt="상품 이미지 4" />
-            <img src="images/products/product5.png" alt="상품 이미지 5" style="width: 413px; height: 250px;" />
+            <div class="item overlay_container">
+                <img src="images/products/product1.png" alt="상품 이미지 1" />
+                <div class="overlay">
+                    <p class="product_name">일본의 국민로퍼</p>
+                    <p class="product_price">54,000won</p>
+                </div>
+            </div>
+            <div class="item overlay_container">
+                <img src="images/products/product2.png" alt="상품 이미지 2" />
+                <div class="overlay">
+                    <p class="product_name">일본의 국민로퍼</p>
+                    <p class="product_price">54,000won</p>
+                </div>
+            </div>
+            <div class="item overlay_container">
+                <img src="images/products/product3.png" alt="상품 이미지 3" style="width: 413px; height: 250px;" />
+                <div class="overlay">
+                    <p class="product_name">일본의 국민로퍼</p>
+                    <p class="product_price">54,000won</p>
+                </div>
+            </div>
+            <div class="item overlay_container">
+                <img src="images/products/product4.png" alt="상품 이미지 4" />
+                <div class="overlay">
+                    <p class="product_name">일본의 국민로퍼</p>
+                    <p class="product_price">54,000won</p>
+                </div>
+            </div>
+            <div class="item overlay_container">
+                <img src="images/products/product5.png" alt="상품 이미지 5" style="width: 413px; height: 250px;" />
+                <div class="overlay">
+                    <p class="product_name">일본의 국민로퍼</p>
+                    <p class="product_price">54,000won</p>
+                </div>
+            </div>
         </div>
 
         <ul class="category_menu">
