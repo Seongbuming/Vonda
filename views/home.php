@@ -22,43 +22,68 @@
 
         <ul class="bxslider">
             <li>
-                <div class="overlay_container">
+                <a class="overlay_container" href=".">
                     <img src="images/banner/banner1.png" alt="배너 이미지 1" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
-                </div>
-                <div class="overlay_container">
+                </a>
+                <a class="overlay_container" href=".">
                     <img src="images/banner/banner2.png" alt="배너 이미지 2" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
-                </div>
-                <div class="overlay_container">
+                </a>
+                <a class="overlay_container" href=".">
                     <img src="images/banner/banner3.png" alt="배너 이미지 3" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
-                </div>
-                <div class="overlay_container">
+                </a>
+                <a class="overlay_container" href=".">
                     <img src="images/banner/banner4.png" alt="배너 이미지 4" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
-                </div>
-                <div class="overlay_container">
+                </a>
+                <a class="overlay_container" href=".">
                     <img src="images/banner/banner5.png" alt="배너 이미지 5" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
-                </div>
+                </a>
             </li>
             <li>
-                <img src="images/banner/banner6.png" alt="배너 이미지 6" />
-                <img src="images/banner/banner7.png" alt="배너 이미지 7" />
-                <img src="images/banner/banner8.png" alt="배너 이미지 8" />
-                <img src="images/banner/banner9.png" alt="배너 이미지 9" />
-                <img src="images/banner/banner10.png" alt="배너 이미지 10" />
+                <a class="overlay_container" href=".">
+                    <img src="images/banner/banner6.png" alt="배너 이미지 6" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </a>
+                <a class="overlay_container" href=".">
+                    <img src="images/banner/banner7.png" alt="배너 이미지 7" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </a>
+                <a class="overlay_container" href=".">
+                    <img src="images/banner/banner8.png" alt="배너 이미지 8" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </a>
+                <a class="overlay_container" href=".">
+                    <img src="images/banner/banner9.png" alt="배너 이미지 9" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </a>
+                <a class="overlay_container" href=".">
+                    <img src="images/banner/banner10.png" alt="배너 이미지 10" />
+                    <div class="overlay">
+                        <p>@highlight</p>
+                    </div>
+                </a>
             </li>
         </ul>
 
@@ -68,41 +93,41 @@
             <li>&nbsp;</li>
         </ul>
         <div class="category best_seller">
-            <div class="item overlay_container">
+            <a class="item overlay_container" href=".">
                 <img src="images/products/product1.png" alt="상품 이미지 1" />
                 <div class="overlay">
                     <p class="product_name">일본의 국민로퍼</p>
                     <p class="product_price">54,000won</p>
                 </div>
-            </div>
-            <div class="item overlay_container">
+            </a>
+            <a class="item overlay_container" href=".">
                 <img src="images/products/product2.png" alt="상품 이미지 2" />
                 <div class="overlay">
                     <p class="product_name">일본의 국민로퍼</p>
                     <p class="product_price">54,000won</p>
                 </div>
-            </div>
-            <div class="item overlay_container">
+            </a>
+            <a class="item overlay_container" href=".">
                 <img src="images/products/product3.png" alt="상품 이미지 3" style="width: 413px; height: 250px;" />
                 <div class="overlay">
                     <p class="product_name">일본의 국민로퍼</p>
                     <p class="product_price">54,000won</p>
                 </div>
-            </div>
-            <div class="item overlay_container">
+            </a>
+            <a class="item overlay_container" href=".">
                 <img src="images/products/product4.png" alt="상품 이미지 4" />
                 <div class="overlay">
                     <p class="product_name">일본의 국민로퍼</p>
                     <p class="product_price">54,000won</p>
                 </div>
-            </div>
-            <div class="item overlay_container">
+            </a>
+            <a class="item overlay_container" href=".">
                 <img src="images/products/product5.png" alt="상품 이미지 5" style="width: 413px; height: 250px;" />
                 <div class="overlay">
                     <p class="product_name">일본의 국민로퍼</p>
                     <p class="product_price">54,000won</p>
                 </div>
-            </div>
+            </a>
         </div>
 
         <ul class="category_menu">
@@ -111,7 +136,7 @@
         </ul>
         <div class="category creator">
             <div class="item">
-                <img src="images/creators/creator1.png" alt="크리에이터 이미지 1" />
+                <img src="images/creators/creator1.png" alt="크리에이터 이미지 1" /></a>
             </div>
             <div class="item">
                 <img src="images/creators/creator2.png" alt="크리에이터 이미지 2" />
