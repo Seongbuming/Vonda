@@ -1,8 +1,8 @@
 function showDetail(origin, $item, top) {
     // creator_detail이 삽입될 위치 탐색
-    const $next = $item.next(".item");
+    var $next = $item.next(".item");
     if ($next.length > 0) {
-        const nextTop = $next.position().top;
+        var nextTop = $next.position().top;
         if ($next.length > 0 && nextTop <= top) {
             showDetail(origin, $next, nextTop);
             return;
@@ -10,9 +10,9 @@ function showDetail(origin, $item, top) {
     }
 
     // creator_detail 생성
-    const $template = $("#contents .creator .creator_detail_template");
+    var $template = $("#contents .creator .creator_detail_template");
     let $detail = $("#contents .creator .creator_detail");
-    const dest = $detail.data("dest");
+    var dest = $detail.data("dest");
     $(dest).removeClass("actived"); // dest item 비활성화 처리
     if ($detail.length > 0 && dest === origin) { // 이미 생성되어 있는 경우
         $detail.slideUp("fast", function() { $detail.remove(); });
