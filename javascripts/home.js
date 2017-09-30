@@ -11,7 +11,7 @@ function showDetail(origin, $item, top) {
 
     // creator_detail 생성
     var $template = $("#contents .creator .creator_detail_template");
-    let $detail = $("#contents .creator .creator_detail");
+    var $detail = $("#contents .creator .creator_detail");
     var dest = $detail.data("dest");
     $(dest).removeClass("actived"); // dest item 비활성화 처리
     if ($detail.length > 0 && dest === origin) { // 이미 생성되어 있는 경우
