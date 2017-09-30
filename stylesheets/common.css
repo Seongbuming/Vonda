@@ -78,7 +78,6 @@ template {
 }
 
 header .area_links {
-    background-color: #f0f0f0;
     height: 35px;
     line-height: 35px;
     width: 1180px;
@@ -90,18 +89,16 @@ header .area_links .menu {
 }
 header .area_links .menu_left {
     float: left;
-    padding-left: 1.5em;
 }
 header .area_links .menu_right {
     float: right;
-    padding-right: 1.5em;
 }
 header .area_links .menu li {
     float: left;
 }
 header .area_links .menu li:nth-child(n+2)::before {
     content: '|';
-    margin: 0 .5em;
+    margin: 0 1em;
 }
 
 header .area_logo {
