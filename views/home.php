@@ -136,7 +136,7 @@
         </ul>
         <div class="category creator">
             <div class="item">
-                <img src="images/creators/creator1.png" alt="크리에이터 이미지 1" /></a>
+                <img src="images/creators/creator1.png" alt="크리에이터 이미지 1" />
             </div>
             <div class="item">
                 <img src="images/creators/creator2.png" alt="크리에이터 이미지 2" />
