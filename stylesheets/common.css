@@ -1,5 +1,6 @@
 html {
     font-family: 'Malgun Gothic', Dotum, Helvetica, Arial, sans-serif;
+    letter-spacing: -.05em;
 }
 
 a {
@@ -19,6 +20,35 @@ h2.page_title {
     font-weight: bold;
     color: #e69a83;
     background-color: #f7f7f7;
+}
+
+.area_search {
+    display: inline-block;
+    width: 230px;
+    height: 36px;
+    border-bottom: 1px solid #b2b2b2;
+}
+.area_search .search {
+    border: none;
+}
+.area_search .input_search {
+    float: left;
+    width: calc(100% - 36px - 8px);
+    height: 20px;
+    line-height: 20px;
+    padding: 8px;
+    padding-right: 0;
+    outline: none;
+}
+.area_search .submit_search {
+    float: left;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: url("../images/buttons/search.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
 }
 
 .overlay_container {
@@ -89,29 +119,6 @@ header .area_logo .area_search {
     position: relative;
     float: right;
     top: -70px;
-    border-bottom: 1px solid #b2b2b2;
-}
-header .area_logo .area_search .search {
-    border: none;
-}
-header .area_logo .area_search .input_search {
-    float: left;
-    width: 230px;
-    height: 20px;
-    line-height: 20px;
-    padding: 8px;
-    padding-right: 0;
-    outline: none;
-}
-header .area_logo .area_search .submit_search {
-    float: left;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    background: url("../images/buttons/search.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
 }
 
 #contents {
@@ -127,7 +134,6 @@ footer {
     line-height: 230px;
     margin: 50px auto 0 auto;
     font-size: .9em;
-    letter-spacing: -.05em;
     border-top: 1px solid #dcdcdc;
 }
 footer h2 {

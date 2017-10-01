@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
-    <link rel="stylesheet" href="stylesheets/home.css" />
+    <link rel="stylesheet" href="stylesheets/client/home.css" />
     <link rel="stylesheet" href="libraries/jquery.bxslider.min.css" />
 </head>
 
@@ -185,6 +185,6 @@
     
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="libraries/jquery.bxslider.min.js"></script>
-    <script src="javascripts/home.js"></script>
+    <script src="javascripts/client/home.js"></script>
 </body>
 </html>

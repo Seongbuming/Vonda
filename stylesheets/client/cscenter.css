@@ -1,0 +1,33 @@
+#contents .info_section {
+    height: 62px;
+    margin-top: 50px;
+}
+#contents .info_section::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#contents .info_section .container {
+    float: right;
+}
+#contents .info_section .info {
+    display: inline-block;
+    height: 62px;
+    line-height: 62px;
+    padding-left: 20px;
+    vertical-align: top;
+    border-left: 1px solid #9e9e9e;
+}
+#contents .info_section .info .wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+#contents .info_section .contact .phone_number {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+#contents .info_section .hours {
+    margin-left: 20px;
+    font-size: .9em;
+}
