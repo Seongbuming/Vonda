@@ -4,4 +4,5 @@
 
 <title><?=$this->title?></title>
 
+<link rel="stylesheet" href="stylesheets/reset.css" />
 <link rel="stylesheet" href="stylesheets/common.css" />
