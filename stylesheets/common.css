@@ -6,8 +6,19 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 template {
     display: none;
+}
+
+h2.page_title {
+    height: 140px;
+    line-height: 140px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e69a83;
+    background-color: #f7f7f7;
 }
 
 .overlay_container {
