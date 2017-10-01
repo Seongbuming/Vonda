@@ -119,7 +119,7 @@ footer {
     letter-spacing: -.05em;
     border-top: 1px solid #dcdcdc;
 }
-footer .title {
+footer h2 {
     font-weight: bold;
 }
 footer .middle_section {

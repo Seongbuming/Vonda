@@ -11,7 +11,7 @@
 
 <div class="area_logo">
     <div class="logo_wrapper">
-        <a href="."><img class="logo" src="images/logo.png" alt="로고" /></a>
+        <a href="."><h1><img class="logo" src="images/logo.png" alt="WeMustCreate" /></h1></a>
     </div>
     <div class="area_search">
         <input class="search input_search" type="text" title="검색 입력" />
