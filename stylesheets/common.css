@@ -150,7 +150,60 @@ header .area_logo .area_search .submit_search {
 }
 
 footer {
-    height: 335px;
-    margin-top: 50px;
-    background-color: #f0f0f0;
+    clear: both;
+    width: 1180px;
+    height: 230px;
+    line-height: 230px;
+    margin: 50px auto 0 auto;
+    font-size: .9em;
+    letter-spacing: -.05em;
+    border-top: 1px solid #dcdcdc;
+}
+footer .title {
+    font-weight: bold;
+}
+footer .middle_section {
+    float: left;
+    height: 100%;
+}
+footer .middle_section .container {
+    display: inline-block;
+    vertical-align: middle;
+}
+footer .area_logo {
+    float: left;
+    width: 240px;
+    height: 100%;
+    text-align: center;
+}
+footer .area_logo .logo {
+    width: 200px;
+    vertical-align: middle;
+}
+footer .area_links {
+    line-height: normal;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+footer .area_links li {
+    display: inline-block;
+}
+footer .area_links li:nth-child(n+2) {
+    margin-left: 1em;
+}
+footer .area_copyright {
+    width: 650px;
+    line-height: normal;
+}
+footer .area_contact {
+    float: left;
+    width: 290px;
+    height: 100%;
+}
+footer .area_contact .wrapper {
+    display: inline-block;
+    line-height: normal;
+    padding-left: 45px;
+    vertical-align: middle;
+    border-left: 1px solid #9e9e9e;
 }
