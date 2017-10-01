@@ -22,6 +22,49 @@ h2.page_title {
     background-color: #f7f7f7;
 }
 
+h3.category {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 50px;
+    padding: .5em .7em;
+    color: #e69a83;
+    border-bottom: 1px solid #e69a83;
+}
+
+table.board {
+    width: 100%;
+    color: #383838;
+}
+table.board th,
+table.board td {
+    padding: 20px 10px;
+}
+table.board tbody tr {
+    border-bottom: 1px solid #d8d8d8;
+}
+table.board tbody .row_subject {
+    cursor: pointer;
+}
+table.board tbody .row_subject .time {
+    width: 150px;
+    text-align: center;
+    letter-spacing: .05em;
+    color: #747474;
+}
+table.board tbody .row_subject .subject {
+    font-weight: bold;
+}
+table.board tbody .row_post {
+    display: none;
+    background-color: #fafafa;
+}
+table.board tbody .row_post .type {
+    text-align: right;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
 .area_search {
     display: inline-block;
     width: 230px;
