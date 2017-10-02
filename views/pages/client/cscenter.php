@@ -90,6 +90,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <div class="board_pager">
+            <button class="left">◀</button>
+            <button class="right">▶</button>
+        </div>
     </div>
     
     <footer>
