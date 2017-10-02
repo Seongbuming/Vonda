@@ -2,6 +2,7 @@
 <html>
 <head>
     <?=$this->loadLayout("head")?>
+    <link rel="stylesheet" href="stylesheets/board.css" />
     <link rel="stylesheet" href="stylesheets/client/cscenter.css" />
 </head>
 

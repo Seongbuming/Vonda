@@ -1,0 +1,140 @@
+table.product_list .select {
+    width: 30px;
+    text-align: center;
+}
+table.product_list tbody tr {
+    height: 120px;
+    line-height: 120px;
+}
+table.product_list tbody .product_img {
+    float: left;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    margin-right: 20px;
+}
+table.product_list tbody .product_img img {
+    width: 100%;
+}
+table.product_list tbody .product_info {
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+}
+table.product_list tbody .product_info .creator {
+    margin-bottom: 10px;
+    font-size: .8em;
+}
+table.product_list tbody .product_info .name {
+    margin-bottom: 15px;
+    font-size: 1.25em;
+}
+table.product_list tbody .product_info .option {
+    width: 195px;
+    height: 32px;
+    padding-left: 5px;
+    color: #747474;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+table.product_list tbody .product_amount {
+    text-align: center;
+}
+table.product_list tbody .product_amount .wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+table.product_list tbody .product_amount .wrapper > *:nth-child(n+2) {
+    margin-left: -1px;
+}
+table.product_list tbody .product_amount button {
+    float: left;
+    width: 34px;
+    height: 32px;
+    background-color: transparent;
+    font-size: 1.3em;
+    color: #afafaf;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+table.product_list tbody .product_amount .amount {
+    float: left;
+    width: 44px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.1em;
+    color: #3d3d3d;
+    border: 1px solid #dfdfdf;
+}
+table.product_list tbody .product_shippingfee,
+table.product_list tbody .product_price {
+    text-align: center;
+    color: #747474;
+}
+
+#contents .cart_delete {
+    width: 120px;
+    height: 34px;
+    line-height: 34px;
+    margin-left: calc(100% - 120px);
+    margin-top: 14px;
+    font-size: .9em;
+    font-weight: bold;
+    color: #f2f2f2;
+    background-color: #c0c0c0;
+    border: none;
+    cursor: pointer;
+}
+
+#contents .sum_price {
+    margin-top: 50px;
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+}
+#contents .sum_price .wrapper {
+    display: inline-block;
+    margin: 0 auto;
+}
+#contents .sum_price .wrapper > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+#contents .sum_price .term .caption {
+    margin-bottom: 15px;
+    color: #747474;
+    letter-spacing: -.15em;
+}
+#contents .sum_price .term .price {
+    font-size: 1.25em;
+    letter-spacing: 0.01em;
+}
+#contents .sum_price .operator {
+    margin: 0 60px;
+    font-size: 1.8em;
+    color: #747474;
+} 
+
+#contents .purchase_container {
+    margin-top: 32px;
+    text-align: center;
+}
+#contents .purchase_container button {
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+#contents .purchase_container .purchase_selected {
+    background-color: #6cacb4;
+}
+#contents .purchase_container .purchase_all {
+    background-color: #e69a83;
+}
