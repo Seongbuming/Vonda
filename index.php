@@ -11,6 +11,9 @@ switch ($page) {
     case "cart":
         $template->loadView("pages/client/cart");
         break;
+    case "searchresults":
+        $template->loadView("pages/client/searchresults");
+        break;
     default:
         $template->loadView("pages/client/home");
 }

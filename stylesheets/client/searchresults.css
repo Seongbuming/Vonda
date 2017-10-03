@@ -1,0 +1,30 @@
+h3.category {
+    margin-bottom: 25px;
+}
+
+.numresults {
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #9e9e9e;
+}
+.numresults .keyword,
+.numresults .num {
+    color: #e69a83;
+}
+
+.product_section {
+    margin-right: -6.6px;
+    margin-bottom: -6.6px;
+}
+.product_section .item {
+    width: 290px;
+    height: 290px;
+    margin-right: 6.6px;
+    margin-bottom: 6.6px;
+    overflow: hidden;
+}
+.product_section .item img {
+    height: 100%;
+    transform: translateX(calc(-100%/2 + 290px/2)); /* 가운데 정렬 */
+}

@@ -104,6 +104,7 @@ input[type=checkbox]:checked + label {
     opacity: 0;
     transition: opacity .5s;
     background-color: #383838;
+    z-index: 1;
 }
 .overlay_container:hover::before {
     opacity: .8;
@@ -115,9 +116,116 @@ input[type=checkbox]:checked + label {
     padding: 15px;
     opacity: 0;
     transition: opacity .5s;
+    z-index: 2;
 }
 .overlay_container:hover .overlay {
     opacity: 1;
+}
+
+.product_section::after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.product_section .item {
+    float: left;
+}
+.product_section .item > img {
+    float: left;
+}
+.product_section .item .overlay .product_name {
+    margin-bottom: .3em;
+}
+.product_section .item .overlay .product_price {
+    font-size: .9em;
+}
+
+.creator_section::after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.creator_section {
+    margin-bottom: -20px;
+}
+.creator_section .item {
+    float: left;
+    position: relative;
+    border: 1px solid #e1e1e1;
+    padding: 3px;
+    margin: 0 7px 20px 7px;
+    cursor: pointer;
+}
+.creator_section .item > img {
+    border: 1px solid #e1e1e1;
+    padding: 5px;
+    width: 261px;
+    height: 305px;
+}
+.creator_section .item.actived {
+    border: 1px solid #383838;
+    background-color: #383838;
+}
+.creator_section .item.actived > img {
+    border: 1px solid #383838;
+}
+.creator_section .item.actived::after {
+    content: ' ';
+    position: absolute;
+    top: 326px; /* 327 - 1 */
+    left: 121.5px; /* 273/2 - 15 */
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 17px solid #383838;
+}
+.creator_section .creator_detail {
+    float: left;
+    display: none;
+    width: 1166px; /* 1180 - 7 - 7 */
+    margin: 0 0 20px 7px;
+    background-color: #383838;
+    font-size: 0;
+}
+.creator_section .creator_detail .creator_background {
+    display: inline-block;
+    width: 747px;
+    height: 350px;
+    vertical-align: middle;
+}
+.creator_section .creator_detail .creator_image {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 85px;
+    margin-left: -85px; /* 170/2 */
+    vertical-align: middle;
+    border: 5px solid white;
+    overflow: hidden;
+}
+.creator_section .creator_detail .creator_image img {
+    width: 100%;
+}
+.creator_section .creator_detail .creator_profile {
+    display: inline-block;
+    width: 284px;
+    padding: 0 25px;
+    vertical-align: top;
+    font-size: 1rem;
+    vertical-align: middle;
+    color: white;
+}
+.creator_section .creator_detail .creator_profile .creator_name {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+.creator_section .creator_detail .creator_profile .creator_name::after {
+    content: ' ▶';
+}
+.creator_section .creator_detail .creator_profile .creator_message {
+    font-size: .7em;
+    line-height: 1.4em;
+    margin-bottom: 20px;
 }
 
 header .area_links {

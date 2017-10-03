@@ -92,7 +92,7 @@
             <li><a href=".">New</a></li>
             <li>&nbsp;</li>
         </ul>
-        <div class="category best_seller">
+        <div class="product_section">
             <a class="item overlay_container" href=".">
                 <img src="images/products/product1.png" alt="상품 이미지 1" />
                 <div class="overlay">
@@ -134,7 +134,7 @@
             <li class="actived"><a href=".">Creator</a></li>
             <li>&nbsp;</li>
         </ul>
-        <div class="category creator">
+        <div class="creator_section">
             <div class="item">
                 <img src="images/creators/creator1.png" alt="크리에이터 이미지 1" />
             </div>
@@ -186,5 +186,6 @@
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="libraries/jquery.bxslider.min.js"></script>
     <script src="javascripts/client/home.js"></script>
+    <script src="javascripts/creator.js"></script>
 </body>
 </html>
