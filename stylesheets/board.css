@@ -26,9 +26,4 @@ table.board tbody .row_post .type {
 }
 .board_pager button {
     margin: 0 10px;
-    padding: 10px;
-    color: #7f7f7f;
-    background-color: white;
-    cursor: pointer;
-    border: 1px solid #dfdfdf;
 }
