@@ -126,6 +126,7 @@ table.product_list tbody .product_price {
     width: 140px;
     height: 40px;
     line-height: 40px;
+    margin: 0 5px;
     color: white;
     font-size: 1em;
     font-weight: bold;
