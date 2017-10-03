@@ -16,6 +16,7 @@ h2.page_title {
     height: 140px;
     line-height: 140px;
     text-align: center;
+    text-transform: uppercase;
     font-size: 1.3em;
     font-weight: bold;
     color: #e69a83;
