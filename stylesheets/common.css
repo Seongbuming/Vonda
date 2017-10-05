@@ -52,13 +52,21 @@ table th {
 }
 
 input[type=checkbox] {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
 }
 input[type=checkbox] + label {
     display: inline-block;
-    width: 20px;
     height: 20px;
+    line-height: 20px;
+    padding-left: 30px;
+    margin-right: -10px;
+    color: #3d3d3d;
     background-image: url("../images/buttons/check_off.png");
+    background-repeat: no-repeat;
+    background-color: white;
     cursor: pointer;
 }
 input[type=checkbox]:checked + label {

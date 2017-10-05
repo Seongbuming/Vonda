@@ -1,5 +1,6 @@
 table.product_list .select {
     width: 30px;
+    line-height: normal;
     text-align: center;
 }
 table.product_list tbody tr {
