@@ -20,7 +20,7 @@
             <input name="password" type="password" placeholder="비밀번호" required />
             
             <div class="saveid_section">
-                <input id="saveid" name="saveid" type="checkbox" />
+                <input id="saveid" name="saveid" type="checkbox" checked />
                 <label for="saveid">아이디 저장</label>
             </div>
 
