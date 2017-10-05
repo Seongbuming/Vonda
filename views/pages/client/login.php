@@ -26,7 +26,7 @@
 
             <input type="submit" value="로그인" />
             
-            <a class="signin" href=".?page=signin">회원가입</a>
+            <a class="signup" href=".?page=signup">회원가입</a>
         </form>
     </div>
 

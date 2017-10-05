@@ -42,7 +42,7 @@
     cursor: pointer;
 }
 
-.login_form .signin {
+.login_form .signup {
     color: #e69a83;
     text-decoration: underline;
 }
