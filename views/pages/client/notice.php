@@ -19,43 +19,63 @@
             <tbody>
                 <tr class="row_subject">
                     <td class="time">2017.08.22 13:20</td>
-                    <td class="subject">선선한 가을 날씨, 가디건 준비하세요(11)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.21 13:20</td>
-                    <td class="subject">이제 이불 덮고 자요, 그러다 감기 걸려요 새 계절, 새 잠옷(25)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">이제 이불 덮고 자요, 그러다 감기 걸려요 새 계절, 새 잠옷(25)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.19 13:20</td>
-                    <td class="subject">간절기를 위한 가벼운 아우터(99)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">간절기를 위한 가벼운 아우터(99)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.18 13:20</td>
-                    <td class="subject">[ 안경展 ] 9 브랜드 최대 30% 할인(105)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">[ 안경展 ] 9 브랜드 최대 30% 할인(105)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.17 13:20</td>
-                    <td class="subject">손목 위의 시간, 시계 기획전 최대 30% 할인(877)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">손목 위의 시간, 시계 기획전 최대 30% 할인(877)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.22 13:20</td>
-                    <td class="subject">선선한 가을 날씨, 가디건 준비하세요(11)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.21 13:20</td>
-                    <td class="subject">이제 이불 덮고 자요, 그러다 감기 걸려요 새 계절, 새 잠옷(25)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">이제 이불 덮고 자요, 그러다 감기 걸려요 새 계절, 새 잠옷(25)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.19 13:20</td>
-                    <td class="subject">간절기를 위한 가벼운 아우터(99)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">간절기를 위한 가벼운 아우터(99)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.18 13:20</td>
-                    <td class="subject">[ 안경展 ] 9 브랜드 최대 30% 할인(105)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">[ 안경展 ] 9 브랜드 최대 30% 할인(105)</a>
+                    </td>
                 </tr>
                 <tr class="row_subject">
                     <td class="time">2017.08.17 13:20</td>
-                    <td class="subject">손목 위의 시간, 시계 기획전 최대 30% 할인(877)</td>
+                    <td class="subject">
+                        <a href=".?page=notice_detail">손목 위의 시간, 시계 기획전 최대 30% 할인(877)</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

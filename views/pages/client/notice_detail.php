@@ -27,7 +27,7 @@
                 <p>특히 푸시버튼만의 실험적이고 컨셉슈얼한 디자인은 패션계의 피플 뿐만 아니라 </p>
                 <p>트렌드에 민감한 소비자들까지도 사로잡았습니다. </p>
             </div>
-            <button class="goback">뒤로가기</button>
+            <a class="goback" href=".?page=notice">뒤로가기</a>
         </div>
     </div>
 
