@@ -1,0 +1,64 @@
+.findacc_container {
+    margin: 113px 0;
+    text-align: center;
+}
+
+.findacc_container .alert {
+    line-height: normal;
+    font-size: .875em;
+    color: #4a4a4a;
+}
+
+.findacc_container input {
+    display: block;
+    width: 292px;
+    height: 38px;
+    line-height: 38px;
+    margin: 15px auto 0 auto;
+    padding-left: 10px;
+    font-size: 1em;
+    color: #3d3d3d;
+    border: 1px solid #dfdfdf;
+}
+.findacc_container input:first-of-type {
+    margin-top: 20px;
+}
+
+.findacc_container .submit {
+    display: block;
+    width: 304px;
+    height: 40px;
+    margin: 15px auto 0 auto;
+    font-weight: bold;
+    color: white;
+    background-color: #e69a83;
+    border: none;
+    cursor: pointer;
+}
+
+.findacc_container .error,
+.findacc_container .finded {
+    display: none;
+}
+
+.findacc_container .message {
+    line-height: normal;
+    margin-top: 58px;
+    font-size: .875em;
+    color: #4a4a4a;
+}
+.findacc_container .error.message {
+    color: #ff0000;
+}
+.findacc_container .message .id {
+    font-weight: bold;
+}
+
+.findacc_container .finded .login {
+    display: inline-block;
+    margin-top: 40px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #e69a83;
+}
