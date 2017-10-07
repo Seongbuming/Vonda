@@ -62,6 +62,10 @@
     opacity: .3;
     pointer-events: none;
 }
+.order_list tbody .select {
+    width: 30px;
+    text-align: center;
+}
 .order_list tbody .date_id {
     width: 120px;
     line-height: normal;
@@ -91,6 +95,9 @@
 .order_list tbody .order_price {
     width: 70px;
     text-align: center;
+}
+.order_list tbody .order_price.large {
+    width: 120px;
 }
 .order_list tbody .order_status {
     width: 140px;
@@ -123,4 +130,15 @@
 .order_list tbody .order_cancel .cancel,
 .order_list tbody .order_cancel .return {
     color: #a3a3a3;
+}
+
+#modal_return .modal_body {
+    width: 950px;
+    height: 878px;
+    padding: 0 45px;
+}
+#modal_return .option_container {
+    margin-top: 80px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e69a83;
 }

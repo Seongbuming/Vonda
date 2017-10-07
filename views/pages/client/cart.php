@@ -116,6 +116,7 @@
     </footer>
 
     <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/select_all.js"></script>
     <script src="javascripts/client/cart.js"></script>
 </body>
 </html>

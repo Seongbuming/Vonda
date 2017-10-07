@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
+    <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
 </head>
 
@@ -149,7 +150,7 @@
                     </td>
                     <td class="order_cancel">
                         <button class="review">구매후기</button>
-                        <button class="return">주문취소</button>
+                        <button class="return">반품/교환</button>
                     </td>
                 </tr>
                 <tr class="disabled">
@@ -208,6 +209,75 @@
             <button class="left">◀</button>
             <button class="right">▶</button>
         </div>
+
+        <div id="modal_return" class="modal">
+            <a class="close_section" href="#close" alt="닫기"></a>
+            <div class="modal_body">
+                <a class="close" href="#close">
+                    <img src="images/buttons/close.png" alt="닫기" />
+                </a>
+
+                <div class="option_container">
+                    <input id="option_exchange" name="option" class="radio" value="exchange" type="radio" />
+                    <label for="option_exchange">교환</label>
+                    <input id="option_return" name="option" class="radio" value="return" type="radio" />
+                    <label for="option_return">반품</label>
+                </div>
+
+                <table class="order_list">
+                    <thead>
+                        <tr>
+                            <th class="select">
+                                <input id="select_all" type="checkbox" title="모두선택" />
+                                <label for="select_all"></label>
+                            </th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="select">
+                                <input id="select_1" type="checkbox" title="선택" />
+                                <label for="select_1"></label>
+                            </td>
+                            <td class="product">
+                                <div class="product_img">
+                                    <img src="images/products/product1.png" alt="상품사진" />
+                                </div>
+                                <div class="product_info">
+                                    <p><a href=".">SINGLE-BREASTED OVERSIZED BLAZER</a></p>
+                                    <p>옵션: <span class="option">실버</span></p>
+                                    <p>수량: <span class="amount">1</span></p>
+                                </div>
+                            </td>
+                            <td class="order_price large">
+                                <p>28,500원</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="select">
+                                <input id="select_2" type="checkbox" title="선택" />
+                                <label for="select_2"></label>
+                            </td>
+                            <td class="product">
+                                <div class="product_img">
+                                    <img src="images/products/product3.png" alt="상품사진" />
+                                </div>
+                                <div class="product_info">
+                                    <p><a href=".">SINGLE-BREASTED OVERSIZED BLAZER</a></p>
+                                    <p>옵션: <span class="option">실버</span></p>
+                                    <p>수량: <span class="amount">1</span></p>
+                                </div>
+                            </td>
+                            <td class="order_price large">
+                                <p>11,500원</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -215,5 +285,6 @@
     </footer>
     
     <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/select_all.js"></script>
 </body>
 </html>
