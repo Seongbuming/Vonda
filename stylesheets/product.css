@@ -1,0 +1,252 @@
+.topbar {
+    margin-bottom: 15px;
+    line-height: normal;
+    color: #2d2d2d;
+    border-bottom: 1px solid #9e9e9e;
+}
+
+.information .shop_img {
+    border: 1px solid #dfdfdf;
+    display: inline-block;
+}
+
+.right_cont {
+    float: right;
+    padding-right: 260px;
+    padding-top: 30px;
+}
+
+.information .title {
+    display: inline-block;
+    margin-top: -200px;
+    font-size: 1.875em;
+}
+
+.information .price {
+    display: inline-block;
+    color: #59a9b1;
+    padding-top: 5px;
+    font-size: 1.3em;
+}
+
+.information .post_notice {
+    color: #646464;
+    font-size: 1.2em;
+    padding-top: 40%;
+    padding-bottom: 20px;
+}
+
+table.product_list tbody .product_amount {
+    text-align: center;
+    border-bottom: none;
+}
+
+.product_amount span {
+    color: #646464;
+    font-size: 1.2em;
+    float: left;
+}
+
+.product_amount .cart_t {
+    margin-left: -10px;
+}
+
+.product_amount .order_price1 {
+    margin-left: -10px;
+}
+.product_amount .order_price2 {
+    color: #818181;
+    font-size: 1.2em;
+    margin-right: 65px;
+}
+
+.option {
+    width: 195px;
+    height: 32px;
+    margin-top: -5px;
+    margin-left: 80px;
+    color: #747474;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+
+table.product_list tbody .product_amount .wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+table.product_list tbody .product_amount button {
+    float: left;
+    width: 34px;
+    height: 32px;
+    background-color: transparent;
+    font-size: 1.3em;
+    color: #afafaf;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+
+table.product_list tbody .product_amount .amount {
+    float: left;
+    width: 44px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.1em;
+    color: #3d3d3d;
+    border: 1px solid #dfdfdf;
+}
+
+table.product_list tbody .product_shippingfee,
+table.product_list tbody .product_price {
+    text-align: center;
+    color: #747474;
+}
+
+.information .order_button {
+    margin-top: 10px;
+}
+
+.gak {
+    margin-top: -100px;
+    padding-left: 550px;
+}
+.order_button {
+    padding-left: 50px;
+    line-height: normal;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 15px;
+}
+#contents .button_section {
+    height: 62px;
+    margin-top: 15px;
+    margin-bottom: -5px;
+}
+#contents .button_section::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#contents .button_section .button {
+    display: inline-block;
+    height: 62px;
+    line-height: 62px;
+    padding-left: 20px;
+    vertical-align: top;
+}
+#contents .button_section .button .wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+#contents .button_section .button .wrapper p {
+    font-size: 1.3em;
+}
+#contents .button_section .buy {
+    border-left: 1px solid #e69a83;
+    padding-left: 77px;
+    margin-left: 77px;
+    color: #e69a83;
+}
+
+#contents .button_section .basket {
+    padding-left: 77px;
+    color: #646464;
+}
+
+#contents .board .row_subject {
+    cursor: pointer;
+}
+
+.content_info {
+    padding-top: 20px;
+}
+
+.question_cont {
+    float: right;
+    margin-top: -40px;
+}
+
+.question {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-size: .9em;
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+    color: white;
+    background-color: #e69a83;
+    border: none;
+}
+
+#top_arrow {
+    float: right;
+}
+
+#modalA .modal_body {
+    width: 800px;
+    height: 536px;
+}
+
+.modal_body .modal_contents {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 50px;
+}
+
+.modal_body .shop_question_img {
+    display: inline-block;
+    border: 1px solid #dfdfdf;
+    width: 20%;
+}
+
+.modal_body .question_title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.modal_contents textarea {
+    margin-top: 15px;
+    border: 1px solid #dfdfdf;
+    resize: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.modal_body .shop_question_title {
+    float: right;
+    font-weight: bold;
+    margin-right: 340px;
+    margin-top: 20px;
+}
+
+.modal_body .shop_question_price {
+    color: #6e6e6e;
+    float: right;
+    margin-top: -70px;
+}
+
+.question_cont {
+    float: right;
+    margin-top: -40px;
+}
+
+.question_submit {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    line-height: 30px;
+    font-size: .9em;
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+    color: white;
+    background-color: #e69a83;
+    border: none;
+}
