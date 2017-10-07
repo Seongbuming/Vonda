@@ -129,6 +129,32 @@ input[type=checkbox]:checked + label {
     background-image: url("../images/buttons/check_on.png");
 }
 
+input[type=radio].radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+}
+input[type=radio].radio + label {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 25px;
+    margin-right: -5px;
+    color: #3d3d3d;
+    background-image: url("../images/buttons/radio_off.png");
+    background-repeat: no-repeat;
+    background-color: white;
+    cursor: pointer;
+}
+input[type=radio].radio:checked + label {
+    background-image: url("../images/buttons/radio_on.png");
+}
+input[type=radio].radio:nth-of-type(n+2),
+input[type=radio].radio:nth-of-type(n+2) + label {
+    margin-left: 20px;
+}
+
 .link_menu {
     margin-top: 25px;
     list-style: none;
