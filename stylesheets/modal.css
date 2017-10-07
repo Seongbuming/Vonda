@@ -22,6 +22,10 @@
     height: 100%;
     cursor: default;
 }
+.modal .close {
+    float: right;
+    margin: 25px -15px 0 0;
+}
 
 .modal .modal_body {
     position: absolute;
