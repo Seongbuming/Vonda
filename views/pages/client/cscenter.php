@@ -92,7 +92,7 @@
             </tbody>
         </table>
 
-        <div class="board_pager">
+        <div class="pager">
             <button class="left">◀</button>
             <button class="right">▶</button>
         </div>

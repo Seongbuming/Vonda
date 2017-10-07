@@ -1,0 +1,126 @@
+.category_menu {
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+.period_select {
+    float: right;
+    margin-top: calc(-30px - .5em);
+    font-size: .875em;
+    color: #585858;
+}
+.period_select input[type=radio] {
+    display: none;
+}
+.period_select input[type=radio] + label {
+    float: left;
+    width: 47px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+.period_select input[type=radio] + label:nth-of-type(n+2) {
+    margin-left: -1px;
+}
+.period_select input[type=radio]:checked + label {
+    background-color: #dfdfdf;
+}
+.period_select .input_period {
+    float: left;
+    margin-left: 15px;
+}
+.period_select .input_period input[type=date] {
+    float: left;
+    width: 120px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #dfdfdf;
+}
+.period_select .input_period span {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 10px;
+}
+.period_select .input_period .search {
+    width: 44px;
+    height: 26px;
+    line-height: 26px;
+    margin-left: 15px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #e69a83;
+    border: none;
+    cursor: pointer;
+}
+
+.order_list tbody tr.disabled {
+    opacity: .3;
+    pointer-events: none;
+}
+.order_list tbody .date_id {
+    width: 120px;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+.order_list tbody .date_id .id {
+    font-weight: bold;
+}
+.order_list tbody .product .product_img {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+.order_list tbody .product .product_img img {
+    width: 100%;
+    vertical-align: middle;
+}
+.order_list tbody .product .product_info {
+    display: inline-block;
+    line-height: 1.5em;
+    vertical-align: middle;
+}
+.order_list tbody .order_price {
+    width: 70px;
+    text-align: center;
+}
+.order_list tbody .order_status {
+    width: 140px;
+    line-height: normal;
+    text-align: center;
+}
+.order_list tbody .shippingnum {
+    font-weight: bold;
+}
+.order_list tbody .order_cancel {
+    width: 120px;
+    text-align: center;
+}
+.order_list tbody .order_cancel button {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-size: .9em;
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+}
+.order_list tbody .order_cancel button:nth-child(n+2) {
+    margin-top: 6px;
+}
+.order_list tbody .order_cancel .review {
+    color: white;
+    background-color: #e69a83;
+    border: none;
+}
+.order_list tbody .order_cancel .cancel,
+.order_list tbody .order_cancel .return {
+    color: #a3a3a3;
+}

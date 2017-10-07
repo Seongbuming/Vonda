@@ -12,6 +12,14 @@ template {
     display: none;
 }
 
+button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 h2.page_title {
     height: 140px;
     line-height: 140px;
@@ -33,6 +41,41 @@ h3.category {
     border-bottom: 1px solid #e69a83;
 }
 
+.category_menu {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.category_menu::after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.category_menu li {
+    float: left;
+    padding: .5em .7em;
+    color: #7f7f7f;
+    border-bottom: 1px solid #7f7f7f;
+}
+.category_menu li.actived {
+    color: #e69a83;
+    border-bottom: 1px solid #e69a83;
+}
+.category_menu li:last-child {
+    float: none;
+}
+.category_menu li:nth-child(n+2):nth-last-child(n+2) {
+    padding-left: 0;
+}
+.category_menu li:nth-child(n+2):nth-last-child(n+2)::before {
+    content: '|';
+    padding-right: 1em;
+    font-weight: lighter;
+}
+
 table {
     width: 100%;
     color: #383838;
@@ -49,6 +92,19 @@ table th {
     padding: 15px 10px;
     font-size: .9em;
     color: #747474;
+}
+
+.pager {
+    margin: 20px auto 0 auto;
+    text-align: center;
+}
+.pager button {
+    margin: 0 10px;
+    padding: 10px;
+    color: #7f7f7f;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid #dfdfdf;
 }
 
 input[type=checkbox] {
@@ -71,6 +127,26 @@ input[type=checkbox] + label {
 }
 input[type=checkbox]:checked + label {
     background-image: url("../images/buttons/check_on.png");
+}
+
+.link_menu {
+    margin-top: 25px;
+    list-style: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.125em;
+    font-weight: bold;
+    color: #b3b3b3;
+}
+.link_menu li {
+    display: inline-block;
+}
+.link_menu li.actived {
+    color: #e69a83;
+}
+.link_menu li:nth-child(n+2)::before {
+    content: '|';
+    margin: 0 .5em;
 }
 
 .area_search {
