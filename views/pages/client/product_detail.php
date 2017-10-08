@@ -3,8 +3,8 @@
 <head>
     <?= $this->loadLayout("head") ?>
     <link rel="stylesheet" href="stylesheets/modal.css"/>
-    <link rel="stylesheet" href="stylesheets/product.css"/>
     <link rel="stylesheet" href="stylesheets/board.css"/>
+    <link rel="stylesheet" href="stylesheets/client/product_detail.css"/>
 </head>
 
 <body>

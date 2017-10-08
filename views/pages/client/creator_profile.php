@@ -2,8 +2,8 @@
 <html lang="ko">
 <head>
     <?= $this->loadLayout("head") ?>
-    <link rel="stylesheet" href="stylesheets/creator_profile.css">
     <link rel="stylesheet" href="stylesheets/board.css"/>
+    <link rel="stylesheet" href="stylesheets/client/creator_profile.css">
 </head>
 
 <body>

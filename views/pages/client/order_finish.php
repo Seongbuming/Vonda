@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <?= $this->loadLayout("head") ?>
-    <link rel="stylesheet" href="stylesheets/order_f.css">
+    <link rel="stylesheet" href="stylesheets/client/order_finish.css">
 </head>
 
 <body>
