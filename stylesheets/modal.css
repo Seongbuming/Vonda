@@ -22,8 +22,9 @@
     cursor: default;
 }
 .modal .close_button {
-    float: right;
-    margin: 25px -15px 0 0;
+    position: absolute;
+    top: 25px;
+    right: 25px;
 }
 
 .modal .modal_body {
