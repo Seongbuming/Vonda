@@ -250,3 +250,7 @@ table.product_list tbody .product_price {
     background-color: #e69a83;
     border: none;
 }
+
+td.result img {
+    text-align: center;
+}

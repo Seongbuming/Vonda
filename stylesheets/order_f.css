@@ -1,0 +1,87 @@
+.order_request {
+    display: block;
+}
+
+.order_receive {
+    display: inline-block;
+}
+
+.order_details_receive {
+    display: inline-block;
+    color: #3d3d3d;
+}
+
+.order_receive .order_details_receive p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #3d3d3d;
+}
+
+.order_details_request {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #3d3d3d;
+}
+
+.order_details_request p {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.order_line {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+#contents .order_button_cont {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#contents .order_button_cont button {
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+#contents .order_button_cont .order_list {
+    background-color: #6cacb4;
+}
+
+#contents .order_button_cont .order_home {
+    background-color: #e69a83;
+}
+
+#contents .order_message .order_m {
+    color: #3d3d3d;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+#contents .order_message .order_payment {
+    color: #3d3d3d;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+#contents .order_message .order_location {
+    color: #3d3d3d;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+
+#contents .order_message .order_m {
+    padding-left:20px;
+}
+
+#contents .order_message .order_title {
+    display: inline-block;
+    width: 100px;
+}
+

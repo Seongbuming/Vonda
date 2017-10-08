@@ -65,7 +65,7 @@
                             <img src="images/products/product1.png" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p><a href=".">SINGLE-BREASTED OVERSIZED BLAZER</a></p>
+                            <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
                             <p>옵션: <span class="option">실버</span></p>
                             <p>수량: <span class="amount">1</span></p>
                         </div>
@@ -86,7 +86,7 @@
                             <img src="images/products/product3.png" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p><a href=".">SINGLE-BREASTED OVERSIZED BLAZER</a></p>
+                            <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
                             <p>옵션: <span class="option">실버</span></p>
                             <p>수량: <span class="amount">1</span></p>
                         </div>
@@ -111,7 +111,7 @@
                             <img src="images/products/product2.png" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p><a href=".">로얄 크루</a></p>
+                            <p class="open product_detail">로얄 크루</p>
                             <p>옵션: <span class="option">마르살라</span></p>
                             <p>수량: <span class="amount">1</span></p>
                         </div>
@@ -138,7 +138,7 @@
                             <img src="images/products/product4.png" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p><a href=".">A-Z 메신저백</a></p>
+                            <p class="open product_detail">A-Z 메신저백</p>
                             <p>수량: <span class="amount">1</span></p>
                         </div>
                     </td>
@@ -163,7 +163,7 @@
                             <img src="images/products/product4.png" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p><a href=".">A-Z 메신저백</a></p>
+                            <p class="open product_detail">A-Z 메신저백</p>
                             <p>수량: <span class="amount">1</span></p>
                         </div>
                     </td>
@@ -187,7 +187,7 @@
                             <img src="images/products/product2.png" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p><a href=".">로알 크루</a></p>
+                            <p class="open product_detail">로알 크루</p>
                             <p>옵션: <span class="option">마르샬라</span></p>
                             <p>수량: <span class="amount">1</span></p>
                         </div>
@@ -211,11 +211,11 @@
         </div>
 
         <div id="modal_return" class="modal">
-            <a class="close_section" href="#close" alt="닫기"></a>
+            <div class="close_section modal_close"></div>
             <div class="modal_body">
-                <a class="close" href="#close">
+                <button class="close_button modal_close">
                     <img src="images/buttons/close.png" alt="닫기" />
-                </a>
+                </button>
 
                 <div class="option_container">
                     <input id="option_exchange" name="option" class="radio" value="exchange" type="radio" />
@@ -246,12 +246,12 @@
                                     <img src="images/products/product1.png" alt="상품사진" />
                                 </div>
                                 <div class="product_info">
-                                    <p><a href=".">SINGLE-BREASTED OVERSIZED BLAZER</a></p>
+                                    <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
                                     <p>옵션: <span class="option">실버</span></p>
                                     <p>수량: <span class="amount">1</span></p>
                                 </div>
                             </td>
-                            <td class="order_price large">
+                            <td class="order_price">
                                 <p>28,500원</p>
                             </td>
                         </tr>
@@ -265,17 +265,81 @@
                                     <img src="images/products/product3.png" alt="상품사진" />
                                 </div>
                                 <div class="product_info">
-                                    <p><a href=".">SINGLE-BREASTED OVERSIZED BLAZER</a></p>
+                                    <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
                                     <p>옵션: <span class="option">실버</span></p>
                                     <p>수량: <span class="amount">1</span></p>
                                 </div>
                             </td>
-                            <td class="order_price large">
+                            <td class="order_price">
                                 <p>11,500원</p>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="exchange_form form">
+                    <p>상품과 함께 배송비(교환5,000원/반품2,500원) 동봉 후 착불로 보내주시면 됩니다.</p>
+                    <p>&nbsp;</p>
+                    <p>교환은 주문하신 동일 상품의 색상/사이즈로만 교환 가능합니다.</p>
+                    <p>환불은 상품도착 후 카드사 영업일 기준 3~5일 이내로 환불됩니다.</p>
+                    <textarea></textarea>
+                </div>
+
+                <div class="return_form form">
+                    <p>상품과 함께 배송비(교환5,000원/반품2,500원) 동봉 후 착불로 반송해주시면 됩니다.</p>
+                    <p>&nbsp;</p>
+                    <p>교환은 주문하신 동일 상품의 색상/사이즈로만 교환 가능합니다.</p>
+                    <p>환불은 상품도착 후 카드사 영업일 기준 3~5일 이내로 환불됩니다.</p>
+                    <select class="reason">
+                        <option value="" disabled selected>반품사유</option>
+                        <option value="구매 의사 취소">구매 의사 취소</option>
+                        <option value="다른 상품 잘못 주문">다른 상품 잘못 주문</option>
+                        <option value="서비스 및 상품 불만족">서비스 및 상품 불만족</option>
+                        <option value="배송 지연">배송 지연</option>
+                        <option value="상품 품절">상품 품절</option>
+                        <option value="상품 정보 상이">상품 정보 상이</option>  
+                        <option value="오배송">오배송</option>
+                    </select>
+                    <textarea></textarea>
+                </div>
+
+                <button class="submit">확인</button>
+            </div>
+        </div>
+
+        <div id="modal_cancel" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+
+                    <p>선택한 주문건에 대해 취소 처리를 진행합니다.</p>
+                    <select class="reason">
+                        <option value="" disabled selected>취소사유</option>
+                        <option value="서비스 및 상품 불만족">서비스 및 상품 불만족</option>
+                        <option value="배송 지연">배송 지연</option>
+                        <option value="상품 품절">상품 품절</option>
+                    </select>
+
+                    <button class="submit">주문취소요청</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_cancel_finish" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+                    
+                    <p>주문 취소 요청이 완료되었습니다.</p>
+
+                    <button class="submit modal_close">확인</button>
+                </div>
             </div>
         </div>
     </div>
@@ -286,5 +350,7 @@
     
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="javascripts/select_all.js"></script>
+    <script src="javascripts/modal.js"></script>
+    <script src="javascripts/client/orderlist.js"></script>
 </body>
 </html>
