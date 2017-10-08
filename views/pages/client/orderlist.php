@@ -283,7 +283,6 @@
                     <p>교환은 주문하신 동일 상품의 색상/사이즈로만 교환 가능합니다.</p>
                     <p>환불은 상품도착 후 카드사 영업일 기준 3~5일 이내로 환불됩니다.</p>
                     <textarea></textarea>
-                    <button class="submit">확인</button>
                 </div>
 
                 <div class="return_form form">
@@ -292,17 +291,54 @@
                     <p>교환은 주문하신 동일 상품의 색상/사이즈로만 교환 가능합니다.</p>
                     <p>환불은 상품도착 후 카드사 영업일 기준 3~5일 이내로 환불됩니다.</p>
                     <select class="reason">
-                        <option disabled selected>반품사유</option>
+                        <option value="" disabled selected>반품사유</option>
                         <option value="구매 의사 취소">구매 의사 취소</option>
                         <option value="다른 상품 잘못 주문">다른 상품 잘못 주문</option>
                         <option value="서비스 및 상품 불만족">서비스 및 상품 불만족</option>
                         <option value="배송 지연">배송 지연</option>
                         <option value="상품 품절">상품 품절</option>
-                        <option value="상품 정보 상이">상품 정보 상이</option>
+                        <option value="상품 정보 상이">상품 정보 상이</option>  
                         <option value="오배송">오배송</option>
                     </select>
                     <textarea></textarea>
-                    <button class="submit">확인</button>
+                </div>
+
+                <button class="submit">확인</button>
+            </div>
+        </div>
+
+        <div id="modal_cancel" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+
+                    <p>선택한 주문건에 대해 취소 처리를 진행합니다.</p>
+                    <select class="reason">
+                        <option value="" disabled selected>취소사유</option>
+                        <option value="서비스 및 상품 불만족">서비스 및 상품 불만족</option>
+                        <option value="배송 지연">배송 지연</option>
+                        <option value="상품 품절">상품 품절</option>
+                    </select>
+
+                    <button class="submit">주문취소요청</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_cancel_finish" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+                    
+                    <p>주문 취소 요청이 완료되었습니다.</p>
+
+                    <button class="submit modal_close">확인</button>
                 </div>
             </div>
         </div>

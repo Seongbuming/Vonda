@@ -129,6 +129,37 @@
     color: #a3a3a3;
 }
 
+.modal .reason {
+    display: block;
+    width: 305px;
+    height: 40px;
+    margin: 20px auto 0 auto;
+    padding-left: 5px;
+    font-size: 1em;
+    color: #3d3d3d;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+.modal .submit {
+    display: block;
+    width: 305px;
+    height: 40px;
+    margin: 20px auto 0 auto;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #e69a83;
+}
+
+.modal.size_msg .modal_body {
+    width: 500px;
+    height: 248px;
+    text-align: center;
+}
+.modal.size_msg .submit {
+    margin-top: 30px;
+}
+
 #modal_return .modal_body {
     width: 950px;
     height: 878px;
@@ -153,16 +184,6 @@
     text-align: center;
     color: #383838;
 }
-#modal_return .form .reason {
-    display: block;
-    width: 305px;
-    height: 40px;
-    margin: 20px auto 0 auto;
-    padding-left: 5px;
-    font-size: 1em;
-    color: #3d3d3d;
-    border: 1px solid #dfdfdf;
-}
 #modal_return .form textarea {
     display: block;
     width: 500px;
@@ -177,11 +198,13 @@
     height: 105px;
     margin: 20px auto 0 auto;
 }
-#modal_return .form .submit {
-    display: block;
-    width: 305px;
-    height: 40px;
-    margin: 20px auto 0 auto;
-    color: white;
-    background-color: #e69a83;
+
+#modal_cancel .modal_contents {
+    padding-top: 53px;
+    color: #383838;
+}
+
+#modal_cancel_finish .modal_contents {
+    padding-top: 80px;
+    color: #383838;
 }
