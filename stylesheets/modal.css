@@ -6,12 +6,11 @@
     left: 0;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
-    transition: none;
+    transition: opacity 500ms ease-in;
     pointer-events: none;
 }
-.modal:target {
+.modal.actived {
     opacity: 1;
-    transition: opacity 500ms ease-in;
     pointer-events: auto;
 }
 
@@ -22,7 +21,7 @@
     height: 100%;
     cursor: default;
 }
-.modal .close {
+.modal .close_button {
     float: right;
     margin: 25px -15px 0 0;
 }
