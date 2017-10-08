@@ -96,9 +96,6 @@
     width: 70px;
     text-align: center;
 }
-.order_list tbody .order_price.large {
-    width: 120px;
-}
 .order_list tbody .order_status {
     width: 140px;
     line-height: normal;
@@ -136,9 +133,55 @@
     width: 950px;
     height: 878px;
     padding: 0 45px;
+    line-height: normal;
 }
 #modal_return .option_container {
     margin-top: 80px;
     padding-bottom: 14px;
     border-bottom: 1px solid #e69a83;
+}
+#modal_return .order_list tr td {
+    padding: 10px;
+}
+#modal_return .order_list .order_price {
+    width: 120px;
+    color: #9d9d9d;
+}
+#modal_return .form {
+    display: none;
+    margin-top: 40px;
+    text-align: center;
+    color: #383838;
+}
+#modal_return .form .reason {
+    display: block;
+    width: 305px;
+    height: 40px;
+    margin: 20px auto 0 auto;
+    padding-left: 5px;
+    font-size: 1em;
+    color: #3d3d3d;
+    border: 1px solid #dfdfdf;
+}
+#modal_return .form textarea {
+    display: block;
+    width: 500px;
+    color: #3d3d3d;
+    border: 1px solid #dfdfdf;
+}
+#modal_return .exchange_form.form textarea {
+    height: 155px;
+    margin: 30px auto 0 auto;
+}
+#modal_return .return_form.form textarea {
+    height: 105px;
+    margin: 20px auto 0 auto;
+}
+#modal_return .form .submit {
+    display: block;
+    width: 305px;
+    height: 40px;
+    margin: 20px auto 0 auto;
+    color: white;
+    background-color: #e69a83;
 }
