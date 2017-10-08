@@ -41,6 +41,28 @@ h3.category {
     border-bottom: 1px solid #e69a83;
 }
 
+h4.subcategory {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: .7em .7em;
+    color: #b1b1b1;
+    border-bottom: 1px solid #b1b1b1;
+}
+
+textarea {
+    margin-top: 10px;
+    border: 1px solid #dfdfdf;
+    resize: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    ertical-align: middle;
+}
+
+
 .category_menu {
     text-transform: uppercase;
     font-weight: bold;
@@ -127,6 +149,32 @@ input[type=checkbox] + label {
 }
 input[type=checkbox]:checked + label {
     background-image: url("../images/buttons/check_on.png");
+}
+
+input[type=radio].radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+}
+input[type=radio].radio + label {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 25px;
+    margin-right: -5px;
+    color: #3d3d3d;
+    background-image: url("../images/buttons/radio_off.png");
+    background-repeat: no-repeat;
+    background-color: white;
+    cursor: pointer;
+}
+input[type=radio].radio:checked + label {
+    background-image: url("../images/buttons/radio_on.png");
+}
+input[type=radio].radio:nth-of-type(n+2),
+input[type=radio].radio:nth-of-type(n+2) + label {
+    margin-left: 20px;
 }
 
 input[type=radio].radio {
