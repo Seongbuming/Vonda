@@ -51,6 +51,18 @@ h4.subcategory {
     border-bottom: 1px solid #b1b1b1;
 }
 
+textarea {
+    margin-top: 10px;
+    border: 1px solid #dfdfdf;
+    resize: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    ertical-align: middle;
+}
+
+
 .category_menu {
     text-transform: uppercase;
     font-weight: bold;
