@@ -1,0 +1,27 @@
+.write_cont {
+    float: right;
+    margin-top: -45px;
+}
+
+.write {
+    margin-top: 10px;
+    width: 150px;
+    height: 35px;
+    line-height: 30px;
+    font-size: .9em;
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+    color: white;
+    background-color: #e69a83;
+    border: none;
+}
+
+.editor {
+    height: 500px;
+}
+
+#contents .title{
+    margin-top: 20px;
+    width: 98%;
+    padding: 10px 10px 10px 10px;
+}
