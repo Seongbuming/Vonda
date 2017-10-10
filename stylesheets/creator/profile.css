@@ -1,0 +1,52 @@
+.profile_area {
+    margin-top: 40px;
+}
+
+#contents .creator_field .creator_name, .creator_contents {
+    text-align: center;
+}
+
+#contents .creator_field .creator_name {
+    line-height: 40px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#contents .creator_field .creator_contents {
+    font-size: 1.2em;
+}
+
+.submit_cont {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.submit {
+    margin-top: 10px;
+    width: 150px;
+    height: 35px;
+    line-height: 30px;
+    font-size: .9em;
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+    color: white;
+    background-color: #e69a83;
+    border: none;
+}
+
+.bg_size {
+    position: absolute;
+    margin-top: -170px;
+    margin-left: 20px;
+    background-color: black;
+    z-index: 2;
+    width: 130px;
+    height: 40px;
+    opacity: 0.5;
+}
+
+.bg_size p {
+    color: white;
+    margin-top: 12px;
+    margin-left: 30px;
+}
