@@ -1,0 +1,31 @@
+
+.order_list tbody .product .product_img {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+.order_list tbody .product .product_img img {
+    width: 100%;
+    vertical-align: middle;
+}
+.order_list tbody .product .product_info {
+    display: inline-block;
+    line-height: 1.5em;
+    vertical-align: middle;
+}
+.order_list tbody .seller, .product_price,.num_of_sales {
+    width: 70px;
+    text-align: center;
+}
+
+.order_list tbody .sales_price {
+    width: 120px;
+    text-align: center;
+}
+
+#contents .chart {
+    height: 300px;
+}
