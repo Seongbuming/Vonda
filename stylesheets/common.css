@@ -209,7 +209,6 @@ input[type=radio].radio:nth-of-type(n+2) + label {
     text-align: center;
     text-transform: uppercase;
     font-size: 1.125em;
-    font-weight: bold;
     color: #b3b3b3;
 }
 .link_menu li {
@@ -221,6 +220,7 @@ input[type=radio].radio:nth-of-type(n+2) + label {
 .link_menu li:nth-child(n+2)::before {
     content: '|';
     margin: 0 .5em;
+    color: #b3b3b3;
 }
 
 .area_search {
