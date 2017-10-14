@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
     <?= $this->loadLayout("head") ?>
-    <link rel="stylesheet" href="stylesheets/creator_profile.css">
-    <link rel="stylesheet" href="stylesheets/creator/profile.css">
+    <link rel="stylesheet" href="stylesheets/creator/profile2.css">
 </head>
 
 <body>
@@ -22,7 +21,7 @@
     <div class="creator_profile">
         <img src="images/creators/creator_background1.png" class="creator_profile_bg_img">
         <img src="images/creators/creator_profile.png" id="profile_location" class="creator_profile_img">
-        <div class="bg_size"><p>1150X450</p></div>
+      <div class="bg_size"><p>1150X450</p></div>
         <div class="creator_field">
             <input type="text" class="creator_name" value="@Yeomim"><br>
             <textarea cols="60" rows="4" class="creator_contents">코튼 소재를 베이스로 한 가볍고 부담 없이 사용하기 좋은 가방들을 선보이며 실용성과 함께 스타일리시함도
