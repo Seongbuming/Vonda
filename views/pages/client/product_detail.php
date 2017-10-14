@@ -17,6 +17,9 @@ if (isset($_GET['id'])) {
 
     $response = $request->request('GET', $url.'/reviews');
     $reviews = $response->datas;
+
+    $response = $request->request('GET', $url.'/qnas');
+    $qnas = $response->datas;
 } else {
     // Error
     echo "Param error";
@@ -37,8 +40,8 @@ if (isset($_GET['id'])) {
                 <p class="price"><?=number_format($goods->options[0]->price)?>원</p>
                 <p class="post_notice">
                     <?php
-                        if ($goods->shippingRule == "clause") {
-                            echo number_format($goods->shippingClause)."원 이상 구매시 무료배송 (배송 ".number_format($goods->shippingCharge)."원)";
+                        if ($goods->explain != NULL) {
+                            echo $goods->explain;
                         }
                     ?>
                 </p>
@@ -142,55 +145,27 @@ if (isset($_GET['id'])) {
 
         <table class="board faq">
             <tbody>
-                <tr class="row_subject">
-                    <td class="time">2017.09.21 13:20</td>
-                    <td class="subject">나이아신마이드10% 징크1% 랙틱애시드 5% 에이치에이2%카페인솔류션5%매트릭실10%</td>
-                    <td class="author">ydo******</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="type">Q.</td>
-                    <td class="result" colspan="3">.............</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="type">A.</td>
-                    <td class="result" colspan="3">
-                        <p>.................</p>
-                    </td>
-                </tr>
-
-                <tr class="row_subject">
-                    <td class="time">2017.09.19 13:20</td>
-                    <td class="subject">비타민A와 병행사용 가능한가요. 답변 부탁드립니다.</td>
-                    <td class="author">kux*******</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="type">Q.</td>
-                    <td class="result" colspan="3">.............</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="type">A.</td>
-                    <td class="result" colspan="3">
-                        <p>.................</p>
-                    </td>
-                </tr>
-
-                <tr class="row_subject">
-                    <td class="time">2017.09.19 13:20</td>
-                    <td class="subject">디오디너리제품 4개구입하고입금했어요~ 가장최근제조일자로보내주세용^^</td>
-                    <td class="author">hit****</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="type">Q.</td>
-                    <td class="result" colspan="3">디오디너리제품 4개구입하고입금했어요~ 가장최근제조일자로보내주세용^^ 그리고 나이아신에신스-마그네슘
-                        아스코빌 포스페이트10% - 로즈힙쓰는데요 아이에센스는 어디다음쓰면되나요? 그리고 이가지랑 같이써도죠?
-                    </td>
-                </tr>
-                <tr class="row_post">
-                    <td class="type">A.</td>
-                    <td class="result" colspan="3">
-                        <p>네 아이에센스는 마그네슘 아스코르빌 포스페이트 전에 사용하시면 됩니다. 3가지와 같이 사용해도 됩니다.</p>
-                    </td>
-                </tr>
+                <?php
+                foreach ($qnas->data as $qna) {
+                ?>
+                    <tr class="row_subject">
+                        <td class="time"><?=$qna->created_at?></td>
+                        <td class="subject"><?=$qna->content?></td>
+                        <td class="author"><?=$qna->user->account?></td>
+                    </tr>
+                    <tr class="row_post">
+                        <td class="type">Q.</td>
+                        <td class="result" colspan="3"><?=$qna->content?></td>
+                    </tr>
+                    <tr class="row_post">
+                        <td class="type">A.</td>
+                        <td class="result" colspan="3">
+                            <p><?= $qna->answer ? $qna->answer : "답변이 등록되지 않았습니다."?></p>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
         <div class="pager">
