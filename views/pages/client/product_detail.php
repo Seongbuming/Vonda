@@ -6,7 +6,22 @@
     <link rel="stylesheet" href="stylesheets/modal.css"/>
     <link rel="stylesheet" href="stylesheets/client/product_detail.css"/>
 </head>
+<?php
 
+if (isset($_GET['id'])) {
+    $url = 'http://api.siyeol.com/goods/'.$_GET['id'];
+    $request = new Http();
+    $response = $request->request('GET', $url);
+
+    $goods = $response->data;
+
+    $response = $request->request('GET', $url.'/reviews');
+    $reviews = $response->datas;
+} else {
+    // Error
+    echo "Param error";
+}
+?>
 <body>
     <header>
         <?= $this->loadLayout("header") ?>
@@ -15,21 +30,36 @@
     <div id="contents">
         <div class="information">
             <div class="product_image">
-                <img src="images/detail/상품사진1.png" />
+                <img src="http://api.siyeol.com/<?=$goods->goods_image?>" />
             </div>
             <div class="right">
-                <p class="title">Niacinamide 10% + Zinc 1%</p>
-                <p class="price">26,000원</p>
-                <p class="post_notice">30,000 원 이상 구매시 무료배송 (배송 3,000원)</p>
+                <p class="title"><?=$goods->title?></p>
+                <p class="price"><?=number_format($goods->options[0]->price)?>원</p>
+                <p class="post_notice">
+                    <?php
+                        if ($goods->shippingRule == "clause") {
+                            echo number_format($goods->shippingClause)."원 이상 구매시 무료배송 (배송 ".number_format($goods->shippingCharge)."원)";
+                        }
+                    ?>
+                </p>
                 
                 <div class="order_options">
+                    <?php
+                    if (sizeof($goods->options) > 1) {
+                    ?>
                     <div class="row">
                         <p class="option_name">옵션</p>
                         <select>
-                            <option value="실버">실버</option>
-                            <option value="골드">골드</option>
+                            <?php
+                            foreach ($goods->options as $option) {
+                                echo "<option value='{$option->id}'>{$option->name}</option>";
+                            }
+                            ?>
                         </select>
                     </div>
+                    <?php
+                    }
+                    ?>
                     <div class="row">
                         <p class="option_name">수량</p>
                         <div class="amount_wrapper">
@@ -40,7 +70,23 @@
                     </div>
                     <div class="row">
                         <p class="option_name">배송비</p>
-                        <p class="shippingfee">2,500원</p>
+                        <p class="shippingfee">
+                            <?php
+                                switch ($goods->shippingRule) {
+                                    case "free":
+                                    echo "무료배송";
+                                    break;
+
+                                    case "charge":
+                                    echo "(배송 ".number_format($goods->shippingCharge)."원)";
+                                    break;
+
+                                    case "clause":
+                                    echo number_format($goods->shippingClause)."원 이상 구매시 무료배송 (배송 ".number_format($goods->shippingCharge)."원)";
+                                    break;
+                                }
+                            ?>
+                        </p>
                     </div>
                 </div>
                 
@@ -54,95 +100,37 @@
         <p class="basket_message">장바구니에 담겼습니다.</p>
 
         <div class="product_detail">
-            <img src="images/detail/상품상세.png">
+            <?=$goods->content?>
         </div>
 
         <h3 class="category">상품후기</h3>
 
         <table class="board review">
             <tbody>
-                <tr class="row_subject">
-                    <td class="time">2017.08.22 13:20</td>
-                    <td class="subject">이거, 펴바르면 약간 화 한 느낌이 있어요 저는 눈두덩이랑 다크서클에 아주 편히 문질러 바르는데..</td>
-                    <td class="author">idn******</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="result" colspan="3">이거, 펴바르면 약간 화한 느낌이 있어요.<br>
-                        <br>저는 눈두덩이랑 다크서클에 아주 편히 문질러 바르는데,<br>
-                        그렇다고 눈이 시릴 정도는 아니고요.<br>
-                        Niacinamide/alpha arbutin에 비하면 보습감도 살짝 있고 전혀 밀림 없어요.<br>
-                        <br>
-                        일주일 넘게 사용했는데 눈에 띄는 효과를 본 건 아니지만<br>
-                        요새 화장 거의 안하는데 왠지 좀 덜 쾡해 보이나 싶기도 하고...<br>
-                        그냥 왠지 호감인, 믿음이 가는 제품이에요ㅋㅋㅋ<br><br>
-                        가격도 저렴하니 한 병 꾸준히 비워볼랍니다 :)<br><br>
-                        <img src="images/detail/후기사진.png">
-                        <img src="images/detail/후기사진.png">
-                        <img src="images/detail/후기사진.png">
-                        <img src="images/detail/후기사진.png">
-                        <img src="images/detail/후기사진.png">
-                    </td>
-                </tr>
-                <tr class="row_subject">
-                    <td class="time">2017.08.21 13:20</td>
-                    <td class="subject">그다지 효과를 모르겠어요ㅎㅎ</td>
-                    <td class="author">ydo****</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="result" colspan="3">....
-                    </td>
-                </tr>
-                <tr class="row_subject">
-                    <td class="time">2017.08.19 13:20</td>
-                    <td class="subject">백화점에서 유명하다는 아이크림들은 가격대가 너무 높고 그렇다고 패스하자니
-                        맘에 걸리고.. 피부과에서..
-                    </td>
-                    <td class="author">kux*******</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="result" colspan="3">....
-                    </td>
-                </tr>
-                <tr class="row_subject">
-                    <td class="time">2017.08.18 13:20</td>
-                    <td class="subject">좋아요</td>
-                    <td class="author">hit****</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="result" colspan="3">....
-                    </td>
-                </tr>
-                <tr class="row_subject">
-                    <td class="time">2017.08.21 13:20</td>
-                    <td class="subject">여름에 수분 크림 바르기도 답답하구, 아무것도 안바르긴 뭐하구해서
-                        어떤 화장품을 써야하나 고민하고 ...
-                    </td>
-                    <td class="author">ydo****</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="result" colspan="3">....
-                    </td>
-                </tr>
-                <tr class="row_subject">
-                    <td class="time">2017.08.19 13:20</td>
-                    <td class="subject">만족합니다.</td>
-                    <td class="author">kux*******</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="result" colspan="3">....
-                    </td>
-                </tr>
-                <tr class="row_subject">
-                    <td class="time">2017.08.19 13:20</td>
-                    <td class="subject">6월에 샀는데 지금 후기쓰네요.여러제품을 같이 구매했는데, 하나도 빠짐없이 다
-                        마음에 듭니다.
-                    </td>
-                    <td class="author">hit****</td>
-                </tr>
-                <tr class="row_post">
-                    <td class="result" colspan="3">....
-                    </td>
-                </tr>
+                <?php
+                foreach ($reviews->data as $review) {
+                ?>
+                    <tr class="row_subject">
+                        <td class="time"><?=$review->created_at?></td>
+                        <td class="subject"><?=$review->title?></td>
+                        <td class="author"><?=$review->user->account?></td>
+                    </tr>
+                    <tr class="row_post">
+                        <td class="result" colspan="3">
+                            <?=$review->content?>
+                            <br>
+                            <?php
+                            foreach ($review->images as $image) {
+                            ?>
+                            <img src="http://api.siyeol.com/<?=$image->file?>">
+                            <?php
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
         <div class="pager">
