@@ -6,3 +6,5 @@
 
 <link rel="stylesheet" href="stylesheets/reset.css" />
 <link rel="stylesheet" href="stylesheets/common.css" />
+
+<script src="javascripts/support.js"></script>

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="stylesheets/client/product_detail.css"/>
 </head>
 <?php
-
 if (isset($_GET['id'])) {
     $url = 'http://api.siyeol.com/goods/'.$_GET['id'];
     $request = new Http();
@@ -183,9 +182,9 @@ if (isset($_GET['id'])) {
                 </button>
 
                 <div class="product">
-                    <img class="product_image" src="images/detail/상품사진1.png" />
-                    <p class="product_name">Niacinamide 10% + Zinc 1%</p>
-                    <p class="product_price">26,000원</p>
+                    <img class="product_image" src="http://api.siyeol.com/<?=$goods->goods_image?>" />
+                    <p class="product_name"><?=$goods->title?></p>
+                    <p class="product_price"><?=$goods->options[0]->price?></p>
                 </div>
                 <textarea cols="113" rows="17" placeholder="문의를 남겨주세요. (최대 500자)"></textarea>
                 <button class="submit">문의하기</button>

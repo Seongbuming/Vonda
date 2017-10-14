@@ -23,6 +23,10 @@ $(document).ready(function() {
     /* FAQ */
     // 문의 모달 열기
     $("button.ask").click(function() {
+        if (readCookie('token') == null) {
+            alert("비회원은 이용할 수 없습니다.");
+            return false;
+        }
         // 모달 내용 초기화
         $("#modal_ask textarea").val("");
 
@@ -37,8 +41,27 @@ $(document).ready(function() {
             alert("문의 내용을 입력해 주세요.");
         } else {
             // 문의 접달 작업을 여기에서 수행하세요.
-
+            $.ajax({
+              type: "POST",
+              url: "http://api.siyeol.com/goods/qna?token="+readCookie('token'),
+              dataType: "json",
+              data: {'goods_id':getParam('id'), 'content':$modal.find("textarea").val()},
+              success: function (res) {
+                if (res.code == 200) {
+                    alert("성공적으로 문의를 등록하였습니다.");
+                } else if (res.code == 401) {
+                    // 토큰 오류  
+                } else {
+                    alert("상품문의 등록에 오류가 발생하였습니다.");
+                }
+                location.reload();
+              },
+              error: function (err) {
+                alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+              }
+            });
             $modal.get(0).close();
         }
     });
 });
+
