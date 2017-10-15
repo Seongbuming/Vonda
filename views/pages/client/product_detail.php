@@ -51,7 +51,7 @@ if (isset($_GET['id'])) {
                     ?>
                     <div class="row">
                         <p class="option_name">옵션</p>
-                        <select>
+                        <select class="goods_option_id">
                             <?php
                             foreach ($goods->options as $option) {
                                 echo "<option value='{$option->id}'>{$option->name}</option>";
@@ -60,6 +60,8 @@ if (isset($_GET['id'])) {
                         </select>
                     </div>
                     <?php
+                    } else {
+                        echo "<input type='hidden' class='goods_option_id' value='".$goods->options[0]->id."'>";
                     }
                     ?>
                     <div class="row">

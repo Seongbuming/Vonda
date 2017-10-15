@@ -4,8 +4,14 @@
         <li><a href=".">고객센터</a></li>
     </ul>
     <ul class="menu menu_right">
-        <li><a href=".">로그아웃</a></li>
-        <li><a href=".">마이페이지</a></li>
+        <?php
+        if (isset($_COOKIE['token'])) {
+            echo '<li><a href=".">로그아웃</a></li>';
+            echo '<li><a href=".">마이페이지</a></li>';
+        } else {
+            echo '<li><a href=".?page=login">로그인</a></li>';
+        }
+        ?>
     </ul>
 </div>
 

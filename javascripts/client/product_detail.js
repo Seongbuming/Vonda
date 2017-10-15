@@ -12,12 +12,40 @@ $(document).ready(function() {
     // 장바구니 버튼 클릭
     $(".basket").click(function() {
         // 장바구니 담기 작업을 여기에서 수행하세요.
+        if (readCookie('token') == null) {
+            alert("비회원은 이용할 수 없습니다.");
+            return false;
+        }
 
-        // 애니메이션
-        $(".basket_message")
-            .fadeIn("slow")
-            .delay(1000)
-            .fadeOut("slow");
+        $.ajax({
+          type: "POST",
+          url: "http://api.siyeol.com/cart?token="+readCookie('token'),
+          dataType: "json",
+          data: {'goods_id':getParam('id'), 'goods_option_id':$(".goods_option_id").val(), 'ea':$(".amount").val()},
+          success: function (res) {
+            if (res.code == 200) {
+                // 장바구니 등록 성공
+                $(".basket_message").text("장바구니에 담겼습니다.");
+                $(".basket_message")
+                    .fadeIn("slow")
+                    .delay(1000)
+                    .fadeOut("slow");
+            } else if (res.code == 401) {
+                // 토큰 오류  
+            } else {
+                $(".basket_message").text("장바구니 등록에 오류가 발생하였습니다.");
+                $(".basket_message")
+                    .fadeIn("slow")
+                    .delay(1000)
+                    .fadeOut("slow");
+            }
+          },
+          error: function (err) {
+            alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+          }
+        });
+
+        
     });
         
     /* FAQ */
