@@ -9,6 +9,11 @@ function readCookie(name) {
     return null;
 }
 
+function createCookie(name,value) {
+    var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+
 var getParam = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),

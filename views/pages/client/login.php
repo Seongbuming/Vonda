@@ -13,7 +13,7 @@
     <div id="contents">
         <h2 class="page_title">Login</h2>
 
-        <form class="login_form">
+        <form class="login_form" action="#" method="POST">
             <p class="find"><a href=".?page=findid">아이디</a> / <a href=".?page=findpwd">비밀번호 찾기</a></p>
             
             <input name="id" type="text" placeholder="아이디" required />
@@ -33,5 +33,7 @@
     <footer>
         <?=$this->loadLayout("footer")?>
     </footer>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/client/login.js"></script>
 </body>
 </html>
