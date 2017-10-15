@@ -8,9 +8,13 @@ $(document).ready(function() {
           data: {'account':$(".login_form").find("input[name='id']").val(), 'password':$(".login_form").find("input[name='password']").val()},
           success: function (res) {
             if (res.code == 200) {
+                // 토큰 저장
                 createCookie("token", res.token);
                 createCookie("refresh_token", res.refresh_token);
+
+                location.href = "/";
             } else {
+                // 로그인 실패
                 alert(res.message);
             }
           },
