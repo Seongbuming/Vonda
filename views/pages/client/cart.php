@@ -4,7 +4,19 @@
     <?=$this->loadLayout("head")?>
     <link rel="stylesheet" href="stylesheets/client/cart.css" />
 </head>
+<?php
+http://api.siyeol.com/cart?token
+if (isset($_COOKIE['token'])) {
+    $url = 'http://api.siyeol.com/cart?token='.$_COOKIE['token'];
+    $request = new Http();
+    $response = $request->request('GET', $url);
 
+    $cart_items = $response->data;
+} else {
+    // Invalid User
+    echo "Invalid User";
+}
+?>
 <body>
     <header>
         <?=$this->loadLayout("header")?>
@@ -29,58 +41,53 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="select">
-                        <input id="select_1" type="checkbox" title="선택" />
-                        <label for="select_1"></label>
-                    </td>
-                    <td>
-                        <div class="product_img">
-                            <img src="images/products/product1.png" alt="상품사진" />
-                        </div>
-                        <div class="product_info">
-                            <p class="creator"><a href=".">@Creator</a></p>
-                            <p class="name"><a href=".">SINGLE-BREASTED OVERSIZED BLAZER</a></p>
-                            <select class="option">
-                                <option value="실버">실버</option>
-                                <option value="골드">골드</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td class="product_amount">
-                        <div class="wrapper">
-                            <button class="add">+</button>
-                            <span class="amount">1</span>
-                            <button class="sub">-</button>
-                        </div>
-                    </td>
-                    <td class="product_shippingfee">2,500원</td>
-                    <td class="product_price">26,000원</td>
-                </tr>
-                <tr>
-                    <td class="select">
-                        <input id="select_2" type="checkbox" title="선택" />
-                        <label for="select_2"></label>
-                    </td>
-                    <td>
-                        <div class="product_img">
-                            <img src="images/products/product4.png" alt="상품사진" />
-                        </div>
-                        <div class="product_info">
-                            <p class="creator"><a href=".">@Yeomim</a></p>
-                            <p class="name"><a href=".">생활도감 천연 매스틱 치약 (쿨민트향) 100g</a></p>
-                        </div>
-                    </td>
-                    <td class="product_amount">
-                        <div class="wrapper">
-                            <button class="add">+</button>
-                            <span class="amount">1</span>
-                            <button class="sub">-</button>
-                        </div>
-                    </td>
-                    <td class="product_shippingfee">2,500원</td>
-                    <td class="product_price">26,000원</td>
-                </tr>
+                <?php
+                foreach ($cart_items as $cart_item) {
+                    if (isset($cart_item->goods)) {
+                ?>
+                        <tr>
+                            <td class="select">
+                                <input id="select_<?=$cart_item->id?>" name="select_item[]" value="<?=$cart_item->id?>" type="checkbox" title="선택" />
+                                <label for="select_<?=$cart_item->id?>"></label>
+                            </td>
+                            <td>
+                                <div class="product_img">
+                                    <img src="http://api.siyeol.com/<?=$cart_item->goods->goods_image?>" alt="상품사진" />
+                                </div>
+                                <div class="product_info">
+                                    <p class="creator"><a href=".">@Yeomim</a></p>
+                                    <p class="name"><a href="."><?=$cart_item->goods->title?></a></p>
+                                    <?php
+                                    if (sizeof($cart_item->goods->options) > 1) {
+                                    ?>
+                                    <select class="option">
+                                        <?php
+                                        foreach ($cart_item->goods->options as $option) {
+                                            $selected = $cart_item->goods_option_id == $option->id ? " selected" : " ";
+
+                                            echo '<option value="'.$option->id.'"'.$selected.' >'.$option->name.'</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </td>
+                            <td class="product_amount">
+                                <div class="wrapper">
+                                    <button class="add">+</button>
+                                    <span class="amount"><?=$cart_item->ea?></span>
+                                    <button class="sub">-</button>
+                                </div>
+                            </td>
+                            <td class="product_shippingfee"><?=number_format($cart_item->goods->shippingCharge)."원"?></td>
+                            <td class="product_price"><?=number_format($cart_item->goods->options[0]->price)."원"?></td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
             </tbody>
         </table>
 

@@ -29,7 +29,16 @@ class Http
 
         if ($res->getStatusCode() == 200) {
             // return response
-            return json_decode($res->getBody());
+            $response = json_decode($res->getBody());
+
+            if ($response->code == 401) {
+                // Token Expired
+                $_COOKIE['token'] = null;
+                
+                return false;
+            }
+
+            return $response;
         } else {
             // error
         }
