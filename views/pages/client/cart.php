@@ -72,6 +72,8 @@ if (isset($_COOKIE['token'])) {
                                         ?>
                                     </select>
                                     <?php
+                                    } else {
+                                        echo '<input type="hidden" class="goods_option_id" value="'.$cart_item->goods->options[0]->id.'">';
                                     }
                                     ?>
                                 </div>

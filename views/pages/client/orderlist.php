@@ -130,7 +130,14 @@ $orders = $response->datas->data;
                                 ?>
                             </td>
                             <td class="order_cancel">
-                                <button class="cancel">주문취소</button>
+                                <?php
+                                if ($item->step == "1") {
+                                    echo '<button class="cancel">주문취소</button>';
+                                } else if ($item->step == "30") {
+                                    echo '<button class="review">구매후기</button>';
+                                    echo '<button class="return">반품/교환</button>';
+                                }
+                                ?>
                             </td>
                         </tr>
                 <?php
