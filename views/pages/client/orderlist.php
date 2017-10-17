@@ -8,6 +8,11 @@
 <?php
 $request = new Http();
 $response = $request->request('GET', 'http://api.siyeol.com/order?token='.$_COOKIE['token']);
+
+if ($response->code == "400") {
+    header("location:./?page=login");
+}
+
 $orders = $response->datas->data;
 ?>
 <body>

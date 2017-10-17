@@ -14,7 +14,7 @@ if (isset($_COOKIE['token'])) {
     $cart_items = $response->data;
 } else {
     // Invalid User
-    echo "Invalid User";
+    header("location:./?page=login");
 }
 ?>
 <body>

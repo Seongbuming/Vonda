@@ -21,13 +21,17 @@ $params = array("items" => array());
 
 if (sizeof($_POST['select_item']) == 0) {
     // err
-    echo "ERR";
+    header("location:./?page=cart");
 }
 
 // Get Items
 foreach ($_POST['select_item'] as $item) {
     $url = "http://api.siyeol.com/cart/".$item."?token=".$_COOKIE['token'];
     $response = $request->request('GET', $url);
+
+    if ($response->code == "400") {
+        header("location:./?page=login");
+    }
 
     $item = $response->data;
 
