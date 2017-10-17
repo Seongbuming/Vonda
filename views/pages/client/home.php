@@ -12,7 +12,7 @@
     </header>
 
     <div id="contents">
-        <a class="floating" href=".">
+        <a class="floating" href=".?page=cart">
             <p>CART</p>
             <div class="badge">
                 <img class="badge_image" src="images/buttons/shopping-cart.png" alt="CART" />
