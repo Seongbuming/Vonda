@@ -47,6 +47,7 @@ if (isset($_COOKIE['token'])) {
                 ?>
                         <tr>
                             <td class="select">
+                                <input type="hidden" class="goods_id" value="<?=$cart_item->goods_id?>">
                                 <input id="select_<?=$cart_item->id?>" name="select_item[]" value="<?=$cart_item->id?>" type="checkbox" title="선택" />
                                 <label for="select_<?=$cart_item->id?>"></label>
                             </td>
@@ -60,7 +61,7 @@ if (isset($_COOKIE['token'])) {
                                     <?php
                                     if (sizeof($cart_item->goods->options) > 1) {
                                     ?>
-                                    <select class="option">
+                                    <select class="option goods_option_id">
                                         <?php
                                         foreach ($cart_item->goods->options as $option) {
                                             $selected = $cart_item->goods_option_id == $option->id ? " selected" : " ";
