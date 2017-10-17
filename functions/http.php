@@ -33,7 +33,7 @@ class Http
 
             if ($response->code == 401) {
                 // Token Expired
-                $_COOKIE['token'] = null;
+                setcookie('token', NULL);
                 
                 return false;
             }
