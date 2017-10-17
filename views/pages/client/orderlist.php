@@ -117,6 +117,12 @@ $orders = $response->datas->data;
                                     }
                                     ?>
                                 </p>
+                                <?php
+                                if ($item->step == "30") {
+                                    echo '<p class="carrier">'.$item->delivery->delivery_company.'</p>';    
+                                    echo '<p class="shippingnum">['.$item->delivery->delivery_number.']</p>';
+                                }
+                                ?>
                             </td>
                             <td class="order_cancel">
                                 <button class="cancel">주문취소</button>

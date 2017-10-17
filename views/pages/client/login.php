@@ -11,7 +11,7 @@
     </header>
     <?php
     // 로그아웃
-    if (isset($_COOKIE['token'])) {
+    if (isset($_COOKIE['token']) && $_GET['type'] == "logout") {
         setcookie('token', NULL);
         header('Location: ./');
     }
