@@ -1,0 +1,34 @@
+#vd-stati .btn-group{
+  position: absolute;
+  top: 105px;
+}
+#vd-stati .btn-group button{
+  height: 25px;
+  line-height: 25px;
+  padding: 0 5px;
+}
+#vd-stati .graph-container{
+  padding: 45px 15px ;
+}
+#vd-stati .btn-open-content,
+#vd-stati .btn-open-content:focus,
+#vd-stati .btn-open-content:hover,
+#vd-stati .btn-close-content,
+#vd-stati .btn-close-content:focus,
+#vd-stati .btn-close-content:hover
+{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#vd-stati .product-list{
+  padding-bottom: 0
+}
+
+#vd-stati .btn-close-content .btn-inline{
+  border-top: none;
+}
+
+#vd-stati .table>thead>tr>th{
+  border-top: 1px solid #ddd;
+}

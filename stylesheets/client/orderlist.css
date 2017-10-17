@@ -208,3 +208,8 @@
     padding-top: 80px;
     color: #383838;
 }
+
+#modal_orderdetail .modal_body {
+    width: 860px;
+    padding: 40px 45px;
+}

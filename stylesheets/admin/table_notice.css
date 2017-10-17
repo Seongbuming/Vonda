@@ -1,0 +1,59 @@
+.table tbody tr td{
+  vertical-align: middle;
+}
+.table .select label{
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+.table>thead{
+  border-bottom: solid 1px #e69a83;
+}
+.table>thead>tr>th{
+  border-bottom: none;
+  text-align: left;
+}
+
+.table>tbody>tr>td{
+  border-top: none;
+  text-align: left;
+}
+
+.table>tbody>tr>td:first-child{
+  width: 30px;
+}
+
+.table>tbody>tr>td:nth-child(2){
+  width: 120px;
+}
+
+.tab-pane{
+  padding-bottom: 50px;
+}
+.btn-write{
+  position: fixed;
+  top: 90px;
+  left: 1240px;
+}
+.btn-write img{
+  width: 35px;
+}
+
+.fixed-pin{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #e69a83;
+  display: inline-block;
+  right: 50px;
+  position: absolute;
+  margin: 5.5px 0;
+}
+
+.date{
+  color: #999999;
+}
+.title, .title:hover, .title:focus, .hits {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}

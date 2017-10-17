@@ -1,0 +1,66 @@
+.comment,
+.price,.state{
+  text-align: center;
+}
+.comment_submit{
+  margin-top: 10px;
+    width: 160px;
+    height: 80px;
+    line-height: 30px;
+    font-size: 1.125em;
+    font-weight: bold;
+    /* border: 1px solid #dfdfdf; */
+    color: white;
+    background-color: #e69a83;
+    border: none;
+    vertical-align: middle;
+}
+.comment textarea{
+  margin-top: 10px;
+border: 1px solid #dfdfdf;
+resize: none;
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 15px;
+padding-bottom: 15px;
+vertical-align: middle;
+margin-right: 10px;
+}
+
+.product_name{
+  padding-right: 15px;
+  font-weight: normal;
+}
+.time .id{
+  color: #383838;
+  font-weight: bold;
+}
+.time p {
+  padding: 2.5px 0;
+}
+.review_description, .review_state{
+  color: #747474;
+  font-weight: normal;
+}
+.review_state{
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+#table-review .product_name{
+  font-weight: bold;
+}
+#table-review .subject p{
+  padding: 7.5px 0;
+}
+
+#modal_review_detail .modal_body{
+  width: 680px;
+  height: 878px;
+  padding: 30px;
+  line-height: normal;
+}
+#modal_review_detail .modal_header table{
+  border-top: 0;
+  margin-bottom: 15px;
+}

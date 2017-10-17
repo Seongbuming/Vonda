@@ -1,0 +1,26 @@
+#notice-write{
+  background-color: white;
+  padding: 30px 15px 80px 15px;
+}
+#notice-write .option{
+  width: 195px;
+  height: 32px;
+  padding-left: 5px;
+  color: #747474;
+  border: 1px solid #dfdfdf;
+  cursor: pointer;
+}
+#notice-write .form-item{
+  margin-bottom: 15px;
+}
+#notice-write .form-item input{
+  width: 100%;
+  font-weight: normal;
+}
+#notice-write .form-item .btn-peach{
+  padding: 6px 40px;
+  float: right;
+}
+#notice-write .form-item label{
+  color: #999999;
+}

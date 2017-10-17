@@ -1,0 +1,118 @@
+#product-write{
+  background-color: white;
+  padding: 30px 15px 80px 15px;
+}
+#product-write .option{
+  width: 195px;
+  height: 32px;
+  padding-left: 5px;
+  color: #747474;
+  border: 1px solid #dfdfdf;
+  cursor: pointer;
+}
+#product-write .form-item{
+  margin-bottom: 15px;
+}
+#product-write .form-item .btn-peach{
+  padding: 6px 40px;
+  float: right;
+}
+#product-write label.form-item {
+  color: #999999;
+  font-size: 14px;
+  width: 90px;
+  display: inline-block;
+  text-align: left;
+}
+#product-write .upload-product-img{
+  width: 300px;
+}
+#product-write .input-product-name,
+#product-write .input-product-brief-description {
+  width: 820px;
+}
+#product-write .btn-container{
+  padding-top: 15px;
+}
+#product-write .btn-container button{
+  width: 100px;
+}
+
+#product-write .form-group>button{
+  border: none;
+}
+
+/*option-list*/
+#product-write .option-list, #product-write .option-value-list{
+  width: 300px;
+  height: 275px;
+  vertical-align: top;
+  padding: 15px 5px 15px 15px;
+  overflow-y: scroll;
+  display: inline-block;
+}
+#product-write .option-item{
+  padding-bottom: 7.5px;
+}
+#product-write .option-item-input{
+  border: 0;
+  outline: 0;
+  padding: 5px;
+  width: 220px;
+}
+#product-write .option-item-input.select{
+  border: solid 1px #e69a83;
+}
+#product-write .option-item-input.border-gray{
+  border: solid 1px #d8d8d8;
+}
+#product-write .option-item-add .operator{
+  text-align: center;
+  padding-right: 10px;
+  font-size: 22px;
+}
+/*option-value-list*/
+#product-write .option-value-list{
+  width: 400px;
+}
+
+#product-write .option-value-list .option-item-input{
+  width: 165px;
+  border: solid 1px #d8d8d8;
+}
+.filebox {
+  display: inline-block;
+}
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.filebox label {
+  display: inline-block;
+  padding: 3px 5px;
+  color: #999;
+  font-size: inherit;
+  line-height: normal;
+  cursor: pointer;
+}
+
+
+/* named upload */
+
+.filebox .upload-name {
+  display: inline-block;
+  padding: 3px 5px;
+  /* label의 패딩값과 일치 */
+  -webkit-appearance: none;
+  /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+  width: 300px;
+}

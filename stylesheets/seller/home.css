@@ -1,0 +1,7 @@
+#product-table th, #product-table td,
+#notice-table th, #notice-table td{
+  border-bottom: 0;
+}
+#notice-table{
+  border-bottom: solid 1px #d8d8d8;
+}

@@ -1,0 +1,17 @@
+.btn-delete{
+  position: absolute;
+  right: 25px;
+  padding: 6px 30px;
+}
+
+#creator table td,
+#customer table td,
+#seller table td{
+  border: none;
+}
+
+#seller.tab-pane,
+#creator.tab-pane,
+#customer.tab-pane{
+  padding-bottom: 0;
+}

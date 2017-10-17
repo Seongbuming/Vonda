@@ -1,0 +1,62 @@
+.marginTop50{
+  margin-top: 50px;
+}
+.marginBottom50{
+  margin-bottom: 50px;
+}
+.chart-container{
+  margin-right: 30px;
+}
+.chart-container,
+.chart-label{
+  display: inline-block;
+  vertical-align: middle;
+}
+.chart-label{
+  padding-top: 15px;
+  margin: auto;
+  width: 235px
+}
+.chart-label li{
+  padding-bottom: 15px;
+}
+.chart-label li span{
+  font-size: 16px;
+}
+.chart-label .chart-item-label{
+  padding-right: 30px;
+}
+.chart-label .chart-item-value{
+  float: right;
+  color: #A8A8A8;
+}
+.chart-label li i{
+  top:auto;
+}
+.chart-label li:first-child{
+  color:black;
+}
+.chart-label li:first-child .chart-item-value{
+  color: black;
+}
+.chart-label li:nth-child(2){
+  color:#2FA5AB;
+}
+.chart-label li:nth-child(3){
+  color: #718CB4;
+}
+.chart-label li:nth-child(4){
+  color: #69A17F;
+}
+.chart-label li:nth-child(5){
+  color: #CDC35D;
+}
+.chart-label li:nth-child(6){
+  color: #A8A8A8;
+}
+#total-sales .chart-label .chart-item-value{
+  color: black;
+}
+#total-sales .chart-label i{
+  color: white;
+}

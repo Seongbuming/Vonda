@@ -1,0 +1,48 @@
+.limitSize{width:1180px;}/*페이지 전체 사이즈*/
+header *{box-sizing:border-box; border:0 solid #cecece;}
+header div.sellerHeader{height:30px; border-bottom-width:1px; text-align:center; line-height:30px;}
+header div.sellerHeader h2{display:inline; font-size:14px; opacity:0.4;}
+header div.sellerHeader div.area_links {height:100%; margin:0 auto; font-size: .9em; line-height:30px;}
+header div.sellerHeader div.area_links ul.menu {height:30px; list-style: none; display:table; border-right-width:1px;}
+header div.sellerHeader div.area_links ul.menu li{height:30px; display:table-cell; padding:0 11px; vertical-align:middle; line-height:normal; float:none; border-left-width:1px;}
+header div.sellerHeader div.area_links ul.menu_left {float: left;}
+header div.sellerHeader div.area_links ul.menu_right {float: right;}
+header div.sellerHeader div.area_links ul.menu li:nth-child(n+2)::before{content:none; margin:0;}
+header div.area_logo{padding:20px 0;}
+header ul.sellerMenu{display:table; margin:0 auto;}
+header ul.sellerMenu li{height:20px; display:table-cell; padding:0 17px; vertical-align:middle; border-right:1px solid #6f6f6f;}
+header ul.sellerMenu li:last-child{border:none;}
+header ul.sellerMenu li a:hover{color:#e69a83;}
+/*셀러 따로적용 */
+
+div.creatorCnt{color:#e69a83; padding-left:10px; height:27px; margin-top:80px; font-weight:bold;}
+
+/*seller_notice*/
+h3.category.notice{margin-top:70px;}
+/*seller_notice_detail*/
+.post.notice_detail .title{margin-top:58px;}
+/*각테이블 설정*/
+table.productTable{border-top:1px solid #e69a83; margin-top:40px;}
+table.productTable.pd10 td{padding:10px;}
+table.productTable.noneMargin{margin-top:0px;}
+table.productTable td.order_sell_status{width:166px; text-align:center;}
+table.productTable td.order_button{width:270px; text-align:center; padding:0;}
+table.productTable td.order_date{width:132px; text-align:center;}
+table.productTable td.creatorInfo{width:278px;}
+table.productTable td.seller_num{width:60px; padding:0; text-align:center;}
+table.productTable td.order_cnt{width:93px; text-align:center;}
+table.productTable td.order_totalPrice{width:128px; text-align:center;}
+table.productTable td.order_creator{width:105px; text-align:center;}
+/*seller_registfinish*/
+div.message_container{}
+div.message_container p{font-size:20px;line-height:30px;}
+div.message_container span.pink{color:#e69a83;}
+/*seller_creator_detail*/
+div.buttonWrap button{display:inline-block; height:30px;}
+div.buttonWrap button.approv{width:80px; background-color:#e69a83; color:#FFF; margin-right:10px;}
+div.buttonWrap button.hide{width:120px; border:1px solid #dfdfdf; color:#7f7f7f;}
+
+
+div.creator_profile{margin-top:40px;}
+
+a.allView{padding-right:13px; background:url('../../images/seller/arrowRight.png') no-repeat right center; display:inline-block; font-size:16px; color:#000; opacity:0.8; margin-left:14px; font-weight:normal;}

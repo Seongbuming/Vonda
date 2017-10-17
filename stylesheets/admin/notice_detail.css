@@ -1,0 +1,19 @@
+#notice-detail{
+  background-color: white;
+  padding: 30px 0 80px 0;
+}
+
+#notice-detail .title{
+  color: #747474;
+  padding: 0 0 15px 15px;
+  margin: 0;
+  border-bottom: solid 1px #e69a83;
+}
+
+#notice-detail .date{
+  padding: 10px 0 15px 15px;
+}
+
+#notice-detail .contents{
+  padding: 30px 15px 0 15px;
+}

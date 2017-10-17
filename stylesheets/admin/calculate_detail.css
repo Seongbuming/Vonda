@@ -1,0 +1,82 @@
+
+#seller.tab-pane,#creator.tab-pane{
+  padding: 25px 0 50px 0;
+}
+.info-container{
+  padding-left: 25px;
+}
+.info-item {
+  margin: 0 25px;
+}
+
+#creator .user-id a,
+#creator .user-id a:focus,
+#creator .user-id a:hover,
+#seller .user-id a,
+#seller .user-id a:focus,
+#seller .user-id a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+#creator .user-id-link,
+#creator .final-amount,
+#seller .user-id-link,
+#seller .final-amount
+{
+  font-weight: bold;
+  color: black;
+}
+
+#creator .final-amount,
+#seller .info-container .final-amount{
+  text-decoration: underline;
+  margin-left: 220px;
+}
+
+#creator .btn-container,
+#seller .btn-container{
+  padding: 15px 15px 0 0;
+  text-align: right;
+  border-top: solid 1px #ddd;
+}
+
+#creator .btn-container button,
+#seller .btn-container button{
+  width: 100px;
+  margin: 0 2.5px;
+}
+
+.sum_price {
+    margin: 30px 45px;
+    padding: 50px;
+    text-align: center;
+    border: 1px solid #d8d8d8;
+    border: 1px solid #d8d8d8;
+}
+.sum_price .wrapper {
+    display: inline-block;
+    margin: 0 auto;
+}
+.sum_price .wrapper > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.sum_price .term .caption {
+    margin-bottom: 15px;
+    color: #747474;
+    letter-spacing: -.15em;
+}
+.sum_price .term .price {
+    font-size: 1.25em;
+    letter-spacing: 0.01em;
+}
+ .sum_price .operator {
+    margin: 0 60px;
+    font-size: 1.8em;
+    color: #747474;
+}
+.sum_price .input-item{
+  width: 60px;
+  text-align: center;
+}

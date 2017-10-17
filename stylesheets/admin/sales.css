@@ -1,0 +1,84 @@
+#vd-sales-list .btn-container{
+  padding: 0 0 15px 0;
+}
+
+#vd-sales-list .product-list{
+  padding-bottom: 50px;
+}
+#vd-sales-list .sales-number a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#vd-sales-list .title-group{
+  height: 107px;
+  padding: 22px 0;
+}
+
+#vd-sales-list .product-item .state,
+#vd-sales-list .product-item .sales-date{
+  color: #999999;
+}
+
+#vd-sales-list .product-item .sales-date,
+#vd-sales-list .product-item .title a,
+#vd-sales-list .product-item .title p span{
+  color: #747474;
+}
+
+#vd-sales-list .state button{
+  margin-top: 10px;
+}
+
+#vd-sales-list .modal{
+  background: rgba(0,0,0,0.2);
+}
+#vd-sales-list .modal .modal-content{
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 6px 12px rgba(140, 135, 135, 0.3)
+}
+#vd-sales-list .modal-dialog .modal-header{
+  display: block;
+  border-bottom: none;
+  padding:0 15px;
+}
+#vd-sales-list .modal .modal-dialog{
+  transform: translate(0,10%);
+  width: 700px;
+  max-width: 700px
+}
+#vd-sales-list .modal .title{
+  padding-bottom: 15px
+}
+#vd-sales-list .btn-close{
+  color: #e69a83;
+  font-size: 40px;
+  opacity: 1;
+}
+#vd-sales-list .btn-close span{
+  float: right;
+  margin-right: 10px;
+  font-weight: lighter;
+}
+#vd-sales-list .modal-body{
+  padding: 0px 15px 30px 15px;
+}
+
+#vd-sales-list .order-detail-table td,
+#vd-sales-list .order-detail-table th,
+.order-detail-table>tbody>tr>td,
+.order-detail-table>tbody>tr>th
+{
+  border: 0;
+  text-align: left;
+  padding: 10px auto;
+}
+.order-detail-table>tbody>tr>th{
+  width: 10px;
+  padding-left: 5px;
+}
+.order-detail-table .order-detail-item-label{
+  font-weight: bold;
+}

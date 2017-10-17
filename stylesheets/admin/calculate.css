@@ -1,0 +1,75 @@
+#vd-calculate-creator .btn-group,
+#vd-calculate-seller .btn-group{
+  padding: 10px 0;
+}
+#vd-calculate-creator .btn-group button,
+#vd-calculate-seller .btn-group button{
+  padding: 2.5px 5px;
+  font-size: 11px;
+  color: #797979;
+}
+#vd-calculate-creator .btn-group .show-month,
+#vd-calculate-seller .btn-group .show-month{
+  padding: 2.5px 25px;
+}
+#creator .table>thead,
+#seller .table>thead{
+  border-bottom: solid 1px #ddd;
+}
+
+#creator table th, table td,
+#seller table th{
+  border-bottom: none;
+}
+
+#creator table th:nth-child(2),
+#creator table td:nth-child(2),
+#seller table th:nth-child(2),
+#seller table td:nth-child(2),
+{
+  width: 60px;
+}
+
+#creator table th:nth-child(3),
+#creator table td:nth-child(3),
+#seller table th:nth-child(3),
+#seller table td:nth-child(3){
+  width: 400px;
+}
+
+#creator .user-id a,
+#creator .user-id a:focus,
+#creator .user-id a:hover,
+#seller .user-id a,
+#seller .user-id a:focus,
+#seller .user-id a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+#creator .user-id-link,
+#creator .final-amount,
+#seller .user-id-link,
+#seller .final-amount
+{
+  font-weight: bold;
+  color: black;
+}
+
+#creator .final-amount,
+#seller .final-amount{
+  text-decoration: underline;
+}
+
+#creator .btn-container,
+#seller .btn-container{
+  padding: 15px 15px 0 0;
+  text-align: right;
+  border-top: solid 1px #ddd;
+}
+
+#creator .btn-container button,
+#seller .btn-container button{
+  width: 100px;
+  margin: 0 2.5px;
+}

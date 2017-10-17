@@ -1,0 +1,42 @@
+
+body{
+  background-color: white;
+}
+
+#vd-login{
+  padding: 100px 0
+}
+#vd-login-form{
+  width: 250px;
+  margin: auto;
+}
+
+#vd-login-form .form-header{
+  text-align: center;
+}
+
+#vd-login-form .form-header img{
+  margin: auto;
+  padding: 10px 0 30px 0;
+  width: 140px;
+}
+#vd-login-form .form-item{
+  margin: 10px 0;
+}
+#vd-login-form .form-item input{
+  padding: 5px;
+}
+#vd-login-form .form-item input,
+#vd-login-form .form-item button{
+  width: 100%;
+}
+
+#vd-login-form .form-header .text-gray{
+  font-weight: bold;
+}
+
+#vd-login-form .form-item:nth-child(2) .text-gray,
+#vd-login-form .form-item:nth-child(3) .text-gray{
+  font-weight: lighter;
+  font-size: 13px;
+}

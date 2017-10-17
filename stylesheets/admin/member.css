@@ -1,0 +1,9 @@
+#vd-member .table>tbody>tr>td,
+#vd-member .table>tbody>tr>th,
+#vd-member .table td{
+  border: none;
+}
+
+#vd-member .table thead tr th{
+  border-bottom: solid 1px #d8d8d8;
+}

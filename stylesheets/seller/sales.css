@@ -1,0 +1,19 @@
+.order-detail-item{
+  text-align: left;
+  padding: 0
+}
+
+#modal_order_detail .modal_body{
+  width: 800px;
+  height: 878px;
+  padding: 0 45px;
+  line-height: normal;
+}
+
+#order-detail-table th, #order-detail-table td{
+  border-bottom: 0;
+}
+
+#order-detail-table th{
+  width: 100px;
+}

@@ -1,0 +1,256 @@
+#vd-mainpage .inner-content {
+  padding: 15px;
+}
+
+#vd-mainpage .banner-item-add:focus, #vd-mainpage .banner-item-add:hover,
+#vd-mainpage .category-item-add:focus, #vd-mainpage .category-item-add:hover {
+  cursor: pointer;
+}
+
+#vd-mainpage .banner-item-container {
+  padding: 15px 15px 0 15px;
+}
+
+#vd-mainpage .banner-item-group {
+  width: 453px;
+  display: inline-block;
+  padding: 10px 0 10px 10px;
+  margin-bottom: 15px;
+}
+
+#vd-mainpage .banner-item-group:nth-child(even) {
+  margin-left: 15px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #b2b2b2;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #b2b2b2;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #b2b2b2;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #b2b2b2;
+}
+
+#vd-mainpage .banner-item input {
+  padding: 3px 5px;
+  margin: 2.5px;
+  color: #747474;
+}
+
+#vd-mainpage .banner-item input:first-child {
+  width: 125px;
+}
+
+#vd-mainpage .banner-item input:nth-child(2) {
+  width: 265px;
+}
+
+#vd-mainpage .banner-item button, #vd-mainpage .new-product-item button, #vd-mainpage .btn-remove {
+  border: none;
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+#vd-mainpage .btn-remove {
+  font-size: 16px;
+}
+
+#vd-mainpage .banner-item-add {
+  height: 197px;
+  padding: 86px 0;
+  vertical-align: top;
+}
+
+#vd-mainpage .banner-item-add .operator {
+  line-height: 1;
+  text-align: center;
+  font-size: 25px;
+}
+
+#vd-mainpage .btn-container {
+  text-align: center;
+}
+
+#vd-mainpage .btn-container button {
+  width: 130px;
+}
+
+#vd-mainpage .product-item-container {
+  padding: 15px;
+}
+
+#vd-mainpage .category-list {
+  width: 280px;
+  height: 275px;
+  vertical-align: top;
+  padding: 15px 5px 15px 15px;
+  overflow-y: scroll;
+}
+
+#vd-mainpage .category-item {
+  padding-bottom: 7.5px;
+}
+
+#vd-mainpage .category-item-input {
+  border: 0;
+  outline: 0;
+  padding: 5px;
+  width: 220px;
+}
+
+#vd-mainpage .category-item-input.border-peach {
+  border: solid 1px #e69a83;
+}
+
+#vd-mainpage .category-item-input.border-gray {
+  border: solid 1px #d8d8d8;
+}
+
+#vd-mainpage .category-item-add .operator {
+  text-align: center;
+  padding-right: 10px;
+  font-size: 22px;
+}
+
+#vd-mainpage .new-product-list {
+  padding: 15px 70px;
+  margin-bottom: 0;
+}
+
+#vd-mainpage .new-product-list, #vd-mainpage .category-list {
+  display: inline-block;
+}
+
+#vd-mainpage .new-product-item {
+  padding: 7.5px;
+}
+
+#vd-mainpage .new-product-item .label {
+  font-size: 14px;
+}
+
+#vd-mainpage .new-product-item input {
+  width: 400px;
+  padding: 5px;
+}
+
+#vd-mainpage .modal {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#vd-mainpage .modal .modal-content {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 6px 12px rgba(140, 135, 135, 0.3)
+}
+
+#vd-mainpage .modal-dialog .modal-header {
+  display: block;
+  border-bottom: none;
+  padding: 0;
+}
+
+#vd-mainpage .modal .modal-dialog {
+  transform: translate(0, 10%);
+  max-width: 800px;
+}
+
+#vd-mainpage .modal .search-input-container {
+  width: 220px;
+  margin: auto;
+}
+
+#vd-mainpage .modal .title {
+  padding-bottom: 15px
+}
+
+#vd-mainpage .modal .search-input {
+  width: 190px;
+  border: 0;
+  padding: 5px;
+}
+
+#vd-mainpage .btn-close {
+  color: #e69a83;
+  font-size: 40px;
+  opacity: 1;
+}
+
+#vd-mainpage .btn-close span {
+  float: right;
+  margin-right: 10px;
+  font-weight: lighter;
+}
+
+#vd-mainpage .modal-footer {
+  border-top: none;
+}
+
+#vd-mainpage .modal-header .btn-search {
+  border: none;
+  padding: 5px;
+}
+
+#vd-mainpage .modal-body {
+  overflow-y: scroll;
+  max-height: 450px;
+}
+
+#vd-mainpage .modal-footer .btn-ok {
+  padding: 6px 100px;
+  margin: auto;
+}
+
+#vd-mainpage .product-item td:first-child {
+  width: 80px;
+}
+
+#vd-mainpage .thumbnail-img {
+  width: 70px;
+  height: 70px;
+  margin: 0 0 0 70px;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.filebox label {
+  display: inline-block;
+  padding: 3px 5px;
+  color: #999;
+  font-size: inherit;
+  line-height: normal;
+  cursor: pointer;
+}
+
+
+/* named upload */
+
+.filebox .upload-name {
+  display: inline-block;
+  padding: 3px 5px;
+  /* label의 패딩값과 일치 */
+  -webkit-appearance: none;
+  /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+}

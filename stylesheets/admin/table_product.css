@@ -1,0 +1,77 @@
+.table tr th{
+  border-bottom: 1px solid #d8d8d8;
+}
+table td {
+  vertical-align: middle;
+  border-bottom: 1px solid #d8d8d8;
+}
+.table>tbody>tr>th,
+.table>tbody>tr>td
+{
+  vertical-align: middle;
+
+}
+
+.product-list table tr td:nth-child(2),
+.product-list table tr th:nth-child(2),
+.product-stati-table tr td:first-child,
+.product-creator-table tr td:nth-child(2),
+.product-img,.creator-img
+{
+  width: 110px;
+}
+
+table td p,
+.product-item .label,
+.product-item .label-content,
+.creator-item .label,
+.creator-item .label-content  {
+  text-align: left;
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0;
+}
+
+.product-item .title a,
+.product-item .title a:focus,
+.product-item .title a:hover,
+.creator-item .creator-id a,
+.creator-item .creator-id a:focus,
+.creator-item .creator-id a:hover  {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+ .product-item .seller,
+ .product-item .price,
+ .product-item .count,
+ .product-item .total,
+ .product-item .stock,
+ .product-item .creator,
+ .creator-item .creator-id,
+ .creator-item .count,
+ .creator-item .total{
+  color: #999999;
+}
+
+
+/* tumbnail img cropping*/
+.thumbnail-img {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  overflow: hidden;
+}
+.thumbnail-img img {
+  position: absolute;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  top: -100%;
+}

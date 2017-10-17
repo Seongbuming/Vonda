@@ -1,0 +1,34 @@
+#table-invoice .period_select{
+  margin-top: 0;
+  float: none;
+}
+#table-invoice td:first-child{
+  padding: 15px 10px;
+}
+#table-invoice .delivery_company,
+#table-invoice .invoice_number,
+#table-invoice .invoice_date,
+#table-invoice .buyer_name,
+#table-invoice .buyer_id,
+#table-invoice .reciever_name{
+  text-align: center;
+}
+#table-invoice .period_select .input_period input[type=date],
+#table-invoice .period_select .input_period
+{
+  float: none;
+}
+
+.submit{
+  float: right;
+width: 80px;
+height: 30px;
+line-height: 30px;
+margin-top: -40px;
+font-size: .9em;
+font-weight: bold;
+border: 1px solid #dfdfdf;
+color: white;
+background-color: #e69a83;
+border: none;
+}

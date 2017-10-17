@@ -1,0 +1,30 @@
+.nav-tabs .btn-container {
+  padding: 15px 0;
+}
+
+.nav-tabs .input-container {
+  padding-top: 15px;
+}
+
+.product-list .btn-container{
+  padding-top: 40px;
+}
+
+.page-title{
+  border-bottom: solid 1px #e69a83;
+  padding: 15px 0;
+}
+.page-title .label{
+  color: #e69a83;
+  font-size: 18px;
+}
+.page-title span{
+  padding-left: 15px;
+}
+
+#vd-product-list .product-list{
+  padding-bottom: 0;
+}
+#vd-product-list .pager-container{
+  border-top: none;
+}
