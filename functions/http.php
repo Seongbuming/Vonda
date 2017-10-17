@@ -5,7 +5,7 @@ class Http
 
     public function __construct() {
         // Guzzle Client
-        $this->client = new GuzzleHttp\Client();
+        $this->client = new GuzzleHttp\Client(['base_uri' => 'http://api.siyeol.com/']);
     }
 
     /**
@@ -41,6 +41,15 @@ class Http
             return $response;
         } else {
             // error
+        }
+    }
+
+    public function requestEx($method="GET", $url, $params=[]) {
+        try{
+            return json_decode($this->client->request($method, $url, $params)->getBody());
+        } catch (GuzzleHttp\Exception\RequestException $e) {
+            // Server Error
+            return json_decode($e->getResponse()->getBody(true));
         }
     }
 }

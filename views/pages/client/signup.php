@@ -1,10 +1,37 @@
+
+<?php
+// 회원가입 요청 핸들링
+$is_post = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $is_post = true;
+    $url = '/user';
+
+    $account = $_POST['id'];
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $phone = $_POST['pnumber_1'].$_POST['pnumber_2'].$_POST['pnumber_3'];
+    $email = $_POST['email'];
+    $type = 'general';
+    $sendData = compact('account', 'name', 'password', 'phone', 'email', 'type');
+
+    $request = new Http();
+    $res = $request->requestEx('POST', $url, [
+        'form_params' => $sendData,
+    ]);
+
+    // 회원가입 완료하면 토큰이 반환됨.
+    if ($res->token) {
+        header("location:./?page=signup_finish");
+        exit;
+    }
+}
+?>
 <!doctype html>
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
     <link rel="stylesheet" href="stylesheets/client/signup.css" />
 </head>
-
 <body>
     <header>
         <?=$this->loadLayout("header")?>
@@ -15,16 +42,18 @@
 
         <h3 class="category">회원가입</h3>
 
-        <form class="signup_form">
+        <form class="signup_form" method="POST" action=".?page=signup">
             <div class="row">
                 <label for="id">아이디</label>
-                <input id="id" name="id" type="text" class="text" required />
+                <input id="id" name="id" type="text" class="text" value="<?=$is_post?$_POST['id']:''?>" required />
+                <?php if ($is_post && $res->message === '동일한 사용자가 존재합니다.') { ?>
                 <p class="status">X</p>
-                <p class="status_message">hayefuk는 이미 사용중인 아이디입니다.</p>
+                <p class="status_message"><?=$_POST['id']?>는 이미 사용중인 아이디입니다.</p>
+                <?php } ?>
             </div>
             <div class="row">
                 <label for="name">이름</label>
-                <input id="name" name="name" type="text" class="text" required />
+                <input id="name" name="name" type="text" class="text" value="<?=$is_post?$_POST['name']:''?>" required />
             </div>
             <div class="row">
                 <label for="password">비밀번호</label>
@@ -40,15 +69,15 @@
             </div>
             <div class="row pnumber">
                 <label for="pnumber">연락처</label>
-                <input id="pnumber" name="pnumber_1" type="tel" class="tel" required />
+                <input id="pnumber" name="pnumber_1" type="tel" class="tel" value="<?=$is_post?$_POST['pnumber_1']:''?>" required />
                 <span>-</span>
-                <input name="pnumber_2" type="tel" class="tel" required />
+                <input name="pnumber_2" type="tel" class="tel" value="<?=$is_post?$_POST['pnumber_2']:''?>" required />
                 <span>-</span>
-                <input name="pnumber_3" type="tel" class="tel" required />
+                <input name="pnumber_3" type="tel" class="tel" value="<?=$is_post?$_POST['pnumber_3']:''?>" required />
             </div>
             <div class="row">
                 <label for="email">이메일</label>
-                <input id="email" name="email" type="email" class="email" required />
+                <input id="email" name="email" type="email" class="email" value="<?=$is_post?$_POST['email']:''?>" required />
             </div>
 
             <div class="terms">
@@ -115,5 +144,7 @@
     <footer>
         <?=$this->loadLayout("footer")?>
     </footer>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/client/signup.js"></script>
 </body>
 </html>
