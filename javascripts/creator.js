@@ -42,7 +42,7 @@ $(document).ready(function() {
 
     $(".comment_submit").click(function() {
         if (readCookie('token') == null) {
-            alert('');
+            alert('로그인이 필요합니다.');
         } else {
             $.ajax({
               type: "POST",
