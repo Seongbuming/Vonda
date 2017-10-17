@@ -27,7 +27,7 @@
             <input type="input" name="input-id" value="" placeholder="아이디">
           </div>
           <div class="form-item">
-            <input type="input" name="input-id" value="" placeholder="비밀번호">
+            <input type="password" name="input-id" value="" placeholder="비밀번호">
           </div>
           <div class="form-item">
             <button type="button" name="btn-submit" class="btn btn-peach">로그인</button>
