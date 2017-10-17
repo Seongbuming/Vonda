@@ -30,7 +30,8 @@
 
         $board = $response->data;
 
-        print_r($board);
+        $response = $request->request('GET', 'http://api.siyeol.com/board/'.$_GET['id'].'/comment');
+        $comments = $response->data;
     } else {
         // param error
     }
@@ -67,58 +68,40 @@
                 <textarea cols="156" rows="5" placeholder="댓글을 입력하려면 로그인이 필요합니다."></textarea>
                 <button class="comment_submit">댓글 등록</button>
             </div>
-            <div class="user_comment">
-                <table class="board">
-                    <tbody>
-                    <tr class="row_subject">
-                        <td class="author">Yeomim</td>
-                        <td class="subject">
-                        너무 기대됩니다. 언능 받아보고 싶어요!</td>
-                        <td class="time">2017.09.21  13:20</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="user_link_comment">
-                <table class="board">
-                    <tbody>
-                    <tr class="row_subject">
-                        <td class="author">ㄴ @Yeomim</td>
-                        <td class="subject">
-                            너무 기대됩니다. 언능 받아보고 싶어요!</td>
-                        <td class="time">2017.09.22  13:20</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="user_comment">
-                <table class="board">
-                    <tbody>
-                    <tr class="row_subject">
-                        <td class="author">haeyfuk</td>
-                        <td class="subject">
-                            너무 기대됩니다. 언능 받아보고 싶어요!</td>
-                        <td class="time">2017.08.21  13:20</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="user_comment">
-            <table class="board">
-                <tbody>
-                <tr class="row_subject">
-                    <td class="author">jay901004</td>
-                    <td class="subject">
-                        너무 기대됩니다. 언능 받아보고 싶어요!</td>
-                    <td class="time">2017.07.21  13:20</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+            <?php
+            foreach ($comments as $comment) {
+            ?>
+                <div class="user_comment">
+                    <table class="board">
+                        <tbody>
+                        <tr class="row_subject">
+                            <td class="author"><?=$comment->user->account?></td>
+                            <td class="subject">
+                            <?=$comment->comment?></td>
+                            <td class="time"><?=$comment->created_at?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <?php
+                if ($comment->answer != NULL) {
+                    ?>
+                    <div class="user_link_comment">
+                        <table class="board">
+                            <tbody>
+                            <tr class="row_subject">
+                                <td class="author">ㄴ @<?=$creator->nickname?></td>
+                                <td class="subject">
+                                    <?=$comment->answer?></td>
+                                <td class="time"><?=$comment->updated_at?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
 
         <div class="pager">
             <button class="left">◀</button>
@@ -132,5 +115,7 @@
     <footer>
         <?= $this->loadLayout("footer") ?>
     </footer>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/creator.js"></script>
 </body>
 </html>

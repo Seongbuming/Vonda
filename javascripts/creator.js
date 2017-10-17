@@ -39,4 +39,32 @@ $(document).ready(function() {
         $(".creator_detail_template").html($(this).find(".info").html());
         showDetail(this, $(this), $(this).position().top);
     });
+
+    $(".comment_submit").click(function() {
+        if (readCookie('token') == null) {
+            alert('');
+        } else {
+            $.ajax({
+              type: "POST",
+              url: "http://api.siyeol.com/board/"+getParam('id')+"/comment?token="+readCookie('token'),
+              dataType: "json",
+              data: {'comment': $(".comment textarea").val()},
+              success: function (res) {
+                if (res.code == 200) {
+                    location.reload();
+                } else if (res.code == 401) {
+                    // 토큰 오류  
+                } else {
+                    alert("댓글 등록에 오류가 발생하였습니다.");
+                }
+                location.reload();
+              },
+              error: function (err) {
+                alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+              }
+            });
+        }
+
+        return false;
+    });
 });
