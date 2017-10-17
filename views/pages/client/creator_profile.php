@@ -102,7 +102,7 @@
                 <tr class="row_subject">
                     <td class="time"><?=$board->created_at?></td>
                     <td class="subject">
-                        <a href=".?page=creator_profile_boarddetail&id=<?=$board->id?>"><?=$board->subject?></a>
+                        <a href=".?page=creator_profile_boarddetail&id=<?=$board->id?>&creator_id=<?=$creator->id?>"><?=$board->subject?></a>
                     </td>
                     <td class="author"><?=$creator->nickname?></td>
                 </tr>
