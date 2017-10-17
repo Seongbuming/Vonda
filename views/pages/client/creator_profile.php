@@ -10,6 +10,23 @@
     <header>
         <?= $this->loadLayout("header") ?>
     </header>
+    <?php
+    if (isset($_GET['id'])) {
+        $request = new Http();
+        $response = $request->request('GET', 'http://api.siyeol.com/creator/'.$_GET['id'].'/info');
+
+        if ($response->code == 400) {
+            // invalid creator
+        }
+
+        $creator = $response->data;
+
+        $response = $request->request('GET', 'http://api.siyeol.com/'.$creator->user_id.'/board');
+        $boards = $response->datas->data;
+    } else {
+        // param error
+    }
+    ?>
 
     <div id="contents">
         <!--<div class="icons">
@@ -24,9 +41,8 @@
             <img src="images/creators/creator_background1.png" class="creator_profile_bg_img">
             <img src="images/creators/creator_profile.png" id="profile_location" class="creator_profile_img">
 
-            <p class="creator_profile_name">@Yeomim</p>
-            <p class="creator_profile_contents">코튼 소재를 베이스로 한 가볍고 부담 없이 사용하기<br>좋은 가방들을 선보이며 실용성과 함께 스타일리시함도<br>
-                추구하는 것이 브랜드 여밈의 모토입니다.</p>
+            <p class="creator_profile_name">@<?=$creator->nickname?></p>
+            <p class="creator_profile_contents"><?=$creator->introduce?></p>
         </div>
         <ul class="category_menu">
             <li class="actived"><a href=".?page=orderlist">최신순</a></li>
@@ -80,14 +96,19 @@
         <h3 class="category">BOARD</h3>
         <table class="board">
             <tbody>
-
-            <tr class="row_subject">
-                <td class="time">2017.08.22 13:20</td>
-                <td class="subject">
-                    <a href=".?page=creator_profile_boarddetail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
-                </td>
-                <td class="author">Yeomim</td>
-            </tr>
+            <?php
+            foreach ($boards as $board) {
+            ?>
+                <tr class="row_subject">
+                    <td class="time"><?=$board->created_at?></td>
+                    <td class="subject">
+                        <a href=".?page=creator_profile_boarddetail&id=<?=$board->id?>"><?=$board->subject?></a>
+                    </td>
+                    <td class="author"><?=$creator->nickname?></td>
+                </tr>
+            <?php
+            }
+            ?>
 
             </tbody>
         </table>
