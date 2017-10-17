@@ -36,6 +36,7 @@ $(document).ready(function() {
     }
     
     $("#contents .creator_section .item").click(function() {
+        $(".creator_detail_template").html($(this).find(".info").html());
         showDetail(this, $(this), $(this).position().top);
     });
 });

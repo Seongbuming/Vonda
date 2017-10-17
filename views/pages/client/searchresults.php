@@ -10,6 +10,11 @@ if (isset($_GET['keyword'])) {
     $request = new Http();
     $response = $request->request('GET', 'http://api.siyeol.com/search?query='.$_GET['keyword']);
     $goods_result = $response->datas;
+
+    $response = $request->request('GET', 'http://api.siyeol.com/creator/search?query='.$_GET['keyword']);
+    $creator_result = $response->datas;
+
+    print_r($response);
 }
 
 ?>
@@ -19,7 +24,7 @@ if (isset($_GET['keyword'])) {
     </header>
 
     <div id="contents">
-        <p class="numresults"><span class="keyword"><?=$_GET['keyword']?></span>에 대한 <span class="num"><?=sizeof($goods_result)?></span>개의 검색결과</p>
+        <p class="numresults"><span class="keyword"><?=$_GET['keyword']?></span>에 대한 <span class="num"><?=sizeof($goods_result) + sizeof($creator_result)?></span>개의 검색결과</p>
 
         <h3 class="category">Product</h3>
 
@@ -42,15 +47,36 @@ if (isset($_GET['keyword'])) {
         <h3 class="category">Creator</h3>
         
         <div class="creator_section">
-            <div class="item">
-                <img src="images/creators/creator5.png" alt="크리에이터 이미지 5" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator6.png" alt="크리에이터 이미지 6" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator7.png" alt="크리에이터 이미지 7" />
-            </div>
+            <?php
+            foreach ($creator_result as $creator) {
+            ?>
+                <div class="item">
+                    <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 이미지" />
+                    <!-- Hidden -->
+                    <div class="info" style="display: none;">
+                        <img class="creator_background" src="http://api.siyeol.com/<?=$creator->cover_image?>" alt="크리에이터 배경 이미지" />
+                        <div class="creator_image">
+                            <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 이미지" />
+                        </div>
+                        <div class="creator_profile">
+                            <p class="creator_name">@<?=$creator->nickname?></p>
+                            <p class="creator_message"><?=$creator->introduce?></p>
+                            <div class="icons">
+                                <?php
+                                foreach ($creator->channels as $channel) {
+                                    if ($channel->isVisible == "1") {
+                                        echo '<a href="'.$channel->link.'"><img src="images/icons/home_sns/'.$channel->channel.'-logo.png" alt="Instagram" /></a>';
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hidden End -->
+                </div>
+            <?php
+            }
+            ?>
             <template class="creator_detail_template">
                 <img class="creator_background" src="images/creators/creator_background4.png" alt="크리에이터 배경 이미지" />
                 <div class="creator_image">
