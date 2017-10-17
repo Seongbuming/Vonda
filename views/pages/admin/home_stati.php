@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="stylesheets/admin/table_product.css" media="screen" title="no title">
 
 </head>
-
+<?php
+if (!isset($_COOKIE['token'])) {
+    echo "err";
+}
+?>
 <body>
 
     <div id="wrapper" class="toggled">
