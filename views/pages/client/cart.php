@@ -41,6 +41,7 @@ if (isset($_COOKIE['token'])) {
                 </tr>
             </thead>
             <tbody>
+                <form class="cart_form" action="./?page=order" method="POST">
                 <?php
                 foreach ($cart_items as $cart_item) {
                     if (isset($cart_item->goods)) {
@@ -77,9 +78,9 @@ if (isset($_COOKIE['token'])) {
                             </td>
                             <td class="product_amount">
                                 <div class="wrapper">
-                                    <button class="add">+</button>
+                                    <button type="button" class="add">+</button>
                                     <span class="amount"><?=$cart_item->ea?></span>
-                                    <button class="sub">-</button>
+                                    <button type="button" class="sub">-</button>
                                 </div>
                             </td>
                             <td class="product_shippingfee"><?=number_format($cart_item->goods->shippingCharge)."원"?></td>
@@ -89,6 +90,7 @@ if (isset($_COOKIE['token'])) {
                     }
                 }
                 ?>
+                </form>
             </tbody>
         </table>
 
@@ -114,8 +116,8 @@ if (isset($_COOKIE['token'])) {
         </div>
 
         <div class="purchase_container">
-            <button class="purchase_selected">선택상품구매</button>
-            <button class="purchase_all">전체상품구매</button>
+            <button class="purchase_selected" onclick="selectOrder()">선택상품구매</button>
+            <button class="purchase_all" onclick="allOrder()">전체상품구매</button>
         </div>
     </div>
 

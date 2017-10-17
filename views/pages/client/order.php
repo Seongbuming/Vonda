@@ -17,11 +17,26 @@ require($_SERVER['DOCUMENT_ROOT']."/libraries/NICEPAY/lib/NicepayLite.php");
 $nicepay = new NicepayLite;
 $request = new Http();
 
-$params = array( "items"=>array( array("goods_option_id"=>5, "ea"=>12), array("goods_option_id"=>4, "ea"=>4), array("goods_option_id"=>6, "ea"=>1) ) );
+$params = array("items" => array());
+
+if (sizeof($_POST['select_item']) == 0) {
+    // err
+    echo "ERR";
+}
+
+// Get Items
+foreach ($_POST['select_item'] as $item) {
+    $url = "http://api.siyeol.com/cart/".$item."?token=".$_COOKIE['token'];
+    $response = $request->request('GET', $url);
+
+    $item = $response->data;
+
+    $params['items'][] = array("goods_option_id"=>$item->goods_option_id, "ea"=>$item->ea);
+}
+
+// $params = array( "items"=>array( array("goods_option_id"=>5, "ea"=>12), array("goods_option_id"=>4, "ea"=>4), array("goods_option_id"=>6, "ea"=>1) ) );
 
 $response = $request->request('POST', 'http://api.siyeol.com/order?token='.$_COOKIE['token'], ['json' => $params]);
-
-print_r($response);
 
 $order = $response->datas;
 

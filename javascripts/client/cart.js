@@ -24,6 +24,8 @@ $(document).ready(function() {
             alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
           }
         });
+
+        return false;
     });
 
     $(".cart_delete").click(function() {
@@ -48,3 +50,26 @@ $(document).ready(function() {
     	});
     });
 });
+
+function selectOrder()
+{
+	if ($("[name='select_item[]']:checked").length == 0) {
+		alert("상품을 선택하세요.");
+		return false;
+	}
+	$(".cart_form").submit();
+}
+
+function allOrder()
+{
+	if ($("[name='select_item[]']").length == 0) {
+		alert("상품이 없습니다.");
+		return false;
+	} else {
+		$("[name='select_item[]']").each(function () {
+			$(this).attr("checked", true);
+		});
+	}
+
+	selectOrder();
+}
