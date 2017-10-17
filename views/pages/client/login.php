@@ -9,7 +9,13 @@
     <header>
         <?=$this->loadLayout("header")?>
     </header>
-
+    <?php
+    // 로그아웃
+    if (isset($_COOKIE['token'])) {
+        setcookie('token', NULL);
+        header('Location: ./');
+    }
+    ?>
     <div id="contents">
         <h2 class="page_title">Login</h2>
 
