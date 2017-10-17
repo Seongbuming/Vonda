@@ -5,7 +5,11 @@
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
 </head>
-
+<?php
+$request = new Http();
+$response = $request->request('GET', 'http://api.siyeol.com/order?token='.$_COOKIE['token']);
+$orders = $response->datas->data;
+?>
 <body>
     <header>
         <?=$this->loadLayout("header")?>
@@ -55,6 +59,73 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                foreach ($orders as $order) {
+                        foreach ($order->items as $item) {
+                ?>
+                        <tr>
+                            <?php
+                            if ($item == $order->items[0]) {
+                            ?>
+                            <td class="date_id" rowspan="<?=sizeof($order->items)?>">
+                                <p class="date"><?=$order->created_at?></p>
+                                <p class="id"><a href="."><?=$order->order_no?></a></p>
+                            </td>
+                            <?php
+                            }
+                            ?>
+                            <td class="product">
+                                <div class="product_img">
+                                    <img src="http://api.siyeol.com/<?=$item->goods->goods_image?>" alt="상품사진" />
+                                </div>
+                                <div class="product_info">
+                                    <p class="open product_detail"><?=$item->goods->title?></p>
+                                    <?php
+                                    if (sizeof($item->goods->options) > 1) {
+                                        foreach ($item->goods->options as $option) {
+                                            if ($option->id == $item->goods_option_id) {
+                                                echo '<p>옵션: <span class="option">'.$option->name.'</span></p>';
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    <p>수량: <span class="amount"><?=$item->ea?></span></p>
+                                </div>
+                            </td>
+                            <td class="order_price">
+                                <p><?=number_format($item->goods->options[0]->price * $item->ea)?>원</p>
+                            </td>
+                            <td class="order_status">
+                                <p class="status_text">
+                                    <?php
+                                    switch ($item->step) {
+                                        case '1':
+                                            echo "결제완료";
+                                        break;
+                                        case '10':
+                                            echo "상품준비중";
+                                        break;
+                                        case '20':
+                                            echo "배송준비중";
+                                        break;
+                                        case "30":
+                                            echo "배송중";
+                                        break;
+                                        case "40":
+                                            echo "배송완료";
+                                        break;
+                                    }
+                                    ?>
+                                </p>
+                            </td>
+                            <td class="order_cancel">
+                                <button class="cancel">주문취소</button>
+                            </td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
                 <tr>
                     <td class="date_id" rowspan="2">
                         <p class="date">2017.09.10</p>
