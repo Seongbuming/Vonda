@@ -4,7 +4,12 @@
     <?=$this->loadLayout("head")?>
     <link rel="stylesheet" href="stylesheets/creator/board.css"/>
 </head>
+<?php
+$request = new Http();
 
+$response = $request->request('GET', '/board?token='.$_COOKIE['token']);
+$boards = $response->datas->data;
+?>
 <body>
 <header>
     <?=$this->loadLayout("header")?>
@@ -21,13 +26,18 @@
     <h3 class="category">BOARD</h3>
     <table class="board">
         <tbody>
-
-        <tr class="row_subject">
-            <td class="time">2017.08.22 13:20</td>
-            <td class="subject">
-                <a href="./creator.php?page=board_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
-            </td>
-        </tr>
+        <?php
+        foreach ($boards as $board) {
+        ?>
+            <tr class="row_subject">
+                <td class="time"><?=$board->created_at?></td>
+                <td class="subject">
+                    <a href="./creator.php?page=board_detail&id=<?=$board->id?>"><?=$board->subject."(".$boart->hits.")"?></a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
         </tbody>
     </table>
     <div class="pager">
