@@ -12,9 +12,9 @@
     <?php
     if ($_POST["AuthResultCode"] != "0000") {
         // error
+        echo "<script>error();</script>";
+        exit;
     }
-
-
 
     $request = new Http();
     // Payment
@@ -64,5 +64,20 @@
     <footer>
         <?= $this->loadLayout("footer") ?>
     </footer>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script>
+        $(".order_list").click(function() {
+            location.href = "./?page=orderlist";
+        });
+
+        $(".order_home").click(function() {
+            location.href = "/";
+        });
+
+        function error() {
+            alert("상품 결제에 실패하였습니다.");
+            location.href = "./?page=cart";
+        }
+    </script>
 </body>
 </html>
