@@ -12,10 +12,10 @@
 
 <div id="contents">
     <ul class="link_menu">
-        <li><a href=".?page=myproduct">나의상품</a></li>
-        <li class="actived"><a href=".?page=board">게시판 관리</a></li>
-        <li><a href=".?page=profile">프로필 관리</a></li>
-        <li><a href=".?page=calculate">정산내역</a></li>
+        <li><a href="./creator.php?page=myproduct">나의상품</a></li>
+        <li class="actived"><a href="./creator.php?page=board">게시판 관리</a></li>
+        <li><a href="./creator.php?page=profile">프로필 관리</a></li>
+        <li><a href="./creator.php?page=calculate">정산내역</a></li>
     </ul>
 
     <h3 class="category">BOARD</h3>
@@ -25,7 +25,7 @@
         <tr class="row_subject">
             <td class="time">2017.08.22 13:20</td>
             <td class="subject">
-                <a href=".?page=board_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
+                <a href="./creator.php?page=board_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
             </td>
         </tr>
         </tbody>

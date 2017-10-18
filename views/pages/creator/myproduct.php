@@ -13,10 +13,10 @@
 
 <div id="contents">
     <ul class="link_menu">
-        <li class="actived"><a href=".?page=myproduct">나의상품</a></li>
-        <li><a href=".?page=board">게시판 관리</a></li>
-        <li><a href=".?page=profile">프로필 관리</a></li>
-        <li><a href=".?page=calculate">정산내역</a></li>
+        <li class="actived"><a href="./creator.php?page=myproduct">나의상품</a></li>
+        <li><a href="./creator.php?page=board">게시판 관리</a></li>
+        <li><a href="./creator.php?page=profile">프로필 관리</a></li>
+        <li><a href="./creator.php?page=calculate">정산내역</a></li>
     </ul>
 
     <div class="chart">
