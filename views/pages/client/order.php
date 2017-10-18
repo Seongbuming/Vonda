@@ -26,7 +26,7 @@ if (sizeof($_POST['select_item']) == 0) {
 
 // Get Items
 foreach ($_POST['select_item'] as $item) {
-    $url = "http://api.siyeol.com/cart/".$item."?token=".$_COOKIE['token'];
+    $url = "/cart/".$item."?token=".$_COOKIE['token'];
     $response = $request->request('GET', $url);
 
     if ($response->code == "400") {
@@ -40,7 +40,7 @@ foreach ($_POST['select_item'] as $item) {
 
 // $params = array( "items"=>array( array("goods_option_id"=>5, "ea"=>12), array("goods_option_id"=>4, "ea"=>4), array("goods_option_id"=>6, "ea"=>1) ) );
 
-$response = $request->request('POST', 'http://api.siyeol.com/order?token='.$_COOKIE['token'], ['json' => $params]);
+$response = $request->request('POST', '/order?token='.$_COOKIE['token'], ['json' => $params]);
 
 $order = $response->datas;
 

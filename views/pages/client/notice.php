@@ -6,7 +6,7 @@
 </head>
 <?php
 $request = new Http();
-$response = $request->request('GET', 'http://api.siyeol.com/notice');
+$response = $request->request('GET', '/notice');
 
 $notices = $response->datas;
 ?>

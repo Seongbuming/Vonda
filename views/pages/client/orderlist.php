@@ -7,7 +7,7 @@
 </head>
 <?php
 $request = new Http();
-$response = $request->request('GET', 'http://api.siyeol.com/order?token='.$_COOKIE['token']);
+$response = $request->request('GET', '/order?token='.$_COOKIE['token']);
 
 if ($response->code == "400") {
     header("location:./?page=login");

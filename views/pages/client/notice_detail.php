@@ -8,7 +8,7 @@
     if (isset($_GET['id'])) {
         $request = new Http();
 
-        $response = $request->request('GET', 'http://api.siyeol.com/board/'.$_GET['id']);
+        $response = $request->request('GET', '/board/'.$_GET['id']);
 
         if ($response->code == 400) {
             // invalid creator

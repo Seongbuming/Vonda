@@ -8,10 +8,10 @@
 
 if (isset($_GET['keyword'])) {
     $request = new Http();
-    $response = $request->request('GET', 'http://api.siyeol.com/search?query='.$_GET['keyword']);
+    $response = $request->request('GET', '/search?query='.$_GET['keyword']);
     $goods_result = $response->datas;
 
-    $response = $request->request('GET', 'http://api.siyeol.com/creator/search?query='.$_GET['keyword']);
+    $response = $request->request('GET', '/creator/search?query='.$_GET['keyword']);
     $creator_result = $response->datas;
 }
 

@@ -13,7 +13,7 @@
     <?php
     if (isset($_GET['id'])) {
         $request = new Http();
-        $response = $request->request('GET', 'http://api.siyeol.com/creator/'.$_GET['id'].'/info');
+        $response = $request->request('GET', '/creator/'.$_GET['id'].'/info');
 
         if ($response->code == 400) {
             // invalid creator
@@ -21,7 +21,7 @@
 
         $creator = $response->data;
 
-        $response = $request->request('GET', 'http://api.siyeol.com/'.$creator->user_id.'/board');
+        $response = $request->request('GET', '/'.$creator->user_id.'/board');
         $boards = $response->datas->data;
     } else {
         // param error

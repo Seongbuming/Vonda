@@ -8,7 +8,7 @@
 </head>
 <?php
 if (isset($_GET['id'])) {
-    $url = 'http://api.siyeol.com/goods/'.$_GET['id'];
+    $url = '/goods/'.$_GET['id'];
     $request = new Http();
     $response = $request->request('GET', $url);
 

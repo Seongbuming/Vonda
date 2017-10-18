@@ -14,7 +14,7 @@
     <?php
     if (isset($_GET['id'])) {
         $request = new Http();
-        $response = $request->request('GET', 'http://api.siyeol.com/creator/'.$_GET['creator_id'].'/info');
+        $response = $request->request('GET', '/creator/'.$_GET['creator_id'].'/info');
 
         if ($response->code == 400) {
             // invalid creator
@@ -22,7 +22,7 @@
 
         $creator = $response->data;
 
-        $response = $request->request('GET', 'http://api.siyeol.com/board/'.$_GET['id']);
+        $response = $request->request('GET', '/board/'.$_GET['id']);
 
         if ($response->code == 400) {
             // invalid creator
@@ -30,7 +30,7 @@
 
         $board = $response->data;
 
-        $response = $request->request('GET', 'http://api.siyeol.com/board/'.$_GET['id'].'/comment');
+        $response = $request->request('GET', '/board/'.$_GET['id'].'/comment');
         $comments = $response->data;
     } else {
         // param error

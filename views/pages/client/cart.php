@@ -7,7 +7,7 @@
 <?php
 http://api.siyeol.com/cart?token
 if (isset($_COOKIE['token'])) {
-    $url = 'http://api.siyeol.com/cart?token='.$_COOKIE['token'];
+    $url = '/cart?token='.$_COOKIE['token'];
     $request = new Http();
     $response = $request->request('GET', $url);
 
