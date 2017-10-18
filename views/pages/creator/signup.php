@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <h3 class="category">회원가입</h3>
 
-        <form class="signup_form" method="POST" action=".?page=signup">
+        <form class="signup_form" method="POST" action="./creator.php?page=signup">
             <div class="row">
                 <label for="id">아이디</label>
                 <input id="id" name="id" type="text" class="text" value="<?=$is_post?$_POST['id']:''?>" required />
