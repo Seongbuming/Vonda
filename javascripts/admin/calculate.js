@@ -13,7 +13,7 @@ $(document).ready(function() {
       alert("옳은 입력값이 아닙니다. 다시 입력해주세요.");
     }else{
         var result = ( price / 100 ) * rate;
-        $('#result-price').text(result + "원");
+        $('#result-price').text(result.format() + "원");
     }
   });
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
       alert("옳은 입력값이 아닙니다. 다시 입력해주세요.");
     }else{
         var result = price * fee_rate;
-        $('#result-price').text(result + "원");
+        $('#result-price').text(result.format() + "원");
     }
   });
 
