@@ -19,8 +19,9 @@
     <div class="logo_wrapper">
         <h1><a href="."><img class="logo" src="images/logo.png" alt="WeMustCreate" /></a></h1>
     </div>
-    <form class="area_search" action="/?page=searchresults" method="GET">
-        <input class="search input_search" name="keyword" type="text" title="검색 입력" />
+    <form class="area_search" action="/" method="GET">
+        <input type="hidden" name="page" value="searchresults"/>
+        <input class="search input_search" name="keyword" type="text" title="검색 입력" value="<?=isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" />
         <button class="search submit_search" title="검색"></button>
     </form>
 </div>
