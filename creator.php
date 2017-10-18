@@ -1,4 +1,6 @@
 <?php
+require ("vendor/autoload.php");
+require ("functions/http.php");
 require("functions/template.php");
 
 $page = $_GET["page"];

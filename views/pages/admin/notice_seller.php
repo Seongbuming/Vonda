@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="stylesheets/admin/notice.css" />
 
 </head>
+<?php
+$request = new Http();
+$response = $request->request('GET', 'http://api.siyeol.com/notice/seller');
 
+$notices = $response->datas;
+?>
 <body>
 
     <div id="wrapper" class="toggled">
@@ -67,6 +72,24 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      foreach ($notices->data as $notice) {
+                      ?>
+                        <tr>
+                          <td class="select">
+                            <input type="checkbox" name="select-1" value="">
+                            <label for="select-1"></label>
+                          </td>
+                          <td class="date"><?=$notice->created_at?></td>
+                          <td>
+                            <a href="admin.php?page=notice_detail" class="title"><?=$notice->subject?></a>
+                            <span class="hits">(11)</span>
+                            <div class="fixed-pin"></div>
+                          </td>
+                        </tr>
+                      <?php
+                      }
+                      ?>
                       <tr>
                         <td class="select">
                           <input type="checkbox" name="select-1" value="">
