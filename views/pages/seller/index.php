@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="stylesheets/modal.css"/>
 	<link rel="stylesheet" href="stylesheets/client/orderlist.css" />
   <link rel="stylesheet" href="stylesheets/seller/home.css">
+  <link rel="stylesheet" href="stylesheets/admin/chart.css" />
+  <link rel="stylesheet" href="stylesheets/admin/table_product.css">
 </head>
 
 <body>
@@ -17,7 +19,22 @@
     </header>
 
     <div id="contents">
-		<div class="creatorCnt">나의 상품<a href="" class="allView">전체보기 ></a></div>
+      <div class="btn-group" role="group" >
+        <button type="button" class="btn btn-sm btn-default">일간</button>
+        <button type="button" class="btn btn-sm btn-default">주간</button>
+        <button type="button" class="btn btn-sm btn-default">월간</button>
+      </div>
+      <div class="chart-container" style="width:900px;">
+        <canvas id="sales-chart" width="100%"></canvas>
+      </div>
+
+      <ul class="chart-label ">
+        <li style="color:#52CC5D"><i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span><span class="chart-item-value">9,069,000원</span></li>
+        <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span><span class="chart-item-value">222건</span></li>
+        <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span><span class="chart-item-value">9개</span></li>
+        <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 크리에이터</span><span class="chart-item-value">11명</span></li>
+      </ul>
+		<div class="creatorCnt">나의 상품<a href="" class="allView">전체보기</a></div>
 		<table id="product-table"class="order_list productTable noneMargin pd10">
         <thead>
           <tr>
@@ -85,7 +102,7 @@
                 </tr>
             </tbody>
         </table>
-		<div class="creatorCnt">크리에이터<a href="" class="allView">전체보기 ></a></div>
+		<div class="creatorCnt">크리에이터<a href="" class="allView">전체보기</a></div>
 		<table id="creator-table"class="order_list productTable noneMargin pd10">
       <thead>
           <tr>
@@ -136,7 +153,7 @@
             </tbody>
         </table>
 
-        <div class="creatorCnt">공지사항<a href="" class="allView">전체보기 ></a></div>
+        <div class="creatorCnt">공지사항<a href="" class="allView">전체보기</a></div>
 
             <table id="notice-table" class="board productTable noneMargin pd10">
                 <tbody>
@@ -208,9 +225,12 @@
     <footer>
         <?=$this->loadLayout("seller/footer")?>
     </footer>
-	<script src="libraries/jquery-3.2.1.min.js"></script>
+	   <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="javascripts/board.js"></script>
     <script src="javascripts/modal.js"></script>
     <script src="javascripts/client/product_detail.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+    <script src="javascripts/admin/stati_chart.js"></script>
 </body>
 </html>

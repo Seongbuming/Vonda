@@ -59,10 +59,9 @@ $(document).ready(function() {
           }
         }
     });
-
   }
 
-  if(valid_sales !== null){
+  if(valid_product !== null){
     var ctx_product = valid_product.getContext("2d");
     var chart_procut = new Chart(ctx_product,
       {
@@ -110,7 +109,6 @@ $(document).ready(function() {
           }
         }
     });
-
   }
 
   if(valid_sales !== null){

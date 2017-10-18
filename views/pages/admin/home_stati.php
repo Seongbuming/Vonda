@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="stylesheets/admin/common.css" />
     <link rel="stylesheet" href="stylesheets/admin/stati.css"/>
     <link rel="stylesheet" href="stylesheets/admin/chart.css" />
-    <link rel="stylesheet" href="stylesheets/admin/table_product.css" media="screen" title="no title">
+    <link rel="stylesheet" href="stylesheets/admin/table_product.css" />
 
 </head>
 <?php
