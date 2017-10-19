@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
-    <link rel="stylesheet" href="stylesheets/seller/sales.css">
+    <link rel="stylesheet" href="stylesheets/seller/order_detail.css">
 </head>
 
 <body>
@@ -370,6 +370,7 @@
                 </table>
 
         </div>
+
       </div>
 
 

@@ -1,0 +1,37 @@
+.order-detail-item{
+  text-align: left;
+  padding: 0
+}
+
+#modal_order_detail .modal_body{
+  width: 800px;
+  height: 878px;
+  padding: 0 45px;
+  line-height: normal;
+}
+
+#order-detail-table th, #order-detail-table td{
+  border-bottom: 0;
+}
+
+#order-detail-table th{
+  width: 100px;
+}
+#modal_order_detail .order-product-item{
+  padding-bottom: 15px;
+}
+#modal_order_detail .order-product-item p{
+  padding-bottom: 5px;
+}
+#modal_order_detail .order-product-item .title,
+#modal_order_detail .order-product-item .shipping-company{
+  font-weight: bold;
+  color: black;
+}
+#modal_order_detail .order-product-item span{
+  margin-right: 15px;
+}
+
+#order-detail-table td{
+  color: #747474;
+}

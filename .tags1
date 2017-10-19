@@ -4,6 +4,13 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-request	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$request = new Http();$/;"	variable	line:10
-response	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:11
-orders	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$orders = $response->datas->data;$/;"	variable	line:17
+.order-detail-item	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^.order-detail-item{$/;"	function	line:1
+#modal_order_detail .modal_body	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .modal_body{$/;"	function	line:6
+#order-detail-table th, #order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#order-detail-table th, #order-detail-table td{$/;"	function	line:13
+#order-detail-table th	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#order-detail-table th{$/;"	function	line:17
+#modal_order_detail .order-product-item	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .order-product-item{$/;"	function	line:20
+#modal_order_detail .order-product-item p	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .order-product-item p{$/;"	function	line:23
+#modal_order_detail .order-product-item .title	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .order-product-item .title,$/;"	function	line:26
+#modal_order_detail .order-product-item .shipping-company	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .order-product-item .shipping-company{$/;"	function	line:27
+#modal_order_detail .order-product-item span	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .order-product-item span{$/;"	function	line:31
+#order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#order-detail-table td{$/;"	function	line:35
