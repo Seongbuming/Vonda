@@ -4,6 +4,7 @@
     <?=$this->loadLayout("head")?>
     <link rel="stylesheet" href="stylesheets/creator/home.css">
     <link rel="stylesheet" href="stylesheets/board.css">
+    <link rel="stylesheet" href="stylesheets/admin/chart.css" />
 </head>
 
 <body>
@@ -12,16 +13,27 @@
 </header>
 
 <div id="contents">
-    <ul class="link_menu">
+    <ul class="link_menu marginBottom50">
         <li><a href="./creator.php?page=myproduct">나의상품</a></li>
         <li><a href="./creator.php?page=board">게시판 관리</a></li>
         <li><a href="./creator.php?page=profile">프로필 관리</a></li>
         <li><a href="./creator.php?page=calculate">정산내역</a></li>
     </ul>
 
-    <div class="chart">
-        <!-- home.css chart 클래스 height 쥐어줌 -->
+    <div class="btn-custom-group" role="group" >
+      <button type="button" class="btn btn-sm btn-default">일간</button>
+      <button type="button" class="btn btn-sm btn-default">주간</button>
+      <button type="button" class="btn btn-sm btn-default">월간</button>
     </div>
+    <div class="chart-container" style="width:900px;">
+      <canvas id="sales-chart" width="100%"></canvas>
+    </div>
+
+    <ul class="chart-label ">
+      <li style="color:#52CC5D"><i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span><span class="chart-item-value">9,069,000원</span></li>
+      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span><span class="chart-item-value">222건</span></li>
+      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span><span class="chart-item-value">9개</span></li>
+    </ul>
 
     <h3 class="category">나의상품&nbsp;<a href="#" class="all">전체보기 &gt;</a></h3>
     <table class="order_list">
@@ -83,5 +95,10 @@
 <footer>
     <?=$this->loadLayout("footer")?>
 </footer>
+
+ <script src="libraries/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+<script src="javascripts/admin/stati_chart.js"></script>
 </body>
 </html>
