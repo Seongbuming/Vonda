@@ -24,13 +24,12 @@ $orders = $response->datas->data;
 
     <div id="contents">
 
-      <h2 class="page_title">My Page</h2>
-
-      <ul class="link_menu">
-          <li><a href=".?page=orderlist">My Page</a></li>
-          <li><a href=".?page=board">Board</a></li>
-          <li class="actived"><a href=".?page=myinfo">My Info</a></li>
-      </ul>
+        <ul class="link_menu">
+            <li><a href="./creator.php?page=myproduct">나의상품</a></li>
+            <li><a href="./creator.php?page=board">게시판 관리</a></li>
+            <li><a href="./creator.php?page=profile">프로필 관리</a></li>
+            <li><a href="./creator.php?page=calculate">정산내역</a></li>
+        </ul>
 
         <div class="findacc_container">
             <p class="alert">회원님의 소중한 정보보호를 위해 비밀번호를 재확인하고 있습니다.</p>
@@ -45,7 +44,7 @@ $orders = $response->datas->data;
     			<h3 class="category">비밀번호 변경</h3>
             <div class="row">
                 <label for="password">새 비밀번호</label>
-                <input id="password" name="password" type="password" class="password"  placeholder="(8~15자리 영.숫자 조합가능)"/>
+                <input id="password" name="password" type="password" class="password" placeholder="(8~15자리 영.숫자 조합가능)"/>
             </div>
             <div class="row">
                 <label for="password_chk">새 비밀번호 확인</label>
@@ -65,24 +64,9 @@ $orders = $response->datas->data;
                     <span>-</span>
                     <input name="pnumber_3" type="tel" class="tel" required />
               </div>
-              <div class="row pnumber">
-                    <label for="add-pnumber">추가 연락처</label>
-                    <input id="add-pnumber" name="add_pnumber_1" type="tel" class="tel" />
-                    <span>-</span>
-                    <input name="add_pnumber_2" type="tel" class="tel"/>
-                    <span>-</span>
-                    <input name="add_pnumber_3" type="tel" class="tel" />
-              </div>
     			    <div class="row">
                     <label for="email">이메일</label>
                     <input id="email" name="email" type="email" class="email" required />
-              </div>
-              <div class="row">
-                    <label for="postcode">배송지</label>
-                    <input id="postcode" name="postcode" type="text" class="text" required />
-                    <a class="submit btn-search-address" href="#" style="float:none;">주소 검색</a>
-                    <input id="address_1" name="address_1" type="text" class="text" required  style="float:none;"/>
-                    <input id="address_2" name="address_2" type="text" class="text" required style="float:none;"/>
               </div>
 
                 <div class="button_container">

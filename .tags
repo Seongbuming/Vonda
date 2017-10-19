@@ -16,12 +16,15 @@ response	/Users/hanboramjang/Sites/vonda/views/pages/client/my_info.php	/^$respo
 orders	/Users/hanboramjang/Sites/vonda/views/pages/client/my_info.php	/^$orders = $response->datas->data;$/;"	variable	line:17
 random	/Users/hanboramjang/Sites/vonda/views/pages/client/my_info.php	/^                                $random = time();$/;"	variable	line:141
 temp	/Users/hanboramjang/Sites/vonda/views/pages/client/my_info.php	/^                                $temp = $random == 1 ? "1" : "30";$/;"	variable	line:142
-request	/Users/hanboramjang/Sites/vonda/views/pages/client/myinfo.php	/^$request = new Http();$/;"	variable	line:11
-response	/Users/hanboramjang/Sites/vonda/views/pages/client/myinfo.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:12
-orders	/Users/hanboramjang/Sites/vonda/views/pages/client/myinfo.php	/^$orders = $response->datas->data;$/;"	variable	line:18
 #address_1, #address_2	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^#address_1, #address_2{$/;"	function	line:1
 #address_1	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^#address_1{$/;"	function	line:6
 .signup_form .btn-search-address	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^.signup_form .btn-search-address{$/;"	function	line:10
+request	/Users/hanboramjang/Sites/vonda/views/pages/creator/myinfo.php	/^$request = new Http();$/;"	variable	line:11
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/myinfo.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:12
+orders	/Users/hanboramjang/Sites/vonda/views/pages/creator/myinfo.php	/^$orders = $response->datas->data;$/;"	variable	line:18
+request	/Users/hanboramjang/Sites/vonda/views/pages/client/myinfo.php	/^$request = new Http();$/;"	variable	line:11
+response	/Users/hanboramjang/Sites/vonda/views/pages/client/myinfo.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:12
+orders	/Users/hanboramjang/Sites/vonda/views/pages/client/myinfo.php	/^$orders = $response->datas->data;$/;"	variable	line:18
 request	/Users/hanboramjang/Sites/vonda/views/pages/client/board.php	/^$request = new Http();$/;"	variable	line:12
 response	/Users/hanboramjang/Sites/vonda/views/pages/client/board.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:13
 orders	/Users/hanboramjang/Sites/vonda/views/pages/client/board.php	/^$orders = $response->datas->data;$/;"	variable	line:19

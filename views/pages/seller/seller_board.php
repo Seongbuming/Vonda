@@ -90,7 +90,7 @@
                     </p>
                     <p class="review_description">
                       제가 찍은 사진은..좀.. 안이쁘게 나왔지만 구두 너무너무 예뻐요~ 다른 상품평을 보고 구매했어요...
-                      <img src="" alt="카메라아이콘.png" />
+                      <img src="images/icons/camera.png" style="vertical-align:sub;"alt="카메라아이콘.png" />
                     </p>
 
                   </td>
