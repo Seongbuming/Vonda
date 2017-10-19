@@ -4,6 +4,7 @@
     <?=$this->loadLayout("head")?>
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
+    <link rel="stylesheet" href="stylesheets/client/cancellist.css" />
 </head>
 <?php
 $request = new Http();
@@ -30,8 +31,9 @@ $orders = $response->datas->data;
         </ul>
 
         <ul class="category_menu">
-            <li class="actived"><a href=".?page=orderlist">주문내역</a></li>
-            <li><a href=".?page=cancellist">취소/반품/교환</a></li>
+            <li ><a href=".?page=orderlist">주문내역</a></li>
+            <li class="actived"><a href=".?page=cancellist">취소/반품/교환</a></li>
+            <li>transparent text</li>
         </ul>
 
         <div class="period_select">
@@ -130,23 +132,35 @@ $orders = $response->datas->data;
                                 ?>
                             </td>
 
-
                             <?php
                             if ($item == $order->items[0]) {
+
                             ?>
                             <td class="order_cancel" rowspan="<?=sizeof($order->items)?>" >
-
+                              <p class="status_text">
                                 <?php
-                                $random = time();
-                                $temp = $random == 1 ? "1" : "30";
-                                if ($item->step == "1") {
-                                // if ($temp == "1") {
-                                    echo '<button class="cancel">주문취소</button>';
-                                } else if ($temp == "30") {
-                                    echo '<button class="review">구매후기</button>';
-                                    echo '<button class="return">반품/교환</button>';
+                                switch ($item->step) {
+                                    case '1':
+                                        echo "주문취소신청";
+                                    break;
+                                    case '10':
+                                        echo "주문취소";
+                                    break;
+                                    case '20':
+                                        echo "반품신청";
+                                    break;
+                                    case "30":
+                                        echo "반품완료";
+                                    break;
+                                    case "40":
+                                        echo "교환신청";
+                                    break;
+                                    case "50":
+                                        echo "교환완료";
+                                    break;
                                 }
                                 ?>
+                              </p>
                             </td>
                             <?php
                             }
@@ -156,104 +170,6 @@ $orders = $response->datas->data;
                     }
                 }
                 ?>
-                <tr>
-                    <td class="date_id" rowspan="2">
-                        <p class="date">2017.09.10</p>
-                        <p class="id"><a href=".">2018211119</a></p>
-                    </td>
-                    <td class="product">
-                        <div class="product_img">
-                            <img src="images/products/product1.png" alt="상품사진" />
-                        </div>
-                        <div class="product_info">
-                            <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
-                            <p>옵션: <span class="option">실버</span></p>
-                            <p>수량: <span class="amount">1</span></p>
-                        </div>
-                    </td>
-                    <td class="order_price">
-                        <p>28,500원</p>
-                    </td>
-                    <td class="order_status">
-                        <p class="status_text">상품준비중</p>
-                    </td>
-                    <td class="order_cancel">
-                        <button class="cancel">주문취소</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="product">
-                        <div class="product_img">
-                            <img src="images/products/product3.png" alt="상품사진" />
-                        </div>
-                        <div class="product_info">
-                            <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
-                            <p>옵션: <span class="option">실버</span></p>
-                            <p>수량: <span class="amount">1</span></p>
-                        </div>
-                    </td>
-                    <td class="order_price">
-                        <p>11,500원</p>
-                    </td>
-                    <td class="order_status">
-                        <p class="status_text">상품준비중</p>
-                    </td>
-                    <td class="order_cancel">
-                        <button class="cancel">주문취소</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="date_id">
-                        <p class="date">2017.09.09</p>
-                        <p class="id"><a href=".">2018211119</a></p>
-                    </td>
-                    <td class="product">
-                        <div class="product_img">
-                            <img src="images/products/product2.png" alt="상품사진" />
-                        </div>
-                        <div class="product_info">
-                            <p class="open product_detail">로얄 크루</p>
-                            <p>옵션: <span class="option">마르살라</span></p>
-                            <p>수량: <span class="amount">1</span></p>
-                        </div>
-                    </td>
-                    <td class="order_price">
-                        <p>128,500원</p>
-                    </td>
-                    <td class="order_status">
-                        <p class="status_text">배송중</p>
-                        <p class="carrier">CJ대한통운</p>
-                        <p class="shippingnum">[239389893984]</p>
-                    </td>
-                    <td class="order_cancel">
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="date_id">
-                        <p class="date">2017.09.07</p>
-                        <p class="id"><a href=".">2018211119</a></p>
-                    </td>
-                    <td class="product">
-                        <div class="product_img">
-                            <img src="images/products/product4.png" alt="상품사진" />
-                        </div>
-                        <div class="product_info">
-                            <p class="open product_detail">A-Z 메신저백</p>
-                            <p>수량: <span class="amount">1</span></p>
-                        </div>
-                    </td>
-                    <td class="order_price">
-                        <p>128,500원</p>
-                    </td>
-                    <td class="order_status">
-                        <p class="status_text">배송완료</p>
-                    </td>
-                    <td class="order_cancel">
-                        <button class="review">구매후기</button>
-                        <button class="return">반품/교환</button>
-                    </td>
-                </tr>
                 <tr class="disabled">
                     <td class="date_id">
                         <p class="date">2016.03.11</p>
@@ -275,7 +191,7 @@ $orders = $response->datas->data;
                         <p class="status_text">배송완료</p>
                     </td>
                     <td class="order_cancel">
-                        <button class="review">구매후기</button>
+                        <p class="status_text">교환완료</p>
                     </td>
                 </tr>
                 <tr class="disabled">
@@ -300,7 +216,7 @@ $orders = $response->datas->data;
                         <p class="status_text">배송완료</p>
                     </td>
                     <td class="order_cancel">
-                        <button class="review">구매후기</button>
+                        <p class="status_text">교환신청</p>
                     </td>
                 </tr>
             </tbody>
