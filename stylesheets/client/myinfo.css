@@ -1,0 +1,17 @@
+#address_1, #address_2{
+  float: none;
+  margin-left: 150px;
+  display: block;
+}
+#address_1{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.signup_form .btn-search-address{
+  float: none;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 5px
+}

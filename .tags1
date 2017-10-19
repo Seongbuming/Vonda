@@ -4,6 +4,6 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-request	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$request = new Http();$/;"	variable	line:11
-response	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:12
-orders	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$orders = $response->datas->data;$/;"	variable	line:18
+#address_1, #address_2	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^#address_1, #address_2{$/;"	function	line:1
+#address_1	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^#address_1{$/;"	function	line:6
+.signup_form .btn-search-address	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^.signup_form .btn-search-address{$/;"	function	line:10
