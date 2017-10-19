@@ -34,7 +34,7 @@
         <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span><span class="chart-item-value">9개</span></li>
         <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 크리에이터</span><span class="chart-item-value">11명</span></li>
       </ul>
-		<div class="creatorCnt">나의 상품<a href="" class="allView">전체보기</a></div>
+		<div class="creatorCnt">나의 상품<a href="./seller.php?page=seller_myproduct_list" class="allView">전체보기</a></div>
 		<table id="product-table"class="order_list productTable noneMargin pd10">
         <thead>
           <tr>
@@ -102,7 +102,7 @@
                 </tr>
             </tbody>
         </table>
-		<div class="creatorCnt">크리에이터<a href="" class="allView">전체보기</a></div>
+		<div class="creatorCnt">크리에이터<a href="./seller.php?page=seller_creator" class="allView">전체보기</a></div>
 		<table id="creator-table"class="order_list productTable noneMargin pd10">
       <thead>
           <tr>
@@ -153,7 +153,7 @@
             </tbody>
         </table>
 
-        <div class="creatorCnt">공지사항<a href="" class="allView">전체보기</a></div>
+        <div class="creatorCnt">공지사항<a href="./seller.php?page=seller_notice" class="allView">전체보기</a></div>
 
             <table id="notice-table" class="board productTable noneMargin pd10">
                 <tbody>

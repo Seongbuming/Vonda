@@ -12,13 +12,13 @@
 </div>
 <div class="area_logo">
     <div class="logo_wrapper">
-        <h1><a href="."><img class="logo" src="images/logo.png" alt="WeMustCreate" /></a></h1>
+        <h1><a href="./seller.php"><img class="logo" src="images/logo.png" alt="WeMustCreate" /></a></h1>
     </div>    
 </div>
 <ul class="sellerMenu">
-	<li><a href=".">판매관리</a><span class="rightLine"></span></li>
-	<li><a href=".">나의상품</a><span class="rightLine"></span></li>
-	<li><a href=".">크리에이터</a><span class="rightLine"></span></li>
-	<li><a href=".">송장관리</a><span class="rightLine"></span></li>
-	<li><a href=".">문의/후기</a></li>
+	<li><a href="./seller.php?page=seller_sales">판매관리</a><span class="rightLine"></span></li>
+	<li><a href="./seller.php?page=seller_myproduct_list">나의상품</a><span class="rightLine"></span></li>
+	<li><a href="./seller.php?page=seller_creator">크리에이터</a><span class="rightLine"></span></li>
+	<li><a href="./seller.php?page=seller_invoice">송장관리</a><span class="rightLine"></span></li>
+	<li><a href="./seller.php?page=seller_board">문의/후기</a></li>
 </ul>
