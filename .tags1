@@ -4,6 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-#address_1, #address_2	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^#address_1, #address_2{$/;"	function	line:1
-#address_1	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^#address_1{$/;"	function	line:6
-.signup_form .btn-search-address	/Users/hanboramjang/Sites/vonda/stylesheets/client/myinfo.css	/^.signup_form .btn-search-address{$/;"	function	line:10

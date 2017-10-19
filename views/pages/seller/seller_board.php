@@ -302,8 +302,7 @@
                     <textarea cols="105" rows="7" placeholder="답변을 입력해주세요."></textarea>
                 </div>
                 <button type="button" name="button" class="submit">확인</button>
-
-        </div>
+              </div>
       </div>
 
 
