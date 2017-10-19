@@ -455,6 +455,7 @@ footer .middle_section {
 footer .middle_section .container {
     display: inline-block;
     vertical-align: middle;
+    width: 650px;
 }
 footer .area_logo {
     float: left;

@@ -1,6 +1,7 @@
 .write_cont {
     float: right;
-    margin-top: -45px;
+    margin-bottom: 50px;
+
 }
 
 .write {
@@ -16,12 +17,8 @@
     border: none;
 }
 
-.editor {
-    height: 500px;
-}
-
 #contents .title{
-    margin-top: 20px;
+    margin: 15px;
     width: 98%;
     padding: 10px 10px 10px 10px;
 }
