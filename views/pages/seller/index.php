@@ -19,7 +19,7 @@
     </header>
 
     <div id="contents">
-      <div class="btn-custom-group" role="group" >
+      <div class="btn-custom-group marginTop50" role="group" >
         <button type="button" class="btn btn-sm btn-default">일간</button>
         <button type="button" class="btn btn-sm btn-default">주간</button>
         <button type="button" class="btn btn-sm btn-default">월간</button>
