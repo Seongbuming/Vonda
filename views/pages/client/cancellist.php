@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
     <link rel="stylesheet" href="stylesheets/client/cancellist.css" />
+    <link rel="stylesheet" href="stylesheets/seller/order_detail.css" />
 </head>
 <?php
 $request = new Http();
@@ -359,6 +360,108 @@ $orders = $response->datas->data;
                 </div>
             </div>
         </div>
+
+
+                <div id="modal_order_detail" class="modal actived">
+                  <div class="close_section modal_close"></div>
+                  <div class="modal_body">
+                      <button class="close_button modal_close">
+                          <img src="images/buttons/close.png" alt="닫기" />
+                      </button>
+
+                      <h3 class="category">ORDER DETAIL</h3>
+                        <table id="order-detail-table"style="width:100%" class="order-detail-table productTable table order_list noneMargin">
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">주문번호</th>
+                            <td class="order-detail-item-content">2018211119</td>
+                          </tr>
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">주문일시</th>
+                            <td class="order-detail-item-content">2017.08.31</td>
+                          </tr>
+                          <tr class="order-detail-item"
+                          style="border-bottom: solid 1px #d8d8d8;">
+                            <th class="order-detail-item-label">주문자</th>
+                            <td class="order-detail-item-content">진아영</td>
+                          </tr>
+
+                          <tr class="order-detail-item"   style="border-bottom: solid 1px #d8d8d8;">
+                            <th class="order-detail-item-label">주문상품/<br>상태</th>
+                            <td class="order-detail-item-content">
+                              <ul class="order-product-list">
+                                <li class="order-product-item">
+                                  <p>
+                                    <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
+                                    <span class="option">옵션 : 실버</span>
+                                    <span class="count">수량 : 1</span>
+                                  </p>
+                                  <p>
+                                    <span class="shipping-status">배송중</span>
+                                    <a href="#" class="shipping-company">CJ대한통운 [23891283018390]</a>
+                                  </p>
+                                </li>
+                                <li class="order-product-item">
+                                  <p>
+                                    <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
+                                    <span class="option">옵션 : 실버</span>
+                                    <span class="count">수량 : 1</span>
+                                  </p>
+                                  <p>
+                                    <span class="shipping-status">배송중</span>                          </p>
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">총 주문금액</th>
+                            <td class="order-detail-item-content">26,000원</td>
+                          </tr>
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">배송비</th>
+                            <td class="order-detail-item-content">2500원</td>
+                          </tr>
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">총 할인금액</th>
+                            <td class="order-detail-item-content">-1,000원(쿠폰할인)</td>
+                          </tr>
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">총 결제금액</th>
+                            <td class="order-detail-item-content">27,500원</td>
+                          </tr>
+                          <tr class="order-detail-item"
+                          style="border-bottom: solid 1px #d8d8d8;">
+                            <th class="order-detail-item-label">결제수단</th>
+                            <td class="order-detail-item-content">삼성카드 5112-3130-****-****</td>
+                          </tr>
+
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">수령인</th>
+                            <td class="order-detail-item-content">진*영</td>
+                          </tr>
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">연락처</th>
+                            <td class="order-detail-item-content">010-2344-****</td>
+                          </tr>
+                          <tr class="order-detail-item">
+                            <th class="order-detail-item-label">배송지</th>
+                            <td class="order-detail-item-content">
+                              <p class="postcode">
+                                29123
+                              </p>
+                              <p class="address">
+                                인천광역시 연수구 신학동
+                              </p>
+                            </td>
+                          </tr>
+                          <tr class="order-detail-item"
+                          style="border-bottom: solid 1px #d8d8d8;">
+                            <th class="order-detail-item-label">배송메세지</th>
+                            <td class="order-detail-item-content">-</td>
+                          </tr>
+                      </table>
+
+                        </div>
+
     </div>
 
     <footer>

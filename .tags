@@ -8,3 +8,6 @@
 #modal_order_detail .order-product-item .shipping-company	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .order-product-item .shipping-company{$/;"	function	line:27
 #modal_order_detail .order-product-item span	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#modal_order_detail .order-product-item span{$/;"	function	line:31
 #order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/seller/order_detail.css	/^#order-detail-table td{$/;"	function	line:35
+request	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$request = new Http();$/;"	variable	line:11
+response	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:12
+orders	/Users/hanboramjang/Sites/vonda/views/pages/client/cancellist.php	/^$orders = $response->datas->data;$/;"	variable	line:18
