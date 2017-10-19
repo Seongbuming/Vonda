@@ -92,3 +92,11 @@ footer .area_contact .wrapper	/Users/hanboramjang/Sites/vonda/stylesheets/common
 .write_cont	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_write.css	/^.write_cont {$/;"	function	line:1
 .write	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_write.css	/^.write {$/;"	function	line:7
 #contents .title	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_write.css	/^#contents .title{$/;"	function	line:20
+.btn-edit img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.btn-edit img{$/;"	function	line:1
+.order_list tbody .num	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.order_list tbody .num {$/;"	function	line:5
+.order_list tbody .date	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.order_list tbody .date {$/;"	function	line:10
+.order_list tbody .account	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.order_list tbody .account {$/;"	function	line:14
+.order_list tbody .price	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.order_list tbody .price {$/;"	function	line:19
+.order_list tbody .status	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.order_list tbody .status {$/;"	function	line:24
+.calculate_notice	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.calculate_notice {$/;"	function	line:29
+.calculate_notice .account_info_title	/Users/hanboramjang/Sites/vonda/stylesheets/creator/calculate.css	/^.calculate_notice .account_info_title {$/;"	function	line:39

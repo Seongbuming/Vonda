@@ -21,7 +21,9 @@
     <div class="calculate_notice">
         <p>* 매월 5일, 전월분이 입력하신 계좌로 일괄 정산됩니다.<br>공휴일일 경우 전일에 정산처리됩니다.</p>
         <p class="account_info_title">계좌정보</p>
-        <p>농협 110-******-203 예금주:진아영</p>
+        <p>농협 110-******-203 예금주:진아영
+          <a href="#" class="btn-edit"><img src="images/buttons/edit.png" alt="" /></a>
+        </p>
     </div>
     <h3 class="category">정산내역</h3>
     <table class="order_list">
