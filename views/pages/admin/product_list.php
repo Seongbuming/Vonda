@@ -30,19 +30,14 @@
         <div id="page-content-wrapper">
           <section id="vd-product-list">
             <div class="container-fluid">
-              <div class="nav nav-tabs">
-                <div class="btn-container">
-                  <button type="button" class="btn btn-default btn-sm">
-                    <span>2017-06-16</span>
-                    <img src="images/buttons/admin/calendar.png" alt="calendar.png" />
-                    <!-- <span class="glyphicon glyphicon-calendar"></span> -->
-                  </button>
-
-                  <button type="button" class="btn btn-default btn-sm">
-                    <span>2017-06-16</span>
-                    <img src="images/buttons/admin/calendar.png" alt="calendar.png" />
-                  </button>
-                  <button type="button" name="search" class="btn btn-sm btn-peach">조회</button>
+              <div class="nav">
+                <div class="period_select">
+                    <div class="input_period">
+                        <input class="start" type="date" style="width:130px" />
+                        <span>~</span>
+                        <input class="end" type="date" style="width:130px" />
+                        <button class="search btn-sm btn-peach">조회</button>
+                    </div>
                 </div>
                 <div class="input-container">
                   <input type="input" name="search_input" value="" placeholder="">
@@ -78,7 +73,7 @@
                           </div>
                         </td>
                         <td class="title">
-                          <p><a href="#">옵션이 있을 때 재고 표시 방법</a></p>
+                          <p><a href="admin.php?page=product_stat">옵션이 있을 때 재고 표시 방법</a></p>
                           <p>
                             <span class="label">옵션 : </span>
                             <span class="label-content">실버,골드</span>
@@ -103,7 +98,7 @@
                           </div>
                         </td>
                         <td class="title">
-                          <p><a href="#">옵션이 없는 경우 재고 표시 방법</a></p>
+                          <p><a href="admin.php?page=product_stat">옵션이 없는 경우 재고 표시 방법</a></p>
                           <p>
                             <span class="label">재고 : </span>
                             <span class="label-conent">
@@ -124,7 +119,7 @@
                           </div>
                         </td>
                         <td class="title">
-                          <p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p>
+                          <p><a href="admin.php?page=product_stat">SINGLE-BREASTED OVERIZED BLAZER</a></p>
                           <p>
                             <span class="label">옵션 : </span>
                             <span class="label-content">실버,골드</span>

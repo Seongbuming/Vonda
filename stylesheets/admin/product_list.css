@@ -1,9 +1,8 @@
-.nav-tabs .btn-container {
-  padding: 15px 0;
+.nav{
+  margin-bottom: 15px;
 }
-
-.nav-tabs .input-container {
-  padding-top: 15px;
+.nav .btn-container {
+  padding: 15px 0;
 }
 
 .product-list .btn-container{

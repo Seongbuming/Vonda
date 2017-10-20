@@ -1,3 +1,7 @@
+.nav{
+  margin-bottom: 15px;
+}
+
 #vd-sales-list .btn-container{
   padding: 0 0 15px 0;
 }
@@ -81,4 +85,41 @@
 }
 .order-detail-table .order-detail-item-label{
   font-weight: bold;
+}
+.order-detail-item{
+  text-align: left;
+  padding: 0
+}
+
+#order-detail-modal .modal_body{
+  width: 800px;
+  height: 878px;
+  padding: 0 45px;
+  line-height: normal;
+}
+
+#order-detail-table th, #order-detail-table td{
+  border-bottom: 0;
+}
+
+#order-detail-table th{
+  width: 100px;
+}
+#order-detail-modal .order-product-item{
+  padding-bottom: 15px;
+}
+#order-detail-modal .order-product-item p{
+  padding-bottom: 5px;
+}
+#order-detail-modal .order-product-item .title,
+#order-detail-modal .order-product-item .shipping-company{
+  font-weight: bold;
+  color: black;
+}
+#order-detail-modal .order-product-item span{
+  margin-right: 15px;
+}
+
+#order-detail-table td{
+  color: #747474;
 }

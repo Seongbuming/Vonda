@@ -66,6 +66,11 @@
 #product-write .option-item-input.border-gray{
   border: solid 1px #d8d8d8;
 }
+#product-write .option-item-add:focus,
+#product-write .option-item-add:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
 #product-write .option-item-add .operator{
   text-align: center;
   padding-right: 10px;

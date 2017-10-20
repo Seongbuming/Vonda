@@ -4,3 +4,37 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+.nav	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.nav{$/;"	function	line:1
+#vd-sales-list .btn-container	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .btn-container{$/;"	function	line:5
+#vd-sales-list .product-list	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-list{$/;"	function	line:9
+#vd-sales-list .sales-number a	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .sales-number a{$/;"	function	line:12
+#vd-sales-list .title-group	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .title-group{$/;"	function	line:18
+#vd-sales-list .product-item .state	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .state,$/;"	function	line:23
+#vd-sales-list .product-item .sales-date	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .sales-date{$/;"	function	line:24
+#vd-sales-list .product-item .sales-date	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .sales-date,$/;"	function	line:28
+#vd-sales-list .product-item .title a	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .title a,$/;"	function	line:29
+#vd-sales-list .product-item .title p span	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .title p span{$/;"	function	line:30
+#vd-sales-list .state button	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .state button{$/;"	function	line:34
+#vd-sales-list .modal	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal{$/;"	function	line:38
+#vd-sales-list .modal .modal-content	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal .modal-content{$/;"	function	line:41
+#vd-sales-list .modal-dialog .modal-header	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal-dialog .modal-header{$/;"	function	line:46
+#vd-sales-list .modal .modal-dialog	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal .modal-dialog{$/;"	function	line:51
+#vd-sales-list .modal .title	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal .title{$/;"	function	line:56
+#vd-sales-list .btn-close	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .btn-close{$/;"	function	line:59
+#vd-sales-list .btn-close span	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .btn-close span{$/;"	function	line:64
+#vd-sales-list .modal-body	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal-body{$/;"	function	line:69
+#vd-sales-list .order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .order-detail-table td,$/;"	function	line:73
+#vd-sales-list .order-detail-table th	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .order-detail-table th,$/;"	function	line:74
+.order-detail-table>tbody>tr>td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-table>tbody>tr>td,$/;"	function	line:75
+.order-detail-table>tbody>tr>th	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-table>tbody>tr>th{$/;"	function	line:82
+.order-detail-table .order-detail-item-label	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-table .order-detail-item-label{$/;"	function	line:86
+.order-detail-item	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-item{$/;"	function	line:89
+#order-detail-modal .modal_body	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .modal_body{$/;"	function	line:94
+#order-detail-table th, #order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-table th, #order-detail-table td{$/;"	function	line:101
+#order-detail-table th	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-table th{$/;"	function	line:105
+#order-detail-modal .order-product-item	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item{$/;"	function	line:108
+#order-detail-modal .order-product-item p	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item p{$/;"	function	line:111
+#order-detail-modal .order-product-item .title	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item .title,$/;"	function	line:114
+#order-detail-modal .order-product-item .shipping-company	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item .shipping-company{$/;"	function	line:115
+#order-detail-modal .order-product-item span	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item span{$/;"	function	line:119
+#order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-table td{$/;"	function	line:123

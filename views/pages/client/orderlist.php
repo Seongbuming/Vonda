@@ -491,7 +491,8 @@ $orders = $response->datas->data;
                             <span class="count">수량 : 1</span>
                           </p>
                           <p>
-                            <span class="shipping-status">배송중</span>                          </p>
+                            <span class="shipping-status">배송중</span>
+                          </p>
                         </li>
                       </ul>
                     </td>

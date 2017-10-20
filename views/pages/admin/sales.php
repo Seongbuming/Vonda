@@ -161,77 +161,103 @@
                         </div>
 
                         <div class="modal-body">
-                          <table style="width:100%" class="table order-detail-table">
+                          <table id="table-detail-table"style="width:100%" class="table order-detail-table">
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">주문번호</th>
                               <td class="order-detail-item-content">2018211119</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">주문일시</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">2017.08.31</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">주문자</th>
-                              <td class="order-detail-item-content">2018211119</td>
+                              <td class="order-detail-item-content">진아영</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">아이디</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">dksfjl</td>
                             </tr>
                             <tr class="order-detail-item"
                             style="border-bottom: solid 1px #d8d8d8;">
                               <th class="order-detail-item-label">주문상태</th>
-                              <td class="order-detail-item-content">2018211119</td>
+                              <td class="order-detail-item-content">결제완료</td>
                             </tr>
 
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">주문상품/<br>상태</th>
-                              <td class="order-detail-item-content">2018211119</td>
-                            </tr>
-                            <tr class="order-detail-item"
-                            style="border-bottom: solid 1px #d8d8d8;">
-                              <th class="order-detail-item-label"></th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">
+                                <ul class="order-product-list">
+                                  <li class="order-product-item">
+                                    <p>
+                                      <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
+                                      <span class="option">옵션 : 실버</span>
+                                      <span class="count">수량 : 1</span>
+                                    </p>
+                                    <p>
+                                      <span class="shipping-status">배송중</span>
+                                      <a href="#" class="shipping-company">CJ대한통운 [23891283018390]</a>
+                                    </p>
+                                  </li>
+                                  <li class="order-product-item">
+                                    <p>
+                                      <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
+                                      <span class="option">옵션 : 실버</span>
+                                      <span class="count">수량 : 1</span>
+                                    </p>
+                                    <p>
+                                      <span class="shipping-status">배송중</span>
+                                    </p>
+                                  </li>
+                                </ul>
+                              </td>
                             </tr>
 
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">총 주문금액</th>
-                              <td class="order-detail-item-content">2018211119</td>
+                              <td class="order-detail-item-content">26,000원</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">배송비</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">2500원</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">총 할인금액</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">-1,000원(쿠폰할인)</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">총 결제금액</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">27,500원</td>
                             </tr>
                             <tr class="order-detail-item"
                             style="border-bottom: solid 1px #d8d8d8;">
                               <th class="order-detail-item-label">결제수단</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">삼성카드 5112-3130-****-****</td>
                             </tr>
 
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">수령인</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">진*영</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">연락처</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">010-2344-****</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">배송지</th>
-                              <td class="order-detail-item-content">555 77 854</td>
+                              <td class="order-detail-item-content">
+                                <p class="postcode">
+                                  29123
+                                </p>
+                                <p class="address">
+                                  인천광역시 연수구 신학동
+                                </p>
+                              </td>
                             </tr>
                             <tr class="order-detail-item"
                             style="border-bottom: solid 1px #d8d8d8;">
                               <th class="order-detail-item-label">배송메세지</th>
-                              <td class="order-detail-item-content">2018211119</td>
+                              <td class="order-detail-item-content">-</td>
                             </tr>
                         </table>
                         </div>

@@ -69,19 +69,6 @@
                               211 - 실버(11), 골드(200)
                             </span>
                           </p>
-                        </td>
-                        <td class="price">26,000원</td>
-                        <td class="count">56</td>
-                        <td class="total">2,326,000원</td>
-                        <td class="stock">211</td>
-                      </tr>
-                      <tr class="product-item">
-                        <td>
-                          <div class="thumbnail-img">
-                            <img class="product-img" src="images/products/product2.png" alt="" />
-                          </div>
-                        </td>
-                        <td class="title">
                           <p><a href="#">옵션이 없는 경우 재고 표시 방법</a></p>
                           <p>
                             <span class="label">재고 : </span>
