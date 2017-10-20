@@ -97,11 +97,23 @@ body p {
 }
 
 .sidebar-nav .menu-item-icon {
-  height: 18px
+  width: 20px;
+}
+
+.sidebar-nav .menu-member img{
+  width:25px;
+  margin-left: -5px;
+}
+.sidebar-nav .menu-notice img,
+.sidebar-nav .menu-sales img,
+.sidebar-nav .menu-calculate img{
+  width: 16px;
+  margin-right: 4px;
 }
 
 .sidebar-nav .menu-item-text {
   margin-left: 15px;
+
 }
 
 .sidebar-btn.btn-logout {
