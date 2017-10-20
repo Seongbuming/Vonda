@@ -4,7 +4,7 @@ class Template {
     private $attributes;
     private $disabled;
 
-    public function __construct($title = "청년스토어 본다") {
+    public function __construct($title = "청년스토어") {
         $this->title = $title;
     }
 

@@ -21,37 +21,37 @@ $new_items = $response->datas;
             <p>CART</p>
             <div class="badge">
                 <img class="badge_image" src="images/buttons/shopping-cart.png" alt="CART" />
-                <span class="badge_text">2</span>
+                <!--<span class="badge_text">2</span>-->
             </div>
         </a>
 
         <ul class="bxslider">
             <li>
-                <a class="overlay_container" href=".">
+                <a class="overlay_container" href="./?page=creator_profile">
                     <img src="images/banner/banner1.png" alt="배너 이미지 1" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
                 </a>
-                <a class="overlay_container" href=".">
+                <a class="overlay_container" href="./?page=creator_profile">
                     <img src="images/banner/banner2.png" alt="배너 이미지 2" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
                 </a>
-                <a class="overlay_container" href=".">
+                <a class="overlay_container" href="./?page=creator_profile">
                     <img src="images/banner/banner3.png" alt="배너 이미지 3" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
                 </a>
-                <a class="overlay_container" href=".">
+                <a class="overlay_container" href="./?page=creator_profile">
                     <img src="images/banner/banner4.png" alt="배너 이미지 4" />
                     <div class="overlay">
                         <p>@highlight</p>
                     </div>
                 </a>
-                <a class="overlay_container" href=".">
+                <a class="overlay_container" href="./?page=creator_profile">
                     <img src="images/banner/banner5.png" alt="배너 이미지 5" />
                     <div class="overlay">
                         <p>@highlight</p>
@@ -148,7 +148,7 @@ $new_items = $response->datas;
                     <img src="images/creators/creator2.png" alt="크리에이터 이미지" />
                 </div>
                 <div class="creator_profile">
-                    <p class="creator_name">@ANOTHER A</p>
+                    <p class="creator_name"><a href="./?page=creator_profile">@ANOTHER A</a></p>
                     <p class="creator_message">캐쥬얼하고 미니멀한 베이스에 ANOTHER A만의 감성을 더하여 트렌드를 반영함과 동시에 개성 있고 감각적인 룩을 선보입니다. 매 시즌 베이직함을 바탕으로 한 또 다른  디자인들로 다양한 스타일링을 제안합니다.</p>
                     <div class="icons">
                         <a href="."><img src="images/icons/home_sns/instagram-logo.png" alt="Instagram" /></a>

@@ -1,5 +1,5 @@
 <div class="area_logo">
-    <img class="logo" src="images/logo.png" alt="로고" />
+    <img class="logo" src="images/logo2.png" alt="로고" />
 </div>
 
 <div class="middle_section">

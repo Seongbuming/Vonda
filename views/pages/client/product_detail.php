@@ -142,7 +142,7 @@ if (isset($_GET['id'])) {
             <button class="right">▶</button>
         </div>
 
-        <h3 class="category">FAQ</h3>
+        <h3 class="category">Q&A</h3>
 
         <table class="board faq">
             <tbody>

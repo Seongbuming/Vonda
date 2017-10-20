@@ -57,7 +57,7 @@ if (isset($_GET['keyword'])) {
                             <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 이미지" />
                         </div>
                         <div class="creator_profile">
-                            <p class="creator_name">@<?=$creator->nickname?></p>
+                            <p class="creator_name"><a href="./?page=creator_profile">@<?=$creator->nickname?></a></p>
                             <p class="creator_message"><?=$creator->introduce?></p>
                             <div class="icons">
                                 <?php

@@ -4,7 +4,7 @@
     </li>
     <li class="sidebar-brand">
         <a href="#">
-            <img src="images/logo.png" alt="logo.png" />
+            <img src="images/logo2.png" alt="logo.png" />
         </a>
     </li>
     <li class="sidebar-menu menu-stati" >

@@ -37,7 +37,7 @@
       <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span><span class="chart-item-value">9개</span></li>
     </ul>
 
-    <h3 class="category">나의상품&nbsp;<a href="#" class="all">전체보기 &gt;</a></h3>
+    <h3 class="category">나의상품&nbsp;<a href="./creator.php?page=myproduct" class="all">전체보기 &gt;</a></h3>
     <table class="order_list">
         <thead>
         <tr>
@@ -79,14 +79,14 @@
         </tbody>
     </table>
 
-    <h3 class="category">공지사항&nbsp;<a href="#" class="all">전체보기 &gt;</a></h3>
+    <h3 class="category">공지사항&nbsp;<a href="./creator.php?page=board" class="all">전체보기 &gt;</a></h3>
     <table class="board">
         <tbody>
 
         <tr class="row_subject">
             <td class="time">2017.08.22 13:20</td>
             <td class="subject">
-                <a href=".?page=board_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
+                <a href="./creator.php?page=board_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
             </td>
         </tr>
         </tbody>
