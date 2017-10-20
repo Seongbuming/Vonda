@@ -2,7 +2,7 @@
 	<div class="area_links limitSize">
 		<h2>SELLER</h2>
 		<ul class="menu menu_left">
-			<li><a href=".">공지사항</a></li>			
+			<li><a href=".">공지사항</a></li>
 		</ul>
 		<ul class="menu menu_right">
 			<li><a href=".">로그아웃</a></li>
@@ -13,7 +13,7 @@
 <div class="area_logo">
     <div class="logo_wrapper">
         <h1><a href="./seller.php"><img class="logo" src="images/logo.png" alt="WeMustCreate" /></a></h1>
-    </div>    
+    </div>
 </div>
 <ul class="sellerMenu">
 	<li><a href="./seller.php?page=seller_sales">판매관리</a><span class="rightLine"></span></li>

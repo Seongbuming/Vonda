@@ -5,11 +5,12 @@
     <link rel="stylesheet" href="stylesheets/creator/home.css">
     <link rel="stylesheet" href="stylesheets/board.css">
     <link rel="stylesheet" href="stylesheets/admin/chart.css" />
+    <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
 </head>
 
 <body>
 <header>
-    <?=$this->loadLayout("header")?>
+    <?=$this->loadLayout("creator/header")?>
 </header>
 
 <div id="contents">
@@ -93,7 +94,7 @@
 </div>
 
 <footer>
-    <?=$this->loadLayout("footer")?>
+    <?=$this->loadLayout("creator/footer")?>
 </footer>
 
  <script src="libraries/jquery-3.2.1.min.js"></script>

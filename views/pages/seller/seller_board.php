@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
-	<link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
+	   <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
     <link rel="stylesheet" href="stylesheets/board.css">
