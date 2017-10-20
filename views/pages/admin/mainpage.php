@@ -46,7 +46,7 @@
                                 <label for="<?="ex_filename".$t?>">
                                   <span class="glyphicon glyphicon-search text-heavy-gray"></span>
                                 </label>
-                                <input type="file" id="<?="ex_filename".$t?>" class="upload-hidden">
+                                <input type="file" id="<?="ex_filename".$t?>" class="upload-hidden" accept="image/*">
                               </div>
                             </li>
 
@@ -72,7 +72,7 @@
                               <label for="<?="ex_filename".$t?>">
                                 <span class="glyphicon glyphicon-search text-heavy-gray"></span>
                               </label>
-                              <input type="file" id="<?="ex_filename".$t?>" class="upload-hidden">
+                              <input type="file" id="<?="ex_filename".$t?>" class="upload-hidden" accept="image/*">
                             </div>
                           </li>
 

@@ -32,7 +32,7 @@ $creator = $response->data;
             <label for="creator-profile-upload">
               <img src="images/icons/camera_white.png" alt="" />
             </label>
-            <input type="file" id="creator-profile-upload" class="upload-hidden">
+            <input type="file" id="creator-profile-upload" class="upload-hidden" accept="image/*">
           </div>
         </div>
         <!--
@@ -44,7 +44,7 @@ $creator = $response->data;
           <label for="creator-bg-upload">
             <img src="images/icons/camera_white.png" alt="" />
           </label>
-          <input type="file" id="creator-bg-upload" class="upload-hidden">
+          <input type="file" id="creator-bg-upload" class="upload-hidden" accept="image/*">
           <label for="">1150X450</label>
         </div>
       </div>

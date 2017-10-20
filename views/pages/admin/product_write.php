@@ -135,7 +135,7 @@
                       <label for="ex_filename">
                         <span class="glyphicon glyphicon-search text-heavy-gray"></span>
                       </label>
-                      <input type="file" id="ex_filename" class="upload-hidden">
+                      <input type="file" id="ex_filename" class="upload-hidden" accept="image/*">
                     </div>
                   </div>
                   <div class="form-group">
