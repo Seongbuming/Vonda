@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
+    <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/findaccount.css" />
     <link rel="stylesheet" href="stylesheets/client/signup.css" />
@@ -19,7 +20,7 @@ $orders = $response->datas->data;
 ?>
 <body>
     <header>
-        <?=$this->loadLayout("header")?>
+        <?=$this->loadLayout("creator/header")?>
     </header>
 
     <div id="contents">
@@ -212,7 +213,7 @@ $orders = $response->datas->data;
     </div>
 
     <footer>
-        <?=$this->loadLayout("footer")?>
+        <?=$this->loadLayout("creator/footer")?>
     </footer>
 
     <script src="libraries/jquery-3.2.1.min.js"></script>

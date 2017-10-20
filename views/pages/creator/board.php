@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
+    <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/creator/board.css"/>
 </head>
 <?php
@@ -12,7 +13,7 @@ $boards = $response->datas->data;
 ?>
 <body>
 <header>
-    <?=$this->loadLayout("header")?>
+    <?=$this->loadLayout("creator/header")?>
 </header>
 
 <div id="contents">
@@ -50,7 +51,7 @@ $boards = $response->datas->data;
 </div>
 
 <footer>
-    <?=$this->loadLayout("footer")?>
+    <?=$this->loadLayout("creator/footer")?>
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="javascripts/board.js"></script>
 </footer>

@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
+    <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/creator/home.css">
     <link rel="stylesheet" href="stylesheets/board.css">
     <link rel="stylesheet" href="stylesheets/admin/chart.css" />

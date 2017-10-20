@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <?= $this->loadLayout("head") ?>
+    <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/creator/profile2.css">
 </head>
 <?php
@@ -12,7 +13,7 @@ $creator = $response->data;
 ?>
 <body>
 <header>
-    <?= $this->loadLayout("header") ?>
+    <?= $this->loadLayout("creator/header") ?>
 </header>
 
 <div id="contents">
@@ -26,7 +27,7 @@ $creator = $response->data;
     <div class="creator_profile">
         <img src="images/creators/creator_background1.png" class="creator_profile_bg_img">
         <img src="images/creators/creator_profile.png" id="profile_location" class="creator_profile_img">
-        <!-- 
+        <!--
         <img src="http://api.siyeol.com/<?=$creator->cover_image?>" class="creator_profile_bg_img">
         <img src="http://api.siyeol.com/<?=$creator->background_image?>" id="profile_location" class="
         -->
@@ -44,7 +45,7 @@ $creator = $response->data;
 </div>
 
 <footer>
-    <?= $this->loadLayout("footer") ?>
+    <?= $this->loadLayout("creator/footer") ?>
 </footer>
 </body>
 </html>

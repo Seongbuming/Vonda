@@ -2,12 +2,13 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
+    <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/client/login.css" />
 </head>
 
 <body>
     <header>
-        <?=$this->loadLayout("header")?>
+        <?=$this->loadLayout("creator/header")?>
     </header>
     <?php
     // 로그아웃
@@ -37,7 +38,7 @@
     </div>
 
     <footer>
-        <?=$this->loadLayout("footer")?>
+        <?=$this->loadLayout("creator/footer")?>
     </footer>
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="javascripts/client/login.js"></script>

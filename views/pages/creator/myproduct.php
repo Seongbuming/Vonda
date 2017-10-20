@@ -2,13 +2,14 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
+    <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/creator/myproduct.css">
     <link rel="stylesheet" href="stylesheets/board.css">
 </head>
 
 <body>
 <header>
-    <?=$this->loadLayout("header")?>
+    <?=$this->loadLayout("creator/header")?>
 </header>
 
 <div id="contents">
@@ -67,7 +68,7 @@
 </div>
 
 <footer>
-    <?=$this->loadLayout("footer")?>
+    <?=$this->loadLayout("creator/footer")?>
 </footer>
 </body>
 </html>
