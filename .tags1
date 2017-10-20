@@ -4,5 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-success	/Users/hanboramjang/Sites/vonda/views/pages/admin/login.php	/^          success: function (res) {$/;"	jsfunction	line:49
-error	/Users/hanboramjang/Sites/vonda/views/pages/admin/login.php	/^          error: function (err) {$/;"	jsfunction	line:63

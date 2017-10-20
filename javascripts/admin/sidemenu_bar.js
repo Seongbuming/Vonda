@@ -1,26 +1,20 @@
 $(document).ready(function() {
 
-  //sidebar menu hover
-  $('.sidebar-menu')
-  .mouseout(function() {
-    // console.log("out");
-    var target = $(this).children().children("img");
-     var newSrc = target.attr("src").replace("peach", "gray");
-     target.attr("src", newSrc);
-  })
-  .mouseover(function() {
-    // console.log("over");
-    var target = $(this).children().children("img");
-     var newSrc = target.attr("src").replace("gray", "peach");
-     target.attr("src", newSrc);
-  });
-  // .click(function (e) {
-  //   e.preventDefault();
-  //   var target = $(this).children().children("img");
-  //   var newSrc = target.attr("src").replace("gray", "peach");
-  //   target.attr("src", newSrc);
-  //   console.log("click");
-  // });
+  var page_url = $(location).attr("href");
+  var menu_list = ['stati', 'member', 'notice','product','sales','calculate','mainpage'];
+
+  for(var index = 0; index< menu_list.length ;index++){
+    if(page_url.indexOf(menu_list[index]) > -1){
+      //change icon image
+      var target = $( '.menu-' + menu_list[index] ).children().children("img");
+      var newSrc = target.attr("src").replace("gray","peach");
+      target.attr("src",newSrc);
+
+      //change menu text color
+      $('.menu-' + menu_list[index] ).children().children("span").css("color","#e69a83");
+      break;
+    }
+  }
 
   $('.nav-tabs .nav-link').click(function (e) {
     e.preventDefault();

@@ -7,7 +7,7 @@
             <img src="images/logo.png" alt="logo.png" />
         </a>
     </li>
-    <li class="sidebar-menu menu-static" >
+    <li class="sidebar-menu menu-stati" >
         <a href="admin.php?page=home_stati">
           <img class="menu-item-icon"src="images/icons/admin_menu/gray/statistics.png" alt="statistics.png"/>
           <span class="menu-item-text ">통계</span>
