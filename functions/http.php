@@ -34,7 +34,7 @@ class Http
             if ($response->code == 401) {
                 // Token Expired
                 setcookie('token', NULL);
-                header("location:./?page=login");
+                header("location:?page=login");
                 return false;
             }
 
