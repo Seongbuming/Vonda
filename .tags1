@@ -4,37 +4,58 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-.nav	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.nav{$/;"	function	line:1
-#vd-sales-list .btn-container	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .btn-container{$/;"	function	line:5
-#vd-sales-list .product-list	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-list{$/;"	function	line:9
-#vd-sales-list .sales-number a	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .sales-number a{$/;"	function	line:12
-#vd-sales-list .title-group	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .title-group{$/;"	function	line:18
-#vd-sales-list .product-item .state	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .state,$/;"	function	line:23
-#vd-sales-list .product-item .sales-date	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .sales-date{$/;"	function	line:24
-#vd-sales-list .product-item .sales-date	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .sales-date,$/;"	function	line:28
-#vd-sales-list .product-item .title a	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .title a,$/;"	function	line:29
-#vd-sales-list .product-item .title p span	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .product-item .title p span{$/;"	function	line:30
-#vd-sales-list .state button	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .state button{$/;"	function	line:34
-#vd-sales-list .modal	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal{$/;"	function	line:38
-#vd-sales-list .modal .modal-content	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal .modal-content{$/;"	function	line:41
-#vd-sales-list .modal-dialog .modal-header	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal-dialog .modal-header{$/;"	function	line:46
-#vd-sales-list .modal .modal-dialog	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal .modal-dialog{$/;"	function	line:51
-#vd-sales-list .modal .title	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal .title{$/;"	function	line:56
-#vd-sales-list .btn-close	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .btn-close{$/;"	function	line:59
-#vd-sales-list .btn-close span	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .btn-close span{$/;"	function	line:64
-#vd-sales-list .modal-body	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .modal-body{$/;"	function	line:69
-#vd-sales-list .order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .order-detail-table td,$/;"	function	line:73
-#vd-sales-list .order-detail-table th	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#vd-sales-list .order-detail-table th,$/;"	function	line:74
-.order-detail-table>tbody>tr>td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-table>tbody>tr>td,$/;"	function	line:75
-.order-detail-table>tbody>tr>th	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-table>tbody>tr>th{$/;"	function	line:82
-.order-detail-table .order-detail-item-label	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-table .order-detail-item-label{$/;"	function	line:86
-.order-detail-item	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^.order-detail-item{$/;"	function	line:89
-#order-detail-modal .modal_body	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .modal_body{$/;"	function	line:94
-#order-detail-table th, #order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-table th, #order-detail-table td{$/;"	function	line:101
-#order-detail-table th	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-table th{$/;"	function	line:105
-#order-detail-modal .order-product-item	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item{$/;"	function	line:108
-#order-detail-modal .order-product-item p	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item p{$/;"	function	line:111
-#order-detail-modal .order-product-item .title	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item .title,$/;"	function	line:114
-#order-detail-modal .order-product-item .shipping-company	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item .shipping-company{$/;"	function	line:115
-#order-detail-modal .order-product-item span	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-modal .order-product-item span{$/;"	function	line:119
-#order-detail-table td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/sales.css	/^#order-detail-table td{$/;"	function	line:123
+body	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^body {$/;"	function	line:1
+body p	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^body p {$/;"	function	line:5
+#wrapper	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^#wrapper {$/;"	function	line:9
+#wrapper.toggled	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^#wrapper.toggled {$/;"	function	line:17
+#sidebar-wrapper	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^#sidebar-wrapper {$/;"	function	line:21
+#wrapper.toggled #sidebar-wrapper	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^#wrapper.toggled #sidebar-wrapper {$/;"	function	line:36
+#page-content-wrapper	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^#page-content-wrapper {$/;"	function	line:42
+#wrapper.toggled #page-content-wrapper	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^#wrapper.toggled #page-content-wrapper {$/;"	function	line:49
+.sidebar-nav	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav {$/;"	function	line:55
+.sidebar-text	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-text {$/;"	function	line:64
+.sidebar-nav .sidebar-brand	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .sidebar-brand {$/;"	function	line:70
+.sidebar-nav .sidebar-brand img	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .sidebar-brand img {$/;"	function	line:77
+.sidebar-nav .sidebar-menu a, .sidebar-nav .sidebar-btn a	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .sidebar-menu a, .sidebar-nav .sidebar-btn a {$/;"	function	line:82
+.sidebar-nav .sidebar-menu a:hover, .sidebar-nav .sidebar-btn a:hover	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .sidebar-menu a:hover, .sidebar-nav .sidebar-btn a:hover {$/;"	function	line:89
+.sidebar-nav li a:active, .sidebar-nav li a:focus	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav li a:active, .sidebar-nav li a:focus {$/;"	function	line:95
+.sidebar-nav .menu-item-icon	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .menu-item-icon {$/;"	function	line:99
+.sidebar-nav .menu-member img	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .menu-member img{$/;"	function	line:103
+.sidebar-nav .menu-notice img	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .menu-notice img,$/;"	function	line:107
+.sidebar-nav .menu-sales img	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .menu-sales img,$/;"	function	line:108
+.sidebar-nav .menu-calculate img	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .menu-calculate img{$/;"	function	line:109
+.sidebar-nav .menu-item-text	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-nav .menu-item-text {$/;"	function	line:114
+.sidebar-btn.btn-logout	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-btn.btn-logout {$/;"	function	line:119
+.sidebar-btn.btn-logout a	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.sidebar-btn.btn-logout a {$/;"	function	line:126
+.nav .nav-item.show .nav-link, .nav .nav-link.active, .nav	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .nav-item.show .nav-link, .nav .nav-link.active, .nav {$/;"	function	line:137
+.nav .nav-link:focus, .nav .nav-link:hover	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .nav-link:focus, .nav .nav-link:hover {$/;"	function	line:141
+.nav .nav-link.active	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .nav-link.active {$/;"	function	line:147
+.nav .nav-link	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .nav-link {$/;"	function	line:153
+.nav .input-container	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .input-container {$/;"	function	line:164
+.nav .input-container input	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .input-container input {$/;"	function	line:170
+.nav .input-container button	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .input-container button {$/;"	function	line:177
+.nav .input-container span	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .input-container span {$/;"	function	line:182
+.nav .btn-container	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .btn-container {$/;"	function	line:186
+.nav .btn-container .btn	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .btn-container .btn {$/;"	function	line:190
+.nav .btn-container .btn img	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .btn-container .btn img {$/;"	function	line:195
+.nav .btn-container .btn-peach	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.nav .btn-container .btn-peach {$/;"	function	line:200
+.content-panel .pager-container, .tab-pane .pager-container,.pager-container	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.content-panel .pager-container, .tab-pane .pager-container,.pager-container {$/;"	function	line:207
+.content-panel .pager-container .btn-pager, .tab-pane .pager-container .btn-pager, .btn-pager	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.content-panel .pager-container .btn-pager, .tab-pane .pager-container .btn-pager, .btn-pager {$/;"	function	line:212
+.table	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.table {$/;"	function	line:221
+.table>thead>tr>th	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.table>thead>tr>th {$/;"	function	line:225
+.table tr th, .table tr td	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.table tr th, .table tr td {$/;"	function	line:230
+.tab-pane	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.tab-pane {$/;"	function	line:235
+.btn-peach	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.btn-peach {$/;"	function	line:239
+.btn-peach:hover	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.btn-peach:hover {$/;"	function	line:245
+.btn-gray	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.btn-gray {$/;"	function	line:249
+.btn-gray:hover	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.btn-gray:hover {$/;"	function	line:255
+.btn-write	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.btn-write {$/;"	function	line:259
+.btn-write img	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.btn-write img {$/;"	function	line:265
+.btn-inline	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.btn-inline {$/;"	function	line:269
+.text-peach	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.text-peach {$/;"	function	line:276
+.text-gray	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.text-gray {$/;"	function	line:280
+.text-heavy-gray	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.text-heavy-gray {$/;"	function	line:284
+.border-gray	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.border-gray {$/;"	function	line:288
+.content-panel	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.content-panel {$/;"	function	line:292
+.admin-header-peach	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.admin-header-peach {$/;"	function	line:297
+.admin-header-gray	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.admin-header-gray {$/;"	function	line:304
