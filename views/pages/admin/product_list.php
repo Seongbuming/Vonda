@@ -53,7 +53,7 @@
               </div><!--/# Nav tabs -->
 
               <div class="tab-pane active" id="product-list" role="tabpanel">
-                  <a href="#" class="btn-customer-write btn-write">
+                  <a href="admin.php?page=product_write" class="btn-customer-write btn-write">
                     <img src="images/buttons/admin/plus.png" alt="plus.png" />
                   </a>
                 <div class="product-list">

@@ -32,7 +32,7 @@
             <div class="container-fluid">
 
               <div class="tab-pane active" id="product-stati" role="tabpanel">
-                  <a href="#" class="btn-product-write btn-write">
+                  <a href="admin.php?page=product_write" class="btn-product-write btn-write">
                     <img src="images/buttons/admin/plus.png" alt="plus.png" />
                   </a>
                   <h4 class="page-title">
