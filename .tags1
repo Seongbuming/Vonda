@@ -4,3 +4,11 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+.order_list tbody .product .product_img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .product .product_img {$/;"	function	line:2
+.order_list tbody .product .product_img img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .product .product_img img {$/;"	function	line:10
+.order_list tbody .product .product_info	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .product .product_info {$/;"	function	line:14
+.order_list tbody .seller, .product_price,.num_of_sales	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .seller, .product_price,.num_of_sales {$/;"	function	line:19
+.order_list tbody .sales_price	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .sales_price {$/;"	function	line:24
+#contents .chart	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#contents .chart {$/;"	function	line:29
+.tn-promotion-apply	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.tn-promotion-apply{$/;"	function	line:33
+#table-promotion-apply .btn-cancel-apply	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#table-promotion-apply .btn-cancel-apply{$/;"	function	line:41
