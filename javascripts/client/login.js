@@ -12,7 +12,18 @@ $(document).ready(function() {
                 createCookie("token", res.token);
                 createCookie("refresh_token", res.refresh_token);
 
-                location.href = "/";
+                console.log(res);
+                console.log(res.user.type);
+
+                if (res.user.type == "general") {
+                  location.href = "/";
+                } else if (res.user.type == "creator") {
+                  location.href = "/creator.php";
+                } else if (res.user.type == "admin"){
+                  location.href = "/admin.php";
+                } else if (res.user.type == "seller"){
+                  location.href = "/seller.php";
+                }
             } else {
                 // 로그인 실패
                 alert(res.message);
