@@ -87,3 +87,35 @@ textarea {
     vertical-align: middle;
     margin-right: 10px;
 }
+.creator_sns{
+  width: 600px;
+  margin: auto;
+}
+.creator_sns .sns-item{
+  margin: 15px 0;
+  text-align: left;
+}
+.creator_sns .sns-item input, .creator_sns .sns-item label, .creator_sns .sns-item img{
+  vertical-align: middle;
+}
+
+.creator_sns .sns-item input{
+  padding: 10px;
+  width: 400px;
+}
+
+.creator_sns .sns-item img{
+  width: 32px;
+  margin: 0 15px;
+}
+
+.creator_sns .sns-item .item-checkbox{
+  visibility: hidden;
+}
+
+.creator_sns .sns-item .item-url{
+  float: right;
+}
+.creator_sns .sns-item .input-label{
+  color: #979797;
+}
