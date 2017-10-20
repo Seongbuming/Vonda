@@ -33,7 +33,7 @@
               <!-- Nav tabs -->
               <ul class="nav" >
                 <li class="nav-item">
-                  <a class="nav-link"  href="admin.php?page=member_customer" >CUSTOMER</a>
+                  <a class="nav-link"  href="admin.php?page=member" >CUSTOMER</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link "  href="admin.php?page=member_seller" >SELLER</a>
