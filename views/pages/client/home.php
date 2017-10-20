@@ -5,7 +5,12 @@
     <link rel="stylesheet" href="stylesheets/client/home.css" />
     <link rel="stylesheet" href="libraries/jquery.bxslider.min.css" />
 </head>
+<?php
+$request = new Http();
+$response = $request->request('GET', '/goods/new');
 
+$new_items = $response->datas;
+?>
 <body>
     <header>
         <?=$this->loadLayout("header")?>
@@ -93,41 +98,19 @@
             <li>&nbsp;</li>
         </ul>
         <div class="product_section">
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product1.png" alt="상품 이미지 1" />
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product2.png" alt="상품 이미지 2" />
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product3.png" alt="상품 이미지 3" style="width: 413px; height: 250px;" />
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product4.png" alt="상품 이미지 4" />
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product5.png" alt="상품 이미지 5" style="width: 413px; height: 250px;" />
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
+            <?php
+            foreach ($new_items as $item) {
+            ?>
+                <a class="item overlay_container" href="./?page=product_detail&id=<?=$item->id?>">
+                    <img src="http://api.siyeol.com/<?=$item->goods_image?>" alt="상품 이미지" />
+                    <div class="overlay">
+                        <p class="product_name"><?=$item->title?></p>
+                        <p class="product_price"><?=number_format($item->price)?>won</p>
+                    </div>
+                </a>
+            <?php
+            }
+            ?>
         </div>
 
         <ul class="category_menu">
