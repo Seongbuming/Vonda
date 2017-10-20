@@ -103,3 +103,5 @@ body p	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^body p {$/
 .content-panel	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.content-panel {$/;"	function	line:292
 .admin-header-peach	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.admin-header-peach {$/;"	function	line:297
 .admin-header-gray	/Users/hanboramjang/Sites/vonda/stylesheets/admin/common.css	/^.admin-header-gray {$/;"	function	line:304
+success	/Users/hanboramjang/Sites/vonda/views/pages/admin/login.php	/^          success: function (res) {$/;"	jsfunction	line:49
+error	/Users/hanboramjang/Sites/vonda/views/pages/admin/login.php	/^          error: function (err) {$/;"	jsfunction	line:63
