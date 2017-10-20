@@ -26,16 +26,35 @@ $creator = $response->data;
     <div class="profile_area"></div>
     <div class="creator_profile">
         <img src="images/creators/creator_background1.png" class="creator_profile_bg_img">
-        <img src="images/creators/creator_profile.png" id="profile_location" class="creator_profile_img">
+        <div class="creator_profile_img_container">
+          <img src="images/creators/creator_background1.png" id="profile_location" class="creator_profile_img">
+          <div class="filebox-profile">
+            <label for="creator-profile-upload">
+              <img src="images/icons/camera_white.png" alt="" />
+            </label>
+            <input type="file" id="creator-profile-upload" class="upload-hidden">
+          </div>
+        </div>
         <!--
         <img src="http://api.siyeol.com/<?=$creator->cover_image?>" class="creator_profile_bg_img">
         <img src="http://api.siyeol.com/<?=$creator->background_image?>" id="profile_location" class="
         -->
-      <div class="bg_size"><p>1150X450</p></div>
+      <div class="bg_size">
+        <div class="filebox" style="padding: 6px 5px;">
+          <label for="creator-bg-upload">
+            <img src="images/icons/camera_white.png" alt="" />
+          </label>
+          <input type="file" id="creator-bg-upload" class="upload-hidden">
+          <label for="">1150X450</label>
+        </div>
+      </div>
+
       <div class="creator_field">
-          <input type="text" class="creator_name" value="@<?=$creator->nickname?>"><br>
-          <textarea cols="60" rows="4" class="creator_contents"><?=$creator->introduce?></textarea>
-          <ul class="creator_sns">
+
+
+        <input type="text" class="creator_name" value="@<?=$creator->nickname?>"><br>
+        <textarea cols="60" rows="4" class="creator_contents"><?=$creator->introduce?></textarea>
+        <ul class="creator_sns">
             <?php
               $sns_str = array("Instagram","Facebook","Twitter","Youtube","Afreeca","Twitch","Kakao","NaverBlog");
               for ($i=0; $i < 8 ; $i++) {?>
