@@ -44,6 +44,10 @@ $response = $request->request('POST', '/order?token='.$_COOKIE['token'], ['json'
 
 $order = $response->datas;
 
+if (sizeof($order->items) == 0) {
+    echo "<script>alert('주문 가능한 상품이 없습니다.');history.back(-1);</script>";
+}
+
 $nicepay->m_MerchantKey = "EYzu8jGGMfqaDEp76gSckuvnaHHu+bC4opsSN6lHv3b2lurNYkVXrZ7Z1AoqQnXI3eLuaUFyoRNC6FkrzVjceg=="; // 상점키
 $nicepay->m_MID         = "nicepay00m";                         // 상점아이디
 $nicepay->m_Moid        = $order->order_no;                    // 상품주문번호
