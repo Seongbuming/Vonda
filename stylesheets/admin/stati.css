@@ -32,3 +32,7 @@
 #vd-stati .table>thead>tr>th{
   border-top: 1px solid #ddd;
 }
+#vd-stati .admin-header-gray{
+  border-color: #f2f2f2;
+  border-width: 5px;
+}

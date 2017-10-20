@@ -35,7 +35,8 @@ body p {
 
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
-  border-right: solid 3px #b2b2b2;
+  /*border-right: solid 3px #b2b2b2;*/
+  box-shadow: 6px 10px 5px #d8d8d8;
 }
 
 #page-content-wrapper {
@@ -63,11 +64,13 @@ body p {
 .sidebar-text {
   color: #747474;
   padding: 3px 0;
+  box-shadow: 1px 4px 3px #d8d8d8;
 }
 
 .sidebar-nav .sidebar-brand {
-  border-top: solid 1px #b2b2b2;
-  border-bottom: solid 1px #b2b2b2;
+  /*border-top: solid 1px #b2b2b2;*/
+  /*border-bottom: solid 1px #b2b2b2;*/
+  box-shadow: 1px 4px 3px #d8d8d8;
   margin-bottom: 15px;
 }
 
@@ -113,8 +116,8 @@ body p {
   line-height: 1;
   text-align: center;
   padding: 15px 0 15px 0;
-  border-top: solid 1px #b2b2b2;
-  border-bottom: solid 1px #b2b2b2;
+  border-top: solid 2px #d8d8d8;
+  border-bottom: solid 2px #d8d8d8;
 }
 
 
