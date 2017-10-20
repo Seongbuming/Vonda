@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/creator/calculate.css">
     <link rel="stylesheet" href="stylesheets/creator/board.css"/>
+    <link rel="stylesheet" href="stylesheets/modal.css" />
 </head>
 
 <body>
@@ -56,10 +57,48 @@
         </tr>
         </tbody>
     </table>
+
+    <div id="modal_edit" class="modal size_msg actived">
+        <div class="close_section modal_close"></div>
+        <div class="modal_body">
+            <button class="close_button modal_close">
+                <img src="images/buttons/close.png" alt="닫기" />
+            </button>
+
+            <div class="modal_contents">
+              <form class="account-edit-form" action="index.html" method="post">
+                <div class="form-item">
+                  <select class="bank" required>
+                      <option value="" disabled selected>은행</option>
+                      <option value="1">농협</option>
+                      <option value="2">국민</option>
+                      <option value="3">신한</option>
+                      <option value="4">우리</option>
+                  </select>
+                </div>
+
+                <div class="form-item">
+                    <input type="text" name="name" value="" placeholder="계좌번호" required>
+                </div>
+
+                <div class="form-item">
+                    <input type="text" name="name" value="" placeholder="예금주" required>
+                </div>
+
+                <div class="form-item">
+                  <button class="submit">확인</button>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer>
     <?= $this->loadLayout("creator/footer") ?>
 </footer>
+
+ <script src="libraries/jquery-3.2.1.min.js"></script>
+ <script src="javascripts/modal.js"></script>
 </body>
 </html>
