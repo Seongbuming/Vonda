@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
-	<link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
+	   <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
     <link rel="stylesheet" href="stylesheets/seller/order_detail.css">
@@ -63,7 +63,13 @@
                         <p>28,500원</p>
                     </td>
                     <td class="order_sell_status">
-                        <p class="status_text">상품준비중</p>
+                      <select class="select-status" name="select-status">
+                        <option value="1">주문완료</option>
+                        <option value="10">상품준비중</option>
+                        <option value="20">배송준비중</option>
+                        <option value="30">배송중</option>
+                        <option value="40">배송완료</option>
+                      </select>
                     </td>
                 </tr>
                 <tr>
@@ -81,7 +87,13 @@
                         <p>11,500원</p>
                     </td>
                     <td class="order_sell_status">
-                        <p class="status_text">상품준비중</p>
+                      <select class="select-status" name="select-status">
+                        <option value="1">주문완료</option>
+                        <option value="10">상품준비중</option>
+                        <option value="20">배송준비중</option>
+                        <option value="30">배송중</option>
+                        <option value="40">배송완료</option>
+                      </select>
                     </td>
 
                 </tr>
@@ -104,6 +116,13 @@
                         <p>128,500원</p>
                     </td>
                     <td class="order_sell_status">
+                      <select class="select-status" name="select-status">
+                        <option value="1">주문완료</option>
+                        <option value="10">상품준비중</option>
+                        <option value="20">배송준비중</option>
+                        <option value="30">배송중</option>
+                        <option value="40">배송완료</option>
+                      </select>
                     </td>
 
                 </tr>
@@ -125,7 +144,13 @@
                         <p>128,500원</p>
                     </td>
                     <td class="order_sell_status">
-                        <p class="status_text">배송완료</p>
+                        <select class="select-status" name="select-status">
+                          <option selected value="1">주문완료</option>
+                          <option value="10">상품준비중</option>
+                          <option value="20">배송준비중</option>
+                          <option value="30">배송중</option>
+                          <option value="40">배송완료</option>
+                        </select>
                     </td>
 
                 </tr>
