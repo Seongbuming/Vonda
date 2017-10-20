@@ -5,7 +5,7 @@
 			<li><a href=".">공지사항</a></li>
 		</ul>
 		<ul class="menu menu_right">
-			<li><a href=".">로그아웃</a></li>
+			<li><a href="./?page=login&type=logout">로그아웃</a></li>
 			<li><a href=".">마이페이지</a></li>
 		</ul>
 	</div>
