@@ -76,7 +76,7 @@ body p {
 
 .sidebar-nav .sidebar-brand img {
   width: 100%;
-  padding: 5% 15%;
+  padding: 5% 15% 0  15%;
 }
 
 .sidebar-nav .sidebar-menu a, .sidebar-nav .sidebar-btn a {
