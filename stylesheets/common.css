@@ -318,8 +318,8 @@ input[type=radio].radio:nth-of-type(n+2) + label {
 .creator_section .item > img {
     border: 1px solid #e1e1e1;
     padding: 5px;
-    width: 261px;
-    height: 305px;
+    width: 260px;
+    height: 260px;
 }
 .creator_section .item.actived {
     border: 1px solid #383838;
