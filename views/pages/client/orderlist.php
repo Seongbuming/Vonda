@@ -144,7 +144,7 @@ $orders = $response->datas->data;
                                 // if ($temp == "1") {
                                     echo '<button class="cancel">주문취소</button>';
                                 } else if ($temp == "30") {
-                                    echo '<button class="review">구매후기</button>';
+                                    // echo '<button class="review">구매후기</button>';
                                     echo '<button class="return">반품/교환</button>';
                                 }
                                 ?>
@@ -424,6 +424,7 @@ $orders = $response->datas->data;
                         <option value="배송 지연">배송 지연</option>
                         <option value="상품 품절">상품 품절</option>
                     </select>
+                    <input type="hidden" class="order_no"/>
 
                     <button class="submit">주문취소요청</button>
                 </div>

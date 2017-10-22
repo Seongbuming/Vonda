@@ -49,19 +49,37 @@ $(document).ready(function() {
         // 모달 내용 초기화
         $modal.find("select option").eq(0).prop("selected", true);
 
+        // 모달 주문번호 입력
+        var order_no = $(this).parent().parent().find(".id").text();
+        $modal.find(".order_no").val(order_no);
+
         $modal.get(0).open();
     });
     // 주문취소 확인
     $("#modal_cancel .submit").click(function() {
         var $modal = $("#modal_cancel");
         var reason = $modal.find(".reason").val();
+        var order_no = $modal.find(".order_no").val();
 
         // 빈 칸 검사
         if (reason == null) {
             alert("취소사유를 입력해 주세요.");
         } else {
             // 주문취소 작업을 여기에서 수행하세요.
-
+            $.ajax({
+              type: "POST",
+              url: "http://api.siyeol.com/order/"+order_no+"/cancel?token="+readCookie('token'),
+              dataType: "json",
+              data: {'reason':reason},
+              success: function (res) {
+                if (res.code != 200) {
+                    alert("주문취소에 실패하였습니다.");
+                }
+              },
+              error: function (err) {
+                alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+              }
+            });
             $modal.get(0).close();
             $("#modal_cancel_finish").get(0).open();
         }
