@@ -5,8 +5,10 @@
 <div class="middle_section">
     <div class="container">
         <ul class="area_links">
+            <!--
             <li><a href=".">[개인정보취급방침]</a></li>
             <li><a href=".">[이용약관]</a></li>
+        -->
         </ul>
 
         <div class="area_copyright">
