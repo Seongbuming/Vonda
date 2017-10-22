@@ -1,9 +1,53 @@
 <!doctype html>
 <html lang="ko">
+<?php
 
+// 메인 배너 핸들링
+$is_post = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $is_post = true;
+    $url = '/admin/banner?token='.$_COOKIE['token'];
+
+    $datas = array();
+
+
+    foreach ($_FILES as $key => $file) {
+      if ($file['name'] == "") {
+        continue;
+      }
+      $datas[] = ['name' => $key, 'contents' => file_get_contents($file['tmp_name']), 'filename' => $file['name']];
+    }
+
+    foreach ($_POST as $key => $value) {
+      if ($key == "creators") {
+        foreach ($value as $creator) {
+          array_push($datas, ['name' => 'creators[]', 'contents' => $creator]);
+        }
+      } else {
+          array_push($datas, ['name' => $key, 'contents' => $value]);
+      }
+    }
+
+    $request = new Http();
+    $res = $request->requestEx('POST', $url, [
+        'multipart' => $datas
+    ]);
+
+    print_r($res);
+    echo "done";
+    exit;
+
+    // 회원가입 완료하면 토큰이 반환됨.
+    if ($res->token) {
+        header("location:./?page=signup_finish");
+        exit;
+    }
+}
+?>
 <head>
 
     <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <?=$this->loadLayout("head")?>
@@ -33,20 +77,21 @@
                 <div id="banner"class="content-panel">
                   <h4 class="admin-header-gray">배너</h4>
                     <div class="banner-item-container">
+                      <form class="banner_form" method="POST" action="./admin.php?page=mainpage" enctype="multipart/form-data">
                       <ul class="banner-item-group border-gray">
 
                         <?php
-                          for ($i=0; $i < 5; $i++) {
+                          for ($i=1; $i <= 5; $i++) {
                             # code...
                             $t=hexdec( uniqid() );?>
                             <li class="banner-item">
                               <div class="filebox">
-                                <input type="input" name="name" value="yeomim" placeholder="크리에이터">
+                                <input type="input" class="creator_name" name="creators[]" value="" placeholder="크리에이터">
                                 <input class="upload-name border-gray" value="" disabled="disabled" placeholder="232*420px">
                                 <label for="<?="ex_filename".$t?>">
                                   <span class="glyphicon glyphicon-search text-heavy-gray"></span>
                                 </label>
-                                <input type="file" id="<?="ex_filename".$t?>" class="upload-hidden" accept="image/*">
+                                <input type="file" name="<?='image'.$i?>" id="<?="ex_filename".$t?>" class="upload-hidden" accept="image/*">
                               </div>
                             </li>
 
@@ -54,6 +99,7 @@
                           }
                          ?>
                       </ul>
+                    </form>
                       <!--
                       <div class="banner-item-group banner-item-add border-gray">
                         <div class="operator text-heavy-gray">
@@ -69,7 +115,7 @@
                           $t=hexdec( uniqid() );?>
                           <li class="banner-item">
                             <div class="filebox">
-                              <input type="input" name="name" value="" placeholder="크리에이터">
+                              <input type="input" name="name"  value="" placeholder="크리에이터">
                               <input class="upload-name border-gray" value="" disabled="disabled" placeholder="232*420px">
                               <label for="<?="ex_filename".$t?>">
                                 <span class="glyphicon glyphicon-search text-heavy-gray"></span>
