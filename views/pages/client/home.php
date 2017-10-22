@@ -8,8 +8,13 @@
 <?php
 $request = new Http();
 $response = $request->request('GET', '/goods/new');
-
 $new_items = $response->datas;
+
+$response = $request->request('GET', '/creators');
+$creators = $response->datas;
+
+$response = $request->request('GET', '/banner/1');
+$banners = $response->datas;
 ?>
 <body>
     <header>
@@ -27,68 +32,18 @@ $new_items = $response->datas;
 
         <ul class="bxslider">
             <li>
-                <a class="overlay_container" href="./?page=creator_profile">
-                    <img src="images/banner/banner1.png" alt="배너 이미지 1" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href="./?page=creator_profile">
-                    <img src="images/banner/banner2.png" alt="배너 이미지 2" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href="./?page=creator_profile">
-                    <img src="images/banner/banner3.png" alt="배너 이미지 3" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href="./?page=creator_profile">
-                    <img src="images/banner/banner4.png" alt="배너 이미지 4" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href="./?page=creator_profile">
-                    <img src="images/banner/banner5.png" alt="배너 이미지 5" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a class="overlay_container" href=".">
-                    <img src="images/banner/banner6.png" alt="배너 이미지 6" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href=".">
-                    <img src="images/banner/banner7.png" alt="배너 이미지 7" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href=".">
-                    <img src="images/banner/banner8.png" alt="배너 이미지 8" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href=".">
-                    <img src="images/banner/banner9.png" alt="배너 이미지 9" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
-                <a class="overlay_container" href=".">
-                    <img src="images/banner/banner10.png" alt="배너 이미지 10" />
-                    <div class="overlay">
-                        <p>@highlight</p>
-                    </div>
-                </a>
+                <?php
+                foreach ($banners as $banner) {
+                ?>
+                    <a class="overlay_container" href="./?page=creator_profile&id=<?=$banner->creator_id?>">
+                        <img src="http://api.siyeol.com/<?=$banner->image?>" alt="배너 이미지 1" />
+                        <div class="overlay">
+                            <p>@<?=$banner->nickname?></p>
+                        </div>
+                    </a>
+                <?php
+                }
+                ?>
             </li>
         </ul>
 
@@ -118,30 +73,15 @@ $new_items = $response->datas;
             <li>&nbsp;</li>
         </ul>
         <div class="creator_section">
-            <div class="item">
-                <img src="images/creators/creator1.png" alt="크리에이터 이미지 1" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator2.png" alt="크리에이터 이미지 2" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator3.png" alt="크리에이터 이미지 3" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator4.png" alt="크리에이터 이미지 4" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator5.png" alt="크리에이터 이미지 5" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator6.png" alt="크리에이터 이미지 6" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator7.png" alt="크리에이터 이미지 7" />
-            </div>
-            <div class="item">
-                <img src="images/creators/creator8.png" alt="크리에이터 이미지 8" />
-            </div>
+            <?php
+            foreach ($creators as $creator) {
+            ?>
+                <div class="item">
+                    <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 이미지 1" />
+                </div>
+            <?php
+            }
+            ?>
             <template class="creator_detail_template">
                 <img class="creator_background" src="images/creators/creator_background4.png" alt="크리에이터 배경 이미지" />
                 <div class="creator_image">
