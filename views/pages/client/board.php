@@ -10,13 +10,11 @@
 </head>
 <?php
 $request = new Http();
-$response = $request->request('GET', '/order?token='.$_COOKIE['token']);
+$response = $request->request('GET', '/user/qna/list?token='.$_COOKIE['token']);
+$qnas = $response->datas;
 
-if ($response->code == "400") {
-    header("location:./?page=login");
-}
-
-$orders = $response->datas->data;
+$response = $request->request('GET', '/user/review/list?token='.$_COOKIE['token']);
+$reviews = $response->datas;
 ?>
 <body>
     <header>
@@ -38,29 +36,34 @@ $orders = $response->datas->data;
         <table id="table-qna" class="board review">
             <thead>
               <th>
-                작성일자/주문번호
+                작성일자/번호
               </th>
               <th>
                 상품명/문의내용
               </th>
             </thead>
             <tbody>
-                <tr class="row_subject">
-                    <td class="time">
-                          <p class="date">2017.08.22 13:20</p>
-                          <p class="id"><a href=".">2018211119</a></p>
-                    </td>
-                    <td class="subject">
-                      <span class="product_name">베이직 라인 페니로퍼</span>
-                      저 6월 10일에 주문했는데... 언제 받아볼 수 있죠?
-                    </td>
-                </tr>
-                <tr class="row_post">
-                    <td class="type">Q.</td>
-                    <td class="result" colspan="3">저 6월 10일에 주문했는데... 언제 받아볼 수 있죠? 6월 11일 출고라고 했는데... 제가 6월 17일까지는 꼭 받아야해서ㅜㅜ
-                    </td>
-
-                </tr>
+                <?php
+                foreach ($qnas as $qna) {
+                ?>
+                  <tr class="row_subject">
+                      <td class="time">
+                            <p class="date"><?=substr($qna->created_at, 0, 16)?></p>
+                            <p class="id"><a href="#"><?=$qna->id?></a></p>
+                      </td>
+                      <td class="subject">
+                        <span class="product_name"><?=$qna->goods->title?></span>
+                        <?=$qna->content?>
+                      </td>
+                  </tr>
+                  <tr class="row_post">
+                      <td class="type">A.</td>
+                      <td class="result" colspan="3"><?=$qna->answer ? $qna->answer : '답변이 없습니다.'?>
+                      </td>
+                  </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
         <div class="pager">
@@ -78,35 +81,49 @@ $orders = $response->datas->data;
             <th>
               상품명/후기내용
             </th>
-            <th>
-              주문금액
-            </th>
-            <th>
-              상태
-            </th>
           </thead>
             <tbody>
-                <tr class="row_subject">
-                  <td class="time">
-                        <p class="date">2017.08.22 13:20</p>
-                        <p class="id"><a href=".">2018211119</a></p>
-                  </td>
-                    <td class="subject">
-                      <p class="product_name">
-                         나이아신마이드
-                         <span class="review_state">답변완료</span>
-                      </p>
-                      <p class="review_description">
-                        제가 찍은 사진은..좀.. 안이쁘게 나왔지만 구두 너무너무 예뻐요~ 다른 상품평을 보고 구매했어요...
-                        <img src="images/icons/camera.png" style="vertical-align:sub;"alt="카메라아이콘.png" />
-                      </p>
-
-                    </td>
-                    <td class="price">130,000원</td>
-                    <td class="state">
-                      배송완료
-                    </td>
-                </tr>
+                <?php
+                foreach ($reviews as $review) {
+                ?>
+                  <tr class="row_subject">
+                      <td class="time">
+                            <p class="date"><?=substr($review->created_at, 0, 16)?></p>
+                            <p class="id"><a href="#"><?=$review->order_no?></a></p>
+                      </td>
+                      <td class="subject">
+                        <span class="product_name">
+                            <?php
+                                echo $review->goods->title;
+                                if ($review->answer != NULL) {
+                                    echo '<span class="review_state">답변완료</span>';
+                                }
+                            ?>
+                        </span>
+                        <p class="review_description">
+                            <?=$review->title?>
+                            <?php
+                            if (sizeof($review->images) > 0) {
+                                echo '<img src="images/icons/camera.png" style="vertical-align:sub;"alt="카메라아이콘.png" />';
+                            }
+                            ?>
+                          </p>
+                        
+                      </td>
+                  </tr>
+                  <tr class="row_post">
+                      <td class="type">Q.</td>
+                      <td class="result" colspan="3"><?=$review->content?>
+                      </td>
+                  </tr>
+                  <tr class="row_post">
+                      <td class="type">A.</td>
+                      <td class="result" colspan="3"><?=$review->answer ? $review->answer : '답변이 없습니다.'?>
+                      </td>
+                  </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
         <div class="pager">
