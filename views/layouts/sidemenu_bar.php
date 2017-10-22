@@ -1,3 +1,8 @@
+<?php
+if (!isset($_COOKIE['token'])) {
+    header('location: ./admin.php?page=login');
+}
+?>
 <ul class="sidebar-nav">
     <li class="sidebar-text">
       <p class=" text-center">ADMIN</p>
@@ -37,12 +42,14 @@
           <span class="menu-item-text ">주문관리</span>
         </a>
     </li>
+    <!--
     <li class="sidebar-menu menu-calculate">
         <a href="admin.php?page=calculate_seller">
           <img class="menu-item-icon"src="images/icons/admin_menu/gray/calculate.png" alt="calculate.png" />
           <span class="menu-item-text ">정산관리</span>
         </a>
     </li>
+  -->
     <li class="sidebar-menu menu-mainpage">
         <a href="admin.php?page=mainpage">
           <img class="menu-item-icon"src="images/icons/admin_menu/gray/main.png" alt="main.png" />
@@ -50,6 +57,6 @@
         </a>
     </li>
     <li class="sidebar-btn btn-logout">
-      <a href="#">로그아웃</a>
+      <a href="./?page=login&type=logout">로그아웃</a>
     </li>
 </ul>

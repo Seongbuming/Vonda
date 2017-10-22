@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="stylesheets/admin/product_list.css" />
 
 </head>
+<?php
+$request = new http();
+$response = $request->request('GET', '/admin/goods?token='.$_COOKIE['token']);
 
+$goods = $response->datas->data;
+?>
 <body>
 
     <div id="wrapper" class="toggled">
@@ -65,77 +70,69 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="product-item">
-                        <th scope="row">1</th>
-                        <td>
-                          <div class="thumbnail-img">
-                            <img class="product-img" src="images/products/product1.png" alt="" />
-                          </div>
-                        </td>
-                        <td class="title">
-                          <p><a href="admin.php?page=product_stat">옵션이 있을 때 재고 표시 방법</a></p>
-                          <p>
-                            <span class="label">옵션 : </span>
-                            <span class="label-content">실버,골드</span>
-                          </p>
-                          <p>
-                            <span class="label">재고 : </span>
-                            <span class="label-conent">
-                              211 - 실버(11), 골드(200)
-                            </span>
-                          </p>
-                        </td>
-                        <td class="seller">kikiki</td>
-                        <td class="price">26,000원</td>
-                        <td class="count">56</td>
-                        <td class="total">2,326,000원</td>
-                      </tr>
-                      <tr class="product-item">
-                        <th scope="row">2</th>
-                        <td>
-                          <div class="thumbnail-img">
-                            <img class="product-img" src="images/products/product2.png" alt="" />
-                          </div>
-                        </td>
-                        <td class="title">
-                          <p><a href="admin.php?page=product_stat">옵션이 없는 경우 재고 표시 방법</a></p>
-                          <p>
-                            <span class="label">재고 : </span>
-                            <span class="label-conent">
-                              211
-                            </span>
-                          </p>
-                        </td>
-                        <td class="seller">kikiki</td>
-                        <td class="price">26,000원</td>
-                        <td class="count">56</td>
-                        <td class="total">2,326,000원</td>
-                      </tr>
-                      <tr class="product-item">
-                        <th scope="row">3</th>
-                        <td>
-                          <div class="thumbnail-img">
-                            <img class="product-img" src="images/products/product3.png" alt="" />
-                          </div>
-                        </td>
-                        <td class="title">
-                          <p><a href="admin.php?page=product_stat">SINGLE-BREASTED OVERIZED BLAZER</a></p>
-                          <p>
-                            <span class="label">옵션 : </span>
-                            <span class="label-content">실버,골드</span>
-                          </p>
-                          <p>
-                            <span class="label">재고 : </span>
-                            <span class="label-conent">
-                              211 - 실버(11), 골드(200)
-                            </span>
-                          </p>
-                        </td>
-                        <td class="seller">kikiki</td>
-                        <td class="price">26,000원</td>
-                        <td class="count">56</td>
-                        <td class="total">2,326,000원</td>
-                      </tr>
+                      <?php
+                      foreach ($goods as $item) {
+                      ?>
+                          <tr class="product-item">
+                            <th scope="row"><?=$item->id?></th>
+                            <td>
+                              <div class="thumbnail-img">
+                                <img class="product-img" src="http://api.siyeol.com/<?=$item->goods_image?>" alt="" />
+                              </div>
+                            </td>
+                            <td class="title">
+                              <p><a href="admin.php?page=product_stat"><?=$item->title?></a></p>
+                              <?php
+                              if (sizeof($item->options) > 1) {
+                              ?>
+                                  <p>
+                                    <span class="label">옵션 : </span>
+                                    <span class="label-content">
+                                      <?php
+                                      foreach ($item->options as $option) {
+                                        if ($option != $item->options[0]) {
+                                          echo ", ";
+                                        }
+                                        echo $option->name;
+                                      }
+                                      ?>
+                                    </span>
+                                  </p>
+                              <?php
+                              }
+                              ?>
+                              <p>
+                                <span class="label">재고 : </span>
+                                <span class="label-conent">
+                                  <?php
+                                    if (sizeof($item->options) == 1) {
+                                      echo $item->options[0]->stock_ea;
+                                    } else {
+                                      $stock = "";
+                                      $total_ea = 0;
+                                      foreach ($item->options as $option) {
+                                        if ($option != $item->options[0]) {
+                                          $stock .= ", ";
+                                        }
+                                        $stock .= $option->name."(".$option->stock_ea.")";
+
+                                        $total_ea += $option->stock_ea;
+                                      }
+
+                                      echo $total_ea." - ".$stock;
+                                    }
+                                  ?>
+                                </span>
+                              </p>
+                            </td>
+                            <td class="seller"><?=$item->seller_account?></td>
+                            <td class="price"><?=number_format($item->options[0]->price)?>원</td>
+                            <td class="count"><?=number_format($item->order_count)?></td>
+                            <td class="total"><?=number_format($item->order_price)?>원</td>
+                          </tr>
+                      <?php
+                      }
+                      ?>
                     </tbody>
                   </table>
                   <div class="pager-container text-center">

@@ -30,7 +30,7 @@
             <input type="password" class="password" name="input-id" value="" placeholder="비밀번호">
           </div>
           <div class="form-item">
-            <button type="button" name="btn-submit" class="btn btn-peach">로그인</button>
+            <button type="submit" name="btn-submit" class="btn btn-peach">로그인</button>
           </div>
         </form>
       </div>
