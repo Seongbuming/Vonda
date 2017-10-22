@@ -33,7 +33,7 @@ $reviews = $response->datas;
 
         <h3 class="category">Q&amp;A</h3>
 
-        <table id="table-qna" class="board review">
+        <table id="table-qna" class="board faq">
             <thead>
               <th>
                 작성일자/번호
@@ -73,7 +73,7 @@ $reviews = $response->datas;
 
         <h3 class="category">후기</h3>
 
-        <table id="table-review"class="board faq">
+        <table id="table-review" class="board review">
           <thead>
             <th>
               주문일자/주문번호
@@ -267,7 +267,7 @@ $reviews = $response->datas;
         </div>
 
 
-        <div id="modal_review_detail" class="modal actived">
+        <div id="modal_review_detail" class="modal">
             <div class="close_section modal_close"></div>
             <div class="modal_body" style="height:640px">
                 <button class="close_button modal_close">
