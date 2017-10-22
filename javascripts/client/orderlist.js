@@ -75,6 +75,7 @@ $(document).ready(function() {
                 if (res.code != 200) {
                     alert("주문취소에 실패하였습니다.");
                 }
+                location.reload();
               },
               error: function (err) {
                 alert("알수없는 오류입니다.\n관리자에게 문의하세요.");

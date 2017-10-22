@@ -1,6 +1,6 @@
 <div class="area_links">
     <ul class="menu menu_left">
-        <li><a href=".?page=notice">공지사항<span class="posts">(2)</span></a></li>
+        <li><a href=".?page=notice">공지사항<!--<span class="posts">(2)</span>--></a></li>
         <li><a href=".?page=cscenter">고객센터</a></li>
     </ul>
     <ul class="menu menu_right">

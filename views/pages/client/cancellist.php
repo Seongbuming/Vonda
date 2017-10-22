@@ -9,11 +9,7 @@
 </head>
 <?php
 $request = new Http();
-$response = $request->request('GET', '/order?token='.$_COOKIE['token']);
-
-if ($response->code == "400") {
-    header("location:./?page=login");
-}
+$response = $request->request('GET', '/order/cancel?token='.$_COOKIE['token']);
 
 $orders = $response->datas->data;
 ?>
@@ -78,7 +74,7 @@ $orders = $response->datas->data;
                                 ?>
                                 <td class="date_id" rowspan="<?=sizeof($order->items)?>">
                                     <p class="date"><?=$order->created_at?></p>
-                                    <p class="id"><a href="."><?=$order->order_no?></a></p>
+                                    <p class="id"><a href="#" onClick="openDetail(<?=$order->order_no?>)"><?=$order->order_no?></a></p>
                                 </td>
                                 <?php
                                 }
@@ -172,55 +168,6 @@ $orders = $response->datas->data;
                         }
                     }
                     ?>
-                    <tr class="disabled">
-                        <td class="date_id">
-                            <p class="date">2016.03.11</p>
-                            <p class="id"><a href=".">2018211119</a></p>
-                        </td>
-                        <td class="product">
-                            <div class="product_img">
-                                <img src="images/products/product4.png" alt="상품사진" />
-                            </div>
-                            <div class="product_info">
-                                <p class="open product_detail">A-Z 메신저백</p>
-                                <p>수량: <span class="amount">1</span></p>
-                            </div>
-                        </td>
-                        <td class="order_price">
-                            <p>128,500원</p>
-                        </td>
-                        <td class="order_status">
-                            <p class="status_text">배송완료</p>
-                        </td>
-                        <td class="order_cancel">
-                            <p class="status_text">교환완료</p>
-                        </td>
-                    </tr>
-                    <tr class="disabled">
-                        <td class="date_id">
-                            <p class="date">2017.09.09</p>
-                            <p class="id"><a href=".">2018211119</a></p>
-                        </td>
-                        <td class="product">
-                            <div class="product_img">
-                                <img src="images/products/product2.png" alt="상품사진" />
-                            </div>
-                            <div class="product_info">
-                                <p class="open product_detail">로알 크루</p>
-                                <p>옵션: <span class="option">마르샬라</span></p>
-                                <p>수량: <span class="amount">1</span></p>
-                            </div>
-                        </td>
-                        <td class="order_price">
-                            <p>128,500원</p>
-                        </td>
-                        <td class="order_status">
-                            <p class="status_text">배송완료</p>
-                        </td>
-                        <td class="order_cancel">
-                            <p class="status_text">교환신청</p>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
 
@@ -363,108 +310,114 @@ $orders = $response->datas->data;
             </div>
 
 
-                    <div id="modal_order_detail" class="modal actived">
-                      <div class="close_section modal_close"></div>
-                      <div class="modal_body">
-                          <button class="close_button modal_close">
-                              <img src="images/buttons/close.png" alt="닫기" />
-                          </button>
+                    <div id="modal_order_detail" class="modal">
+          <div class="close_section modal_close"></div>
+          <div class="modal_body">
+              <button class="close_button modal_close">
+                  <img src="images/buttons/close.png" alt="닫기" />
+              </button>
 
-                          <h3 class="category">ORDER DETAIL</h3>
-                            <table id="order-detail-table"style="width:100%" class="order-detail-table productTable table order_list noneMargin">
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">주문번호</th>
-                                <td class="order-detail-item-content">2018211119</td>
-                              </tr>
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">주문일시</th>
-                                <td class="order-detail-item-content">2017.08.31</td>
-                              </tr>
-                              <tr class="order-detail-item"
-                              style="border-bottom: solid 1px #d8d8d8;">
-                                <th class="order-detail-item-label">주문자</th>
-                                <td class="order-detail-item-content">진아영</td>
-                              </tr>
+              <h3 class="category">ORDER DETAIL</h3>
+                <table id="order-detail-table"style="width:100%" class="order-detail-table productTable table order_list noneMargin">
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">주문번호</th>
+                    <td class="order-detail-item-content order_no">2018211119</td>
+                  </tr>
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">주문일시</th>
+                    <td class="order-detail-item-content order_date">2017.08.31</td>
+                  </tr>
+                  <tr class="order-detail-item"
+                  style="border-bottom: solid 1px #d8d8d8;">
+                    <th class="order-detail-item-label">주문자</th>
+                    <td class="order-detail-item-content order_name">진아영</td>
+                  </tr>
 
-                              <tr class="order-detail-item"   style="border-bottom: solid 1px #d8d8d8;">
-                                <th class="order-detail-item-label">주문상품/<br>상태</th>
-                                <td class="order-detail-item-content">
-                                  <ul class="order-product-list">
-                                    <li class="order-product-item">
-                                      <p>
-                                        <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
-                                        <span class="option">옵션 : 실버</span>
-                                        <span class="count">수량 : 1</span>
-                                      </p>
-                                      <p>
-                                        <span class="shipping-status">배송중</span>
-                                        <a href="#" class="shipping-company">CJ대한통운 [23891283018390]</a>
-                                      </p>
-                                    </li>
-                                    <li class="order-product-item">
-                                      <p>
-                                        <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
-                                        <span class="option">옵션 : 실버</span>
-                                        <span class="count">수량 : 1</span>
-                                      </p>
-                                      <p>
-                                        <span class="shipping-status">배송중</span>                          </p>
-                                    </li>
-                                  </ul>
-                                </td>
-                              </tr>
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">총 주문금액</th>
-                                <td class="order-detail-item-content">26,000원</td>
-                              </tr>
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">배송비</th>
-                                <td class="order-detail-item-content">2500원</td>
-                              </tr>
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">총 할인금액</th>
-                                <td class="order-detail-item-content">-1,000원(쿠폰할인)</td>
-                              </tr>
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">총 결제금액</th>
-                                <td class="order-detail-item-content">27,500원</td>
-                              </tr>
-                              <tr class="order-detail-item"
-                              style="border-bottom: solid 1px #d8d8d8;">
-                                <th class="order-detail-item-label">결제수단</th>
-                                <td class="order-detail-item-content">삼성카드 5112-3130-****-****</td>
-                              </tr>
+                  <!-- 주문상태 임시 제거 
+                  <tr class="order-detail-item"   style="border-bottom: solid 1px #d8d8d8;">
+                    <th class="order-detail-item-label">주문상품/<br>상태</th>
+                    <td class="order-detail-item-content">
+                      <ul class="order-product-list">
+                        <li class="order-product-item">
+                          <p>
+                            <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
+                            <span class="option">옵션 : 실버</span>
+                            <span class="count">수량 : 1</span>
+                          </p>
+                          <p>
+                            <span class="shipping-status">배송중</span>
+                            <a href="#" class="shipping-company">CJ대한통운 [23891283018390]</a>
+                          </p>
+                        </li>
+                        <li class="order-product-item">
+                          <p>
+                            <span class="title">SINGLE BREASTED OVERSIZED BLAZER</span>
+                            <span class="option">옵션 : 실버</span>
+                            <span class="count">수량 : 1</span>
+                          </p>
+                          <p>
+                            <span class="shipping-status">배송중</span>
+                          </p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                    -->
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">총 주문금액</th>
+                    <td class="order-detail-item-content origin_price">26,000원</td>
+                  </tr>
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">배송비</th>
+                    <td class="order-detail-item-content shipping_price">2500원</td>
+                  </tr>
+                  <!--
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">총 할인금액</th>
+                    <td class="order-detail-item-content">-1,000원(쿠폰할인)</td>
+                  </tr>
+                    -->
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">총 결제금액</th>
+                    <td class="order-detail-item-content total_price">27,500원</td>
+                  </tr>
+                  <!--
+                  <tr class="order-detail-item"
+                  style="border-bottom: solid 1px #d8d8d8;">
+                    <th class="order-detail-item-label">결제수단</th>
+                    <td class="order-detail-item-content">삼성카드 5112-3130-****-****</td>
+                  </tr>
+                    -->
 
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">수령인</th>
-                                <td class="order-detail-item-content">진*영</td>
-                              </tr>
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">연락처</th>
-                                <td class="order-detail-item-content">010-2344-****</td>
-                              </tr>
-                              <tr class="order-detail-item">
-                                <th class="order-detail-item-label">배송지</th>
-                                <td class="order-detail-item-content">
-                                  <p class="postcode">
-                                    29123
-                                  </p>
-                                  <p class="address">
-                                    인천광역시 연수구 신학동
-                                  </p>
-                                </td>
-                              </tr>
-                              <tr class="order-detail-item"
-                              style="border-bottom: solid 1px #d8d8d8;">
-                                <th class="order-detail-item-label">배송메세지</th>
-                                <td class="order-detail-item-content">-</td>
-                              </tr>
-                          </table>
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">수령인</th>
+                    <td class="order-detail-item-content receive_name">진*영</td>
+                  </tr>
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">연락처</th>
+                    <td class="order-detail-item-content receive_phone">010-2344-****</td>
+                  </tr>
+                  <tr class="order-detail-item">
+                    <th class="order-detail-item-label">배송지</th>
+                    <td class="order-detail-item-content">
+                      <p class="postcode">
+                        29123
+                      </p>
+                      <p class="address">
+                        인천광역시 연수구 신학동
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="order-detail-item"
+                  style="border-bottom: solid 1px #d8d8d8;">
+                    <th class="order-detail-item-label">배송메세지</th>
+                    <td class="order-detail-item-content delivery_message">-</td>
+                  </tr>
+              </table>
 
-                        </div>
-                      </div>
+                </div>
 
-        </div>
+    </div>
 
     <footer>
         <?=$this->loadLayout("footer")?>
