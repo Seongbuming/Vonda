@@ -1,10 +1,6 @@
 <?php
 header("Content-Type:text/html; charset=utf-8;"); 
 
-error_reporting(E_ALL);
-
-ini_set("display_errors", 1);
-
 require($_SERVER['DOCUMENT_ROOT']."/libraries/NICEPAY/lib/NicepayLite.php");
 /*
 *******************************************************
@@ -19,14 +15,13 @@ $request = new Http();
 
 $params = array("items" => array());
 
-if (sizeof($_POST['select_item']) == 0) {
+if (sizeof($_POST['select_item']) == 0 && $_GET['type'] != 'direct') {
     // err
     header("location:./?page=cart");
 }
 
-// Get Items
-foreach ($_POST['select_item'] as $item) {
-    $url = "/cart/".$item."?token=".$_COOKIE['token'];
+if ($_GET['type'] == 'direct') {
+    $url = "/cart/last?token=".$_COOKIE['token'];
     $response = $request->request('GET', $url);
 
     if ($response->code == "400") {
@@ -36,6 +31,20 @@ foreach ($_POST['select_item'] as $item) {
     $item = $response->data;
 
     $params['items'][] = array("goods_option_id"=>$item->goods_option_id, "ea"=>$item->ea);
+} else {
+    // Get Items
+    foreach ($_POST['select_item'] as $item) {
+        $url = "/cart/".$item."?token=".$_COOKIE['token'];
+        $response = $request->request('GET', $url);
+
+        if ($response->code == "400") {
+            header("location:./?page=login");
+        }
+
+        $item = $response->data;
+
+        $params['items'][] = array("goods_option_id"=>$item->goods_option_id, "ea"=>$item->ea);
+    }
 }
 
 // $params = array( "items"=>array( array("goods_option_id"=>5, "ea"=>12), array("goods_option_id"=>4, "ea"=>4), array("goods_option_id"=>6, "ea"=>1) ) );

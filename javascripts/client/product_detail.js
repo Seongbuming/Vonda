@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // 수량 조절
-    $(".product_amount button").click(function() {
+    $(".amount_wrapper button").click(function() {
         var $amount = $(this).parent().find(".amount");
         var amount = parseInt($amount.text());
         if ($(this).is(".add") === true)
@@ -17,11 +17,14 @@ $(document).ready(function() {
             return false;
         }
 
+        var $amount = $(".amount");
+        var amount = parseInt($amount.text());
+
         $.ajax({
           type: "POST",
           url: "http://api.siyeol.com/cart?token="+readCookie('token'),
           dataType: "json",
-          data: {'goods_id':getParam('id'), 'goods_option_id':$(".goods_option_id").val(), 'ea':$(".amount").val()},
+          data: {'goods_id':getParam('id'), 'goods_option_id':$(".goods_option_id").val(), 'ea':amount},
           success: function (res) {
             if (res.code == 200) {
                 // 장바구니 등록 성공
@@ -46,6 +49,40 @@ $(document).ready(function() {
         });
 
         
+    });
+
+    $(".buy").click(function () {
+        if (readCookie('token') == null) {
+            alert("비회원은 이용할 수 없습니다.");
+            return false;
+        }
+
+        var $amount = $(".amount");
+        var amount = parseInt($amount.text());
+
+        $.ajax({
+          type: "POST",
+          url: "http://api.siyeol.com/cart?token="+readCookie('token'),
+          dataType: "json",
+          data: {'goods_id':getParam('id'), 'goods_option_id':$(".goods_option_id").val(), 'ea':amount},
+          success: function (res) {
+            if (res.code == 200) {
+                // 장바구니 등록 성공
+                location.href="./?page=order&type=direct"
+            } else if (res.code == 401) {
+                // 토큰 오류  
+            } else {
+                $(".basket_message").text("장바구니 등록에 오류가 발생하였습니다.");
+                $(".basket_message")
+                    .fadeIn("slow")
+                    .delay(1000)
+                    .fadeOut("slow");
+            }
+          },
+          error: function (err) {
+            alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+          }
+        });
     });
         
     /* FAQ */
