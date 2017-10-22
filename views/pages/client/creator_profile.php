@@ -23,6 +23,9 @@
 
         $response = $request->request('GET', '/'.$creator->user_id.'/board');
         $boards = $response->datas->data;
+
+        $response = $request->request('GET', '/creator/'.$creator->id.'/goods');
+        $goods = $response->datas;
     } else {
         // param error
     }
@@ -49,48 +52,19 @@
             <li><a href=".?page=cancellist">인기순</a></li>
         </ul>
         <div class="product_section">
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product2.png" alt="상품 이미지 2"/>
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product2.png" alt="상품 이미지 2"/>
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product2.png" alt="상품 이미지 2"/>
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product2.png" alt="상품 이미지 2"/>
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product2.png" alt="상품 이미지 2"/>
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
-            <a class="item overlay_container" href=".">
-                <img src="images/products/product2.png" alt="상품 이미지 2"/>
-                <div class="overlay">
-                    <p class="product_name">일본의 국민로퍼</p>
-                    <p class="product_price">54,000won</p>
-                </div>
-            </a>
+            <?php
+            foreach ($goods as $item) {
+            ?>
+                <a class="item overlay_container" href="./?page=product_detail&id=<?=$item->goods->id?>">
+                    <img src="http://api.siyeol.com/<?=$item->goods->goods_image?>" alt="상품 이미지 2"/>
+                    <div class="overlay">
+                        <p class="product_name"><?=$item->goods->title?></p>
+                        <p class="product_price"><?=number_format($item->goods->options[0]->price)?>won</p>
+                    </div>
+                </a>
+            <?php 
+            }
+            ?>
         </div>
 
         <h3 class="category">BOARD</h3>
@@ -100,7 +74,7 @@
             foreach ($boards as $board) {
             ?>
                 <tr class="row_subject">
-                    <td class="time"><?=$board->created_at?></td>
+                    <td class="time"><?=substr($board->created_at, 0, 16)?></td>
                     <td class="subject">
                         <a href=".?page=creator_profile_boarddetail&id=<?=$board->id?>&creator_id=<?=$creator->id?>"><?=$board->subject?></a>
                     </td>

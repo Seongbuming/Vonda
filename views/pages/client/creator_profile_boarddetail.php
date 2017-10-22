@@ -78,7 +78,7 @@
                             <td class="author"><?=$comment->user->account?></td>
                             <td class="subject">
                             <?=$comment->comment?></td>
-                            <td class="time"><?=$comment->created_at?></td>
+                            <td class="time"><?=substr($comment->created_at, 0, 16)?></td>
                         </tr>
                         </tbody>
                     </table>
@@ -93,7 +93,7 @@
                                 <td class="author">ㄴ @<?=$creator->nickname?></td>
                                 <td class="subject">
                                     <?=$comment->answer?></td>
-                                <td class="time"><?=$comment->updated_at?></td>
+                                <td class="time"><?=substr($comment->updated_at, 0, 16)?></td>
                             </tr>
                             </tbody>
                         </table>
