@@ -75,7 +75,7 @@ $orders = $response->datas->data;
                             ?>
                             <td class="date_id" rowspan="<?=sizeof($order->items)?>">
                                 <p class="date"><?=$order->created_at?></p>
-                                <p class="id"><a href="."><?=$order->order_no?></a></p>
+                                <p class="id"><a href="#" onClick="openDetail(<?=$order->order_no?>)"><?=$order->order_no?></a></p>
                             </td>
                             <?php
                             }
@@ -446,7 +446,7 @@ $orders = $response->datas->data;
         </div>
 
 
-        <div id="modal_order_detail" class="modal actived">
+        <div id="modal_order_detail" class="modal">
           <div class="close_section modal_close"></div>
           <div class="modal_body">
               <button class="close_button modal_close">
@@ -457,18 +457,19 @@ $orders = $response->datas->data;
                 <table id="order-detail-table"style="width:100%" class="order-detail-table productTable table order_list noneMargin">
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">주문번호</th>
-                    <td class="order-detail-item-content">2018211119</td>
+                    <td class="order-detail-item-content order_no">2018211119</td>
                   </tr>
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">주문일시</th>
-                    <td class="order-detail-item-content">2017.08.31</td>
+                    <td class="order-detail-item-content order_date">2017.08.31</td>
                   </tr>
                   <tr class="order-detail-item"
                   style="border-bottom: solid 1px #d8d8d8;">
                     <th class="order-detail-item-label">주문자</th>
-                    <td class="order-detail-item-content">진아영</td>
+                    <td class="order-detail-item-content order_name">진아영</td>
                   </tr>
 
+                  <!-- 주문상태 임시 제거 
                   <tr class="order-detail-item"   style="border-bottom: solid 1px #d8d8d8;">
                     <th class="order-detail-item-label">주문상품/<br>상태</th>
                     <td class="order-detail-item-content">
@@ -497,35 +498,40 @@ $orders = $response->datas->data;
                       </ul>
                     </td>
                   </tr>
+                    -->
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">총 주문금액</th>
-                    <td class="order-detail-item-content">26,000원</td>
+                    <td class="order-detail-item-content origin_price">26,000원</td>
                   </tr>
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">배송비</th>
-                    <td class="order-detail-item-content">2500원</td>
+                    <td class="order-detail-item-content shipping_price">2500원</td>
                   </tr>
+                  <!--
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">총 할인금액</th>
                     <td class="order-detail-item-content">-1,000원(쿠폰할인)</td>
                   </tr>
+                    -->
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">총 결제금액</th>
-                    <td class="order-detail-item-content">27,500원</td>
+                    <td class="order-detail-item-content total_price">27,500원</td>
                   </tr>
+                  <!--
                   <tr class="order-detail-item"
                   style="border-bottom: solid 1px #d8d8d8;">
                     <th class="order-detail-item-label">결제수단</th>
                     <td class="order-detail-item-content">삼성카드 5112-3130-****-****</td>
                   </tr>
+                    -->
 
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">수령인</th>
-                    <td class="order-detail-item-content">진*영</td>
+                    <td class="order-detail-item-content receive_name">진*영</td>
                   </tr>
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">연락처</th>
-                    <td class="order-detail-item-content">010-2344-****</td>
+                    <td class="order-detail-item-content receive_phone">010-2344-****</td>
                   </tr>
                   <tr class="order-detail-item">
                     <th class="order-detail-item-label">배송지</th>
@@ -541,7 +547,7 @@ $orders = $response->datas->data;
                   <tr class="order-detail-item"
                   style="border-bottom: solid 1px #d8d8d8;">
                     <th class="order-detail-item-label">배송메세지</th>
-                    <td class="order-detail-item-content">-</td>
+                    <td class="order-detail-item-content delivery_message">-</td>
                   </tr>
               </table>
 

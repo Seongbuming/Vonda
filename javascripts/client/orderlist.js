@@ -66,4 +66,37 @@ $(document).ready(function() {
             $("#modal_cancel_finish").get(0).open();
         }
     });
+
 });
+
+function openDetail(order_no) {
+    $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com/order/"+order_no+"?token="+readCookie('token'),
+      dataType: "json",
+      data: {},
+      success: function (res) {
+        if (res.code == 200) {
+            var order = res.data;
+
+            $("#modal_order_detail").find(".order_no").text(order.order_no);
+            $("#modal_order_detail").find(".order_date").text(order.created_at);
+            $("#modal_order_detail").find(".order_name").text(order.order_name);
+            $("#modal_order_detail").find(".origin_price").text(order.origin_price.format());
+            $("#modal_order_detail").find(".shipping_price").text(order.shipping_price.format());
+            $("#modal_order_detail").find(".total_price").text(order.total_price.format());
+            $("#modal_order_detail").find(".receive_name").text(order.delivery.receive_name);
+            $("#modal_order_detail").find(".receive_phone").text(order.delivery.receive_phone);
+            $("#modal_order_detail").find(".postcode").text(order.delivery.zipcode);
+            $("#modal_order_detail").find(".address").text(order.delivery.address);
+            $("#modal_order_detail").find(".delivery_message").text(order.delivery.delivery_message);
+
+
+            $("#modal_order_detail").addClass("actived");
+        }
+      },
+      error: function (err) {
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+      }
+    });
+}
