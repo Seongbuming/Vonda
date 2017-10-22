@@ -1,7 +1,15 @@
 $(document).ready(function() {
   var color_set = [  '#2FA5AB', '#718CB4',  '#69A17F','#CDC35D','#A8A8A8'];
 
-  var data_creator = [79, 71, 25, 23, 2];
+  var data_creator = [];
+  var creator_label = [];
+
+  $(".chart-item-value").each(function (){
+    creator_label.push($(this).parent().find(".chart-item-label").text());
+    data_creator.push($(this).attr("count"));
+  });
+
+  //var data_creator = [79, 71, 25, 23, 2];
   var data_product= [2,25,79,25,71];
   var data_sales = [0,9,10,2,25,79,25,71,79, 71];
 
@@ -17,7 +25,7 @@ $(document).ready(function() {
       {
         type: 'horizontalBar',
         data: {
-          labels: ["A", "B", "C", "D", "E"],
+          labels: creator_label,
         datasets: [{
             label: '판매수',
             data: data_creator,

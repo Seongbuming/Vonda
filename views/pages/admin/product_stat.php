@@ -16,7 +16,17 @@
     <link rel="stylesheet" href="stylesheets/admin/product_stati.css" media="screen" title="no title">
 
 </head>
+<?php
+$request = new http();
 
+$response = $request->request('GET', '/admin/goods/'.$_GET['id'].'/info?token='.$_COOKIE['token']);
+$goods = $response->datas;
+
+
+$response = $request->request('GET', '/admin/goods/'.$_GET['id'].'/promote?token='.$_COOKIE['token']);
+
+$creators = $response->datas;
+?>
 <body>
 
     <div id="wrapper" class="toggled">
@@ -37,7 +47,7 @@
                   </a>
                   <h4 class="page-title">
                     <span class="label">셀러</span>
-                    <span class="seller-id">hayefuk</span>
+                    <span class="seller-id"><?=$goods->seller_account?></span>
                   </h4>
                 <div class="product-stati">
                   <table class="table product-stati-table">
@@ -58,29 +68,54 @@
                           </div>
                         </td>
                         <td class="title">
-                          <p><a href="#">옵션이 있을 때 재고 표시 방법</a></p>
-                          <p>
-                            <span class="label">옵션 : </span>
-                            <span class="label-content">실버,골드</span>
-                          </p>
+                          <p><a href="#"><?=$goods->title?></a></p>
+                          <?php
+                          if (sizeof($goods->options) > 1) {
+                          ?>
+                              <p>
+                                <span class="label">옵션 : </span>
+                                <span class="label-content">
+                                  <?php
+                                  foreach ($goods->options as $option) {
+                                    if ($option != $goods->options[0]) {
+                                      echo ", ";
+                                    }
+                                    echo $option->name;
+                                  }
+                                  ?>
+                                </span>
+                              </p>
+                          <?php
+                          }
+                          ?>
                           <p>
                             <span class="label">재고 : </span>
                             <span class="label-conent">
-                              211 - 실버(11), 골드(200)
-                            </span>
-                          </p>
-                          <p><a href="#">옵션이 없는 경우 재고 표시 방법</a></p>
-                          <p>
-                            <span class="label">재고 : </span>
-                            <span class="label-conent">
-                              211
+                              <?php
+                                if (sizeof($goods->options) == 1) {
+                                  echo $goods->options[0]->stock_ea;
+                                } else {
+                                  $stock = "";
+                                  $total_ea = 0;
+                                  foreach ($goods->options as $option) {
+                                    if ($option != $goods->options[0]) {
+                                      $stock .= ", ";
+                                    }
+                                    $stock .= $option->name."(".$option->stock_ea.")";
+
+                                    $total_ea += $option->stock_ea;
+                                  }
+
+                                  echo $total_ea." - ".$stock;
+                                }
+                              ?>
                             </span>
                           </p>
                         </td>
-                        <td class="price">26,000원</td>
-                        <td class="count">56</td>
-                        <td class="total">2,326,000원</td>
-                        <td class="stock">211</td>
+                        <td class="price"><?=number_format($goods->options[0]->price)?>원</td>
+                        <td class="count"><?=number_format($goods->order_count)?></td>
+                        <td class="total"><?=number_format($goods->order_price)?>원</td>
+                        <td class="stock"><?=number_format($goods->total_ea)?></td>
                       </tr>
                     </tbody>
                   </table>
@@ -91,16 +126,26 @@
                   </div>
 
                   <ul class="chart-label ">
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@ANOTHER A</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@reply</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@메종드드룸</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@Ditole</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@AMONG</span><span class="chart-item-value">9,069,000원</span></li>
+                    <?php
+                    $total_price = 0;
+                    foreach ($creators as $creator) {
+                      $total_price += $creator->total_price;
+                    }
+
+                    echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value" count="'.$goods->order_count.'">'.number_format($total_price).'원</span></li>';
+
+                    // echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">일반</span><span class="chart-item-value">'.number_format($goods->order_price - $total_price).'원</span></li>';
+
+                    foreach ($creators as $creator) {
+                    ?>
+                      <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@<?=$creator->nickname?></span><span class="chart-item-value" count="<?=$creator->order_count?>"><?=number_format($creator->total_price)?>원</span></li>
+                    <?php
+                    }
+                    ?>
                   </ul>
 
                   <div class="creator-list marginTop50">
-                    <h4 class="admin-header-peach">총 크리에터 <span class="num-of-creator">7</span>명</h3>
+                    <h4 class="admin-header-peach">총 크리에터 <span class="num-of-creator"><?=sizeof($creators)?></span>명</h3>
                   </div>
                   <table class="table product-creator-table">
                     <thead>
@@ -113,32 +158,25 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="creator-item">
-                        <th scope="row">1</th>
-                        <td >
-                          <div class="thumbnail-img">
-                            <img class="creator-img" src="images/creators/creator1.png" alt="" />
-                          </div>
-                        </td>
-                        <td class="creator-id">
-                          <p><a>@ANOTHER A</a></p>
-                        </td>
-                        <td class="count">56</td>
-                        <td class="total">2,326,000원</td>
-                      </tr>
-                      <tr class="creator-item">
-                        <th scope="row">2</th>
-                        <td >
-                          <div class="thumbnail-img">
-                            <img class="creator-img" src="images/creators/creator2.png" alt="" />
-                          </div>
-                        </td>
-                        <td class="creator-id">
-                          <p><a>@ANOTHER A</a></p>
-                        </td>
-                        <td class="count">56</td>
-                        <td class="total">2,326,000원</td>
-                      </tr>
+                      <?php
+                      foreach ($creators as $creator) {
+                      ?>
+                        <tr class="creator-item">
+                          <th scope="row"><?=$creator->id?></th>
+                          <td >
+                            <div class="thumbnail-img">
+                              <img class="creator-img" src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="" />
+                            </div>
+                          </td>
+                          <td class="creator-id">
+                            <p><a>@<?=$creator->nickname?></a></p>
+                          </td>
+                          <td class="count"><?=$creator->order_count?></td>
+                          <td class="total"><?=number_format($creator->total_price)?>원</td>
+                        </tr>
+                      <?php
+                      }
+                      ?>
                     </tbody>
                   </table>
 

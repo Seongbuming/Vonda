@@ -81,7 +81,7 @@ $goods = $response->datas->data;
                               </div>
                             </td>
                             <td class="title">
-                              <p><a href="admin.php?page=product_stat"><?=$item->title?></a></p>
+                              <p><a href="admin.php?page=product_stat&id=<?=$item->id?>"><?=$item->title?></a></p>
                               <?php
                               if (sizeof($item->options) > 1) {
                               ?>
