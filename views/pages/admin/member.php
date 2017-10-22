@@ -18,7 +18,15 @@
 
 
 </head>
+<?php
+$type = $_GET['type'] ? $_GET['type'] : 'general';
 
+$request = new Http();
+$response = $request->request('GET', 'http://api.siyeol.com/admin/members/'.$type.'?token='.$_COOKIE['token']);
+
+$members = $response->datas->data;
+
+?>
 <body>
 
     <div id="wrapper" class="toggled">
@@ -37,13 +45,13 @@
               <!-- Nav tabs -->
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link active"  href="admin.php?page=member" >CUSTOMER</a>
+                  <a class="nav-link <?=$type=='general' ? 'active' : ''?>"  href="admin.php?page=member" >CUSTOMER</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="admin.php?page=member_seller" >SELLER</a>
+                  <a class="nav-link <?=$type=='seller' ? 'active' : ''?>" href="admin.php?page=member&type=seller" >SELLER</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  href="admin.php?page=member_creator" >CREATOR</a>
+                  <a class="nav-link <?=$type=='creator' ? 'active' : ''?>"  href="admin.php?page=member&type=creator" >CREATOR</a>
                 </li>
                 <div class="period_select">
                     <div class="input_period">
@@ -79,33 +87,28 @@
                     </thead>
                     <tbody>
                       <!-- todo: for each로 data 넣기 -->
-                      <tr class="table-item">
-                        <th scope="row" class="id text-heavy-gray">1</th>
-                        <td class="date text-heavy-gray">2017.06.22 11:20</td>
-                        <td class="username">진아영</td>
-                        <td class="user-id">haeyefuk</td>
-                        <td class="phone">010-2134-2355</td>
-                        <td class="email">jahsdfkj@naver.com</td>
-                        <td class="count">0</td>
-                      </tr>
-                      <tr class="table-item">
-                        <th scope="row" class="id text-heavy-gray">2</th>
-                        <td class="date text-heavy-gray">2017.06.22 11:20</td>
-                        <td class="username">진아영</td>
-                        <td class="user-id">haeyefuk</td>
-                        <td class="phone">010-2134-2355</td>
-                        <td class="email">jahsdfkj@naver.com</td>
-                        <td class="count">0</td>
-                      </tr>
-                      <tr class="table-item">
-                        <th scope="row" class="id text-heavy-gray">3</th>
-                        <td class="date text-heavy-gray">2017.06.22 11:20</td>
-                        <td class="username">진아영</td>
-                        <td class="user-id">haeyefuk</td>
-                        <td class="phone">010-2134-2355</td>
-                        <td class="email">jahsdfkj@naver.com</td>
-                        <td class="count">0</td>
-                      </tr>
+                      <?php
+                      foreach ($members as $member) {
+                      ?>
+                        <tr class="table-item">
+                          <th scope="row" class="id text-heavy-gray"><?=$member->id?></th>
+                          <td class="date text-heavy-gray"><?=substr($member->created_at, 0, 16)?></td>
+                          <td class="username">
+                            <?php
+                            if ($type == "seller" || $type == "creator") {
+                              echo "<a href = './admin.php?page=member_".$type."&id=".$member->id."'>";
+                            }
+
+                            echo $member->name."</a>";
+                            ?></td>
+                          <td class="user-id"><?=$member->account?></td>
+                          <td class="phone"><?=$member->phone?></td>
+                          <td class="email"><?=$member->email?></td>
+                          <td class="count"><?=$member->order_count?></td>
+                        </tr>
+                      <?php
+                      }
+                      ?>
                     </tbody>
                   </table>
 
