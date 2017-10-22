@@ -43,8 +43,12 @@ if (isset($_COOKIE['token'])) {
             <tbody>
                 <form class="cart_form" action="./?page=order" method="POST">
                 <?php
+                $total_origin = 0;
+                $total_shipping = 0;
                 foreach ($cart_items as $cart_item) {
                     if (isset($cart_item->goods)) {
+                        $total_shipping += $cart_item->goods->shippingCharge;
+                        $total_origin += $cart_item->goods->options[0]->price * $cart_item->ea;
                 ?>
                         <tr>
                             <td class="select">
@@ -102,17 +106,17 @@ if (isset($_COOKIE['token'])) {
             <div class="wrapper">
                 <div class="term">
                     <p class="caption">상품금액</p>
-                    <p class="price">26,000원</p>
+                    <p class="price"><?=number_format($total_origin)?>원</p>
                 </div>
                 <div class="operator">+</div>
                 <div class="term">
                     <p class="caption">배송비</p>
-                    <p class="price">2,500원</p>
+                    <p class="price"><?=number_format($total_shipping)?>원</p>
                 </div>
                 <div class="operator">=</div>
                 <div class="term">
                     <p class="caption">총 결제금액</p>
-                    <p class="price">28,500원</p>
+                    <p class="price"><?=number_format($total_origin + $total_shipping)?>원</p>
                 </div>
             </div>
         </div>
