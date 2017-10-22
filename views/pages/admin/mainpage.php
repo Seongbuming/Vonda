@@ -54,11 +54,13 @@
                           }
                          ?>
                       </ul>
+                      <!--
                       <div class="banner-item-group banner-item-add border-gray">
                         <div class="operator text-heavy-gray">
                           +
                         </div>
                       </div>
+                      -->
                       <ul class="banner-item-group banner-item-template border-gray"
                       style="display:none;">
                       <?php
@@ -82,6 +84,7 @@
                       </ul>
                   </div>
 
+                  <!--
                   <div class="pager-container text-center">
                     <button type="button" class="btn-pager btn btn-default" aria-label="Next Page">
                       <span class="glyphicon glyphicon-triangle-left" aria-hidden="false"></span>
@@ -91,6 +94,7 @@
                       <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
                     </button>
                   </div>
+                -->
                 </div>
 
                 <!-- <div id="product" class="content-panel">
@@ -262,7 +266,9 @@
                 </div>
 
                 <div class="btn-container">
+                  <!--
                   <button type="button" name="" class="btn-preview btn btn-gray">미리보기</button>
+                  -->
                   <button type="button" name="" class="btn-submit btn btn-peach">등록</button>
                 </div>
 
