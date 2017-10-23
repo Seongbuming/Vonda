@@ -3,9 +3,11 @@ $(document).ready(function() {
     function refreshReturnModal() {
         var option = $("#modal_return input[name=option]:checked").val();
         if (option == "exchange" || option == undefined) {
+            $("#modal_return .order_list").css("display", "block");
             $("#modal_return .exchange_form").css("display", "block");
             $("#modal_return .return_form").css("display", "none");
         } else {
+            $("#modal_return .order_list").css("display", "none");
             $("#modal_return .exchange_form").css("display", "none");
             $("#modal_return .return_form").css("display", "block");
         }
@@ -21,6 +23,12 @@ $(document).ready(function() {
         $modal.find("textarea").val("");
         refreshReturnModal();
 
+        // 모달 주문번호 입력
+        var order_no = $(this).parent().parent().find(".id").text();
+        $modal.find(".order_no").val(order_no);
+
+        getItems(order_no);
+
         $modal.get(0).open();
     });
     // 반품/교환 확인
@@ -28,6 +36,7 @@ $(document).ready(function() {
         var $modal = $("#modal_return");
         var option = $modal.find("input[name=option]:checked").val();
         var $form = $modal.find(`.${option}_form`);
+        var order_no = $modal.find(".order_no").val();
         
         // 빈 칸 검사
         if ($form.find(".reason").val() === null) {
@@ -36,7 +45,44 @@ $(document).ready(function() {
             alert("반품 상세 사유를 입력해 주세요.");
         } else {
             // 반품/교환 작업을 여기에서 수행하세요.
-            
+            if ($modal.find(".order_list").css("display") == "block") {
+                // exchange
+                $.ajax({
+                  type: "POST",
+                  url: "http://api.siyeol.com/order/"+order_no+"/cancel?token="+readCookie('token'),
+                  dataType: "json",
+                  data: {'reason':reason},
+                  success: function (res) {
+                    if (res.code != 200) {
+                        alert("교환 신청에 실패하였습니다.");
+                    }
+                    location.reload();
+                  },
+                  error: function (err) {
+                    alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+                  }
+                });
+            } else {
+                // return
+                var reason = $form.find(".reason").val();
+                var message = $form.find("textarea").val();
+
+                $.ajax({
+                  type: "POST",
+                  url: "http://api.siyeol.com/order/"+order_no+"/return?token="+readCookie('token'),
+                  dataType: "json",
+                  data: {'reason':reason, 'message':message},
+                  success: function (res) {
+                    if (res.code != 200) {
+                        alert("반품 신청에 실패하였습니다.");
+                    }
+                    location.reload();
+                  },
+                  error: function (err) {
+                    alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+                  }
+                });
+            }
             $modal.get(0).close();
         }
     });
@@ -112,6 +158,58 @@ function openDetail(order_no) {
 
 
             $("#modal_order_detail").addClass("actived");
+        }
+      },
+      error: function (err) {
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+      }
+    });
+}
+
+function getItems(order_no) {
+    $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com/order/"+order_no+"?token="+readCookie('token'),
+      dataType: "json",
+      data: {},
+      success: function (res) {
+        if (res.code == 200) {
+            var items = res.data.items;
+            console.log(items);
+
+            var html = "";
+
+            items.forEach(function (item){
+                html += '<tr>';;
+                html += '<td class="select">';
+                html += '<input id="select_'+item.id+'" type="checkbox" title="선택" />';
+                html += '<label for="select_'+item.id+'"></label>';
+                html += '</td>';
+                html += '<td class="product">';
+                html += '<div class="product_img">';
+                html += '<img src="http://api.siyeol.com/'+item.goods.goods_image+'" alt="상품사진" />';
+                html += '</div>';
+                html += '<div class="product_info">';
+                html += '<p>'+item.goods.title+'</p>';
+                html += '<p>옵션: <span class="option">';
+
+                item.goods.options.forEach(function (option) {
+                    if (option.id == item.goods_option_id) {
+                        html += option.name;
+                    }
+                });
+
+                html += '</span></p>';
+                html += '<p>수량: <span class="amount">'+item.ea+'</span></p>';
+                html += '</div>';
+                html += '</td>';
+                html += '<td class="order_price">';
+                html += '<p>'+(item.ea * item.price).format()+'원</p>';
+                html += '</td>';
+            html += '</tr>';
+            });
+
+            $("#modal_return .order_list .body").html(html);
         }
       },
       error: function (err) {

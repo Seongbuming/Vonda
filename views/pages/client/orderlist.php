@@ -313,6 +313,7 @@ $orders = $response->datas->data;
         </div>
 
         <div id="modal_return" class="modal">
+            <input type="hidden" class="order_no">
             <div class="close_section modal_close"></div>
             <div class="modal_body">
                 <button class="close_button modal_close">
@@ -337,7 +338,7 @@ $orders = $response->datas->data;
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="body">
                         <tr>
                             <td class="select">
                                 <input id="select_1" type="checkbox" title="선택" />
