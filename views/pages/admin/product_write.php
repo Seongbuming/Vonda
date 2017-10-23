@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="ko">
+<?php
+// 상품 등록 핸들링
+$is_post = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $is_post = true;
+    $url = '/admin/goods';
 
+    $account = $_POST['id'];
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $phone = $_POST['pnumber_1'].$_POST['pnumber_2'].$_POST['pnumber_3'];
+    $email = $_POST['email'];
+    $type = 'general';
+    $sendData = compact('account', 'name', 'password', 'phone', 'email', 'type');
+
+    $request = new Http();
+    $res = $request->requestEx('POST', $url, [
+        'form_params' => $sendData,
+    ]);
+
+    // 회원가입 완료하면 토큰이 반환됨.
+    if ($res->token) {
+        header("location:./?page=signup_finish");
+        exit;
+    }
+}
+?>
 <head>
 
     <meta charset="utf-8">
@@ -35,15 +61,15 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
               <div id="product-write">
-                <form class="" action="index.html" method="post">
+                <form class="goods_form" method="POST" action="#">
                   <div class="form-group">
                     <label class="label form-item">상품명</label>
-                    <input type="input" name="product-name" value=""
+                    <input type="input" name="title" value=""
                             class="form-item input-product-name">
                   </div>
                   <div class="form-group">
                     <label class="label form-item">셀러</label>
-                    <input type="input" name="product-seller" value=""
+                    <input type="input" name="seller_id" value=""
                             class="form-item">
                     <button type="button" name="btn-seller-search" class="btn btn-default btn-sm">
                       <span class="glyphicon glyphicon-search text-heavy-gray"></span>
@@ -51,70 +77,31 @@
                   </div>
                   <div class="form-group">
                     <label class="label form-item">가격</label>
-                    <input type="input" name="product-price" value=""
+                    <input type="input" name="price" value=""
                             class="form-item text-right">
                   </div>
                   <div class="form-group">
                     <label class="label form-item">배송비</label>
-                    <input type="input" name="product-shipping-fee" value=""
+                    <input type="input" name="shippingCharge" value=""
                             class="form-item text-right">
+                    <input type="hidden" name="shippingRule" value="charge">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group product-stock">
                     <label class="label form-item">재고</label>
-                    <input type="input" name="product-stock" value="211"
+                    <input type="input" name="product-stock" value=""
                             class="form-item text-right">
                   </div>
                   <div class="form-group">
                     <label class="label form-item">옵션명</label>
-                    <ul class="option-list border-gray">
-                      <li class="option-item">
-                        <input class="option-item-input text-heavy-gray select" type="text" name="test" value="컬러" />
-                        <button type="button" name="" class="btn-remove btn btn-default btn-sm">
-                          <span class="text-heavy-gray">&times;</span>
-                        </button>
-                      </li>
-                      <li class="option-item">
-                        <input class="option-item-input text-heavy-gray" type="text" name="test" value="사이즈" />
-                        <button type="button" name="" class="btn-remove btn btn-default btn-sm">
-                            <span class="text-heavy-gray">&times;</span>
-                        </button>
-                      </li>
-                      <li class="option-item-add">
-                        <div class="operator text-heavy-gray">
-                          +
-                        </div>
-                      </li>
-                      <li class="option-item option-item-template new-option-item" style="display:none">
-                        <input class="option-item-input text-heavy-gray border-gray" type="text" name="test" value="" placeholder="새로운 옵션명" />
-                        <button type="button" name="" class="btn-remove btn btn-default btn-sm">
-                            <span class="text-heavy-gray">&times;</span>
-                        </button>
-                      </li>
-                    </ul>
-                    <label class="label form-item label-option-value-list text-right">옵션값</label>
                     <ul class="option-value-list border-gray">
-                      <li class="option-item">
-                        <input class="option-item-input text-heavy-gray" type="text" name="test" value="아이보리" />
-                        <input class="option-item-input text-heavy-gray" type="text" name="test" value="11" placeholder="재고" />
-                        <button type="button" name="" class="btn-remove btn btn-default btn-sm">
-                          <span class="text-heavy-gray">&times;</span>
-                        </button>
-                      </li>
-                      <li class="option-item">
-                        <input class="option-item-input text-heavy-gray" type="text" name="test" value="블랙" />
-                        <input class="option-item-input text-heavy-gray" type="text" name="test" value="200" placeholder="재고" />
-                        <button type="button" name="" class="btn-remove btn btn-default btn-sm">
-                            <span class="text-heavy-gray">&times;</span>
-                        </button>
-                      </li>
                       <li class="option-item-add">
                         <div class="operator text-heavy-gray">
                           +
                         </div>
                       </li>
                       <li class="option-item option-item-template new-option-item" style="display:none">
-                        <input class="option-item-input text-heavy-gray border-gray" type="text" name="test" value="" placeholder="새로운 옵션값" />
-                        <input class="option-item-input text-heavy-gray border-gray" type="text" name="test" value="" placeholder="재고량" />
+                        <input class="option-item-input text-heavy-gray border-gray" type="text" name="name[]" value="" placeholder="새로운 옵션값" />
+                        <input class="option-item-input text-heavy-gray border-gray" type="text" name="total_ea[]" value="" placeholder="재고량" />
                         <button type="button" name="" class="btn-remove btn btn-default btn-sm">
                             <span class="text-heavy-gray">&times;</span>
                         </button>
@@ -135,24 +122,24 @@
                       <label for="ex_filename">
                         <span class="glyphicon glyphicon-search text-heavy-gray"></span>
                       </label>
-                      <input type="file" id="ex_filename" class="upload-hidden" accept="image/*">
+                      <input type="file" name="goods_image" id="ex_filename" class="upload-hidden" accept="image/*">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="label form-item">상품 간단 설명</label>
-                    <input type="input" name="product-brief-description" value=""
+                    <input type="input" name="explain" value=""
                             class="form-item input-product-brief-description">
                   </div>
                   <div class="form-gruop">
                     <label class="label form-item">상품 상세 설명</label>
-                    <div id="text-editor" class="form-item text-center">
+                    <textarea id="text-editor" class="form-item text-center">
                       내용을 입력해주세요.
-                    </div>
+                    </textarea>
                   </div>
 
                   <div class="btn-container text-center">
                     <button type="button" name="btn-preview" class="btn btn-gray">미리보기</button>
-                    <button type="button" name="btn-submit" class="btn btn-peach">등록</button>
+                    <button type="submit" name="btn-submit" class="btn btn-peach">등록</button>
                   </div>
                 </form>
             </div><!-- /#notice-detail -->
