@@ -22,7 +22,7 @@
 $type = $_GET['type'] ? $_GET['type'] : 'general';
 
 $request = new Http();
-$response = $request->request('GET', 'http://api.siyeol.com/admin/members/'.$type.'?token='.$_COOKIE['token']);
+$response = $request->request('GET', '/admin/members/'.$type.'?token='.$_COOKIE['token']);
 
 $members = $response->datas->data;
 
