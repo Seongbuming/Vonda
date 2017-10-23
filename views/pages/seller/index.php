@@ -32,6 +32,12 @@ if ($res->code == "400") {
     header("location:/?page=login");
 }
 $notices = $res->datas->data;
+// Get Statics
+$res = $request->request('GET', '/seller/statics/monthly?token='.$_COOKIE['token']);
+if ($res->code == "400") {
+    header("location:/?page=login");
+}
+$statics = $res->data;
 ?>
 <body>
     <header>
@@ -49,10 +55,26 @@ $notices = $res->datas->data;
       </div>
 
       <ul class="chart-label ">
-        <li style="color:#52CC5D"><i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span><span class="chart-item-value">9,069,000원</span></li>
-        <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span><span class="chart-item-value">222건</span></li>
-        <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span><span class="chart-item-value">9개</span></li>
-        <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 크리에이터</span><span class="chart-item-value">11명</span></li>
+        <li style="color:#52CC5D">
+            <i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i>
+            <span class="chart-item-label">총 매출</span>
+            <span class="chart-item-value"><?=number_format($statics->total_price)?>원</span>
+        </li>
+        <li style="color:black">
+            <i class="glyphicon glyphicon-stop"></i>
+            <span class="chart-item-label">총 주문건수</span>
+            <span class="chart-item-value"><?=number_format($statics->total_count)?>건</span>
+        </li>
+        <li style="color:black">
+            <i class="glyphicon glyphicon-stop"></i>
+            <span class="chart-item-label">현재 등록된 상품</span>
+            <span class="chart-item-value"><?=number_format($statics->goods_count)?>개</span>
+        </li>
+        <li style="color:black">
+            <i class="glyphicon glyphicon-stop"></i>
+            <span class="chart-item-label">현재 크리에이터</span>
+            <span class="chart-item-value"><?=number_format($statics->creator_count)?>명</span>
+        </li>
       </ul>
 		<div class="creatorCnt">나의 상품<a href="./seller.php?page=seller_myproduct_list" class="allView">전체보기</a></div>
 		<table id="product-table"class="order_list productTable noneMargin pd10">
@@ -103,7 +125,7 @@ $notices = $res->datas->data;
                         <p class="status_text"><?=number_format($product->order_count)?></p>
                     </td>
                     <td class="order_totalPrice">
-                        <p><?=number_format((count($product->options) ? $product->options[0]->price : 0) * $product->order_count)?>원</p>
+                        <p><?=number_format($product->order_price)?>원</p>
                     </td>
                 </tr>
                 <?php } ?>
@@ -126,7 +148,7 @@ $notices = $res->datas->data;
                     </td>
                     <td class="product">
                         <div class="product_img">
-                            <img src="<?=$creator->profile_image?>" alt="크리에이터 사진" style="height:100%;"/>
+                            <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 사진" style="height:100%;"/>
                         </div>
                         <div class="product_info">
                             <p class="open product_detail">@<?=$creator->nickname?></p>

@@ -87,7 +87,7 @@ $requests = $res->datas->data;
                 <tr>
                     <td class="product">
                         <div class="product_img">
-                            <img src="<?=$creator->profile_image?>" alt="크리에이터 사진" style="height:100%;"/>
+                            <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 사진" style="height:100%;"/>
                         </div>
                         <div class="product_info">
                             <p class="open product_detail">@<?=$creator->nickname?></p>

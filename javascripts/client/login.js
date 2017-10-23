@@ -12,9 +12,6 @@ $(document).ready(function() {
                 createCookie("token", res.token);
                 createCookie("refresh_token", res.refresh_token);
 
-                console.log(res);
-                console.log(res.user.type);
-
                 if (res.user.type == "general") {
                   location.href = "/";
                 } else if (res.user.type == "creator") {
