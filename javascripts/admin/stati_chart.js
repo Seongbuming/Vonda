@@ -3,6 +3,8 @@ $(document).ready(function() {
 
   var data_creator = [];
   var creator_label = [];
+  var data_sales = [];
+  var data_sales_label = [];
 
   $(".chart-item-value").each(function (){
     if (!$(this).hasClass("total")) {
@@ -11,9 +13,18 @@ $(document).ready(function() {
     }
   });
 
+  var month = 1;
+
+  $(".month_data").each(function (){
+    data_sales_label.push(month+"월");
+    data_sales.push($(this).val());
+
+    month++;
+  });
+
   //var data_creator = [79, 71, 25, 23, 2];
   var data_product= [2,25,79,25,71];
-  var data_sales = [0,9,10,2,25,79,25,71,79, 71];
+  //var data_sales = [0,9,10,2,25,79,25,71,79, 71];
 
   var valid_creator = document.getElementById("creator-chart");
   var valid_sales = document.getElementById("sales-chart");
@@ -131,7 +142,7 @@ $(document).ready(function() {
 
       // The data for our dataset
       data: {
-          labels: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월"],
+          labels: data_sales_label,
           datasets: [{
             "label":"판매수",
             "data":data_sales,

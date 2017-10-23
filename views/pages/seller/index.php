@@ -37,7 +37,8 @@ $res = $request->request('GET', '/seller/statics/monthly?token='.$_COOKIE['token
 if ($res->code == "400") {
     header("location:/?page=login");
 }
-$statics = $res->data;
+$summary = $res->datas->summary;
+$statics = $res->datas->statics;
 ?>
 <body>
     <header>
@@ -52,28 +53,33 @@ $statics = $res->data;
       </div>
       <div class="chart-container" style="width:900px;">
         <canvas id="sales-chart" width="100%"></canvas>
+        <?php
+        foreach ($statics as $index => $total_count) {
+            echo "<input type='hidden' class='month_data' value='".$total_count."'/>";
+        }
+        ?>
       </div>
 
       <ul class="chart-label ">
         <li style="color:#52CC5D">
             <i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i>
             <span class="chart-item-label">총 매출</span>
-            <span class="chart-item-value"><?=number_format($statics->total_price)?>원</span>
+            <span class="chart-item-value"><?=number_format($summary->total_price)?>원</span>
         </li>
         <li style="color:black">
             <i class="glyphicon glyphicon-stop"></i>
             <span class="chart-item-label">총 주문건수</span>
-            <span class="chart-item-value"><?=number_format($statics->total_count)?>건</span>
+            <span class="chart-item-value"><?=number_format($summary->total_count)?>건</span>
         </li>
         <li style="color:black">
             <i class="glyphicon glyphicon-stop"></i>
             <span class="chart-item-label">현재 등록된 상품</span>
-            <span class="chart-item-value"><?=number_format($statics->goods_count)?>개</span>
+            <span class="chart-item-value"><?=number_format($summary->goods_count)?>개</span>
         </li>
         <li style="color:black">
             <i class="glyphicon glyphicon-stop"></i>
             <span class="chart-item-label">현재 크리에이터</span>
-            <span class="chart-item-value"><?=number_format($statics->creator_count)?>명</span>
+            <span class="chart-item-value"><?=number_format($summary->creator_count)?>명</span>
         </li>
       </ul>
 		<div class="creatorCnt">나의 상품<a href="./seller.php?page=seller_myproduct_list" class="allView">전체보기</a></div>
