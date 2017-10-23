@@ -180,11 +180,10 @@ $(document).ready(function() {
   }
 
   $(function() {
-      loadOrders();
+      // loadOrders();
   });
 
   $(document).on('change','.select-status',function(){
-
     var delevery_complete_step_code = '40';
     if($(this).val() == delevery_complete_step_code){
       $(this).addClass('selected-complete-delivery');
@@ -192,4 +191,54 @@ $(document).ready(function() {
       $(this).removeClass('selected-complete-delivery');
     }
   });
+
+  //반품 요청 modal
+  $(document).on('click','.btn-request-return',function(){
+    item = {
+      reason: "구매의사취소",
+      comment: "반품해주세요ㅜㅜ"
+    };
+
+    var element = '<p class="reason"> 반품사유 : '+item.reason+'</p>' +
+                  '<p class="comment">"'+item.comment+'"</p>';
+    $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .submit').text("반품요청");
+    $('#modal_return_exchange').addClass('actived');
+  });
+
+  //반품 완료 modal
+  $(document).on('click','.btn-complete-return',function(){
+    item = {
+      reason: "구매의사취소",
+      comment: "반품해주세요ㅜㅜ"
+    };
+
+    var element = '<p class="reason"> 반품사유 : '+item.reason+'</p>' +
+                  '<p class="comment">"'+item.comment+'"</p>';
+    $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .submit').text("반품완료");
+    $('#modal_return_exchange').addClass('actived');
+  });
+
+  //교환 요청 modal
+  $(document).on('click','.btn-request-exchange',function(){
+    item = {
+      comment: "사이즈 교환해주세요ㅠㅠ"
+    };
+    var element = '<p class="comment">"'+item.comment+'"</p>';
+    $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .submit').text("교환요청");
+    $('#modal_return_exchange').addClass('actived');
+  });
+  //교환 완료 modal
+  $(document).on('click','.btn-complete-exchange',function(){
+    item = {
+      comment: "사이즈 교환해주세요ㅠㅠ"
+    };
+    var element = '<p class="comment">"'+item.comment+'"</p>';
+    $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .submit').text("교환완료");
+    $('#modal_return_exchange').addClass('actived');
+  });
+
 });

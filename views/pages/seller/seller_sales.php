@@ -82,7 +82,7 @@
                         <p>11,500원</p>
                     </td>
                     <td class="order_sell_status">
-                      주문취소요청
+                      <button type="button" name="button" class="btn-complete-exchange">교환완료</button>
                     </td>
 
                 </tr>
@@ -105,13 +105,7 @@
                         <p>128,500원</p>
                     </td>
                     <td class="order_sell_status">
-                      <select class="select-status" name="select-status">
-                        <option value="1">주문완료</option>
-                        <option value="10">상품준비중</option>
-                        <option value="20">배송준비중</option>
-                        <option value="30">배송중</option>
-                        <option value="40">배송완료</option>
-                      </select>
+                      <button type="button" name="button" class="btn-request-return">반품요청</button>
                     </td>
 
                 </tr>
@@ -133,13 +127,7 @@
                         <p>128,500원</p>
                     </td>
                     <td class="order_sell_status">
-                        <select class="select-status" name="select-status">
-                          <option value="1">주문완료</option>
-                          <option value="10">상품준비중</option>
-                          <option value="20">배송준비중</option>
-                          <option value="30">배송중</option>
-                          <option selected value="40">배송완료</option>
-                        </select>
+                        <button type="button" name="button" class="btn-complete-return">반품완료</button>
                     </td>
 
                 </tr>
@@ -152,97 +140,50 @@
             <button class="right">▶</button>
         </div>
 
-        <div id="modal_return" class="modal ">
+        <div id="modal_return_exchange" class="modal">
             <div class="close_section modal_close"></div>
             <div class="modal_body">
                 <button class="close_button modal_close">
                     <img src="images/buttons/close.png" alt="닫기" />
                 </button>
 
-                <div class="option_container">
-                    <input id="option_exchange" name="option" class="radio" value="exchange" type="radio" />
-                    <label for="option_exchange">교환</label>
-                    <input id="option_return" name="option" class="radio" value="return" type="radio" />
-                    <label for="option_return">반품</label>
-                </div>
-
                 <table class="order_list">
-                    <thead>
-                        <tr>
-                            <th class="select">
-                                <input id="select_all" type="checkbox" title="모두선택" />
-                                <label for="select_all"></label>
-                            </th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
-                            <td class="select">
-                                <input id="select_1" type="checkbox" title="선택" />
-                                <label for="select_1"></label>
-                            </td>
-                            <td class="product">
-                                <div class="product_img">
-                                    <img src="images/products/product1.png" alt="상품사진" />
-                                </div>
-                                <div class="product_info">
-                                    <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                                    <p>옵션: <span class="option">실버</span></p>
-                                    <p>수량: <span class="amount">1</span></p>
-                                </div>
-                            </td>
-                            <td class="order_price">
-                                <p>28,500원</p>
-                            </td>
+                          <td class="product">
+                              <div class="product_img">
+                                  <img src="images/products/product1.png" alt="상품사진" />
+                              </div>
+                              <div class="product_info">
+                                  <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
+                                  <p>옵션: <span class="option">실버</span></p>
+                                  <p>수량: <span class="amount">1</span></p>
+                              </div>
+                          </td>
+                          <td class="order_price">
+                              <p>28,500원</p>
+                          </td>
                         </tr>
                         <tr>
-                            <td class="select">
-                                <input id="select_2" type="checkbox" title="선택" />
-                                <label for="select_2"></label>
-                            </td>
-                            <td class="product">
-                                <div class="product_img">
-                                    <img src="images/products/product3.png" alt="상품사진" />
-                                </div>
-                                <div class="product_info">
-                                    <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                                    <p>옵션: <span class="option">실버</span></p>
-                                    <p>수량: <span class="amount">1</span></p>
-                                </div>
-                            </td>
-                            <td class="order_price">
-                                <p>11,500원</p>
-                            </td>
+                          <td class="product">
+                              <div class="product_img">
+                                  <img src="images/products/product3.png" alt="상품사진" />
+                              </div>
+                              <div class="product_info">
+                                  <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
+                                  <p>옵션: <span class="option">실버</span></p>
+                                  <p>수량: <span class="amount">1</span></p>
+                              </div>
+                          </td>
+                          <td class="order_price">
+                              <p>11,500원</p>
+                          </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div class="exchange_form form">
-                    <p>상품과 함께 배송비(교환5,000원/반품2,500원) 동봉 후 착불로 보내주시면 됩니다.</p>
-                    <p>&nbsp;</p>
-                    <p>교환은 주문하신 동일 상품의 색상/사이즈로만 교환 가능합니다.</p>
-                    <p>환불은 상품도착 후 카드사 영업일 기준 3~5일 이내로 환불됩니다.</p>
-                    <textarea></textarea>
-                </div>
+                <div class="contents">
 
-                <div class="return_form form">
-                    <p>상품과 함께 배송비(교환5,000원/반품2,500원) 동봉 후 착불로 반송해주시면 됩니다.</p>
-                    <p>&nbsp;</p>
-                    <p>교환은 주문하신 동일 상품의 색상/사이즈로만 교환 가능합니다.</p>
-                    <p>환불은 상품도착 후 카드사 영업일 기준 3~5일 이내로 환불됩니다.</p>
-                    <select class="reason">
-                        <option value="" disabled selected>반품사유</option>
-                        <option value="구매 의사 취소">구매 의사 취소</option>
-                        <option value="다른 상품 잘못 주문">다른 상품 잘못 주문</option>
-                        <option value="서비스 및 상품 불만족">서비스 및 상품 불만족</option>
-                        <option value="배송 지연">배송 지연</option>
-                        <option value="상품 품절">상품 품절</option>
-                        <option value="상품 정보 상이">상품 정보 상이</option>
-                        <option value="오배송">오배송</option>
-                    </select>
-                    <textarea></textarea>
                 </div>
 
                 <button class="submit">확인</button>
