@@ -12,15 +12,14 @@ function write_notice(subject,content) {
       contentType: false,
       cache:false,
       success: function (res) {
-        console.log(res.code);
-          // if (res.code == 200) {
-          //
-          // } else if (res.code == 401) {
-          //     alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
-          //     location.href="./?page=login";
-          // } else {
-          //     alert('크리에이터 정보를 업데이트 하는데 실패했습니다.\n다시 시도해 주세요.');
-          // }
+          if (res.code == 200) {
+            location.href="creator.php?page=board_detail&id="+res.data.id;
+          } else if (res.code == 401) {
+              alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
+              location.href="./?page=login";
+          } else {
+              alert('게시물을 생성하는데 실패했습니다.\n다시 시도해 주세요.');
+          }
       },
       error: function (err) {
           alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
@@ -31,5 +30,15 @@ function write_notice(subject,content) {
 $('.submit').on('click', function () {
   var subject = $('.title').val();
   var content = $('#text-editor').summernote('code');
-  write_notice(subject,content);
+
+  //form validation
+  if(subject.length > 5 ){
+    if(content.length > 10){
+      write_notice(subject,content);
+    }else{
+      alert("내용을 10자 이상 입력해주세요")
+    }
+  }else{
+    alert("제목을 5자 이상 입력해주세요");
+  }
 });
