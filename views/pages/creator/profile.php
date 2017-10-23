@@ -25,9 +25,10 @@ $creator = $response->data;
     </ul>
     <div class="profile_area"></div>
     <div class="creator_profile">
-        <img src="images/creators/creator_background1.png" class="creator_profile_bg_img">
+        <img src="http://api.siyeol.com/<?=$creator->cover_image?>" class="creator_profile_bg_img">
         <div class="creator_profile_img_container">
-          <img src="images/creators/creator_background1.png" id="profile_location" class="creator_profile_img">
+          <img src="http://api.siyeol.com/<?=$creator->profile_image?>" id="profile_location" class="creator_profile_img">
+
           <div class="filebox-profile">
             <label for="creator-profile-upload">
               <img src="images/icons/camera_white.png" alt="" />
@@ -35,10 +36,7 @@ $creator = $response->data;
             <input type="file" id="creator-profile-upload" class="upload-hidden" accept="image/*">
           </div>
         </div>
-        <!--
-        <img src="http://api.siyeol.com/<?=$creator->cover_image?>" class="creator_profile_bg_img">
-        <img src="http://api.siyeol.com/<?=$creator->background_image?>" id="profile_location" class="
-        -->
+
       <div class="bg_size">
         <div class="filebox" style="padding: 6px 5px;">
           <label for="creator-bg-upload">
@@ -57,17 +55,54 @@ $creator = $response->data;
         <ul class="creator_sns">
             <?php
               $sns_str = array("Instagram","Facebook","Twitter","Youtube","Afreeca","Twitch","Kakao","NaverBlog");
-              for ($i=0; $i < 8 ; $i++) {?>
+              for ($i=0; $i < 8 ; $i++) {
+                $is_matched = false;
+                ?>
                 <li class="sns-item">
-                  <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택">
-                  <label for="<?="select_".$i?>"></label>
-                  <img src="<?= "images/icons/creator_profile/". $sns_str[$i] ."30.png" ?>" alt="<?= $sns_str[$i]?>" />
-                  <label for="<?= "input_". $sns_str[$i] ?>" class="input-label"> <?=$sns_str[$i] ?></label>
-                  <input id="<?= "input_". $sns_str[$i] ?>" class="item-url" type="text" name="name" value="" disabled="true" placeholder="url을 입력해주세요.">
+                <?php
+                foreach ($creator->channels as $item) {
+                  $is_matched = strtoupper($item->channel) == strtoupper($sns_str[$i]) ? true : false;
+
+                  if($is_matched){
+
+                    if($item->isVisible == '1'){?>
+
+                      <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택" checked>
+                      <label for="<?="select_".$i?>"></label>
+                      <img src="<?= "images/icons/creator_profile/". $sns_str[$i] .".png" ?>" alt="<?= $sns_str[$i]?>" />
+                      <label for="<?= "input_". $sns_str[$i] ?>" class="input-label" style="color:black;"> <?=$sns_str[$i] ?></label>
+                      <input id="<?= "input_". $sns_str[$i] ?>" class="item-url" type="text" name="name" value="<?=$item->link?>" disabled="false" placeholder="url을 입력해주세요.">
+
+                    <?php
+                    }else{?>
+
+                    <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택">
+                    <label for="<?="select_".$i?>"></label>
+                    <img src="<?= "images/icons/creator_profile/". $sns_str[$i] ."30.png" ?>" alt="<?= $sns_str[$i]?>" />
+                    <label for="<?= "input_". $sns_str[$i] ?>" class="input-label"> <?=$sns_str[$i] ?></label>
+                    <input id="<?= "input_". $sns_str[$i] ?>" class="item-url" type="text" name="name" value="<?=$itme->link?>" disabled="true" placeholder="url을 입력해주세요.">
+                    <?php
+                    }
+                    break;
+                  }
+                }
+
+                if($is_matched){
+                  continue;
+                }
+                ?>
+                <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택">
+                <label for="<?="select_".$i?>"></label>
+                <img src="<?= "images/icons/creator_profile/". $sns_str[$i] ."30.png" ?>" alt="<?= $sns_str[$i]?>" />
+                <label for="<?= "input_". $sns_str[$i] ?>" class="input-label"> <?=$sns_str[$i] ?></label>
+                <input id="<?= "input_". $sns_str[$i] ?>" class="item-url" type="text" name="name" value="" disabled="true" placeholder="url을 입력해주세요.">
+
                 </li>
             <?php
               }
             ?>
+
+
 
           </ul>
       </div>
