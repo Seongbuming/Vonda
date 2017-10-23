@@ -36,7 +36,7 @@ $banners = $response->datas;
                 foreach ($banners as $banner) {
                 ?>
                     <a class="overlay_container" href="./?page=creator_profile&id=<?=$banner->creator_id?>">
-                        <img src="http://api.siyeol.com/<?=$banner->image?>" alt="배너 이미지 1" />
+                        <img src="http://api.siyeol.com/<?=$banner->image?>" target="_blank" alt="배너 이미지 1" />
                         <div class="overlay">
                             <p>@<?=$banner->nickname?></p>
                         </div>
