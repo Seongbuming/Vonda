@@ -66,6 +66,8 @@ $orders = $response->datas->data;
                 <tbody>
                     <?php
                     foreach ($orders as $order) {
+                            $cancel = $order;
+                            $order = $order->order;
                             foreach ($order->items as $item) {
                     ?>
                             <tr>
@@ -137,6 +139,7 @@ $orders = $response->datas->data;
                                 <td class="order_cancel" rowspan="<?=sizeof($order->items)?>" >
                                   <p class="status_text">
                                     <?php
+                                    /*
                                     switch ($item->step) {
                                         case '1':
                                             echo "주문취소신청";
@@ -155,6 +158,14 @@ $orders = $response->datas->data;
                                         break;
                                         case "50":
                                             echo "교환완료";
+                                        break;
+                                    }*/
+                                    switch ($cancel->status) {
+                                        case '0':
+                                            echo "주문취소신청";
+                                        break;
+                                        case '1':
+                                            echo "주문취소";
                                         break;
                                     }
                                     ?>
