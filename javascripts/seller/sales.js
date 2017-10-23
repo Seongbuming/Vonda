@@ -81,7 +81,53 @@ $(document).ready(function() {
                       '</select>' +
                   '</td>' +
               '</tr>';
-                break;
+                  break;
+                case '50':
+                    item_element += '<td class="order_sell_status">' +
+                            '주문취소요청' +
+                          '</td>' +
+                        '</tr>';
+                  break;
+                case '51':
+                item_element += '<td class="order_sell_status">' +
+                        '주문취소완료' +
+                      '</td>' +
+                    '</tr>';
+                  break;
+                //반품요청,반품완료,교환요청,교환완료
+                case '100':
+                  item_element += '<td class="order_sell_status">' +
+                      '<button type="button" name="button" class="btn-request-return"'+
+                          '반품요청' +
+                      '</buton>' +
+                  '</td>' +
+              '</tr>';
+                  break;
+                  case '110':
+                    item_element += '<td class="order_sell_status">' +
+                        '<button type="button" name="button" class="btn-complete-return"'+
+                            '반품완료' +
+                        '</buton>' +
+                    '</td>' +
+                '</tr>';
+                    break;
+                    case '200':
+                      item_element += '<td class="order_sell_status">' +
+                          '<button type="button" name="button" class="btn-request-exchange"'+
+                              '교환요청' +
+                          '</buton>' +
+                      '</td>' +
+                  '</tr>';
+                      break;
+                      case '210':
+                        item_element += '<td class="order_sell_status">' +
+                            '<button type="button" name="button" class="btn-complete-exchange"'+
+                                '교환완료' +
+                            '</buton>' +
+                        '</td>' +
+                    '</tr>';
+                        break;
+
               }
           return item_element;
 
@@ -133,7 +179,7 @@ $(document).ready(function() {
   }
 
   $(function() {
-      loadOrders();
+      // loadOrders();
   });
 
   $(document).on('change','.select-status',function(){

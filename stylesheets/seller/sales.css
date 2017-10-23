@@ -1,3 +1,28 @@
 .order_sell_status select.selected-complete-delivery {
-  background-color: #9E9E9E;
+  background-color: #c0c0c0;
+}
+.btn-request-exchange,
+.btn-request-return{
+  display: inline-block;
+  width: 120px;
+  height: 34px;
+  line-height: 34px;
+  font-size: .9em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: #c0c0c0;
+}
+
+.btn-complete-exchange,
+.btn-complete-return{
+  display: inline-block;
+  width: 120px;
+  height: 34px;
+  line-height: 34px;
+  font-size: .9em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: #e69a83;
 }
