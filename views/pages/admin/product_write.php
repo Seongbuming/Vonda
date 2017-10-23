@@ -1,32 +1,5 @@
 <!doctype html>
 <html lang="ko">
-<?php
-// 상품 등록 핸들링
-$is_post = false;
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $is_post = true;
-    $url = '/admin/goods';
-
-    $account = $_POST['id'];
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $phone = $_POST['pnumber_1'].$_POST['pnumber_2'].$_POST['pnumber_3'];
-    $email = $_POST['email'];
-    $type = 'general';
-    $sendData = compact('account', 'name', 'password', 'phone', 'email', 'type');
-
-    $request = new Http();
-    $res = $request->requestEx('POST', $url, [
-        'form_params' => $sendData,
-    ]);
-
-    // 회원가입 완료하면 토큰이 반환됨.
-    if ($res->token) {
-        header("location:./?page=signup_finish");
-        exit;
-    }
-}
-?>
 <head>
 
     <meta charset="utf-8">
@@ -155,30 +128,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   </div>
                   <div class="modal-body">
                     <div class="input-container">
-                      <input type="input" name="search_input" value="" placeholder="">
-                      <button type="button" name="btn-search" class="btn btn-default btn-sm">
+                      <input type="input" name="search_input" class="seller_name" value="" placeholder="">
+                      <button type="button" name="btn-search" class="btn btn-default btn-sm btn-search">
                         <span class="glyphicon glyphicon-search"></span>
                       </button>
                     </div>
 
                     <ul id="seller-list" class="search-seller-list">
-                      <?php
-                          for ($i=0; $i < 2 ; $i++) { ?>
-                            <li class="list-item"><a href="#">clone</a></li>
-                            <li class="list-item"><a href="#">true</a></li>
-                            <li class="list-item"><a href="#">boolean</a></li>
-                            <li class="list-item"><a href="#">jeju</a></li>
-                            <li class="list-item"><a href="#">incheon</a></li>
-                            <li class="list-item"><a href="#">busan</a></li>
-                            <li class="list-item"><a href="#">daegu</a></li>
-                            <li class="list-item"><a href="#">seoul</a></li>
-                            <?php
-                          }
-                      ?>
-
                     </ul>
                     <div class="btn-container text-center">
-                      <button type="button" name="button" class="button btn-peach btn-submit">완료</button>
+                      <button type="button" name="button" class="button btn-peach btn-submit" onclick="setSeller()">완료</button>
                     </div>
                   </div>
                   </div>

@@ -26,7 +26,7 @@ $(document).ready(function() {
       }
     });
 
-    formData.append("content", "test");
+    formData.append("content", $("#text-editor").val());
     formData.append("shippingRule", "charge");
 
     $.ajax({
@@ -41,8 +41,8 @@ $(document).ready(function() {
         if (res.code != 200) {
           alert(res.message);
         } else {
-          alert('상품 등록 완료');
-          //location.reload();
+          alert('상품 등록이 완료되었습니다.');
+          location.href = "./admin.php?page=product_list";
         }
         return false;
       },
@@ -115,4 +115,50 @@ $(document).ready(function() {
     $(this).addClass('selected');
   });
 
+  $('.btn-search').click(function(){
+    // 셀러 검색
+    var keyword = $(".seller_name").val();
+
+    $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com/admin/seller/search/"+keyword+"?token="+readCookie('token'),
+      dataType: "json",
+      success: function (res) {
+        if (res.code != 200) {
+          alert(res.message);
+        } else {
+          // 목록 비우기
+          $("#seller-list").html('');
+
+          $.each(res.datas, function(index, seller) {
+            $("#seller-list").append("<li class='list-item' data-id='"+seller.id+"'><a href='#'>"+seller.account+"</a></li>");
+          });
+
+          $('#search-seller-modal .list-item').on('click',function (e) {
+            $('#search-seller-modal .list-item').removeClass('selected');
+            $(this).addClass('selected');
+          });
+        }
+      },
+      error: function (err) {
+        console.log(err);
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        return false;
+      }
+    });
+  });
+
 });
+
+function setSeller()
+{
+  var seller_id = $('#search-seller-modal .list-item.selected').data('id');
+  var seller_name = $('#search-seller-modal .list-item.selected').text();
+
+  if (seller_id == undefined) {
+    alert('셀러를 선택하세요.');
+  } else {
+    $("input[name='seller_id']").val(seller_name);
+    $("#search-seller-modal").removeClass('show');
+  }
+}
