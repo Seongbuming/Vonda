@@ -27,6 +27,7 @@ $(document).ready(function() {
         if (res.code != 200) {
           alert(res.message);
         } else {
+          alert('성공적으로 메인 배너를 변경하였습니다.');
           location.reload();
         }
       },

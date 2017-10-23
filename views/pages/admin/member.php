@@ -53,6 +53,7 @@ $members = $response->datas->data;
                 <li class="nav-item">
                   <a class="nav-link <?=$type=='creator' ? 'active' : ''?>"  href="admin.php?page=member&type=creator" >CREATOR</a>
                 </li>
+                <!--
                 <div class="period_select">
                     <div class="input_period">
                         <input class="start" type="date" style="width:130px" />
@@ -61,6 +62,7 @@ $members = $response->datas->data;
                         <button class="search btn-sm btn-peach">조회</button>
                     </div>
                 </div>
+              -->
                 <div class="input-container">
                   <input type="input" name="search_input" value="" placeholder="">
                   <button type="button" name="btn-search" class="btn btn-default btn-sm">
