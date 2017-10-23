@@ -180,7 +180,7 @@ $(document).ready(function() {
   }
 
   $(function() {
-      // loadOrders();
+      loadOrders();
   });
 
   $(document).on('change','.select-status',function(){
