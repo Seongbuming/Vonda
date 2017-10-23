@@ -36,6 +36,7 @@ if (!isset($_COOKIE['token'])) {
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <section id="vd-stati">
+
               <div class="container-fluid">
                 <div id="total-sales"class="content-panel">
                   <h4 class="admin-header-gray">전체 매출</h4>
@@ -57,6 +58,7 @@ if (!isset($_COOKIE['token'])) {
                     </ul>
                   </div>
                 </div>
+
                 <div id="creator-rank"class="content-panel">
                   <h4 class="admin-header-gray">크리에이터 매출 순위</h4>
                   <h5 class="admin-header-gray chart-from-to-date marginTop50">2017.08.21 ~ 2017.09.30</h5>
@@ -118,16 +120,17 @@ if (!isset($_COOKIE['token'])) {
 
                     <div id="layer-popup">
                       <ul class="menu-list">
-                        <a href="#" class="menu-item"><li>회원정보</li></a>
-                        <a href="#" class="menu-item"><li>프로필</li></a>
+                        <a href="#" class="menu-item member-info" target="_blank"><li>회원정보</li></a>
+                        <a href="#" class="menu-item profile" target="_blank"><li>프로필</li>
+                        </a>
                       </ul>
                     </div>
-
                   </div>
                   <a class="btn-close-content" style="display:none;">
                     <h4 class="btn-inline text-peach">닫기</h4>
                   </a>
                 </div>
+
                 <div id="product-rank"class="content-panel">
                   <h4 class="admin-header-gray">상품 매출 순위</h4>
                   <h5 class="admin-header-gray chart-from-to-date marginTop50">2017.08.21 ~ 2017.09.30</h5>
@@ -265,10 +268,13 @@ if (!isset($_COOKIE['token'])) {
                         </div>
                       </div>
                     </div>
+
+
                   </div>
 
 
                 </div>
+
               </div>
             </section>
         </div><!-- /#page-content-wrapper -->
