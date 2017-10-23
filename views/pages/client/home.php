@@ -76,8 +76,25 @@ $banners = $response->datas;
             <?php
             foreach ($creators as $creator) {
             ?>
-                <div class="item">
+                <div class="item" data-id="<?=$creator->id?>">
                     <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 이미지 1" />
+                    <div class="info" style="display: none">
+                        <img class="creator_background" src="http://api.siyeol.com/<?=$creator->cover_image?>" alt="크리에이터 배경 이미지" onerror="this.src='data:img/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/R8AAtsB7JKxzdUAAAAASUVORK5CYII='" />
+                        <div class="creator_image">
+                            <img src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="크리에이터 이미지" />
+                        </div>
+                        <div class="creator_profile">
+                            <p class="creator_name"><a href="./?page=creator_profile&id=<?=$creator->id?>">@<?=$creator->nickname?></a></p>
+                            <p class="creator_message"><?=$creator->introduce?></p>
+                            <div class="icons">
+                                <?php
+                                foreach ($creator->channels as $channel) {
+                                    echo '<a href="'.$channel->link.'"><img src="images/icons/home_sns/'.$channel->channel.'-logo.png" alt="Instagram" /></a>';    
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             <?php
             }

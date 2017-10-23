@@ -41,8 +41,8 @@
         </div>-->
 
         <div class="creator_profile">
-            <img src="images/creators/creator_background1.png" class="creator_profile_bg_img">
-            <img src="images/creators/creator_profile.png" id="profile_location" class="creator_profile_img">
+            <img src="http://api.siyeol.com/<?=$creator->cover_image?>" class="creator_profile_bg_img" onerror="this.src='data:img/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/R8AAtsB7JKxzdUAAAAASUVORK5CYII='">
+            <img src="http://api.siyeol.com/<?=$creator->profile_image?>" id="profile_location" class="creator_profile_img">
 
             <p class="creator_profile_name">@<?=$creator->nickname?></p>
             <p class="creator_profile_contents"><?=$creator->introduce?></p>
