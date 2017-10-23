@@ -24,7 +24,6 @@ $request = new http();
 $response = $request->request('GET', '/admin/goods/'.$_GET['id'].'/info?token='.$_COOKIE['token']);
 $goods = $response->datas;
 
-
 $response = $request->request('GET', '/admin/goods/'.$_GET['id'].'/promote?token='.$_COOKIE['token']);
 
 $creators = $response->datas;
@@ -67,7 +66,7 @@ $creators = $response->datas;
                         <td>
                           <div class="thumbnail-img">
                             <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
-                              <img class="product-img" src="images/products/product1.png" alt="" />
+                              <img class="product-img" src="http://api.siyeol.com/<?=$goods->goods_image?>" alt="" />
                             </a>
                           </div>
                         </td>
@@ -119,7 +118,6 @@ $creators = $response->datas;
                         <td class="price"><?=number_format($goods->options[0]->price)?>원</td>
                         <td class="count"><?=number_format($goods->order_count)?></td>
                         <td class="total"><?=number_format($goods->order_price)?>원</td>
-                        <td class="stock"><?=number_format($goods->total_ea)?></td>
                       </tr>
                     </tbody>
                   </table>
@@ -138,19 +136,15 @@ $creators = $response->datas;
                       </div>
                     </div>
 
-                  <h5 class="admin-header-gray chart-from-to-date marginTop50">2017.08.21 ~ 2017.09.30</h5>
+                  <h5 class="admin-header-gray chart-from-to-date marginTop50"><!--2017.08.21 ~ 2017.09.30--></h5>
                   <div class="chart-container" style="width:645px;">
                     <canvas id="creator-chart" width="100%"></canvas>
                   </div>
 
                   <ul class="chart-label ">
                     <?php
-                    $total_price = 0;
-                    foreach ($creators as $creator) {
-                      $total_price += $creator->total_price;
-                    }
 
-                    echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value" count="'.$goods->order_count.'">'.number_format($total_price).'원</span></li>';
+                    echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value total" count="'.$goods->order_count.'">'.number_format($goods->order_price).'원</span></li>';
 
                     // echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">일반</span><span class="chart-item-value">'.number_format($goods->order_price - $total_price).'원</span></li>';
 

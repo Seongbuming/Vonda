@@ -37,6 +37,7 @@ $goods = $response->datas->data;
           <section id="vd-product-list">
             <div class="container-fluid">
               <div class="nav">
+                <!--
                 <div class="period_select">
                     <div class="input_period">
                         <input class="start" type="date" style="width:130px" />
@@ -45,6 +46,7 @@ $goods = $response->datas->data;
                         <button class="search btn-sm btn-peach">조회</button>
                     </div>
                 </div>
+              -->
                 <div class="input-container">
                   <input type="input" name="search_input" value="" placeholder="">
                   <button type="button" name="btn-search" class="btn btn-default btn-sm">

@@ -5,8 +5,10 @@ $(document).ready(function() {
   var creator_label = [];
 
   $(".chart-item-value").each(function (){
-    creator_label.push($(this).parent().find(".chart-item-label").text());
-    data_creator.push($(this).attr("count"));
+    if (!$(this).hasClass("total")) {
+      creator_label.push($(this).parent().find(".chart-item-label").text());
+      data_creator.push($(this).attr("count"));
+    }
   });
 
   //var data_creator = [79, 71, 25, 23, 2];

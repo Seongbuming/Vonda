@@ -112,7 +112,7 @@
                   </div>
 
                   <div class="btn-container text-center">
-                    <button type="button" name="btn-preview" class="btn btn-gray">미리보기</button>
+                    <!-- <button type="button" name="btn-preview" class="btn btn-gray">미리보기</button> -->
                     <button type="submit" name="btn-submit" class="btn btn-peach">등록</button>
                   </div>
                 </form>
