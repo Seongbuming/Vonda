@@ -200,8 +200,8 @@ $creators = $response->datas;
 
                   <div id="layer-popup">
                     <ul class="menu-list">
-                      <a href="#" class="menu-item"><li>회원정보</li></a>
-                      <a href="#" class="menu-item"><li>프로필</li></a>
+                      <a href="#" class="menu-item member-info" target="_blank"><li>회원정보</li></a>
+                      <a href="#" class="menu-item profile" target="_blank"><li>프로필</li></a>
                     </ul>
                   </div>
                 </div>

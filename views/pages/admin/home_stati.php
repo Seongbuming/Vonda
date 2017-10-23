@@ -120,9 +120,8 @@ if (!isset($_COOKIE['token'])) {
 
                     <div id="layer-popup">
                       <ul class="menu-list">
-                        <a href="#" class="menu-item member-info"><li>회원정보</li></a>
-                        <a href="#" class="menu-item profile" data-toggle="modal" data-target="#creator-profile-modal">
-                          <li>프로필</li>
+                        <a href="#" class="menu-item member-info" target="_blank"><li>회원정보</li></a>
+                        <a href="#" class="menu-item profile" target="_blank"><li>프로필</li>
                         </a>
                       </ul>
                     </div>
@@ -275,25 +274,6 @@ if (!isset($_COOKIE['token'])) {
 
 
                 </div>
-
-                <div class="modal fade " id="creator-profile-modal">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-
-                      <div class="modal-body">
-                        <div class="bg-img-container">
-                          <img  class="bg-img"src="images/creators/creator_background8.png" alt="" />
-                        </div>
-                        <div class="profile-img-container">
-                          <img class="profile-img"src="images/creators/creator_background7.png" alt="" />
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
 
               </div>
             </section>
