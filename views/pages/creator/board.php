@@ -33,7 +33,9 @@ $boards = $response->datas->data;
             <tr class="row_subject">
                 <td class="time"><?=$board->created_at?></td>
                 <td class="subject">
-                    <a href="./creator.php?page=board_detail&id=<?=$board->id?>"><?=$board->subject." (".$board->hit.")"?></a>
+                    <a href=<?="./creator.php?page=board_detail&id=".$board->id?>>
+                      <?=$board->subject." (".$board->hit.")"?>
+                    </a>
                 </td>
             </tr>
         <?php
@@ -46,7 +48,9 @@ $boards = $response->datas->data;
         <button class="right">▶</button>
     </div>
     <div class="write_cont">
-        <button class="write"><a href="./creator.php?page=boardwrite">글쓰기</a></button>
+        <button class="write">
+          <a href="./creator.php?page=boardwrite">글쓰기</a>
+        </button>
     </div>
 </div>
 
