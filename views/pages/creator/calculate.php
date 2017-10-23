@@ -58,7 +58,7 @@
         </tbody>
     </table>
 
-    <div id="modal_edit" class="modal size_msg actived">
+    <div id="modal_edit" class="modal size_msg">
         <div class="close_section modal_close"></div>
         <div class="modal_body">
             <button class="close_button modal_close">
@@ -100,5 +100,7 @@
 
  <script src="libraries/jquery-3.2.1.min.js"></script>
  <script src="javascripts/modal.js"></script>
+ <script src="javascripts/creator/calculate.js"></script>
+
 </body>
 </html>

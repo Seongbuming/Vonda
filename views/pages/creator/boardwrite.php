@@ -27,7 +27,7 @@
         <li><a href="./creator.php?page=calculate">정산내역</a></li>
     </ul>
     <h3 class="category">BOARD</h3>
-    <input type="text" class="title" placeholder="제목을 입력해주세요.">
+    <input type="text" class="title" placeholder="제목을 입력해주세요." required>
     <div class="editor-container" style="width:1155px;margin:auto;">
       <div id="text-editor" class="form-item text-center"
             style="width:100%; height: 350px; border: solid 1px black;">
@@ -35,7 +35,7 @@
     </div>
 
     <div class="write_cont">
-        <button class="write"><a href="#">완료</a></button>
+        <button type="submit" class="write"><a href="#">완료</a></button>
     </div>
 </div>
 

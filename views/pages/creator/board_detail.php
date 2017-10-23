@@ -12,8 +12,6 @@ error_reporting(E_ALL);
 
 ini_set("display_errors", 1);
 
-
-
 if (isset($_GET['id'])) {
     $request = new Http();
     $response = $request->request('GET', '/board/'.$_GET['id']);
@@ -94,7 +92,7 @@ if (isset($_GET['id'])) {
         <button class="right">▶</button>
     </div>
     <div class="c_line"></div>
-    <a class="goback" href=".?page=creator_profile">뒤로가기</a>
+    <a class="goback" href=".?page=board">뒤로가기</a>
 </div>
 
 <footer>
