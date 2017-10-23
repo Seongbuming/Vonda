@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="stylesheets/admin/common.css" />
     <link rel="stylesheet" href="stylesheets/admin/table_product.css" />
     <link rel="stylesheet" href="stylesheets/admin/sales.css" />
+    <link rel="stylesheet" href="stylesheets/admin/product_detail_modal.css" />
 
 </head>
 
@@ -76,7 +77,9 @@
                                   for ($index=1; $index <= $item_length ; $index++) {
                                     ?>
                                     <div class="thumbnail-img">
-                                      <img class="product-img" src="<?php echo "images/products/product".$index.".png"?>" alt="" />
+                                      <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
+                                        <img class="product-img" src="<?php echo "images/products/product".$index.".png"?>" alt="" />
+                                      </a>
                                     </div>
                                   <?php
                                 }
@@ -260,12 +263,28 @@
                               <td class="order-detail-item-content">-</td>
                             </tr>
                         </table>
+
+
                         </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
+                  <div class="modal fade " id="product-detail-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+
+                        <div class="modal-body">
+
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    
                   <div class="pager-container text-center">
                     <button type="button" class="btn btn-default btn-pager" aria-label="Previous Page">
                       <span class="glyphicon glyphicon-triangle-left" aria-hidden="false"></span>
@@ -288,5 +307,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="javascripts/admin/sidemenu_bar.js"></script>
+    <script src="javascripts/admin/product_detail_modal.js"></script>
 </body>
 </html>

@@ -307,3 +307,7 @@ body p {
   padding: 15px 0 15px 15px;
   margin-bottom: 0;
 }
+
+.modal.show{
+  background-color: rgba(0, 0, 0, 0.3);
+}
