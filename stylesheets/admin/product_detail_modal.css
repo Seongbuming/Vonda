@@ -1,0 +1,15 @@
+#product-detail-modal .modal-dialog{
+  -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0,-5%);
+    -ms-transform: translate(0,-5%);
+    -o-transform: translate(0,-5%);
+    transform: translate(0,-5%);
+}
+
+#product-detail-modal .modal-content button{
+  text-align: right;
+  margin: 15px 15px 0 0;
+  font-size: 40px
+}
