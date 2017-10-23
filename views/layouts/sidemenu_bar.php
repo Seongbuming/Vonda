@@ -25,7 +25,7 @@ if (!isset($_COOKIE['token'])) {
         </a>
     </li>
     <li class="sidebar-menu menu-notice">
-        <a href="admin.php?page=notice_customer">
+        <a href="admin.php?page=notice">
           <img class="menu-item-icon"src="images/icons/admin_menu/gray/notice.png" alt="notice.png" />
           <span class="menu-item-text ">공지사항</span>
         </a>

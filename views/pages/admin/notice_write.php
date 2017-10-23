@@ -37,22 +37,24 @@
               <div id="notice-write">
                   <div class="form-item">
                     <select class="option">
-                      <option value="CUSTOMER">CUSTOMER</option>
-                      <option value="SELLER">SELLER</option>
-                      <option value="CREATOR">CREATOR</option>
+                      <option value="customer">CUSTOMER</option>
+                      <option value="seller">SELLER</option>
+                      <option value="creator">CREATOR</option>
                     </select>
                   </div>
                   <div class="form-item">
                     <input type="input" name="title" value="" class="title" placeholder="제목을 입력해주세요.">
                   </div>
-                  <div id="text-editor" class="form-item text-center"
+                  <textarea id="text-editor" class="form-item text-center"
                         style="height: 350px; border: solid 1px black">
-                  </div>
+                  </textarea>
                   <div class="form-item">
+                    <!-- 기능이 없어 임시 제거 
                     <input id="select" type="checkbox" title="선택">
                     <label for="select">리스트 상단에 고정</label>
+                  -->
 
-                    <button type="button" name="button" class="btn btn-peach">완료</button>
+                    <button type="button" name="button" class="btn btn-peach" onclick="saveNotice()">완료</button>
                   </div>
             </div><!-- /#notice-detail -->
           </div>
