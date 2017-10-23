@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="stylesheets/admin/chart.css" />
     <link rel="stylesheet" href="stylesheets/admin/table_product.css" />
     <link rel="stylesheet" href="stylesheets/admin/layer_popup.css" />
+    <link rel="stylesheet" href="stylesheets/admin/product_detail_modal.css" />
 
 </head>
 <?php
@@ -163,7 +164,9 @@ if (!isset($_COOKIE['token'])) {
                           <th scope="row">1</th>
                           <td >
                             <div class="thumbnail-img">
-                              <img class="product-img" src="images/products/product1.png" alt="" />
+                              <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
+                                <img class="product-img" src="images/products/product1.png" alt="" />
+                              </a>
                             </div>
                           </td>
                           <td class="title">
@@ -188,7 +191,9 @@ if (!isset($_COOKIE['token'])) {
                           <th scope="row">2</th>
                           <td >
                             <div class="thumbnail-img">
-                              <img class="product-img" src="images/products/product2.png" alt="" />
+                              <a href="#" class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
+                                <img class="product-img" src="images/products/product2.png" alt="" />
+                              </a>
                             </div>
                           </td>
                           <td class="title">
@@ -213,7 +218,9 @@ if (!isset($_COOKIE['token'])) {
                           <th scope="row">3</th>
                           <td >
                             <div class="thumbnail-img">
-                              <img class="product-img" src="images/products/product3.png" alt="" />
+                              <a href="#" class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
+                                <img class="product-img" src="images/products/product3.png" alt="" />
+                              </a>
                             </div>
                           </td>
                           <td class="title">
@@ -244,6 +251,23 @@ if (!isset($_COOKIE['token'])) {
                   </a>
                   </div>
 
+                  <!-- Modal -->
+                  <div class="modal fade " id="product-detail-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+
+                        <div class="modal-body">
+
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
                 </div>
               </div>
             </section>
@@ -260,6 +284,9 @@ if (!isset($_COOKIE['token'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
     <script src="javascripts/admin/stati_chart.js"></script>
+    <script src="javascripts/admin/product_detail_modal.js">
+
+    </script>
     </script>
 </body>
 </html>
