@@ -25,6 +25,8 @@ class Http
             $res = $this->client->request($method, $url, $params);
         } catch (GuzzleHttp\Exception\ServerException $e) {
             // Server Error
+            echo "<script>alert('서버 오류가 발생하였습니다.');history.back(-1);</script>";
+            return false;
         }
 
         if ($res->getStatusCode() == 200) {
