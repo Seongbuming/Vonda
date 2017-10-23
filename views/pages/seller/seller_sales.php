@@ -2,10 +2,11 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
-	   <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
+	   <link rel="stylesheet" href="stylesheets/seller/common.css?v=3"/>
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
-    <link rel="stylesheet" href="stylesheets/seller/order_detail.css">
+    <link rel="stylesheet" href="stylesheets/seller/order_detail.css"/>
+    <link rel="stylesheet" href="stylesheets/seller/sales.css"/>
 </head>
 
 <body>
@@ -144,12 +145,12 @@
                         <p>128,500원</p>
                     </td>
                     <td class="order_sell_status">
-                        <select class="select-status" name="select-status">
-                          <option selected value="1">주문완료</option>
+                        <select class="select-status selected-complete-delivery" name="select-status">
+                          <option value="1">주문완료</option>
                           <option value="10">상품준비중</option>
                           <option value="20">배송준비중</option>
                           <option value="30">배송중</option>
-                          <option value="40">배송완료</option>
+                          <option selected value="40">배송완료</option>
                         </select>
                     </td>
 
@@ -312,7 +313,7 @@
             </div>
         </div>
 
-        <div id="modal_order_detail" class="modal actived">
+        <div id="modal_order_detail" class="modal">
             <div class="close_section modal_close"></div>
             <div class="modal_body">
                 <button class="close_button modal_close">
