@@ -63,7 +63,7 @@
                     <td class="order_price">
                         <p>28,500원</p>
                     </td>
-                    <td class="order_sell_status">
+                    <td class="order_sell_status" >
                       <button type="button" name="button" class="btn-request-exchange">교환요청</button>
                     </td>
                 </tr>

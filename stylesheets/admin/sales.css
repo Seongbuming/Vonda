@@ -123,3 +123,30 @@
 #order-detail-table td{
   color: #747474;
 }
+.request-exchange-modal .admin-header-gray{
+  border-color: #e69a83;
+}
+.request-exchange-modal .submit{
+  width: 300px;
+  display: block;
+  margin: auto;
+}
+.request-exchange-modal .order-list{
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.request-exchange-modal .product-item td:first-child{
+  width: 130px;
+}
+.request-exchange-modal .contents{
+  min-height: 100px;
+  padding: 15px;
+}
+.request-exchange-modal .contents .comment,
+.request-exchange-modal .contents .return-reason{
+  font-size: 1.1em;
+  color: #797979;
+}
+.request-exchange-modal .contents .return-reason{
+  padding-bottom: 10px;
+}

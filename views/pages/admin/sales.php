@@ -62,7 +62,7 @@
                     </thead>
                     <tbody>
                       <?php
-                        for ($i=0; $i < 7 ; $i++) {
+                        for ($i=0; $i < 10 ; $i++) {
                           $item_length = $i % 2 ? 1 : 2;
                           ?>
                           <tr class="product-item">
@@ -110,7 +110,7 @@
                             <td class="price">26,000원</td>
                             <td class="state text-center">
                                 <?php
-                                $state = $i % 7;
+                                $state = $i % 9;
                                 $str_state = "";
                                 switch ($state) {
                                   case 0:
@@ -120,7 +120,7 @@
                                     $str_state = "배송준비중";
                                     break;
                                   case 2:
-                                    $str_state = "배소중";
+                                    $str_state = "배송중";
                                     break;
                                   case 3:
                                     $str_state = "배송완료";
@@ -129,21 +129,47 @@
                                     $str_state = "주문완료";
                                     break;
                                   case 5:
-                                    $str_state = "주문최소요청";
+                                    $str_state = "주문취소요청";
                                     break;
                                   case 6:
-                                    $str_state = "주문최소완료";
+                                    $str_state = "주문취소완료";
+                                    break;
+                                  case 7:
+                                    $str_state = "반품요청";
+                                    break;
+                                  case 8:
+                                    $str_state = "반품완료";
                                     break;
                                 }
-                                echo $str_state;
 
-                                if($state == 5){
+
+                                if($state < 5){
+
+                                  echo $str_state;
+
                                   ?>
+
+                                  <?php
+                                }else if($state == 7){?>
+                                  <button type="button" name="button" class="btn-sm btn-peach btn-request-return" data-toggle="modal" data-target="#request-return-modal">
+                                    반품요청
+                                  </button>
+                                <?
+                              }else if($state == 8){
+                                ?>
+                                <button type="button" name="button" class="btn-sm btn-peach btn-complete-return" data-toggle="modal" data-target="#complete-return-modal">
+                                  반품완료
+                                </button>
+                                <?php
+                              }else{
+                                ?>
+                                <?=$str_state?>
                                 <p class="text-center">
+                                  <!-- 결제 모듈로 이동, 결제 취소하기 위함 -->
                                   <button class="btn btn-sm btn-peach"type="button" name="btn-cancel-order">결제취소</button>
                                 </p>
-                                  <?php
-                                }
+                                <?php
+                              }
                                 ?>
                           </td>
                           </tr>
@@ -284,7 +310,125 @@
                         </div>
                       </div>
                     </div>
-                    
+
+                    <div class="modal fade request-exchange-modal" id="request-return-modal">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          <div class="modal-header">
+                            <h4 class="admin-header-gray">반품</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="order-list">
+                              <table class="table table-hover product-list-table">
+                                <tbody>
+                                  <?php
+                                  for ($i=0; $i < 8; $i++) { ?>
+
+                                    <tr class="product-item">
+                                      <td>
+                                        <div class="thumbnail-img">
+                                          <img class="product-img" src="images/products/product1.png" alt="" />
+                                        </div>
+                                      </td>
+                                      <td class="title">
+                                            <div class="title-group">
+                                              <p><a href="#"><p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p></a></p>
+                                              <p>
+                                                <span class="label">옵션 : </span>
+                                                <span class="label-content">실버</span>
+                                              </p>
+                                              <p>
+                                                <span class="label">수량 : </span>
+                                                <span class="label-conent">
+                                                  2
+                                                </span>
+                                              </p>
+                                            </div>
+                                      </td>
+                                      <td class="price">26,000원</td>
+                                    </tr>
+
+                                    <?php
+                                  }
+                                   ?>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="contents">
+                              <p>
+
+                              </p>
+                            </div>
+                            <!-- 결제모듈로 이동 -->
+                            <button type="button" name="button" class="btn btn-peach submit">결제취소</button>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="modal fade request-exchange-modal" id="complete-return-modal">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="modal-header">
+                              <h4 class="admin-header-gray">반품</h4>
+                            </div>
+                            <div class="modal-body">
+                              <div class="order-list">
+                                <table class="table table-hover product-list-table">
+                                  <tbody>
+                                    <?php
+                                    for ($i=0; $i < 8; $i++) { ?>
+
+                                      <tr class="product-item">
+                                        <td>
+                                          <div class="thumbnail-img">
+                                            <img class="product-img" src="images/products/product1.png" alt="" />
+                                          </div>
+                                        </td>
+                                        <td class="title">
+                                              <div class="title-group">
+                                                <p><a href="#"><p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p></a></p>
+                                                <p>
+                                                  <span class="label">옵션 : </span>
+                                                  <span class="label-content">실버</span>
+                                                </p>
+                                                <p>
+                                                  <span class="label">수량 : </span>
+                                                  <span class="label-conent">
+                                                    2
+                                                  </span>
+                                                </p>
+                                              </div>
+                                        </td>
+                                        <td class="price">26,000원</td>
+                                      </tr>
+
+                                      <?php
+                                    }
+                                     ?>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="contents">
+                                <p>
+
+                                </p>
+                              </div>
+                              <!-- 결제모듈로 이동 -->
+                              <button type="button" name="button" class="btn btn-peach submit ">반품완료</button>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
                   <div class="pager-container text-center">
                     <button type="button" class="btn btn-default btn-pager" aria-label="Previous Page">
                       <span class="glyphicon glyphicon-triangle-left" aria-hidden="false"></span>
@@ -308,5 +452,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="javascripts/admin/sidemenu_bar.js"></script>
     <script src="javascripts/admin/product_detail_modal.js"></script>
+    <script src="javascripts/admin/sales.js"></script>
+
 </body>
 </html>
