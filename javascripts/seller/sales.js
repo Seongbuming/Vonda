@@ -82,6 +82,7 @@ $(document).ready(function() {
                   '</td>' +
               '</tr>';
                   break;
+                //주문취소요청,주문취소완료
                 case '50':
                     item_element += '<td class="order_sell_status">' +
                             '주문취소요청' +
