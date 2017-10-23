@@ -8,14 +8,42 @@
     <link rel="stylesheet" href="stylesheets/client/myinfo.css" />
 </head>
 <?php
-$request = new Http();
-$response = $request->request('GET', '/order?token='.$_COOKIE['token']);
+// 회원정보 수정 요청 핸들링
+$is_post = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $is_post = true;
+    $url = '/user/info?token='.$_COOKIE['token'];
 
-if ($response->code == "400") {
-    header("location:./?page=login");
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $phone = $_POST['pnumber_1'].$_POST['pnumber_2'].$_POST['pnumber_3'];
+    $email = $_POST['email'];
+
+    if ($password != "") {
+        $sendData = compact('name', 'password', 'phone', 'email');
+    } else {
+        $sendData = compact('name', 'phone', 'email');
+    }
+
+    $request = new Http();
+    $res = $request->requestEx('POST', $url, [
+        'form_params' => $sendData,
+    ]);
+
+    if ($res->code == 200) {
+        // success
+        echo "<script>alert('회원정보 수정에 성공하였습니다.');location.href='/'</script>";
+        exit;
+    } else {
+        // fail
+        echo "<script>alert('회원정보 수정에 실패하였습니다.')</script>";
+    }
 }
 
-$orders = $response->datas->data;
+$request = new Http();
+$response = $request->request('GET', '/self?token='.$_COOKIE['token']);
+
+$user = $response->data;
 ?>
 <body>
     <header>
@@ -34,14 +62,14 @@ $orders = $response->datas->data;
 
         <div class="findacc_container">
             <p class="alert">회원님의 소중한 정보보호를 위해 비밀번호를 재확인하고 있습니다.</p>
-            <input class="email" type="email" placeholder="현재 비밀번호 입력" />
+            <input class="email check_password" type="password" placeholder="현재 비밀번호 입력" />
             <button class="submit">확인</button>
 
             <p class="error message error-msg">비밀번호가 일치하지 않습니다.</p>
 
         </div>
 
-        <form class="signup_form" style="display:none;">
+        <form class="signup_form" action="./?page=myinfo" method="POST" style="display:none;">
     			<h3 class="category">비밀번호 변경</h3>
             <div class="row">
                 <label for="password">새 비밀번호</label>
@@ -55,16 +83,17 @@ $orders = $response->datas->data;
             <h3 class="category">내 정보 수정</h3>
               <div class="row">
                     <label for="name">이름</label>
-                    <input id="name" name="name" type="text" class="text" required />
+                    <input id="name" name="name" type="text" class="text" value="<?=$user->name?>" required />
               </div>
               <div class="row pnumber">
                     <label for="pnumber">연락처</label>
-                    <input id="pnumber" name="pnumber_1" type="tel" class="tel" required />
+                    <input id="pnumber" name="pnumber_1" type="tel" class="tel" value="<?=substr($user->phone, 0, 3)?>" required />
                     <span>-</span>
-                    <input name="pnumber_2" type="tel" class="tel" required />
+                    <input name="pnumber_2" type="tel" class="tel" value="<?=substr($user->phone, 3, 4)?>" required />
                     <span>-</span>
-                    <input name="pnumber_3" type="tel" class="tel" required />
+                    <input name="pnumber_3" type="tel" class="tel" value="<?=substr($user->phone, 7)?>" required />
               </div>
+              <!--
               <div class="row pnumber">
                     <label for="add-pnumber">추가 연락처</label>
                     <input id="add-pnumber" name="add_pnumber_1" type="tel" class="tel" />
@@ -73,21 +102,23 @@ $orders = $response->datas->data;
                     <span>-</span>
                     <input name="add_pnumber_3" type="tel" class="tel" />
               </div>
+          -->
     			    <div class="row">
                     <label for="email">이메일</label>
-                    <input id="email" name="email" type="email" class="email" required />
+                    <input id="email" name="email" type="email" class="email" value="<?=$user->email?>" required />
               </div>
+              <!--
               <div class="row">
                     <label for="postcode">배송지</label>
                     <input id="postcode" name="postcode" type="text" class="text" required />
                     <a class="submit btn-search-address" href="#" style="float:none;">주소 검색</a>
                     <input id="address_1" name="address_1" type="text" class="text" required  style="float:none;"/>
                     <input id="address_2" name="address_2" type="text" class="text" required style="float:none;"/>
-              </div>
+              </div> -->
 
                 <div class="button_container">
-                    <a class="goback" href=".?page=login">취소</a>
-                    <input class="submit" type="submit" value="확인" />
+                    <a class="goback" href=".?page=myinfo">취소</a>
+                    <input class="submit" type="submit" value="확인" onclick="saveInfo()" />
                 </div>
             </form>
 
