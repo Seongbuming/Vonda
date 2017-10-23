@@ -71,6 +71,9 @@
   cursor: pointer;
   opacity: 0.5;
 }
+#product-write .btn-remove{
+  border: 0;
+}
 #product-write .option-item-add .operator{
   text-align: center;
   padding-right: 10px;
