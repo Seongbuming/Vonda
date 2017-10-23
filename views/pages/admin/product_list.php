@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="stylesheets/admin/common.css" />
     <link rel="stylesheet" href="stylesheets/admin/table_product.css" />
     <link rel="stylesheet" href="stylesheets/admin/product_list.css" />
+    <link rel="stylesheet" href="stylesheets/admin/layer_popup.css" />
 
 </head>
 <?php

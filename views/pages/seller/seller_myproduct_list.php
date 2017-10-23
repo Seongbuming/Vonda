@@ -9,7 +9,15 @@
 	<link rel="stylesheet" href="stylesheets/modal.css"/>
 	<link rel="stylesheet" href="stylesheets/client/orderlist.css" />
 </head>
-
+<?php
+$request = new Http();
+// Get Products
+$res = $request->request('GET', '/seller/goods?token='.$_COOKIE['token']);
+if ($res->code == "400") {
+    header("location:/?page=login");
+}
+$products = $res->datas->data;
+?>
 <body>
     <header>
         <?=$this->loadLayout("seller/header")?>
@@ -27,60 +35,47 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($products as $product) { ?>
                 <tr>
                     <td class="seller_num">
-                         <p class="num">1</p>
+                        <p class="num"><?=$product->seller_id?></p>
                     </td>
                     <td class="product">
                         <div class="product_img">
-                            <img src="images/products/product1.png" alt="상품사진" />
+                            <img src="http://api.siyeol.com/<?=$product->goods_image?>" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
-                            <p>옵션: <span class="option">실버</span></p>
-                            <p>재고 : 211 - 실버(11), 골드(200) <span class="amount">1</span></p>
+                            <p class="open product_detail"><?=$product->title?></p>
+                            <!-- <span>옵션: <span class="option">실버</span></span> -->
+                            <!-- <p>재고 : 211 - 실버(11), 골드(200) <span class="amount">1</span></p> -->
+                            <p>
+                                옵션:
+                                <span class="option"><?=join(', ', array_map(function ($option) { return $option->name; }, $product->options))?></span>
+                            </p>
+                            <?php if (count($product->options)) { ?>
+                            <p>
+                                재고:
+                                <?=number_format(array_sum(array_map(function ($option) { return $option->stock_ea; }, $product->options)))?>
+                                -
+                                <?=join(', ', array_map(function ($option) { return $option->name."(".number_format($option->stock_ea).")"; }, $product->options))?>
+                            </p>
+                            <?php } ?>
                         </div>
                     </td>
-					<td class="order_creator">
-                        <p>4</p>
+                    <td class="order_creator">
+                        <p><?=$product->creator_count?></p>
                     </td>
                     <td class="order_price">
-                        <p>28,500원</p>
+                        <p><?=number_format(count($product->options) ? $product->options[0]->price : 0)?>원</p>
                     </td>
                     <td class="order_cnt">
-                        <p class="status_text">96</p>
+                        <p class="status_text"><?=number_format($product->order_count)?></p>
                     </td>
                     <td class="order_totalPrice">
-                        <p>1,028,500원</p>
+                        <p><?=number_format((count($product->options) ? $product->options[0]->price : 0) * $product->order_count)?>원</p>
                     </td>
                 </tr>
-				<tr>
-                     <td class="seller_num">
-                         <p class="num">2</p>
-                    </td>
-                    <td class="product">
-                        <div class="product_img">
-                            <img src="images/products/product2.png" alt="상품사진" />
-                        </div>
-                        <div class="product_info">
-                            <p class="open product_detail">로얄 크루</p>
-                            <p>옵션: <span class="option">마르살라</span></p>
-                            <p>수량: <span class="amount">1</span></p>
-                        </div>
-                    </td>
-					<td class="order_creator">
-                        <p>5</p>
-                    </td>
-                   <td class="order_price">
-                        <p>23,500원</p>
-                    </td>
-                    <td class="order_cnt">
-                        <p class="status_text">46</p>
-                    </td>
-                    <td class="order_totalPrice">
-                        <p>328,500원</p>
-                    </td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>

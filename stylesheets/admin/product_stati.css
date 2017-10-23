@@ -9,26 +9,3 @@
 .page-title span{
   padding-left: 15px;
 }
-
-#layer-popup{
-  display:none;
-  position:absolute;
-  width:90px;
-  height:62px;
-  border:solid 1px #ddd;
-}
-#layer-popup .menu-list{
-  margin: 0;
-}
-#layer-popup .menu-item li{
-  border-bottom: solid 1px #ddd;
-  padding: 5px 10px;
-  text-align: center;
-  color: #999999;
-  background-color: white;
-}
-#layer-popup .menu-item,
-#layer-popup .menu-item:focus,
-#layer-popup .menu-item:hover{
-  text-decoration: none;
-}
