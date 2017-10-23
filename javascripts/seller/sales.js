@@ -245,5 +245,16 @@ $(document).ready(function() {
     $('#modal_return_exchange').addClass('actived');
   });
 
+  //order detail 모달 띄우기
+  $(document).on('click','.id a', function () {
+    var order_id = $(this).text();
+
+    //order data를 #modal_order_detail에 넣기.
+    //get data by order_id;
+
+    $("#modal_order_detail").addClass("actived");
+
+  });
+
 
 });

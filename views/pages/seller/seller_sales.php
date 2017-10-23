@@ -48,7 +48,7 @@
                 <tr>
                     <td class="date_id" rowspan="2">
                         <p class="date">2017.09.10</p>
-                        <p class="id"><a href=".">2018211119</a></p>
+                        <p class="id"><a href="#">2018211119</a></p>
                     </td>
                     <td class="product">
                         <div class="product_img">
@@ -89,7 +89,7 @@
                 <tr>
                     <td class="date_id">
                         <p class="date">2017.09.09</p>
-                        <p class="id"><a href=".">2018211119</a></p>
+                        <p class="id"><a href="#">2018211119</a></p>
                     </td>
                     <td class="product">
                         <div class="product_img">
@@ -112,7 +112,7 @@
                 <tr>
                     <td class="date_id">
                         <p class="date">2017.09.07</p>
-                        <p class="id"><a href=".">2018211119</a></p>
+                        <p class="id"><a href="#">2018211119</a></p>
                     </td>
                     <td class="product">
                         <div class="product_img">
