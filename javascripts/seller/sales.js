@@ -199,9 +199,10 @@ $(document).ready(function() {
       comment: "반품해주세요ㅜㅜ"
     };
 
-    var element = '<p class="reason"> 반품사유 : '+item.reason+'</p>' +
+    var element = '<p class="return-reason"> 반품사유 : '+item.reason+'</p>' +
                   '<p class="comment">"'+item.comment+'"</p>';
     $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .modal_body h4').text("반품");
     $('#modal_return_exchange .submit').text("반품요청");
     $('#modal_return_exchange').addClass('actived');
   });
@@ -213,9 +214,10 @@ $(document).ready(function() {
       comment: "반품해주세요ㅜㅜ"
     };
 
-    var element = '<p class="reason"> 반품사유 : '+item.reason+'</p>' +
+    var element = '<p class="return-reason"> 반품사유 : '+item.reason+'</p>' +
                   '<p class="comment">"'+item.comment+'"</p>';
     $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .modal_body h4').text("반품");
     $('#modal_return_exchange .submit').text("반품완료");
     $('#modal_return_exchange').addClass('actived');
   });
@@ -227,6 +229,7 @@ $(document).ready(function() {
     };
     var element = '<p class="comment">"'+item.comment+'"</p>';
     $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .modal_body h4').text("교환");
     $('#modal_return_exchange .submit').text("교환요청");
     $('#modal_return_exchange').addClass('actived');
   });
@@ -237,8 +240,10 @@ $(document).ready(function() {
     };
     var element = '<p class="comment">"'+item.comment+'"</p>';
     $('#modal_return_exchange .contents').html(element);
+    $('#modal_return_exchange .modal_body h4').text("교환");
     $('#modal_return_exchange .submit').text("교환완료");
     $('#modal_return_exchange').addClass('actived');
   });
+
 
 });

@@ -143,50 +143,59 @@
         <div id="modal_return_exchange" class="modal">
             <div class="close_section modal_close"></div>
             <div class="modal_body">
+              <h4>교환</h4>
                 <button class="close_button modal_close">
                     <img src="images/buttons/close.png" alt="닫기" />
                 </button>
+                <div class="orderlist-container">
 
-                <table class="order_list">
-                    <tbody>
-                        <tr>
-                          <td class="product">
-                              <div class="product_img">
-                                  <img src="images/products/product1.png" alt="상품사진" />
-                              </div>
-                              <div class="product_info">
-                                  <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                                  <p>옵션: <span class="option">실버</span></p>
-                                  <p>수량: <span class="amount">1</span></p>
-                              </div>
-                          </td>
-                          <td class="order_price">
-                              <p>28,500원</p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="product">
-                              <div class="product_img">
-                                  <img src="images/products/product3.png" alt="상품사진" />
-                              </div>
-                              <div class="product_info">
-                                  <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                                  <p>옵션: <span class="option">실버</span></p>
-                                  <p>수량: <span class="amount">1</span></p>
-                              </div>
-                          </td>
-                          <td class="order_price">
-                              <p>11,500원</p>
-                          </td>
-                        </tr>
-                    </tbody>
-                </table>
+                  <table class="order_list">
+                      <tbody>
+                          <?php
+                            for ($i=0; $i < 2; $i++) {
+                              ?>
+                              <tr>
+                                <td class="product">
+                                    <div class="product_img">
+                                        <img src="images/products/product1.png" alt="상품사진" />
+                                    </div>
+                                    <div class="product_info">
+                                        <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
+                                        <p>옵션: <span class="option">실버</span></p>
+                                        <p>수량: <span class="amount">1</span></p>
+                                    </div>
+                                </td>
+                                <td class="order_price">
+                                    <p>28,500원</p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="product">
+                                    <div class="product_img">
+                                        <img src="images/products/product3.png" alt="상품사진" />
+                                    </div>
+                                    <div class="product_info">
+                                        <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
+                                        <p>옵션: <span class="option">실버</span></p>
+                                        <p>수량: <span class="amount">1</span></p>
+                                    </div>
+                                </td>
+                                <td class="order_price">
+                                    <p>11,500원</p>
+                                </td>
+                              </tr>
+                              <?php
+                            }
+                          ?>
+                      </tbody>
+                  </table>
 
+                </div>
                 <div class="contents">
 
                 </div>
 
-                <button class="submit">확인</button>
+                <button class="submit modal_close">확인</button>
             </div>
         </div>
 

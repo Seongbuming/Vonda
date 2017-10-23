@@ -26,3 +26,34 @@
   text-align: center;
   background-color: #e69a83;
 }
+#modal_return_exchange .modal_body{
+  padding: 30px;
+  width: 700px;
+}
+#modal_return_exchange .modal_body h4{
+  border-bottom: solid 1px #e69a83;
+  padding: 15px;
+  font-size: 1em;
+  margin-top: 30px;
+  color: #797979;
+}
+#modal_return_exchange .modal_body .orderlist-container{
+  max-height: 450px;
+  overflow-y: scroll;
+}
+#modal_return_exchange .modal_body .contents{
+  min-height: 100px;
+  padding: 15px;
+}
+#modal_return_exchange table td{
+  padding: 7.5px;
+  color: #797979;
+}
+#modal_return_exchange .contents .comment,
+#modal_return_exchange .contents .return-reason{
+  font-size: 1.1em;
+  color: #797979;
+}
+#modal_return_exchange .contents .return-reason{
+  padding-bottom: 10px;
+}
