@@ -35,7 +35,7 @@
     </div>
 
     <div class="write_cont">
-        <button type="submit" class="write"><a href="#">완료</a></button>
+        <button type="subject" class="write submit">완료</button>
     </div>
 </div>
 
@@ -44,5 +44,6 @@
 
 </footer>
 <script src="javascripts/admin/text_editor.js"></script>
+<script src="javascripts/creator/boardwrite.js"></script>
 </body>
 </html>
