@@ -145,7 +145,7 @@
                         <p>128,500원</p>
                     </td>
                     <td class="order_sell_status">
-                        <select class="select-status selected-complete-delivery" name="select-status">
+                        <select class="select-status" name="select-status">
                           <option value="1">주문완료</option>
                           <option value="10">상품준비중</option>
                           <option value="20">배송준비중</option>
