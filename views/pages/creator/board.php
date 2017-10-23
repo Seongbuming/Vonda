@@ -8,7 +8,7 @@
 <?php
 $request = new Http();
 
-$response = $request->request('GET', '/board?token='.$_COOKIE['token']);
+$response = $request->request('GET', '/creator/board/list?token='.$_COOKIE['token']);
 $boards = $response->datas->data;
 ?>
 <body>

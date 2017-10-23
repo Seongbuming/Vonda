@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="stylesheets/creator/board_detail.css">
 </head>
 <?php
+error_reporting(E_ALL);
+
+ini_set("display_errors", 1);
+
+
+
 if (isset($_GET['id'])) {
     $request = new Http();
     $response = $request->request('GET', '/board/'.$_GET['id']);
-
-    if ($response->code == 400) {
-        // invalid creator
-    }
 
     $board = $response->data;
 
