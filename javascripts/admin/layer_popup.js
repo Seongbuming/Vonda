@@ -13,7 +13,7 @@ $(document).ready(function() {
     var width = $(this).width() - 5;
     var height = $(this).height() + 5;
 
-    // todo: 해당 아이템의 회원정보, 프로필 url 넣기.
+    // todo: 해당 아이템의 회원정보 url 넣기.
 
     lay_pop.css('top', (pos.top + height) + 'px');    // 레이어 위치 지정
     lay_pop.css('left', (pos.left + width) + 'px');

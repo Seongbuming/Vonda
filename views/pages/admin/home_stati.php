@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="stylesheets/admin/stati.css"/>
     <link rel="stylesheet" href="stylesheets/admin/chart.css" />
     <link rel="stylesheet" href="stylesheets/admin/table_product.css" />
+    <link rel="stylesheet" href="stylesheets/admin/layer_popup.css" />
 
 </head>
 <?php
@@ -113,6 +114,14 @@ if (!isset($_COOKIE['token'])) {
                         </tr>
                       </tbody>
                     </table>
+
+                    <div id="layer-popup">
+                      <ul class="menu-list">
+                        <a href="#" class="menu-item"><li>회원정보</li></a>
+                        <a href="#" class="menu-item"><li>프로필</li></a>
+                      </ul>
+                    </div>
+
                   </div>
                   <a class="btn-close-content" style="display:none;">
                     <h4 class="btn-inline text-peach">닫기</h4>
@@ -227,6 +236,8 @@ if (!isset($_COOKIE['token'])) {
                         </tr>
                       </tbody>
                     </table>
+
+
                   </div>
                   <a class="btn-close-content" style="display:none;">
                     <h4 class="btn-inline text-peach">닫기</h4>
@@ -245,6 +256,7 @@ if (!isset($_COOKIE['token'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="javascripts/admin/sidemenu_bar.js"></script>
     <script src="javascripts/admin/layer_hide_show.js"></script>
+    <script src="javascripts/admin/layer_popup.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
     <script src="javascripts/admin/stati_chart.js"></script>
