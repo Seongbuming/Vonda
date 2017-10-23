@@ -421,7 +421,7 @@
                                 </p>
                               </div>
                               <!-- 결제모듈로 이동 -->
-                              <button type="button" name="button" class="btn btn-peach submit ">반품완료</button>
+                              <button type="button" name="button" class="btn btn-peach submit">반품완료</button>
                             </div>
                             </div>
                           </div>
