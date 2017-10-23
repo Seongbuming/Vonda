@@ -26,7 +26,7 @@ $(document).ready(function() {
     target.removeClass("option-item-template");
     target.children().show();
   });
-  
+
   $(document).on('change','.filebox .upload-hidden',function(){
 
     var filename ='';
@@ -45,6 +45,11 @@ $(document).ready(function() {
     if(container.has(e.target).length === 0){
       container.removeClass('select');
     }
+  });
+
+  $('#search-seller-modal .list-item').on('click',function (e) {
+    $('#search-seller-modal .list-item').removeClass('selected');
+    $(this).addClass('selected');
   });
 
 });

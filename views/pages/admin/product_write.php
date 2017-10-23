@@ -45,7 +45,8 @@
                     <label class="label form-item">셀러</label>
                     <input type="input" name="product-seller" value=""
                             class="form-item">
-                    <button type="button" name="btn-seller-search" class="btn btn-default btn-sm">
+                    <button type="button" name="btn-seller-search" class="btn btn-default btn-sm"
+                    data-toggle="modal" data-target="#search-seller-modal">
                       <span class="glyphicon glyphicon-search text-heavy-gray"></span>
                     </button>
                   </div>
@@ -155,7 +156,47 @@
                     <button type="button" name="btn-submit" class="btn btn-peach">등록</button>
                   </div>
                 </form>
-            </div><!-- /#notice-detail -->
+            </div><!-- /#product-write -->
+            <div class="modal fade " id="search-seller-modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <button type="button" class="close btn-close text-right" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <div class="modal-header">
+                    <h4 class="text-heavy-gray">셀러 검색</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="input-container">
+                      <input type="input" name="search_input" value="" placeholder="">
+                      <button type="button" name="btn-search" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </div>
+
+                    <ul id="seller-list" class="search-seller-list">
+                      <?php
+                          for ($i=0; $i < 2 ; $i++) { ?>
+                            <li class="list-item"><a href="#">clone</a></li>
+                            <li class="list-item"><a href="#">true</a></li>
+                            <li class="list-item"><a href="#">boolean</a></li>
+                            <li class="list-item"><a href="#">jeju</a></li>
+                            <li class="list-item"><a href="#">incheon</a></li>
+                            <li class="list-item"><a href="#">busan</a></li>
+                            <li class="list-item"><a href="#">daegu</a></li>
+                            <li class="list-item"><a href="#">seoul</a></li>
+                            <?php
+                          }
+                      ?>
+
+                    </ul>
+                    <div class="btn-container text-center">
+                      <button type="button" name="button" class="button btn-peach btn-submit">완료</button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
           </div>
       </div>
         <!-- /#page-content-wrapper -->

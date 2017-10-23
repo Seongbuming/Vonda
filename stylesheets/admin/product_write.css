@@ -121,3 +121,56 @@
   appearance: none;
   width: 300px;
 }
+#search-seller-modal .modal-header{
+  border: 0;
+  padding: 0;
+}
+#search-seller-modal .input-container{
+  border: solid 1px #ddd;
+  width: 300px;
+  margin: auto;
+}
+
+#search-seller-modal .input-container input,
+#search-seller-modal .input-container button{
+  border: 0;
+  color: #797979;
+}
+
+#search-seller-modal .input-container input{
+  padding: 5px;
+  width: 266px;
+}
+
+#search-seller-modal .input-container button{
+  float: right;
+}
+#search-seller-modal .search-seller-list{
+  width: 300px;
+  margin: 15px auto;
+  max-height: 215px;
+  overflow-y: scroll;
+}
+#search-seller-modal .search-seller-list .list-item{
+  font-size: 1.5em;
+}
+#search-seller-modal .search-seller-list .list-item:focus,
+#search-seller-modal .search-seller-list .list-item:hover{
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+#search-seller-modal .search-seller-list .list-item a,
+#search-seller-modal .search-seller-list .list-item a:hover,
+#search-seller-modal .search-seller-list .list-item a:focus
+{
+  color: #797979;
+  text-decoration: none;
+}
+#search-seller-modal .btn-submit{
+  width: 300px;
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+.selected{
+  background-color: #f5f5f5;
+}
