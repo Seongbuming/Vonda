@@ -12,7 +12,27 @@
   <link rel="stylesheet" href="stylesheets/admin/chart.css" />
   <link rel="stylesheet" href="stylesheets/admin/table_product.css">
 </head>
-
+<?php
+$request = new Http();
+// Get Products
+$res = $request->request('GET', '/seller/goods?token='.$_COOKIE['token']);
+if ($res->code == "400") {
+    header("location:/?page=login");
+}
+$products = $res->datas->data;
+// Get Creators
+$res = $request->request('GET', '/seller/creators?token='.$_COOKIE['token']);
+if ($res->code == "400") {
+    header("location:/?page=login");
+}
+$creators = $res->datas;
+// Get Notices
+$res = $request->request('GET', '/notice/seller?token='.$_COOKIE['token']);
+if ($res->code == "400") {
+    header("location:/?page=login");
+}
+$notices = $res->datas->data;
+?>
 <body>
     <header>
         <?=$this->loadLayout("seller/header")?>
@@ -46,110 +66,80 @@
           </tr>
         </thead>
             <tbody>
+                <?php foreach ($products as $product) { ?>
                 <tr>
                     <td class="seller_num">
-                         <p class="num">1</p>
+                         <p class="num"><?=$product->seller_id?></p>
                     </td>
                     <td class="product">
                         <div class="product_img">
-                            <img src="images/products/product1.png" alt="상품사진" />
+                            <img src="http://api.siyeol.com/<?=$product->goods_image?>" alt="상품사진" />
                         </div>
                         <div class="product_info">
-                            <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
-                            <p>옵션: <span class="option">실버</span></p>
-                            <p>재고 : 211 - 실버(11), 골드(200) <span class="amount">1</span></p>
+                            <p class="open product_detail"><?=$product->title?></p>
+                            <!-- <span>옵션: <span class="option">실버</span></span> -->
+                            <!-- <p>재고 : 211 - 실버(11), 골드(200) <span class="amount">1</span></p> -->
+                            <p>
+                                옵션:
+                                <span class="option"><?=join(', ', array_map(function ($option) { return $option->name; }, $product->options))?></span>
+                            </p>
+                            <?php if (count($product->options)) { ?>
+                            <p>
+                                재고:
+                                <?=number_format(array_sum(array_map(function ($option) { return $option->stock_ea; }, $product->options)))?>
+                                -
+                                <?=join(', ', array_map(function ($option) { return $option->name."(".number_format($option->stock_ea).")"; }, $product->options))?>
+                            </p>
+                            <?php } ?>
                         </div>
                     </td>
-					<td class="order_creator">
-                        <p>4</p>
+                    <td class="order_creator">
+                        <p><?=$product->creator_count?></p>
                     </td>
                     <td class="order_price">
-                        <p>28,500원</p>
+                        <p><?=number_format(count($product->options) ? $product->options[0]->price : 0)?>원</p>
                     </td>
                     <td class="order_cnt">
-                        <p class="status_text">96</p>
+                        <p class="status_text"><?=number_format($product->order_count)?></p>
                     </td>
                     <td class="order_totalPrice">
-                        <p>1,028,500원</p>
+                        <p><?=number_format((count($product->options) ? $product->options[0]->price : 0) * $product->order_count)?>원</p>
                     </td>
                 </tr>
-				<tr>
-                     <td class="seller_num">
-                         <p class="num">2</p>
+                <?php } ?>
+            </tbody>
+        </table>
+        <div class="creatorCnt">크리에이터<a href="./seller.php?page=seller_creator" class="allView">전체보기</a></div>
+        <table id="creator-table"class="order_list productTable noneMargin pd10">
+            <thead>
+                <tr>
+                    <th colspan="2">크리에이터</th>
+                    <th>판매수</th>
+                    <th>판매금액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($creators as $creator) { ?>
+                <tr>
+                    <td class="seller_num">
+                        <p class="num"><?=$creator->id?></p>
                     </td>
                     <td class="product">
                         <div class="product_img">
-                            <img src="images/products/product2.png" alt="상품사진" />
+                            <img src="<?=$creator->profile_image?>" alt="크리에이터 사진" style="height:100%;"/>
                         </div>
                         <div class="product_info">
-                            <p class="open product_detail">로얄 크루</p>
-                            <p>옵션: <span class="option">마르살라</span></p>
-                            <p>수량: <span class="amount">1</span></p>
+                            <p class="open product_detail">@<?=$creator->nickname?></p>
                         </div>
                     </td>
-					<td class="order_creator">
-                        <p>5</p>
-                    </td>
-                   <td class="order_price">
-                        <p>23,500원</p>
-                    </td>
                     <td class="order_cnt">
-                        <p class="status_text">46</p>
+                        <p class="status_text"><?=number_format($creator->total_count)?></p>
                     </td>
                     <td class="order_totalPrice">
-                        <p>328,500원</p>
+                        <p><?=number_format($creator->total_price)?>원</p>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-		<div class="creatorCnt">크리에이터<a href="./seller.php?page=seller_creator" class="allView">전체보기</a></div>
-		<table id="creator-table"class="order_list productTable noneMargin pd10">
-      <thead>
-          <tr>
-              <th colspan="2">크리에이터</th>
-					    <th>판매수</th>
-              <th>판매금액</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td class="seller_num">
-                       <p class="num">1</p>
-                  </td>
-                  <td class="product">
-                      <div class="product_img">
-                          <img src="images/creators/creator1.png" alt="상품사진" style="height:100%;"/>
-                      </div>
-                      <div class="product_info">
-                          <p class="open product_detail">@ANOTHER A</p>
-                      </div>
-                  </td>
-                  <td class="order_cnt">
-                      <p class="status_text">96</p>
-                  </td>
-                  <td class="order_totalPrice">
-                      <p>1,028,500원</p>
-                  </td>
-                </tr>
-				        <tr>
-                  <td class="seller_num">
-                       <p class="num">2</p>
-                  </td>
-                  <td class="product">
-                      <div class="product_img">
-                          <img src="images/creators/creator2.png" alt="상품사진" style="height:100%;"/>
-                      </div>
-                      <div class="product_info">
-                          <p class="open product_detail">@replay</p>
-                      </div>
-                  </td>
-                  <td class="order_cnt">
-                      <p class="status_text">46</p>
-                  </td>
-                  <td class="order_totalPrice">
-                      <p>328,500원</p>
-                  </td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
 
@@ -157,66 +147,14 @@
 
             <table id="notice-table" class="board productTable noneMargin pd10">
                 <tbody>
+                    <?php foreach ($notices as $notice) { ?>
                     <tr class="row_subject">
-                        <td class="time">2017.08.22 13:20</td>
+                        <td class="time"><?=$notice->created_at?></td>
                         <td class="subject">
-                            <a href=".?page=notice_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
+                            <a href=".?page=notice_detail"><?=$notice->subject?>(<?=$notice->hit?>)</a>
                         </td>
                     </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.21 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">이제 이불 덮고 자요, 그러다 감기 걸려요 새 계절, 새 잠옷(25)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.19 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">간절기를 위한 가벼운 아우터(99)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.18 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">[ 안경展 ] 9 브랜드 최대 30% 할인(105)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.17 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">손목 위의 시간, 시계 기획전 최대 30% 할인(877)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.22 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.21 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">이제 이불 덮고 자요, 그러다 감기 걸려요 새 계절, 새 잠옷(25)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.19 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">간절기를 위한 가벼운 아우터(99)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.18 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">[ 안경展 ] 9 브랜드 최대 30% 할인(105)</a>
-                        </td>
-                    </tr>
-                    <tr class="row_subject">
-                        <td class="time">2017.08.17 13:20</td>
-                        <td class="subject">
-                            <a href=".?page=notice_detail">손목 위의 시간, 시계 기획전 최대 30% 할인(877)</a>
-                        </td>
-                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
 

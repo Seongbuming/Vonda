@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <table class="productTable order_list pd10 noneMargin">
+        <table class="productTable order_list pd10 noneMargin" id="sales-list">
             <thead>
                 <tr>
                     <th>주문번호/주문일자</th>
@@ -433,5 +433,6 @@
     <script src="javascripts/select_all.js"></script>
     <script src="javascripts/modal.js"></script>
     <script src="javascripts/client/orderlist.js"></script>
+    <script src="javascripts/seller/sales.js"></script>
 </body>
 </html>
