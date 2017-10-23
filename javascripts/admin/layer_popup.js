@@ -14,6 +14,10 @@ $(document).ready(function() {
     var height = $(this).height() + 5;
 
     // todo: 해당 아이템의 회원정보 url 넣기.
+    // $("#layer-popup .member-info").attr("href", "회원정보 url 넣기");
+
+    //proflie modal에 info 넣기
+    // $("#creator-profile-modal")
 
     lay_pop.css('top', (pos.top + height) + 'px');    // 레이어 위치 지정
     lay_pop.css('left', (pos.left + width) + 'px');
