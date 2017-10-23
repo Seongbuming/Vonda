@@ -84,9 +84,9 @@ if (isset($_COOKIE['token'])) {
                             </td>
                             <td class="product_amount">
                                 <div class="wrapper">
-                                    <button type="button" class="add">+</button>
-                                    <span class="amount"><?=$cart_item->ea?></span>
                                     <button type="button" class="sub">-</button>
+                                    <span class="amount"><?=$cart_item->ea?></span>
+                                    <button type="button" class="add">+</button>
                                 </div>
                             </td>
                             <td class="product_shippingfee"><?=number_format($cart_item->goods->shippingCharge)."원"?></td>

@@ -67,9 +67,9 @@ if (isset($_GET['id'])) {
                     <div class="row">
                         <p class="option_name">수량</p>
                         <div class="amount_wrapper">
-                            <button class="add">+</button>
-                            <span class="amount">1</span>
                             <button class="sub">-</button>
+                            <span class="amount">1</span>
+                            <button class="add">+</button>
                         </div>
                     </div>
                     <div class="row">
