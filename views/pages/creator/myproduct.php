@@ -164,6 +164,21 @@
         </div>
     </div>
 
+    <div id="modal_apply_failed" class="modal size_msg">
+        <div class="close_section modal_close"></div>
+        <div class="modal_body">
+            <div class="modal_contents">
+                <button class="close_button modal_close">
+                    <img src="images/buttons/close.png" alt="닫기" />
+                </button>
+
+                <p>홍보를 신청할 상품을 선택해주세요.</p>
+
+                <button class="submit modal_close">확인</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <footer>
