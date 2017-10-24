@@ -531,25 +531,17 @@ $orders = $response->datas->data;
                   </div>
 
                   <div class="upload_img_files">
-                    <div class="filebox">
-                      <label for="ex_filename">
-                        <img src="images/buttons/add_photo_review.png" alt="" />
-                        <!-- <span class="glyphicon glyphicon-search text-heavy-gray"></span> -->
-                      </label>
-                      <input type="file" name="goods_image" id="ex_filename" class="upload-hidden" accept="image/*">
-                    </div>
-                    <div class="filebox">
-
-                    </div>
-                    <div class="filebox">
-
-                    </div>
-                    <div class="filebox">
-
-                    </div>
-                    <div class="filebox">
-
-                    </div>
+                    <?php
+                      for ($i=0; $i <5 ; $i++) {?>
+                        <div class="filebox">
+                          <label for="<?="ex_filename_".$i?>">
+                            <img src="images/buttons/add_photo_review.png" alt="" />
+                          </label>
+                          <input type="file" name="review_image" id="<?="ex_filename_".$i?>" class="upload-hidden" accept="image/*">
+                        </div>
+                        <?php
+                      }
+                    ?>
                   </div>
 
                   <button class="submit">후기남기기</button>
