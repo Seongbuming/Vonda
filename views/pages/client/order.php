@@ -1,15 +1,15 @@
 <?php
-header("Content-Type:text/html; charset=utf-8;"); 
+header("Content-Type:text/html; charset=utf-8;");
 
 require($_SERVER['DOCUMENT_ROOT']."/libraries/NICEPAY/lib/NicepayLite.php");
 /*
 *******************************************************
 * <결제요청 파라미터>
 * 결제시 Form 에 보내는 결제요청 파라미터입니다.
-* 샘플페이지에서는 기본(필수) 파라미터만 예시되어 있으며, 
+* 샘플페이지에서는 기본(필수) 파라미터만 예시되어 있으며,
 * 추가 가능한 옵션 파라미터는 연동메뉴얼을 참고하세요.
 *******************************************************
-*/  
+*/
 $nicepay = new NicepayLite;
 $request = new Http();
 
@@ -62,9 +62,9 @@ $nicepay->m_MID         = "nicepay00m";                         // 상점아이�
 $nicepay->m_Moid        = $order->order_no;                    // 상품주문번호
 $nicepay->m_Price       = $order->total_price;                  // 결제상품금액
 $nicepay->m_BuyerEmail  = "happy@day.co.kr";                    // 구매자메일주소
-$nicepay->m_BuyerName   = "나이스";                               // 구매자명 
-$nicepay->m_BuyerTel    = "01000000000";                        // 구매자연락처           
-$nicepay->m_GoodsName   = $order->items[0]->info->goods_name;   // 결제상품명                     
+$nicepay->m_BuyerName   = "나이스";                               // 구매자명
+$nicepay->m_BuyerTel    = "01000000000";                        // 구매자연락처
+$nicepay->m_GoodsName   = $order->items[0]->info->goods_name;   // 결제상품명
 
 if (sizeof($order->items) > 1) {
     $nicepay->m_GoodsName = $nicepay->m_GoodsName." 외 ".(sizeof($order->items)-1);
@@ -77,9 +77,9 @@ $nicepay->requestProcess();
 /*
 *******************************************************
 * <해쉬암호화> (수정하지 마세요)
-* SHA-256 해쉬암호화는 거래 위변조를 막기위한 방법입니다. 
+* SHA-256 해쉬암호화는 거래 위변조를 막기위한 방법입니다.
 *******************************************************
-*/ 
+*/
 $ediDate = date("YmdHis");
 $hashString = bin2hex(hash('sha256', $nicepay->m_EdiDate.$nicepay->m_MID.$nicepay->m_Price.$nicepay->m_MerchantKey, true));
 
@@ -256,18 +256,22 @@ function nicepayClose(){
                 <input name="anumber_3" type="tel" class="tel"/>
             </div>
             <div class="row">
-                <p class="required">*</p>
-                <label for="name">배송지</label>
-                <input id="order" name="zipcode" type="text" class="text" required/>
-                <input class="address_button" type="submit" value="주소 검색">
-                <div class="post_section"><input class="savepost" name="savepost" type="checkbox" checked=""> <label
-                            id="savemsg" for="savepost">기본 배송지로 설정</label></div>
+              <p class="required">*</p>
+              <label for="name">배송지</label>
+              <input id="postcode" name="zipcode" type="text" class="text" required/>
+              <input class="address_button" type="button" onclick="execDaumPostcode()"value="주소 검색">
+              <div class="post_section">
+                <input class="savepost" name="savepost" type="checkbox" checked="">
+                <label id="savemsg" for="savepost">기본 배송지로 설정</label>
+              </div>
             </div>
             <div class="row">
-                <input id="order_big" name="address" type="text" class="text" required/>
+                <input id="address" name="address" type="text" class="text" required
+                style="margin-left:158px;"/>
             </div>
             <div class="row">
-                <input id="order_big" name="address_detail" type="text" class="text" placeholder="상세주소입력" required/>
+                <input id="address2" name="address_detail" type="text" class="text" placeholder="상세주소입력" required
+                style="margin-left:158px;"/>
             </div>
             <div class="row">
                 <p>&nbsp;&nbsp;</p>
@@ -279,7 +283,7 @@ function nicepayClose(){
                 <p class="order_warning">배송지 불분명 및 수신불가 연락처 기입으로 반송되는 왕복 택배 비용은 구매자 부담으로 정확한 주소 및 통화 가능한 연락처 필수 기입<br>
                     대리주문으로 해외 주소로 발송 전, 주문품 꼭 확인해주세요. 오배송 및 불량 교환에 따른 배송비는 국내 택배 비용만 지원됩니다.</p>
             </div>
-        <!--
+
         <h4 class="subcategory">결제 정보</h4>
         <form class="order_form">
             <div class="row">
@@ -291,7 +295,7 @@ function nicepayClose(){
                 <label for="option_exchange">무통장입금</label>
             </div>
         </form><br><br><br>
-        -->
+
         <h4 class="subcategory">추천인 정보</h4>
             <div class="row">
                 <!--<p class="required">*</p>-->
@@ -311,5 +315,10 @@ function nicepayClose(){
     <footer>
         <?= $this->loadLayout("footer") ?>
     </footer>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/search_postcode.js"></script>
+
+
 </body>
 </html>
