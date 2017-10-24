@@ -532,7 +532,11 @@ $orders = $response->datas->data;
 
                   <div class="upload_img_files">
                     <div class="filebox">
-
+                      <label for="ex_filename">
+                        <img src="images/buttons/add_photo_review.png" alt="" />
+                        <!-- <span class="glyphicon glyphicon-search text-heavy-gray"></span> -->
+                      </label>
+                      <input type="file" name="goods_image" id="ex_filename" class="upload-hidden" accept="image/*">
                     </div>
                     <div class="filebox">
 
