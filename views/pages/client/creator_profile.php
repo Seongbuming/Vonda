@@ -49,7 +49,7 @@
         </div>
         <ul class="category_menu">
             <li class="actived"><a href=".?page=orderlist">최신순</a></li>
-            <li><a href=".?page=cancellist">인기순</a></li>
+            <li><a href=".?page=orderlist">인기순</a></li>
         </ul>
         <div class="product_section">
             <?php
@@ -62,7 +62,7 @@
                         <p class="product_price"><?=number_format($item->goods->options[0]->price)?>won</p>
                     </div>
                 </a>
-            <?php 
+            <?php
             }
             ?>
         </div>
