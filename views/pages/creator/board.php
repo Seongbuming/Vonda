@@ -46,18 +46,19 @@ $pager = $response->datas;
         </tbody>
     </table>
 
-    <?php
-        if($pager->current_page =! $pager->last_page){
-          ?>
-          <div class="pager">
-              <button class="left">◀</button>
-              <button class="right">▶</button>
-          </div>
+
+    <div class="pager">
+        <?php
+            if($pager->current_page =! $pager->last_page){
+              ?>
+          <button class="left">◀</button>
+          <button class="right">▶</button>
           <?php
         }
-    ?>
+        ?>
+    </div>
 
-    <div class="write_cont">
+    <div style="text-align:right">
       <a href="creator.php?page=boardwrite" class="write" style="padding:10px 53px;">글쓰기</a>
     </div>
 </div>
