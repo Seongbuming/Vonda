@@ -525,12 +525,24 @@ $orders = $response->datas->data;
                   </table>
 
                   <div class="review_comment">
-                    <textarea name="name" rows="30" cols="60" placeholder="후기를 남겨주세요. (최대 50자)">
-
+                    <textarea name="name" rows="20" cols="75">
+                      후기를 남겨주세요. (최대 50자)
                     </textarea>
                   </div>
 
                   <div class="upload_img_files">
+                    <div class="filebox">
+
+                    </div>
+                    <div class="filebox">
+
+                    </div>
+                    <div class="filebox">
+
+                    </div>
+                    <div class="filebox">
+
+                    </div>
                     <div class="filebox">
 
                     </div>

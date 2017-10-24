@@ -140,7 +140,7 @@ $(document).ready(function() {
         infiniteLoop: false,
         pager: false,
         controls: true,
-        slideWidth: 200,
+        slideWidth: 150,
         minSlides: 4,
         maxSlides:4,
         moveSlides: 1,

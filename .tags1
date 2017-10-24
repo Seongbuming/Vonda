@@ -47,5 +47,10 @@
 #modal_orderdetail .modal_body	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_orderdetail .modal_body {$/;"	function	line:212
 #modal_review .modal_body	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .modal_body{$/;"	function	line:216
 #modal_review .left_content	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .left_content{$/;"	function	line:220
-#modal_review .right_content	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .right_content{$/;"	function	line:224
-#modal_review .filebox	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .filebox{$/;"	function	line:228
+#modal_review .right_content	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .right_content{$/;"	function	line:225
+#modal_review .upload_img_files	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .upload_img_files{$/;"	function	line:231
+#modal_review .filebox	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .filebox{$/;"	function	line:234
+#modal_review table td, #modal_review table th	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review table td, #modal_review table th{$/;"	function	line:240
+#modal_review .bx-wrapper .bx-controls-direction .bx-prev	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .bx-wrapper .bx-controls-direction .bx-prev{$/;"	function	line:243
+#modal_review .bx-wrapper .bx-controls-direction .bx-next	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .bx-wrapper .bx-controls-direction .bx-next{$/;"	function	line:249
+#modal_review .submit	/Users/hanboramjang/Sites/vonda/stylesheets/client/orderlist.css	/^#modal_review .submit{$/;"	function	line:255
