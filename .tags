@@ -43,3 +43,29 @@ nicepayClose	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^func
 request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$request = new Http();$/;"	variable	line:9
 response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$response = $request->request('GET', '\/creator\/board\/list?token='.$_COOKIE['token']);$/;"	variable	line:11
 boards	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$boards = $response->datas->data;$/;"	variable	line:12
+#contents .link_menu	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#contents .link_menu{$/;"	function	line:2
+table td	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^table td{$/;"	function	line:5
+.btn-promotion-apply	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.btn-promotion-apply{$/;"	function	line:8
+#table-promotion-apply td	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#table-promotion-apply td{$/;"	function	line:16
+#table-promotion-apply .btn-cancel-apply	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#table-promotion-apply .btn-cancel-apply{$/;"	function	line:20
+#table-promotion-apply .product	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#table-promotion-apply .product{$/;"	function	line:27
+#table-promotion-apply .state-text	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#table-promotion-apply .state-text{$/;"	function	line:30
+.product .product_info	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.product .product_info,$/;"	function	line:33
+.seller	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^ .seller{$/;"	function	line:34
+.order_list tbody .product	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .product{$/;"	function	line:37
+.order_list tbody .product .product_img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .product .product_img {$/;"	function	line:40
+.order_list tbody .product .product_img img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .product .product_img img {$/;"	function	line:48
+.order_list tbody .product .product_info	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .product .product_info {$/;"	function	line:52
+.order_list tbody .seller, .product_price,.num_of_sales	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .seller, .product_price,.num_of_sales {$/;"	function	line:57
+.order_list tbody .sales_price	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.order_list tbody .sales_price {$/;"	function	line:62
+#modal_promotion_apply .area_search	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#modal_promotion_apply .area_search{$/;"	function	line:67
+#modal_promotion_apply .title	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#modal_promotion_apply .title{$/;"	function	line:73
+#modal_promotion_apply .modal_body	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#modal_promotion_apply .modal_body{$/;"	function	line:79
+#modal_promotion_apply td	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#modal_promotion_apply td{$/;"	function	line:85
+#modal_promotion_apply .submit	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#modal_promotion_apply .submit{$/;"	function	line:90
+#modal_promotion_apply tbody .product .product_img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#modal_promotion_apply tbody .product .product_img{$/;"	function	line:98
+request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $request = new Http();$/;"	variable	line:16
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id']);$/;"	variable	line:17
+board	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $board = $response->data;$/;"	variable	line:19
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id'].'\/comment');$/;"	variable	line:21
+comments	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $comments = $response->data;$/;"	variable	line:22

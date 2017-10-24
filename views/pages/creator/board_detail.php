@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="comment">
-            <textarea cols="156" rows="5" placeholder="댓글을 입력하려면 로그인이 필요합니다."></textarea>
+            <textarea cols="154" rows="5" placeholder="댓글을 입력하려면 로그인이 필요합니다."></textarea>
             <button class="comment_submit">댓글 등록</button>
         </div>
 

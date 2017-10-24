@@ -111,43 +111,56 @@
             </p>
 
             <div class="area_search">
-
                 <input class="search input_search" type="text" title="검색 입력" />
                 <button class="search submit_search" title="검색"></button>
             </div>
 
-            <table class="order_list">
-
-                <tbody>
-                  <?php for ($i=0; $i < 5 ; $i++) {
+              <table class="order_list">
+                  <tbody>
+                    <?php for ($i=0; $i < 8 ; $i++) {
+                      ?>
+                      <tr>
+                        <td class="">
+                          <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택">
+                          <label for="<?="select_".$i?>"></label>
+                        </td>
+                          <td class="product">
+                              <div class="product_img">
+                                  <img src="images/products/product1.png" alt="상품사진" />
+                              </div>
+                              <div class="product_info">
+                                  <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
+                              </div>
+                          </td>
+                          <td class="seller">
+                            kikiki
+                          </td>
+                          <td class="order_price">
+                              <p>28,500원</p>
+                          </td>
+                      </tr>
+                      <?php
+                    }
                     ?>
-                    <tr>
-                      <td class="">
-                        <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택">
-                        <label for="<?="select_".$i?>"></label>
-                      </td>
-                        <td class="product">
-                            <div class="product_img">
-                                <img src="images/products/product1.png" alt="상품사진" />
-                            </div>
-                            <div class="product_info">
-                                <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                            </div>
-                        </td>
-                        <td class="seller">
-                          kikiki
-                        </td>
-                        <td class="order_price">
-                            <p>28,500원</p>
-                        </td>
-                    </tr>
-                    <?php
-                  }
-                  ?>
-                </tbody>
-            </table>
+                  </tbody>
+              </table>
 
             <button class="submit">신청하기</button>
+        </div>
+    </div>
+
+    <div id="modal_apply_finish" class="modal size_msg">
+        <div class="close_section modal_close"></div>
+        <div class="modal_body">
+            <div class="modal_contents">
+                <button class="close_button modal_close">
+                    <img src="images/buttons/close.png" alt="닫기" />
+                </button>
+
+                <p>신청완료 되었습니다.</p>
+
+                <button class="submit modal_close">확인</button>
+            </div>
         </div>
     </div>
 
