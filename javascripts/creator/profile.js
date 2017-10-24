@@ -55,7 +55,7 @@ $(document).ready(function() {
         success: function (res) {
           console.log(res.code);
             if (res.code == 200) {
-
+              location.reload();
             } else if (res.code == 401) {
                 alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
                 location.href="./?page=login";
@@ -76,29 +76,9 @@ $(document).ready(function() {
     var profile_image = $('.creator_profile_img').attr("src");
     var cover_image = $('.creator_profile_bg_img').attr("src");
 
-
-
-    // if(upload_profile_image.get(0).files.length > 0){
-    //   is_uploaded_profile = true;
-    //   if (window.FileReader) { // modern browser
-    //     upload_profile_image = $('#creator-profile-upload')[0].files[0].name;
-    //   } else {
-    //     // old IE
-    //     upload_profile_image = $('#creator-profile-upload').val().split('/').pop().split('\\').pop(); // 파일명만 추출
-    //   }
-    // }
-    //
-    // if(upload_cover_image.get(0).files.length > 0){
-    //   is_uploaded_cover = true;
-    //   if (window.FileReader) { // modern browser
-    //     upload_cover_image = $('#creator-bg-upload')[0].files[0].name;
-    //   } else {
-    //     // old IE
-    //     upload_cover_image = $('#creator-bg-upload').val().split('/').pop().split('\\').pop(); // 파일명만 추출
-    //   }
-    // }
-
     if(nickname.length > 0){
+      //@제거
+      nickname = nickname.substr(1,nickname.length);
       update_creator_info(nickname,introduce);
     }else{
       alert("닉네임을 입력해주세요.");
