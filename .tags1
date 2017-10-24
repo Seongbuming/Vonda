@@ -4,6 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$request = new Http();$/;"	variable	line:9
-response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$response = $request->request('GET', '\/creator\/board\/list?token='.$_COOKIE['token']);$/;"	variable	line:11
-boards	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$boards = $response->datas->data;$/;"	variable	line:12

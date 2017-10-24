@@ -99,7 +99,7 @@
         </tbody>
     </table>
 
-    <div id="modal_promotion_apply" class="modal actived">
+    <div id="modal_promotion_apply" class="modal">
         <div class="close_section modal_close"></div>
         <div class="modal_body">
             <button class="close_button modal_close">
@@ -157,6 +157,8 @@
     <?=$this->loadLayout("creator/footer")?>
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="javascripts/modal.js"></script>
+    <script src="javascripts/creator/myproduct.js"></script>
+
 </footer>
 </body>
 </html>
