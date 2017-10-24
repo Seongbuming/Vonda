@@ -133,7 +133,7 @@ $(document).ready(function() {
     });
 
     //후기 작성 모달 슬라이드
-    $("#contents .bxslider").bxSlider({
+    $(" .bxslider").bxSlider({
         mode: 'vertical',
         speed: 500,
         slideMargin:0,
@@ -144,8 +144,10 @@ $(document).ready(function() {
         minSlides: 4,
         maxSlides:4,
         moveSlides: 1,
-        adaptiveHeight: false,
+        // adaptiveHeight: false,
     });
+
+    $('.bx-wrapper > div').attr("aria-live","off");
 
     //후기 작성 모달 슬라이드 버튼 커스터 마이징
     $('.slide_prev').on('click',function () {

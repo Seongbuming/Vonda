@@ -413,60 +413,6 @@ $orders = $response->datas->data;
             </div>
         </div>
 
-        <div id="modal_cancel" class="modal size_msg">
-            <div class="close_section modal_close"></div>
-            <div class="modal_body">
-                <div class="modal_contents">
-                    <button class="close_button modal_close">
-                        <img src="images/buttons/close.png" alt="닫기" />
-                    </button>
-
-                    <p>선택한 주문건에 대해 취소 처리를 진행합니다.</p>
-                    <select class="reason">
-                        <option value="" disabled selected>취소사유</option>
-                        <option value="서비스 및 상품 불만족">서비스 및 상품 불만족</option>
-                        <option value="배송 지연">배송 지연</option>
-                        <option value="상품 품절">상품 품절</option>
-                    </select>
-                    <input type="hidden" class="order_no"/>
-
-                    <button class="submit">주문취소요청</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal_cancel_finish" class="modal size_msg">
-            <div class="close_section modal_close"></div>
-            <div class="modal_body">
-                <div class="modal_contents">
-                    <button class="close_button modal_close">
-                        <img src="images/buttons/close.png" alt="닫기" />
-                    </button>
-
-                    <p>주문 취소 요청이 완료되었습니다.</p>
-
-                    <button class="submit modal_close">확인</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal_reivew_finish" class="modal size_msg">
-            <div class="close_section modal_close"></div>
-            <div class="modal_body">
-                <div class="modal_contents">
-                    <button class="close_button modal_close">
-                        <img src="images/buttons/close.png" alt="닫기" />
-                    </button>
-
-                    <p>정상적으로 등록되었습니다.</p>
-                    <p>소중한 후기 감사합니다!</p>
-
-                    <button class="submit modal_close">확인</button>
-                </div>
-            </div>
-        </div>
-
-
         <div id="modal_review" class="modal actived">
             <input type="hidden" class="order_no">
             <div class="close_section modal_close"></div>
@@ -560,6 +506,58 @@ $orders = $response->datas->data;
             </div>
         </div>
 
+        <div id="modal_cancel" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+
+                    <p>선택한 주문건에 대해 취소 처리를 진행합니다.</p>
+                    <select class="reason">
+                        <option value="" disabled selected>취소사유</option>
+                        <option value="서비스 및 상품 불만족">서비스 및 상품 불만족</option>
+                        <option value="배송 지연">배송 지연</option>
+                        <option value="상품 품절">상품 품절</option>
+                    </select>
+                    <input type="hidden" class="order_no"/>
+
+                    <button class="submit">주문취소요청</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_cancel_finish" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+
+                    <p>주문 취소 요청이 완료되었습니다.</p>
+
+                    <button class="submit modal_close">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_reivew_finish" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+
+                    <p>정상적으로 등록되었습니다.</p>
+                    <p>소중한 후기 감사합니다!</p>
+
+                    <button class="submit modal_close">확인</button>
+                </div>
+            </div>
+        </div>
 
 
         <div id="modal_order_detail" class="modal">
@@ -667,13 +665,17 @@ $orders = $response->datas->data;
                   </tr>
               </table>
 
-                </div>
+          </div>
+        </div>
 
     </div>
+
+
 
     <footer>
         <?=$this->loadLayout("footer")?>
     </footer>
+
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="libraries/jquery.bxslider.min.js"></script>
     <script src="javascripts/select_all.js"></script>

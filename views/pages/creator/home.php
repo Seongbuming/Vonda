@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="stylesheets/admin/chart.css" />
     <link rel="stylesheet" href="stylesheets/seller/common.css?v=3">
 </head>
+<?php
+  $request = new Http();
 
+  $response = $request->request('GET', '/creator/board/list?token='.$_COOKIE['token']);
+  $boards = $response->datas->data;
+?>
 <body>
 <header>
     <?=$this->loadLayout("creator/header")?>
@@ -83,12 +88,24 @@
     <table class="board">
         <tbody>
 
-        <tr class="row_subject">
-            <td class="time">2017.08.22 13:20</td>
-            <td class="subject">
-                <a href="./creator.php?page=board_detail">선선한 가을 날씨, 가디건 준비하세요(11)</a>
-            </td>
-        </tr>
+          <?php
+          // 보일 게시물의 수
+          $i = 5;
+          foreach ($boards as $board) {
+            if(--$i < 0)
+              break;
+          ?>
+              <tr class="row_subject">
+                  <td class="time"><?=substr($board->created_at, 0, 16)?></td>
+                  <td class="subject">
+                      <a href=<?="./creator.php?page=board_detail&id=".$board->id?>>
+                        <?=$board->subject." (".$board->hit.")"?>
+                      </a>
+                  </td>
+              </tr>
+          <?php
+          }
+          ?>
         </tbody>
     </table>
 
