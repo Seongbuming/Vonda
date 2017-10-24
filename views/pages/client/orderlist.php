@@ -447,6 +447,22 @@ $orders = $response->datas->data;
             </div>
         </div>
 
+        <div id="modal_reivew_finish" class="modal size_msg">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <div class="modal_contents">
+                    <button class="close_button modal_close">
+                        <img src="images/buttons/close.png" alt="닫기" />
+                    </button>
+
+                    <p>정상적으로 등록되었습니다.</p>
+                    <p>소중한 후기 감사합니다!</p>
+
+                    <button class="submit modal_close">확인</button>
+                </div>
+            </div>
+        </div>
+
 
         <div id="modal_order_detail" class="modal">
           <div class="close_section modal_close"></div>
@@ -471,7 +487,7 @@ $orders = $response->datas->data;
                     <td class="order-detail-item-content order_name">진아영</td>
                   </tr>
 
-                  <!-- 주문상태 임시 제거 
+                  <!-- 주문상태 임시 제거
                   <tr class="order-detail-item"   style="border-bottom: solid 1px #d8d8d8;">
                     <th class="order-detail-item-label">주문상품/<br>상태</th>
                     <td class="order-detail-item-content">
