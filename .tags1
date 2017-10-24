@@ -4,24 +4,6 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-nicepay	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$nicepay = new NicepayLite;$/;"	variable	line:13
-request	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$request = new Http();$/;"	variable	line:14
-params	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$params = array("items" => array());$/;"	variable	line:16
-url	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^    $url = "\/cart\/last?token=".$_COOKIE['token'];$/;"	variable	line:24
-response	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^    $response = $request->request('GET', $url);$/;"	variable	line:25
-item	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^    $item = $response->data;$/;"	variable	line:31
-url	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^        $url = "\/cart\/".$item."?token=".$_COOKIE['token'];$/;"	variable	line:37
-response	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^        $response = $request->request('GET', $url);$/;"	variable	line:38
-item	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^        $item = $response->data;$/;"	variable	line:44
-params	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^\/\/ $params = array( "items"=>array( array("goods_option_id"=>5, "ea"=>12), array("goods_option_id"=>4, "ea"=>4), array("goods_option_id"=>6, "ea"=>1) ) );$/;"	variable	line:50
-response	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$response = $request->request('POST', '\/order?token='.$_COOKIE['token'], ['json' => $params]);$/;"	variable	line:52
-order	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$order = $response->datas;$/;"	variable	line:54
-goodsCnt	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$goodsCnt               = sizeof($order->items);                                  \/\/ 결제상품개수$/;"	variable	line:73
-ediDate	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$ediDate = date("YmdHis");$/;"	variable	line:83
-hashString	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^$hashString = bin2hex(hash('sha256', $nicepay->m_EdiDate.$nicepay->m_MID.$nicepay->m_Price.$nicepay->m_MerchantKey, true));$/;"	variable	line:84
-pay	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^function pay(){$/;"	function	line:97
-form	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^    var $form = $("#form");$/;"	variable	line:98
-form	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^    var $form = $("#form");$/;"	variable	line:98
-nicepayStart	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^function nicepayStart(){$/;"	function	line:108
-nicepaySubmit	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^function nicepaySubmit(){$/;"	function	line:113
-nicepayClose	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^function nicepayClose(){$/;"	function	line:118
+request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$request = new Http();$/;"	variable	line:9
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$response = $request->request('GET', '\/creator\/board\/list?token='.$_COOKIE['token']);$/;"	variable	line:11
+boards	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$boards = $response->datas->data;$/;"	variable	line:12

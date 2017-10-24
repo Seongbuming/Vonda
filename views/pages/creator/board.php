@@ -48,9 +48,7 @@ $boards = $response->datas->data;
         <button class="right">▶</button>
     </div>
     <div class="write_cont">
-        <button class="write">
-          <a href="./creator.php?page=boardwrite">글쓰기</a>
-        </button>
+      <a href="creator.php?page=boardwrite" class="write" style="padding:10px 53px;">글쓰기</a>
     </div>
 </div>
 
