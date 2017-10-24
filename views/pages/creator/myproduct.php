@@ -201,7 +201,7 @@ $products = $response->datas;
                     <img src="images/buttons/close.png" alt="닫기" />
                 </button>
 
-                <p>신청완료 되었습니다.</p>
+                <p>홍보 신청이 완료 되었습니다.</p>
 
                 <button class="submit modal_close">확인</button>
             </div>

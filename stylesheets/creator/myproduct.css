@@ -78,7 +78,7 @@ table td{
 
 #modal_promotion_apply .modal_body{
   width: 800px;
-  height: 675px;
+  max-height: 675px;
   padding: 50px;
   text-align: center;
 }
@@ -87,7 +87,9 @@ table td{
   border: none;
   color: #797979;
 }
-#modal_promotion_apply .submit{
+#modal_promotion_apply .submit,
+#modal_apply_finish .submit,
+#modal_apply_failed .submit{
   width: 250px;
   background-color: #e69a83;
   color: white;
@@ -99,4 +101,14 @@ table td{
   width: 90px;
   height: 90px;
   line-height: 90px;
+}
+#modal_apply_finish .modal_body,
+#modal_apply_failed .modal_body{
+  width: 450px;
+  height: 150px;
+  padding: 50px 30px 15px 30px;
+}
+#modal_apply_finish .modal_contents,
+#modal_apply_failed .modal_contents{
+  text-align: center;
 }
