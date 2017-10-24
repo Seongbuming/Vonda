@@ -40,11 +40,10 @@
     position: absolute;
     margin-top: -170px;
     margin-left: 20px;
-    background-color: black;
+    background-color: rgba(0,0,0,0.5);
     z-index: 2;
     width: 130px;
     height: 40px;
-    opacity: 0.5;
 }
 
 .bg_size p {
@@ -166,7 +165,7 @@ textarea {
 .filebox label {
   display: inline-block;
   padding: 3px 5px;
-  color: #999;
+  color: white;
   font-size: inherit;
   line-height: normal;
   cursor: pointer;
