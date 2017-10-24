@@ -89,7 +89,6 @@ $products = $response->datas;
         </thead>
         <tbody>
           <?php
-          // 보일 게시물의 수
           foreach ($products as $product) {
           ?>
         <tr>
@@ -159,31 +158,34 @@ $products = $response->datas;
 
               <table class="order_list">
                   <tbody>
-                    <?php for ($i=0; $i < 8 ; $i++) {
-                      ?>
-                      <tr>
-                        <td class="">
-                          <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택">
-                          <label for="<?="select_".$i?>"></label>
-                        </td>
-                          <td class="product">
-                              <div class="product_img">
-                                  <img src="images/products/product1.png" alt="상품사진" />
-                              </div>
-                              <div class="product_info">
-                                  <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                              </div>
-                          </td>
-                          <td class="seller">
-                            kikiki
-                          </td>
-                          <td class="order_price">
-                              <p>28,500원</p>
-                          </td>
-                      </tr>
-                      <?php
-                    }
+                    <?php
+                    foreach ($products as $product) {
                     ?>
+                  <tr>
+                  <td class="">
+                    <input id="<?="select_".$product->goods_id?>" class="item-checkbox" type="checkbox" title="선택">
+                    <label for="<?="select_".$product->goods_id?>"></label>
+                  </td>
+
+                  <td class="product">
+                      <div class="product_img">
+                          <img src="<?="http://api.siyeol.com/".$product->goods->goods_image?>" alt="상품사진" />
+                      </div>
+                      <div class="product_info">
+                          <p class="open product_detail"><?=$product->goods->title?></p>
+                      </div>
+                  </td>
+                  <td class="seller">
+                      <p><?=$product->goods->seller?></p>
+                  </td>
+                  <td class="product_price">
+                      <p><?=number_format($product->goods->options[0]->price)."원"?></p>
+                  </td>
+
+                  </tr>
+                  <?php
+                  }
+                ?>
                   </tbody>
               </table>
 
