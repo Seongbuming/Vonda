@@ -1,7 +1,11 @@
 $(document).ready(function() {
   $('#text-editor').summernote({
     placeholder: '내용을 입력해주세요',
-    height: 350
+    height: 350,
+    onImageUpload : function(files, editor, welEditable) {
+            sendFile(files[0], editor, welEditable);
+        },
+    lang : 'ko-KR',
   });
 });
 
