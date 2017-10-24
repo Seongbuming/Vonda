@@ -2,6 +2,9 @@
 <html lang="ko">
 <head>
     <?=$this->loadLayout("head")?>
+
+    <link rel="stylesheet" href="libraries/jquery.bxslider.min.css" />
+
     <link rel="stylesheet" href="stylesheets/modal.css" />
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
     <link rel="stylesheet" href="stylesheets/seller/order_detail.css" />
@@ -464,6 +467,83 @@ $orders = $response->datas->data;
         </div>
 
 
+        <div id="modal_review" class="modal actived">
+            <input type="hidden" class="order_no">
+            <div class="close_section modal_close"></div>
+            <div class="modal_body">
+                <button class="close_button modal_close">
+                    <img src="images/buttons/close.png" alt="닫기" />
+                </button>
+
+                <div class="left_content">
+                  <ul class="bxslider">
+                    <li>
+                      <a href="#"><img src="images/products/product1.png" alt="" title="1" /></a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/products/product2.png" alt="" title="2" /></a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/products/product3.png" alt="" title="3" /></a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/products/product4.png" alt="" title="4" /></a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/products/product1.png" alt="" title="1" /></a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/products/product2.png" alt="" title="2" /></a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/products/product3.png" alt="" title="3" /></a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="images/products/product4.png" alt="" title="4" /></a>
+                    </li>
+
+                  </ul>
+                </div>
+
+                <div class="right_content">
+                  <table class="order_list">
+
+                      <tbody class="body">
+                          <tr>
+                              <td class="product">
+                                  <div class="product_info">
+                                      <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
+                                      <p>옵션: <span class="option">실버</span></p>
+                                      <p>수량: <span class="amount">1</span></p>
+                                  </div>
+                              </td>
+                              <td class="order_price">
+                                  <p>28,500원</p>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+                  <div class="review_comment">
+                    <textarea name="name" rows="30" cols="60" placeholder="후기를 남겨주세요. (최대 50자)">
+
+                    </textarea>
+                  </div>
+
+                  <div class="upload_img_files">
+                    <div class="filebox">
+
+                    </div>
+                  </div>
+
+                  <button class="submit">후기남기기</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
         <div id="modal_order_detail" class="modal">
           <div class="close_section modal_close"></div>
           <div class="modal_body">
@@ -576,8 +656,8 @@ $orders = $response->datas->data;
     <footer>
         <?=$this->loadLayout("footer")?>
     </footer>
-
     <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="libraries/jquery.bxslider.min.js"></script>
     <script src="javascripts/select_all.js"></script>
     <script src="javascripts/modal.js"></script>
     <script src="javascripts/client/orderlist.js"></script>

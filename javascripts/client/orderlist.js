@@ -37,7 +37,7 @@ $(document).ready(function() {
         var option = $modal.find("input[name=option]:checked").val();
         var $form = $modal.find(`.${option}_form`);
         var order_no = $modal.find(".order_no").val();
-        
+
         // 빈 칸 검사
         if ($form.find(".reason").val() === null) {
             alert("반품사유를 선택해 주세요.");
@@ -130,6 +130,22 @@ $(document).ready(function() {
             $modal.get(0).close();
             $("#modal_cancel_finish").get(0).open();
         }
+    });
+
+
+    $("#contents .bxslider").bxSlider({
+        mode: 'vertical',
+        speed: 500,
+        slideMargin:0,
+        infiniteLoop: false,
+        pager: false,
+        controls: true,
+        slideWidth: 200,
+        minSlides: 4,
+        maxSlides:4,
+        moveSlides: 1,
+        adaptiveHeight: false
+
     });
 
 });
