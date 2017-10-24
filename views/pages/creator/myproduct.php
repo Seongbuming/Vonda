@@ -10,7 +10,7 @@
 <?php
 $request = new Http();
 
-$response = $request->request('GET', '/creator/board/list?token='.$_COOKIE['token']);
+$response = $request->request('GET', '/creator/goods?token='.$_COOKIE['token']);
 $promotions = $response->datas;
 ?>
 
@@ -38,28 +38,37 @@ $promotions = $response->datas;
         </tr>
         </thead>
         <tbody>
-        <td class="apply-date" rowspan="2">
-            2017.09.10
-        </td>
+          <?php
+          foreach ($promotions as $item) {?>
 
-        <td class="product">
-            <div class="product_img">
-                <img src="images/products/product3.png" alt="상품사진" />
-            </div>
-            <div class="product_info">
-                <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
-            </div>
-        </td>
-        <td class="seller">
-            <p>kikiki</p>
-        </td>
-        <td class="state">
-            <p class="state-text">승인대기</p>
-            <p >
-              <button type="button" name="btn-cancel-apply" class="btn-cancel-apply">신청취소</button>
-            </p>
-        </td>
-        </tr>
+            <tr>
+              <td class="apply-date">
+                  <?=substr($item->created_at,0,16)?>
+              </td>
+
+              <td class="product">
+                  <div class="product_img">
+                      <img src="<?="http://api.siyeol.com/".$item->goods->goods_image?>" alt="상품사진" />
+                  </div>
+                  <div class="product_info">
+                      <p class="open product_detail"><?=$item->goods->title?></p>
+                  </div>
+              </td>
+              <td class="seller">
+                  <p><?=$item->goods->seller?></p>
+              </td>
+              <td class="state">
+                  <p class="state-text"><?=$item->status?></p>
+                  <p >
+                    <button type="button" name="btn-cancel-apply" class="btn-cancel-apply">신청취소</button>
+                  </p>
+              </td>
+            </tr>
+
+            <?php
+          }
+           ?>
+
         </tbody>
     </table>
 
