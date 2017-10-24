@@ -49,10 +49,17 @@ $pager = $response->datas;
 
     <div class="pager">
         <?php
-            if($pager->current_page =! $pager->last_page){
+            if($pager->prev_page_url != null){
               ?>
-          <button class="left">◀</button>
-          <button class="right">▶</button>
+              <button class="left" >◀</button>
+          <?php
+        }
+        ?>
+
+        <?php
+            if($pager->next_page_url != null){
+              ?>
+              <button class="right">▶</button>
           <?php
         }
         ?>
