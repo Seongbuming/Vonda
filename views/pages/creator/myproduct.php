@@ -12,6 +12,9 @@ $request = new Http();
 
 $response = $request->request('GET', '/creator/goods?token='.$_COOKIE['token']);
 $promotions = $response->datas;
+
+$response = $request->request('GET', '/creator/1/goods');
+$products = $response->datas;
 ?>
 
 <body>
@@ -72,7 +75,7 @@ $promotions = $response->datas;
         </tbody>
     </table>
 
-    <h3 class="category">총 상품 9개</h3>
+    <h3 class="category"><?="총 상품 ".sizeof($products)."개"?></h3>
     <table class="order_list">
         <thead>
         <tr>
@@ -85,32 +88,56 @@ $promotions = $response->datas;
         </tr>
         </thead>
         <tbody>
-        <td class="" rowspan="2">
-            1
+          <?php
+          // 보일 게시물의 수
+          foreach ($products as $product) {
+          ?>
+        <tr>
+        <td class="" rowspan="">
+            <?=$product->goods_id?>
         </td>
 
         <td class="product">
             <div class="product_img">
-                <img src="images/products/product3.png" alt="상품사진" />
+                <img src="<?="http://api.siyeol.com/".$product->goods->goods_image?>" alt="상품사진" />
             </div>
             <div class="product_info">
-                <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
-                <p>옵션: <span class="option">실버</span></p>
+                <p class="open product_detail"><?=$product->goods->title?></p>
+                <p><?php
+                if (sizeof($product->goods->options) > 1) {
+                ?>
+                <p>
+                  옵션 : <span class="option">
+                    <?php
+                    foreach ($product->goods->options as $option) {
+                      if ($option != $product->goods->options[0]) {
+                        echo ", ";
+                      }
+                      echo $option->name;
+                    }
+                    ?>
+                  </span></p>
+                  <?php
+                  }
+                  ?>
             </div>
         </td>
         <td class="seller">
-            <p>kikiki</p>
+            <p><?=$product->goods->seller?></p>
         </td>
         <td class="product_price">
-            <p>26,000원</p>
+            <p><?=number_format($product->goods->options[0]->price)."원"?></p>
         </td>
         <td class="num_of_sales">
-            <p>56</p>
+            <p><?=$product->goods->order_count?></p>
         </td>
         <td class="sales_price">
-            <p>2,326,000원</p>
+            <p><?=number_format($product->goods->options[0]->price * $product->goods->order_count)."원"?></p>
         </td>
         </tr>
+        <?php
+        }
+      ?>
         </tbody>
     </table>
 
