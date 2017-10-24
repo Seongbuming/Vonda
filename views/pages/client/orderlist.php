@@ -476,6 +476,12 @@ $orders = $response->datas->data;
                 </button>
 
                 <div class="left_content">
+                  <div class="slide_control_container">
+                    <a href="#" class="slide_prev">
+                      <img src="images/buttons/arrow_up.png" alt="" />
+                    </a>
+                  </div>
+
                   <ul class="bxslider">
                     <li>
                       <a href="#"><img src="images/products/product1.png" alt="" title="1" /></a>
@@ -501,8 +507,12 @@ $orders = $response->datas->data;
                     <li>
                       <a href="#"><img src="images/products/product4.png" alt="" title="4" /></a>
                     </li>
-
                   </ul>
+                  <div class="slide_control_container">
+                    <a href="#" class="slide_next">
+                      <img src="images/buttons/arrow_down.png" alt="" />
+                    </a>
+                  </div>
                 </div>
 
                 <div class="right_content">

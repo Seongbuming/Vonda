@@ -132,7 +132,7 @@ $(document).ready(function() {
         }
     });
 
-
+    //후기 작성 모달 슬라이드
     $("#contents .bxslider").bxSlider({
         mode: 'vertical',
         speed: 500,
@@ -144,10 +144,19 @@ $(document).ready(function() {
         minSlides: 4,
         maxSlides:4,
         moveSlides: 1,
-        adaptiveHeight: false
-
+        adaptiveHeight: false,
     });
 
+    //후기 작성 모달 슬라이드 버튼 커스터 마이징
+    $('.slide_prev').on('click',function () {
+      $('.bx-controls-direction .bx-prev').click();
+        console.log("prev");
+    });
+
+    $('.slide_next').on('click',function () {
+      $('.bx-controls-direction .bx-next').click();
+        console.log("next");
+    });
 });
 
 function openDetail(order_no) {
