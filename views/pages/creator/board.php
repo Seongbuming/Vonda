@@ -31,7 +31,7 @@ $boards = $response->datas->data;
         foreach ($boards as $board) {
         ?>
             <tr class="row_subject">
-                <td class="time"><?=$board->created_at?></td>
+                <td class="time"><?=substr($board->created_at, 0, 16)?></td>
                 <td class="subject">
                     <a href=<?="./creator.php?page=board_detail&id=".$board->id?>>
                       <?=$board->subject." (".$board->hit.")"?>
