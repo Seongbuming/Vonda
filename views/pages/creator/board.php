@@ -10,6 +10,8 @@ $request = new Http();
 
 $response = $request->request('GET', '/creator/board/list?token='.$_COOKIE['token']);
 $boards = $response->datas->data;
+
+$pager = $response->datas;
 ?>
 <body>
 <header>
@@ -43,10 +45,18 @@ $boards = $response->datas->data;
         ?>
         </tbody>
     </table>
-    <div class="pager">
-        <button class="left">◀</button>
-        <button class="right">▶</button>
-    </div>
+
+    <?php
+        if($pager->current_page =! $pager->last_page){
+          ?>
+          <div class="pager">
+              <button class="left">◀</button>
+              <button class="right">▶</button>
+          </div>
+          <?php
+        }
+    ?>
+
     <div class="write_cont">
       <a href="creator.php?page=boardwrite" class="write" style="padding:10px 53px;">글쓰기</a>
     </div>
