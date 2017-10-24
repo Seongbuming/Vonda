@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="stylesheets/board.css">
     <link rel="stylesheet" href="stylesheets/modal.css">
 </head>
+<?php
+$request = new Http();
+
+$response = $request->request('GET', '/creator/board/list?token='.$_COOKIE['token']);
+$promotions = $response->datas;
+?>
 
 <body>
 <header>

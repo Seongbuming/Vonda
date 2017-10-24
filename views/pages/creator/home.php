@@ -13,6 +13,9 @@
 
   $response = $request->request('GET', '/creator/board/list?token='.$_COOKIE['token']);
   $boards = $response->datas->data;
+
+  $response = $request->request('GET', '/creator/1/goods');
+  $products = $response->datas;
 ?>
 <body>
 <header>
@@ -55,32 +58,64 @@
         </tr>
         </thead>
         <tbody>
-            <td class="" rowspan="2">
-                1
-            </td>
+            <?php
+            // 보일 게시물의 수
+            $i = 5;
+            foreach ($products as $product) {
+              if(--$i < 0)
+                break;
+            ?>
+                <tr>
 
-            <td class="product">
-                <div class="product_img">
-                    <img src="images/products/product3.png" alt="상품사진" />
-                </div>
-                <div class="product_info">
-                    <p class="open product_detail">SINGLE-BREASTED OVERSIZED BLAZER</p>
-                    <p>옵션: <span class="option">실버</span></p>
-                </div>
-            </td>
-            <td class="seller">
-                <p>kikiki</p>
-            </td>
-            <td class="product_price">
-                <p>26,000원</p>
-            </td>
-            <td class="num_of_sales">
-                <p>56</p>
-            </td>
-            <td class="sales_price">
-                <p>2,326,000원</p>
-            </td>
-        </tr>
+                  <td class=""><?=$product->goods_id?></td>
+
+                  <td class="product">
+                      <div class="product_img">
+                          <img src="<?="http://api.siyeol.com/".$product->goods->goods_image?>" alt="상품사진" />
+                      </div>
+                      <div class="product_info">
+                          <p class="open product_detail"><?=$product->goods->title?></p>
+                          <p>
+                            <?php
+                            if (sizeof($product->goods->options) > 1) {
+                            ?>
+                            <p>
+                              옵션 : <span class="option">
+                                <?php
+                                foreach ($product->goods->options as $option) {
+                                  if ($option != $product->goods->options[0]) {
+                                    echo ", ";
+                                  }
+                                  echo $option->name;
+                                }
+                                ?>
+                              </span></p>
+                              <?php
+                              }
+                              ?>
+                      </div>
+                  </td>
+
+                  <td class="seller">
+                      <p><?=$product->goods->seller?></p>
+                  </td>
+
+                  <td class="product_price">
+                      <p><?=$product->goods->options[0]->price?></p>
+                  </td>
+
+                  <td class="num_of_sales">
+                      <p><?=$product->goods->order_count?></p>
+                  </td>
+
+                  <td class="sales_price">
+                      <p><?=$product->goods->options[0]->price * $product->goods->order_count?></p>
+                  </td>
+
+                </tr>
+                <?php
+                }
+              ?>
         </tbody>
     </table>
 
