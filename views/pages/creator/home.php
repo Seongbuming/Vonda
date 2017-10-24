@@ -101,7 +101,7 @@
                   </td>
 
                   <td class="product_price">
-                      <p><?=$product->goods->options[0]->price?></p>
+                      <p><?=number_format($product->goods->options[0]->price)."원"?></p>
                   </td>
 
                   <td class="num_of_sales">
@@ -109,7 +109,7 @@
                   </td>
 
                   <td class="sales_price">
-                      <p><?=$product->goods->options[0]->price * $product->goods->order_count?></p>
+                      <p><?=number_format($product->goods->options[0]->price * $product->goods->order_count)."원"?></p>
                   </td>
 
                 </tr>
