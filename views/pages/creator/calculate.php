@@ -90,10 +90,33 @@ $bank_account = $response->bank_account;
                 <div class="form-item">
                   <select class="bank" required id="bank" name="bank">
                       <option value="" disabled selected>은행</option>
-                      <option value="농협">농협</option>
-                      <option value="국민">국민</option>
+                      <option value="NH농협">NH농협</option>
+                      <option value="KB국민">KB국민</option>
                       <option value="신한">신한</option>
                       <option value="우리">우리</option>
+                      <option value="하나">하나</option>
+                      <option value="IBK기업">IBK기업</option>
+                      <option value="외환">외환</option>
+                      <option value="SC제일">SC제일</option>
+                      <option value="씨티">씨티</option>
+                      <option value="KDB산업">KDB산업</option>
+                      <option value="새마을">새마을</option>
+                      <option value="대구">대구</option>
+                      <option value="광주">광주</option>
+                      <option value="우체국">우체국</option>
+                      <option value="신협">신협</option>
+                      <option value="전북">전북</option>
+                      <option value="경남">경남</option>
+                      <option value="부산">부산</option>
+                      <option value="수협">수협</option>
+                      <option value="제주">제주</option>
+                      <option value="저축은행">저축은행</option>
+                      <option value="산림조합">산림조합</option>
+                      <option value="케이뱅크">케이뱅크</option>
+                      <option value="카카오뱅크">카카오뱅크</option>
+
+
+
                   </select>
                 </div>
 
