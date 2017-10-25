@@ -70,6 +70,7 @@ $orders = $response->datas->data;
                       <?php
                       foreach ($orders as $order) {
                         $is_group = $order->step == '2' ? 1 : 0;
+                        $save_group = $order->step == '2';
                         foreach ($order->items as $item) {
                           $goods = $item->goods;?>
                           <tr class="product-item">
@@ -119,9 +120,73 @@ $orders = $response->datas->data;
                               </p>
                             </div>
                           </td>
-                          <td class="price"><?=number_format($order->total_price)?>원</td>
-                          <td class="state text-center">
+                          <td class="price"><?=number_format($item->ea * $item->price)?>원</td>
+                          <?php
+                          if ($is_group==0) {
+                            echo '<td class="state text-center" rowspan="'.sizeof($order->items).'">';
+                          } else if (!$save_group) {
+                            echo '<td class="state text-center">';
+                          }
+                          ?>
                               <?php
+                              $str_state = "";
+
+                              switch ($item->step) {
+                                case '1':
+                                  $str_state = "주문완료";
+                                break;
+                                case '10':
+                                  $str_state = "상품 준비중";
+                                break;
+                                case '20':
+                                  $str_state = "배송준비중";
+                                break;
+                                case '25':
+                                  $str_state = "배송중";
+                                break;
+                                case '30':
+                                  $str_state = "배송완료";
+                                break;
+                                case '40':
+                                  $str_state = "교환요청";
+                                break;
+                                case '45':
+                                  $str_state = "교환완료";
+                                break;
+                              }
+
+                              if ($order->step == "2" && $is_group == 0) {
+                                if ($order->is_cancel) {
+                                  if ($item->step == "2") {
+                                    echo "주문취소완료";
+                                  } else {
+                                  ?>
+                                  <p class="text-center">
+                                    주문취소요청<br>
+                                    <!-- 결제 모듈로 이동, 결제 취소하기 위함 -->
+                                    <button class="btn btn-sm btn-peach"type="button" name="btn-cancel-order">결제취소</button>
+                                  </p>
+                                  <?php
+                                  }
+                                } else if ($order->is_return) {
+                                  if ($item->step == "2") {
+                                    ?>
+                                    <button type="button" name="button" class="btn-sm btn-peach btn-complete-return" data-toggle="modal" data-target="#complete-return-modal">
+                                      반품완료
+                                    </button>
+                                    <?php
+                                  } else {
+                                    ?>
+                                    <button type="button" name="button" class="btn-sm btn-peach btn-request-return" data-toggle="modal" data-target="#request-return-modal">
+                                    반품요청
+                                    </button>
+                                    <?php
+                                  }
+                                }
+                              } else if (!$save_group) {
+                                echo $str_state;
+                              }
+
                               $state = $i % 9;
                               $str_state = "";
                               switch ($state) {
@@ -157,7 +222,7 @@ $orders = $response->datas->data;
 
                               if($state < 5){
 
-                                echo $str_state;
+                                // echo $str_state;
 
                                 ?>
 
