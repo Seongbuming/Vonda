@@ -35,9 +35,7 @@ $(document).ready(function() {
             cache:false,
             success: function (res) {
                 if (res.code == 200) {
-                  console.log(id);
-                  console.log(content);
-                  // location.reload();
+                  location.reload();
                 } else if (res.code == 401) {
                     alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
                     location.href="./?page=login";
@@ -83,8 +81,6 @@ function getCommentItems(url) {
     success: function (res) {
       if (res.code == 200) {
         var element_str = '';
-        console.log(res);
-
         $.each( res.data.data, function (key, value) {
 
           var str = value.answer !== null ? "" : "답글달기";

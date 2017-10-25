@@ -5,8 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            success: function (res) {$/;"	function	line:36
-error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            error: function (err) {$/;"	function	line:48
-getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:77
-success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:83
-error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:151
-getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:77
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            error: function (err) {$/;"	function	line:46
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:75
+success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:81
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:147
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:75
