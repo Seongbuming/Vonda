@@ -28,7 +28,7 @@ $pager = $response->datas;
 
     <h3 class="category">BOARD</h3>
     <table class="board">
-        <tbody>
+        <tbody id="refresh-data">
         <?php
         foreach ($boards as $board) {
         ?>
@@ -56,10 +56,15 @@ $pager = $response->datas;
 
 
     <div class="pager">
+      <input type="hidden" name="name" class="prev-page-url" value="<?=$pager->prev_page_url?>">
+      <input type="hidden" name="name" class="next-page-url" value="<?=$pager->next_page_url?>">
         <?php
             if($pager->prev_page_url != null){
               ?>
-              <button class="left" >◀</button>
+              <button class="left">◀</button>
+          <?php
+        }else{?>
+          <button class="left" style="display:none">◀</button>
           <?php
         }
         ?>
@@ -68,9 +73,12 @@ $pager = $response->datas;
             if($pager->next_page_url != null){
               ?>
               <button class="right">▶</button>
-          <?php
-        }
-        ?>
+              <?php
+            }else{?>
+              <button class="right" style="display:none">▶</button>
+              <?php
+            }
+            ?>
     </div>
 
     <div style="text-align:right">
