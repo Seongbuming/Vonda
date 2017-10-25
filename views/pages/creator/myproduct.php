@@ -15,6 +15,7 @@ $promotions = $response->datas;
 
 $response = $request->request('GET', '/creator/1/goods');
 $products = $response->datas;
+
 ?>
 
 <body>
@@ -230,7 +231,6 @@ $products = $response->datas;
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="javascripts/modal.js"></script>
     <script src="javascripts/creator/myproduct.js"></script>
-
 </footer>
 </body>
 </html>
