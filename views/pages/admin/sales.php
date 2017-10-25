@@ -16,7 +16,13 @@
     <link rel="stylesheet" href="stylesheets/admin/product_detail_modal.css" />
 
 </head>
+<?php
+$request = new Http();
+$response = $request->request('GET', 'http://api.siyeol.com/admin/orders?token='.$_COOKIE['token']);
 
+$orders = $response->datas->data;
+//print_r($response->datas);
+?>
 <body>
 
     <div id="wrapper" class="toggled">
@@ -62,22 +68,23 @@
                     </thead>
                     <tbody>
                       <?php
-                          $item_length = $i % 2 ? 1 : 2;
-                          ?>
-                          <tr class="product-item">
+                      foreach ($orders as $order) {
+                      ?>
+                      <tr class="product-item">
                             <td class="">
-                              <p class="sales-date text-center">2017.09.10</p>
+                              <p class="sales-date text-center"><?=str_replace("-", ".", substr($order->created_at, 0, 10))?></p>
                               <p class="sales-number text-center">
-                                <a href="#" data-toggle="modal" data-target="#order-detail-modal">2018211119</a>
+                                <a href="#" data-toggle="modal" data-target="#order-detail-modal"><?=$order->order_no?></a>
                               </p>
                             </td>
                             <td>
                                 <?php
-                                  for ($index=1; $index <= $item_length ; $index++) {
+                                  foreach ($order->items as $item) {
+                                    $goods = $item->goods;
                                     ?>
                                     <div class="thumbnail-img">
                                       <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
-                                        <img class="product-img" src="<?php echo "images/products/product".$index.".png"?>" alt="" />
+                                        <img class="product-img" src="http://api.siyeol.com/<?=$goods->goods_image?>" alt="" />
                                       </a>
                                     </div>
                                   <?php
@@ -86,18 +93,25 @@
                             </td>
                             <td class="title">
                               <?php
-                                for ($index=1; $index <= $item_length ; $index++) {
+                                foreach ($order->items as $item) {
+                                  $goods = $item->goods;
                                   ?>
                                   <div class="title-group">
-                                    <p><a href="#"><p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p></a></p>
+                                    <p><a href="#"><p><a href="#"><?=$goods->title?></a></p></a></p>
+                                    <?php
+                                    if ($item->option_name) {
+                                    ?>
                                     <p>
                                       <span class="label">옵션 : </span>
-                                      <span class="label-content">실버</span>
+                                      <span class="label-content"><?=$item->option_name?></span>
                                     </p>
+                                    <?php
+                                    }
+                                    ?>
                                     <p>
                                       <span class="label">수량 : </span>
                                       <span class="label-conent">
-                                        2
+                                        <?=$item->ea?>
                                       </span>
                                     </p>
                                   </div>
@@ -106,7 +120,7 @@
                               ?>
 
                             </td>
-                            <td class="price">26,000원</td>
+                            <td class="price"><?=number_format($order->total_price)?>원</td>
                             <td class="state text-center">
                                 <?php
                                 $state = $i % 9;
@@ -172,9 +186,9 @@
                                 ?>
                           </td>
                           </tr>
-                          <?php
-                        }
-                       ?>
+                      <?php
+                      }
+                      ?>
                     </tbody>
                   </table>
                   <!-- Modal -->
