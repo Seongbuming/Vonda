@@ -19,7 +19,8 @@ if (isset($_GET['id'])) {
     $board = $response->data;
 
     $response = $request->request('GET', '/board/'.$_GET['id'].'/comment');
-    $comments = $response->data;
+    $comments = $response->data->data;
+    $pager = $response->data;
 } else {
     // Param Error
 }
@@ -53,50 +54,76 @@ if (isset($_GET['id'])) {
             <button class="comment_submit">댓글 등록</button>
         </div>
 
-        <?php
-            foreach ($comments as $comment) {
-            ?>
-                <div class="user_comment">
-                    <table class="board">
-                        <tbody>
-                        <tr class="row_subject">
-                            <td class="author"><?=$comment->user->account?></td>
-                            <td class="subject">
-                            <?=$comment->comment?></td>
-                            <td class="time"><?=substr($comment->created_at, 0, 16)?></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            <?php
-                if ($comment->answer != NULL) {
-                    ?>
-                    <div class="user_link_comment">
-                        <table class="board">
-                            <tbody>
-                            <tr class="row_subject">
-                                <td class="author">ㄴ @<?=$board->nickname?></td>
-                                <td class="subject">
-                                    <?=$comment->answer?></td>
-                                <td class="time"><?=substr($comment->updated_at, 0, 16)?></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php
+        <div id="refresh-data">
+          <?php
+              foreach ($comments as $comment) {
+              ?>
+                  <div class="user_comment">
+                      <table class="board">
+                          <tbody>
+                          <tr class="row_subject">
+                              <td class="author"><?=$comment->user->account?></td>
+                              <td class="subject">
+                              <?=$comment->comment?></td>
+                              <td class="time"><?=substr($comment->created_at, 0, 16)?></td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              <?php
+                  if ($comment->answer != NULL) {
+                      ?>
+                      <div class="user_link_comment">
+                          <table class="board">
+                              <tbody>
+                              <tr class="row_subject">
+                                  <td class="author">ㄴ @<?=$board->nickname?></td>
+                                  <td class="subject">
+                                      <?=$comment->answer?></td>
+                                  <td class="time"><?=substr($comment->updated_at, 0, 16)?></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <?php
+                  }
+              }
+              ?>
+        </div>
+            <div class="pager">
+              <input type="hidden" name="name" class="prev-page-url" value="<?=$pager->prev_page_url?>">
+              <input type="hidden" name="name" class="next-page-url" value="<?=$pager->next_page_url?>">
+                <?php
+                    if($pager->prev_page_url != null){
+                      ?>
+                      <button class="left">◀</button>
+                  <?php
+                }else{?>
+                  <button class="left" style="display:none">◀</button>
+                  <?php
                 }
-            }
-            ?>
-    <div class="pager">
-        <button class="left">◀</button>
-        <button class="right">▶</button>
-    </div>
+                ?>
+
+                <?php
+                    if($pager->next_page_url != null){
+                      ?>
+                      <button class="right">▶</button>
+                      <?php
+                    }else{?>
+                      <button class="right" style="display:none">▶</button>
+                      <?php
+                    }
+                    ?>
+            </div>
     <div class="c_line"></div>
     <a class="goback" href=".?page=board">뒤로가기</a>
 </div>
 
 <footer>
     <?=$this->loadLayout("creator/footer")?>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/comment.js"></script>
 </footer>
+
 </body>
 </html>
