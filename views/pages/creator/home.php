@@ -16,6 +16,9 @@
 
   $response = $request->request('GET', '/creator/1/goods');
   $products = $response->datas;
+
+  $response = $request->request('GET', '/creator/goods/statics?token='.$_COOKIE['token']);
+  $summary = $response->datas->data[0];
 ?>
 <body>
 <header>
@@ -40,9 +43,16 @@
     </div>
 
     <ul class="chart-label ">
-      <li style="color:#52CC5D"><i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span><span class="chart-item-value">9,069,000원</span></li>
-      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span><span class="chart-item-value">222건</span></li>
-      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span><span class="chart-item-value">9개</span></li>
+      <li style="color:#52CC5D">
+        <i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span>
+        <span class="chart-item-value"><?=number_format($summary->total_price)?>원</span>
+      </li>
+      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span>
+        <span class="chart-item-value"><?=number_format($summary->total_cnt)?>건</span>
+      </li>
+      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span>
+        <span class="chart-item-value"><?=number_format($summary->total_cnt)?>개</span>
+      </li>
     </ul>
 
     <h3 class="category">나의상품&nbsp;<a href="./creator.php?page=myproduct" class="all">전체보기 &gt;</a></h3>

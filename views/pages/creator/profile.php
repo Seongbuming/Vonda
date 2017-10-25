@@ -43,7 +43,7 @@ $creator = $response->data;
             <img src="images/icons/camera_white.png" alt="" />
           </label>
           <input type="file" id="creator-bg-upload" class="upload-hidden" accept="image/*">
-          <label for="">1150X450</label>
+          <label for="creator-bg-upload">1150X450</label>
         </div>
       </div>
 

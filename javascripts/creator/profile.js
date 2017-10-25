@@ -71,14 +71,12 @@ $(document).ready(function() {
 
   $('.submit').on('click',function () {
     var nickname = $('.creator_name').val();
-    var nickname_str = nickname.slice(1, nickname.length);
+    var nickname_str = nickname[0] == '@' ? nickname.slice(1, nickname.length) : nickname;
     var introduce = $('.creator_contents').val();
     var profile_image = $('.creator_profile_img').attr("src");
     var cover_image = $('.creator_profile_bg_img').attr("src");
 
     if(nickname.length > 0){
-      //@제거
-      nickname = nickname.substr(1,nickname.length);
       update_creator_info(nickname,introduce);
     }else{
       alert("닉네임을 입력해주세요.");
