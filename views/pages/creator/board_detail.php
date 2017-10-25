@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
                               <td class="author"><?=$comment->user->account?></td>
                               <td class="subject" style="font-weight:normal">
                                 <?=$comment->comment?>
-                              <a href="#" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
+                              <a id="<?="link_".$comment->id?>" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
                             </td>
                               <td class="time"><?=substr($comment->created_at, 0, 16)?></td>
                           </tr>
@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
                       <?php
                   }else {
                     ?>
-                    <div class="user_add_answer">
+                    <div id="<?="comment_".$comment->id?>" class="user_add_answer" style="display:none;">
                       <div class="comment">
                           <span class="operator_comment">ㄴ</span>
                           <textarea cols="130" rows="5" placeholder="답글달기"></textarea>

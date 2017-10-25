@@ -4,9 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $request = new Http();$/;"	variable	line:16
-response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id']);$/;"	variable	line:17
-board	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $board = $response->data;$/;"	variable	line:19
-response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id'].'\/comment');$/;"	variable	line:21
-comments	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $comments = $response->data->data;$/;"	variable	line:22
-pager	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $pager = $response->data;$/;"	variable	line:23
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:29
+success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:35
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:86
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:29
