@@ -213,6 +213,7 @@ input[type=radio].radio:nth-of-type(n+2) + label {
 }
 .link_menu li {
     display: inline-block;
+    margin-right: -5px;
 }
 .link_menu li.actived {
     color: #e69a83;
