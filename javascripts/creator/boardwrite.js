@@ -2,6 +2,7 @@ function write_notice(subject,content) {
   var formData = new FormData();
   formData.append("subject",subject);
   formData.append("content",content);
+  formData.appen("is_top","n");
 
   $.ajax({
       type: "POST",
@@ -32,13 +33,13 @@ $('.submit').on('click', function () {
   var content = $('#text-editor').summernote('code');
 
   //form validation
-  if(subject.length > 5 ){
-    if(content.length > 10){
+  if(subject.length > 0 ){
+    if(content.length > 0){
       write_notice(subject,content);
     }else{
-      alert("내용을 10자 이상 입력해주세요")
+      alert("내용을 입력해주세요");
     }
   }else{
-    alert("제목을 5자 이상 입력해주세요");
+    alert("제목을 입력해주세요");
   }
 });
