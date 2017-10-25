@@ -34,3 +34,11 @@ table.board tbody .row_post .type {
     font-size: 1.3em;
     font-weight: bold;
 }
+.fixed-pin{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #e69a83;
+  margin: 5.5px 0;
+  float: right;
+}

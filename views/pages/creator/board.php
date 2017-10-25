@@ -38,6 +38,14 @@ $pager = $response->datas;
                     <a href=<?="./creator.php?page=board_detail&id=".$board->id?>>
                       <?=$board->subject." (".$board->hit.")"?>
                     </a>
+                    <?php
+                      if($board->is_top == "y"){?>
+                        <div class="fixed-pin"></div>
+                        <?php
+                      }
+                    ?>
+
+
                 </td>
             </tr>
         <?php
