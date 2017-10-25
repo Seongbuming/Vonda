@@ -66,9 +66,9 @@
             </button>
 
             <div class="modal_contents">
-              <form class="account-edit-form" action="index.html" method="post">
+              <form class="account-edit-form" method="POST">
                 <div class="form-item">
-                  <select class="bank" required>
+                  <select class="bank" required id="bank" name="bank">
                       <option value="" disabled selected>은행</option>
                       <option value="1">농협</option>
                       <option value="2">국민</option>
@@ -78,15 +78,15 @@
                 </div>
 
                 <div class="form-item">
-                    <input type="text" name="name" value="" placeholder="계좌번호" required>
+                    <input id="account-number" type="number" name="account" value="" placeholder="계좌번호" required>
                 </div>
 
                 <div class="form-item">
-                    <input type="text" name="name" value="" placeholder="예금주" required>
+                    <input id="account-holder" type="text" name="name" value="" placeholder="예금주" required>
                 </div>
 
                 <div class="form-item">
-                  <button class="submit">확인</button>
+                  <button type="button" class="submit" style="font-size:100%;">확인</button>
                 </div>
               </form>
             </div>
