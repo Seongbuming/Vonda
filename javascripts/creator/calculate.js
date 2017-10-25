@@ -12,7 +12,37 @@ $(document).ready(function() {
     if(bank){
       if( (account_number.length >= 11) && (account_number.length <= 14) ){
         if(account_holder.length > 0){
-          alert("submit");
+
+          var formData = new FormData();
+          formData.append("bank",bank);
+          formData.append("account",account_number);
+          formData.append("name",account_holder);
+
+          $.ajax({
+              type: "POST",
+              url: "http://api.siyeol.com/creator/calculate/bank?token=" + readCookie('token'),
+              data: formData,
+              enctype: 'application/x-www-form-urlencoded',
+              processData: false,
+              contentType: false,
+              cache:false,
+              success: function (res) {
+                  if (res.code == 200) {
+                    alert(res.message);
+                    location.reload();
+                  } else if (res.code == 401) {
+                      alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
+                      location.href="./?page=login";
+                  } else if( res.code == 400){
+                    alert(res.message);
+                  }else{
+                      alert('정산 계좌 정보를 업데이트 하는데 실패했습니다.\n다시 시도해 주세요.');
+                  }
+              },
+              error: function (err) {
+                  alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+              }
+            });
         }else{
           alert("예금주를 입력해주세요. ");
         }
