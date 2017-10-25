@@ -15,7 +15,14 @@
     <link rel="stylesheet" href="stylesheets/admin/calculate.css" />
 
 </head>
+<?php
+$type = $_GET['type'] ? $_GET['type'] : 'seller';
 
+$request = new Http();
+$response = $request->request('GET', 'http://api.siyeol.com/admin/calculate/'.$type.'/2017-09?token='.$_COOKIE['token']);
+
+$calculates = $response->datas->data;
+?>
 <body>
 
     <div id="wrapper" class="toggled">
@@ -33,10 +40,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav">
                   <li class="nav-item">
-                    <a class="nav-link active " href="admin.php?page=calculate_seller" >SELLER</a>
+                    <a class="nav-link <?=$type == 'seller' ? 'active' : ''?>" href="admin.php?page=calculate&type=seller" >SELLER</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="admin.php?page=calculate_creator">CREATOR</a>
+                    <a class="nav-link <?=$type == 'creator' ? 'active' : ''?>" href="admin.php?page=calculate&type=creator">CREATOR</a>
                   </li>
                   <div class="period_select">
                       <div class="input_period">
@@ -85,34 +92,35 @@
                       </thead>
                       <tbody>
                         <?php
-                        for ($i=0; $i < 10 ; $i++) {
-                          ?>
+                        foreach ($calculates as $calculate) {
+                        ?>
                           <tr>
-                            <td class="select"> <input id="<?= "select_" . $i?>" type="checkbox" title="선택">
+                            <td class="select"> <input id="<?= "select_" . $calculate->id?>" type="checkbox" title="선택">
                               <label for="<?= "select_" . $i?>"></label>
                             </td>
-                            <td class="username text-heavy-gray">진아영</td>
+                            <td class="username text-heavy-gray"><?=$calculate->name?></td>
                             <td class="user-id">
-                              <a href="admin.php?page=calculate_detail_seller" class="user-id-link">abc</a>
+                              <a href="admin.php?page=calculate_detail_<?=$calculate->type?>&id=<?=$calculate->id?>" class="user-id-link"><?=$calculate->account?></a>
                             </td>
                             <td class="final-amount">
-                              2,360,000원
+                              <?=number_format($calculate->calculate_price)?>원
                             </td>
                             <td class="bank text-heavy-gray">
-                              농협
+                              <?=$calculate->bank->bank?>
                             </td>
                             <td class="account-number text-heavy-gray">
-                              222-1111-2222-30
+                              <?=$calculate->bank->account?>
                             </td>
                             <td class="account-holder text-heavy-gray">
-                              진아영
+                              <?=$calculate->bank->account_owner?>
                             </td>
                             <td class="state text-heavy-gray">
-                              미완료
+                              <?=$calculate->status == "0" ? "미완료" : "완료"?>
                             </td>
                           </tr>
-                          <?php
-                        }?>
+                        <?php
+                        }
+                        ?>
                       </tbody>
                     </table>
 

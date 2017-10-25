@@ -42,14 +42,12 @@ if (!isset($_COOKIE['token'])) {
           <span class="menu-item-text ">주문관리</span>
         </a>
     </li>
-    <!--
     <li class="sidebar-menu menu-calculate">
-        <a href="admin.php?page=calculate_seller">
+        <a href="admin.php?page=calculate">
           <img class="menu-item-icon"src="images/icons/admin_menu/gray/calculate.png" alt="calculate.png" />
           <span class="menu-item-text ">정산관리</span>
         </a>
     </li>
-  -->
     <li class="sidebar-menu menu-mainpage">
         <a href="admin.php?page=mainpage">
           <img class="menu-item-icon"src="images/icons/admin_menu/gray/main.png" alt="main.png" />
