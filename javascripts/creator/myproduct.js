@@ -18,6 +18,7 @@ $(document).ready(function(){
     }
   });
 
+  //상품 홍보 신청하기
   $('#modal_promotion_apply .submit').on("click", function () {
 
     $('#modal_promotion_apply').removeClass("actived");
@@ -28,7 +29,6 @@ $(document).ready(function(){
       var element_id = value.id;
       var index = element_id.indexOf("_");
       var id = element_id.substring(index+1, element_id.length);
-      console.log(id);
 
       $.ajax({
           type: "POST",
@@ -38,10 +38,8 @@ $(document).ready(function(){
           contentType: false,
           cache:false,
           success: function (res) {
-            console.log(res.code);
               if (res.code == 200) {
                 $('#modal_apply_finish').addClass("actived");
-                location.reload();
               } else if (res.code == 401) {
                   alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
                   location.href="./?page=login";
@@ -54,35 +52,33 @@ $(document).ready(function(){
           error: function (err) {
               alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
           }
+        });
       });
     });
-  });
 
   //홍보 신청된 상태 => 홍보 신청 취소하기
   $(document).on('click','.btn-cancel-apply',function () {
     var goods_id = $(this).siblings('input').val();
+
     $.ajax({
         type: "DELETE",
-        url: "http://api.siyeol.com/creator/goods/promote"+goods_id+"?"+"token=" + readCookie('token'),
-        // processData: false,
-        // contentType: false,
-        // cache:false,
+        url: "http://api.siyeol.com/creator/goods/promote/"+goods_id+"?token=" + readCookie('token'),
         success: function (res) {
-          console.log(res.code);
-            // if (res.code == 200) {
-            //
-            //   // location.reload();
-            // } else if (res.code == 401) {
-            //     alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
-            //     location.href="./?page=login";
-            // } else {
-            //     alert('크리에이터 정보를 업데이트 하는데 실패했습니다.\n다시 시도해 주세요.');
-            // }
+            if (res.code == 200) {
+              alert("상품 홍보 요청이 성공적으로 취소되었습니다.");
+            } else if (res.code == 401) {
+                alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
+                location.href="./?page=login";
+            }else{
+                alert('상품 홍보 요청을 취소하는데 실패했습니다.\n다시 시도해 주세요.');
+            }
         },
         error: function (err) {
             alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
         }
     });
+
+
   });
 
   //홍보 신청 모달에서 상품 검색
@@ -110,6 +106,7 @@ $(document).ready(function(){
         }
     });
   });
+
 });
 
 function template_table_element(datas) {
