@@ -182,7 +182,7 @@ $search_result = $response->datas;
                       </div>
                   </td>
                   <td class="seller">
-                      <p><?=$item->seller_id?></p>
+                      <p><?=$item->seller_account?></p>
                   </td>
                   <td class="product_price">
                       <p><?=number_format($item->options[0]->price)."원"?></p>
