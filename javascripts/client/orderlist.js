@@ -3,11 +3,11 @@ $(document).ready(function() {
     function refreshReturnModal() {
         var option = $("#modal_return input[name=option]:checked").val();
         if (option == "exchange" || option == undefined) {
-            $("#modal_return .order_list").css("display", "block");
+            $("#modal_return .select").css("display", "table-cell");
             $("#modal_return .exchange_form").css("display", "block");
             $("#modal_return .return_form").css("display", "none");
         } else {
-            $("#modal_return .order_list").css("display", "none");
+            $("#modal_return .select").css("display", "none");
             $("#modal_return .exchange_form").css("display", "none");
             $("#modal_return .return_form").css("display", "block");
         }
