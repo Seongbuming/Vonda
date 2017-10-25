@@ -59,13 +59,18 @@ $bank_account = $response->bank_account;
                   6차
               </td>
               <td class="date">
-                  2017.08.22
+                  <?=$item->calculate_month?>
               </td>
               <td class="account">
-                  농협 110-******-203 예금주:진아영
+                <span style="padding-right:5px;"><?=$item->bank_account->bank?></span>
+                <span style="padding-right:10px;"><?php
+                  $account = $item->bank_account->account;
+                  echo substr($account,0,3) . '****' . substr($account,8);?>
+                </span>
+                <span style="padding-right:5px;">예금주 : <?=$item->bank_account->account_owner?></span>
               </td>
               <td class="price">
-                  <p><?=$item->calcuate_price?></p>
+                  <p><?=number_format($item->calculate_price)."원"?></p>
               </td>
               <td class="status">
                   <p><?=$item->status?></p>
