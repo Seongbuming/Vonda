@@ -195,7 +195,7 @@ $search_result = $response->datas;
                   </tbody>
               </table>
 
-            <button class="submit">신청하기</button>
+            <button class="submit" style="opacity:0.5;" disabled="true">신청하기</button>
         </div>
     </div>
 
