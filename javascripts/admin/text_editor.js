@@ -15,12 +15,17 @@ function saveNotice()
 	var subject = $(".title").val();
 	var target = $(".option").val();
 	var content = $("#text-editor").val();
+  var is_top = $("#select:checked").val();
+
+  if (is_top == undefined) {
+    is_top = 'n';
+  }
 
 	$.ajax({
       type: "POST",
       url: "http://api.siyeol.com/board?token="+readCookie('token'),
       dataType: "json",
-      data: {subject: subject, content: content, target: target},
+      data: {subject: subject, content: content, target: target, is_top: is_top},
       success: function (res) {
         console.log(res);
         if (res.code != 200) {

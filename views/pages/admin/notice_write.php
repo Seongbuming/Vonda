@@ -49,11 +49,8 @@
                         style="height: 350px; border: solid 1px black">
                   </textarea>
                   <div class="form-item">
-                    <!-- 기능이 없어 임시 제거 
-                    <input id="select" type="checkbox" title="선택">
+                    <input id="select" type="checkbox" name="is_top" title="선택" value="y">
                     <label for="select">리스트 상단에 고정</label>
-                  -->
-
                     <button type="button" name="button" class="btn btn-peach" onclick="saveNotice()">완료</button>
                   </div>
             </div><!-- /#notice-detail -->

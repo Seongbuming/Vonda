@@ -79,14 +79,18 @@ $notices = $response->datas;
                       ?>
                         <tr>
                           <td class="select">
-                            <input type="checkbox" name="select-<?=$notice->id?>" value="">
+                            <input type="checkbox" id="select-<?=$notice->id?>" value="<?=$notice->id?>">
                             <label for="select-<?=$notice->id?>"></label>
                           </td>
                           <td class="date"><?=str_replace("-", ".", substr($notice->created_at, 0, 16))?></td>
                           <td>
                             <a href="admin.php?page=notice_detail&id=<?=$notice->id?>&type=<?=$type?>" class="title"><?=$notice->subject?></a>
                             <span class="hits">(<?=$notice->hit?>)</span>
-                            <div class="fixed-pin"></div>
+                            <?php
+                            if ($notice->is_top == 'y') {
+                              echo '<div class="fixed-pin"></div>';
+                            }
+                            ?>
                           </td>
                         </tr>
                       <?php
@@ -104,7 +108,7 @@ $notices = $response->datas;
                       <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
                     </button>
 
-                    <button type="button" name="btn-delete" class="btn btn-gray btn-delete">삭제</button>
+                    <button type="button" name="btn-delete" class="btn btn-gray btn-delete" onclick="deleteNotices()">삭제</button>
                   </div>
                 </div>
 
@@ -122,5 +126,29 @@ $notices = $response->datas;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="javascripts/admin/sidemenu_bar.js"></script>
     <script src="javascripts/select_all.js"></script>
+    <script>
+      function deleteNotices()
+      {
+        $("tbody .select input[type='checkbox']:checked").each(function (){
+          var notice_id = $(this).val();
+
+          $.ajax({
+            type: "POST",
+            async: false,
+            url: "http://api.siyeol.com/admin/board/"+notice_id+"?token="+readCookie('token'),
+            dataType: "json",
+            data: {_method: 'DELETE'},
+            success: function (res) {
+            },
+            error: function (req,status,err) {
+              console.log(req.responseText);
+              alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+            }
+          });
+        });
+
+        location.reload();
+      }
+    </script>
 </body>
 </html>
