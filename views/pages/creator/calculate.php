@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="stylesheets/creator/board.css"/>
     <link rel="stylesheet" href="stylesheets/modal.css" />
 </head>
+<?php
+$request = new Http();
 
+$response = $request->request('GET', '/creator/calculates?token='.$_COOKIE['token']);
+$calculates = $response->datas->data;
+$bank_account = $response->bank_account;
+
+?>
 <body>
 <header>
     <?= $this->loadLayout("creator/header") ?>
@@ -23,7 +30,13 @@
     <div class="calculate_notice">
         <p>* 매월 5일, 전월분이 입력하신 계좌로 일괄 정산됩니다.<br>공휴일일 경우 전일에 정산처리됩니다.</p>
         <p class="account_info_title">계좌정보</p>
-        <p>농협 110-******-203 예금주:진아영
+        <p>
+          <span style="padding-right:5px;"><?=$bank_account->bank?></span>
+          <span style="padding-right:10px;"><?php
+            $account = $bank_account->account;
+            echo substr($account,0,3) . '****' . substr($account,8);?>
+          </span>
+          <span style="padding-right:5px;">예금주 : <?=$bank_account->account_owner?></span>
           <a href="#" class="btn-edit"><img src="images/buttons/edit.png" alt="" /></a>
         </p>
     </div>
@@ -39,22 +52,29 @@
         </tr>
         </thead>
         <tbody>
-        <td class="num">
-            6차
-        </td>
-        <td class="date">
-            2017.08.22
-        </td>
-        <td class="account">
-            농협 110-******-203 예금주:진아영
-        </td>
-        <td class="price">
-            <p>7,090,100</p>
-        </td>
-        <td class="status">
-            <p>정산대기</p>
-        </td>
-        </tr>
+          <?php
+          foreach ($calculates as $item) { ?>
+            <tr>
+              <td class="num">
+                  6차
+              </td>
+              <td class="date">
+                  2017.08.22
+              </td>
+              <td class="account">
+                  농협 110-******-203 예금주:진아영
+              </td>
+              <td class="price">
+                  <p><?=$item->calcuate_price?></p>
+              </td>
+              <td class="status">
+                  <p><?=$item->status?></p>
+              </td>
+            </tr>
+          <?php
+          }
+           ?>
+
         </tbody>
     </table>
 
@@ -70,10 +90,10 @@
                 <div class="form-item">
                   <select class="bank" required id="bank" name="bank">
                       <option value="" disabled selected>은행</option>
-                      <option value="1">농협</option>
-                      <option value="2">국민</option>
-                      <option value="3">신한</option>
-                      <option value="4">우리</option>
+                      <option value="농협">농협</option>
+                      <option value="국민">국민</option>
+                      <option value="신한">신한</option>
+                      <option value="우리">우리</option>
                   </select>
                 </div>
 
