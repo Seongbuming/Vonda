@@ -10,12 +10,16 @@
 <?php
 $request = new Http();
 
-$response = $request->request('GET', '/creator/goods?token='.$_COOKIE['token']);
+//홍보 신청 목록
+$response = $request->request('GET', '/creator/goods/promote?token='.$_COOKIE['token']);
 $promotions = $response->datas;
 
+// 전체 상품
 $response = $request->request('GET', '/creator/1/goods');
 $products = $response->datas;
 
+$response = $request->request('GET', '/search?query=');
+$search_result = $response->datas;
 ?>
 
 <body>
@@ -43,8 +47,8 @@ $products = $response->datas;
         </thead>
         <tbody>
           <?php
-          foreach ($promotions as $item) {?>
-
+          foreach ($promotions as $item) {
+            ?>
             <tr>
               <td class="apply-date">
                   <?=substr($item->created_at,0,16)?>
@@ -63,7 +67,8 @@ $products = $response->datas;
               </td>
               <td class="state">
                   <p class="state-text"><?=$item->status?></p>
-                  <p >
+                  <p>
+                    <input type="hidden" name="name" value="<?=$item->goods_id?>">
                     <button type="button" name="btn-cancel-apply" class="btn-cancel-apply">신청취소</button>
                   </p>
               </td>
@@ -160,27 +165,27 @@ $products = $response->datas;
               <table class="order_list">
                   <tbody>
                     <?php
-                    foreach ($products as $product) {
+                    foreach ($search_result as $item) {
                     ?>
                   <tr>
                   <td class="">
-                    <input id="<?="select_".$product->goods_id?>" class="item-checkbox" type="checkbox" title="선택">
-                    <label for="<?="select_".$product->goods_id?>"></label>
+                    <input id="<?="select_".$item->id?>" class="item-checkbox" type="checkbox" title="선택">
+                    <label for="<?="select_".$item->id?>"></label>
                   </td>
 
                   <td class="product">
                       <div class="product_img">
-                          <img src="<?="http://api.siyeol.com/".$product->goods->goods_image?>" alt="상품사진" />
+                          <img src="<?="http://api.siyeol.com/".$item->goods_image?>" alt="상품사진" />
                       </div>
                       <div class="product_info">
-                          <p class="open product_detail"><?=$product->goods->title?></p>
+                          <p class="open product_detail"><?=$item->title?></p>
                       </div>
                   </td>
                   <td class="seller">
-                      <p><?=$product->goods->seller?></p>
+                      <p><?=$item->seller_id?></p>
                   </td>
                   <td class="product_price">
-                      <p><?=number_format($product->goods->options[0]->price)."원"?></p>
+                      <p><?=number_format($item->options[0]->price)."원"?></p>
                   </td>
 
                   </tr>
