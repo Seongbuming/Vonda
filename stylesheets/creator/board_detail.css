@@ -148,3 +148,30 @@ textarea {
     display: block;
     padding-right: 300px;
 }
+.add_answer_link{
+  font-weight: bold;
+  margin-left: 15px;
+  font-size: 85%
+}
+.user_add_answer .comment{
+  width: 1037px;
+  margin-left: auto;
+}
+.operator_comment{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 12px;
+}
+.user_add_answer .btn-finish,
+.user_add_answer .btn-cancel{
+  font-size: 90%;
+  font-weight: bold;
+}
+.user_add_answer .btn-finish{
+  color: #e69a83;
+  padding: 0 35px;
+}
+.user_add_answer .btn-cancel{
+  color: #797979;
+  padding-right: 35px;
+}

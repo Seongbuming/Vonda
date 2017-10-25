@@ -8,7 +8,7 @@ $(document).ready(function() {
         else if ($(this).is(".sub") === true && amount > 1)
             $amount.text(amount-1);
     });
-        
+
     // 장바구니 버튼 클릭
     $(".basket").click(function() {
         // 장바구니 담기 작업을 여기에서 수행하세요.
@@ -34,7 +34,7 @@ $(document).ready(function() {
                     .delay(1000)
                     .fadeOut("slow");
             } else if (res.code == 401) {
-                // 토큰 오류  
+                // 토큰 오류
             } else {
                 $(".basket_message").text("장바구니 등록에 오류가 발생하였습니다.");
                 $(".basket_message")
@@ -48,7 +48,7 @@ $(document).ready(function() {
           }
         });
 
-        
+
     });
 
     $(".buy").click(function () {
@@ -68,9 +68,9 @@ $(document).ready(function() {
           success: function (res) {
             if (res.code == 200) {
                 // 장바구니 등록 성공
-                location.href="./?page=order&type=direct"
+                location.href="./?page=order&type=direct";
             } else if (res.code == 401) {
-                // 토큰 오류  
+                // 토큰 오류
             } else {
                 $(".basket_message").text("장바구니 등록에 오류가 발생하였습니다.");
                 $(".basket_message")
@@ -84,7 +84,7 @@ $(document).ready(function() {
           }
         });
     });
-        
+
     /* FAQ */
     // 문의 모달 열기
     $("button.ask").click(function() {
@@ -115,7 +115,7 @@ $(document).ready(function() {
                 if (res.code == 200) {
                     alert("성공적으로 문의를 등록하였습니다.");
                 } else if (res.code == 401) {
-                    // 토큰 오류  
+                    // 토큰 오류
                 } else {
                     alert("상품문의 등록에 오류가 발생하였습니다.");
                 }
@@ -129,4 +129,3 @@ $(document).ready(function() {
         }
     });
 });
-

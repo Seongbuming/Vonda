@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="comment">
-            <textarea cols="154" rows="5" placeholder="댓글을 입력하려면 로그인이 필요합니다."></textarea>
+            <textarea cols="154" rows="5" placeholder="댓글을 입력해주세요."></textarea>
             <button class="comment_submit">댓글 등록</button>
         </div>
 
@@ -63,8 +63,10 @@ if (isset($_GET['id'])) {
                           <tbody>
                           <tr class="row_subject">
                               <td class="author"><?=$comment->user->account?></td>
-                              <td class="subject">
-                              <?=$comment->comment?></td>
+                              <td class="subject" style="font-weight:normal">
+                                <?=$comment->comment?>
+                              <a href="#" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
+                            </td>
                               <td class="time"><?=substr($comment->created_at, 0, 16)?></td>
                           </tr>
                           </tbody>
@@ -86,6 +88,17 @@ if (isset($_GET['id'])) {
                           </table>
                       </div>
                       <?php
+                  }else {
+                    ?>
+                    <div class="user_add_answer">
+                      <div class="comment">
+                          <span class="operator_comment">ㄴ</span>
+                          <textarea cols="130" rows="5" placeholder="답글달기"></textarea>
+                          <a href="#" class="btn-finish">작성완료</a>
+                          <a href="#" class="btn-cancel">취소</a>
+                      </div>
+                    </div>
+                    <?php
                   }
               }
               ?>

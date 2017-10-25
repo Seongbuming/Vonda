@@ -4,7 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^function write_notice(subject,content) {$/;"	function	line:1
-success	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      success: function (res) {$/;"	function	line:15
-error	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      error: function (err) {$/;"	function	line:25
-write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^function write_notice(subject,content) {$/;"	function	line:1
+request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $request = new Http();$/;"	variable	line:16
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id']);$/;"	variable	line:17
+board	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $board = $response->data;$/;"	variable	line:19
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id'].'\/comment');$/;"	variable	line:21
+comments	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $comments = $response->data->data;$/;"	variable	line:22
+pager	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $pager = $response->data;$/;"	variable	line:23
