@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="stylesheets/creator/board.css"/>
     <link rel="stylesheet" href="stylesheets/modal.css" />
 </head>
+<?php
+$request = new Http();
 
+$response = $request->request('GET', '/creator/calculates?token='.$_COOKIE['token']);
+$calculates = $response->datas->data;
+$bank_account = $response->bank_account;
+
+?>
 <body>
 <header>
     <?= $this->loadLayout("creator/header") ?>
@@ -23,7 +30,13 @@
     <div class="calculate_notice">
         <p>* 매월 5일, 전월분이 입력하신 계좌로 일괄 정산됩니다.<br>공휴일일 경우 전일에 정산처리됩니다.</p>
         <p class="account_info_title">계좌정보</p>
-        <p>농협 110-******-203 예금주:진아영
+        <p>
+          <span style="padding-right:5px;"><?=$bank_account->bank?></span>
+          <span style="padding-right:10px;"><?php
+            $account = $bank_account->account;
+            echo substr($account,0,3) . '****' . substr($account,8);?>
+          </span>
+          <span style="padding-right:5px;">예금주 : <?=$bank_account->account_owner?></span>
           <a href="#" class="btn-edit"><img src="images/buttons/edit.png" alt="" /></a>
         </p>
     </div>
@@ -39,22 +52,34 @@
         </tr>
         </thead>
         <tbody>
-        <td class="num">
-            6차
-        </td>
-        <td class="date">
-            2017.08.22
-        </td>
-        <td class="account">
-            농협 110-******-203 예금주:진아영
-        </td>
-        <td class="price">
-            <p>7,090,100</p>
-        </td>
-        <td class="status">
-            <p>정산대기</p>
-        </td>
-        </tr>
+          <?php
+          foreach ($calculates as $item) { ?>
+            <tr>
+              <td class="num">
+                  6차
+              </td>
+              <td class="date">
+                  <?=$item->calculate_month?>
+              </td>
+              <td class="account">
+                <span style="padding-right:5px;"><?=$item->bank_account->bank?></span>
+                <span style="padding-right:10px;"><?php
+                  $account = $item->bank_account->account;
+                  echo substr($account,0,3) . '****' . substr($account,8);?>
+                </span>
+                <span style="padding-right:5px;">예금주 : <?=$item->bank_account->account_owner?></span>
+              </td>
+              <td class="price">
+                  <p><?=number_format($item->calculate_price)."원"?></p>
+              </td>
+              <td class="status">
+                  <p><?=$item->status?></p>
+              </td>
+            </tr>
+          <?php
+          }
+           ?>
+
         </tbody>
     </table>
 
@@ -66,27 +91,50 @@
             </button>
 
             <div class="modal_contents">
-              <form class="account-edit-form" action="index.html" method="post">
+              <form class="account-edit-form" method="POST">
                 <div class="form-item">
-                  <select class="bank" required>
+                  <select class="bank" required id="bank" name="bank">
                       <option value="" disabled selected>은행</option>
-                      <option value="1">농협</option>
-                      <option value="2">국민</option>
-                      <option value="3">신한</option>
-                      <option value="4">우리</option>
+                      <option value="NH농협">NH농협</option>
+                      <option value="KB국민">KB국민</option>
+                      <option value="신한">신한</option>
+                      <option value="우리">우리</option>
+                      <option value="하나">하나</option>
+                      <option value="IBK기업">IBK기업</option>
+                      <option value="외환">외환</option>
+                      <option value="SC제일">SC제일</option>
+                      <option value="씨티">씨티</option>
+                      <option value="KDB산업">KDB산업</option>
+                      <option value="새마을">새마을</option>
+                      <option value="대구">대구</option>
+                      <option value="광주">광주</option>
+                      <option value="우체국">우체국</option>
+                      <option value="신협">신협</option>
+                      <option value="전북">전북</option>
+                      <option value="경남">경남</option>
+                      <option value="부산">부산</option>
+                      <option value="수협">수협</option>
+                      <option value="제주">제주</option>
+                      <option value="저축은행">저축은행</option>
+                      <option value="산림조합">산림조합</option>
+                      <option value="케이뱅크">케이뱅크</option>
+                      <option value="카카오뱅크">카카오뱅크</option>
+
+
+
                   </select>
                 </div>
 
                 <div class="form-item">
-                    <input type="text" name="name" value="" placeholder="계좌번호" required>
+                    <input id="account-number" type="number" name="account" value="" placeholder="계좌번호" required>
                 </div>
 
                 <div class="form-item">
-                    <input type="text" name="name" value="" placeholder="예금주" required>
+                    <input id="account-holder" type="text" name="name" value="" placeholder="예금주" required>
                 </div>
 
                 <div class="form-item">
-                  <button class="submit">확인</button>
+                  <button type="button" class="submit" style="font-size:100%;">확인</button>
                 </div>
               </form>
             </div>

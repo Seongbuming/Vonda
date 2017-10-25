@@ -40,9 +40,6 @@ form	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^    var $for
 nicepayStart	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^function nicepayStart(){$/;"	function	line:108
 nicepaySubmit	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^function nicepaySubmit(){$/;"	function	line:113
 nicepayClose	/Users/hanboramjang/Sites/vonda/views/pages/client/order.php	/^function nicepayClose(){$/;"	function	line:118
-request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$request = new Http();$/;"	variable	line:9
-response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$response = $request->request('GET', '\/creator\/board\/list?token='.$_COOKIE['token']);$/;"	variable	line:11
-boards	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$boards = $response->datas->data;$/;"	variable	line:12
 #contents .link_menu	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^#contents .link_menu{$/;"	function	line:2
 table td	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^table td{$/;"	function	line:5
 .btn-promotion-apply	/Users/hanboramjang/Sites/vonda/stylesheets/creator/myproduct.css	/^.btn-promotion-apply{$/;"	function	line:8
@@ -74,3 +71,11 @@ response	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^$res
 orders	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^$orders = $response->datas->data;$/;"	variable	line:20
 random	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^                                $random = time();$/;"	variable	line:144
 temp	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^                                $temp = $random == 1 ? "1" : "30";$/;"	variable	line:145
+request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$request = new Http();$/;"	variable	line:9
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$response = $request->request('GET', '\/creator\/board\/list?token='.$_COOKIE['token']);$/;"	variable	line:11
+boards	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$boards = $response->datas->data;$/;"	variable	line:12
+pager	/Users/hanboramjang/Sites/vonda/views/pages/creator/board.php	/^$pager = $response->datas;$/;"	variable	line:14
+write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^function write_notice(subject,content) {$/;"	function	line:1
+success	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      success: function (res) {$/;"	function	line:15
+error	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      error: function (err) {$/;"	function	line:25
+write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^function write_notice(subject,content) {$/;"	function	line:1

@@ -4,8 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-request	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^$request = new Http();$/;"	variable	line:13
-response	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^$response = $request->request('GET', '\/order?token='.$_COOKIE['token']);$/;"	variable	line:14
-orders	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^$orders = $response->datas->data;$/;"	variable	line:20
-random	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^                                $random = time();$/;"	variable	line:144
-temp	/Users/hanboramjang/Sites/vonda/views/pages/client/orderlist.php	/^                                $temp = $random == 1 ? "1" : "30";$/;"	variable	line:145
+write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^function write_notice(subject,content) {$/;"	function	line:1
+success	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      success: function (res) {$/;"	function	line:15
+error	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      error: function (err) {$/;"	function	line:25
+write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^function write_notice(subject,content) {$/;"	function	line:1
