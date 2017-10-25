@@ -5,7 +5,8 @@ $(document).ready(function() {
     var fee_rate = $('input[name=input-fee-rate]').val() * 1;
 
     // var price = $('#general-price').text();
-    var price = 900000;
+    //var price = 900000;
+    var price = parseInt($("#general-price").text().replace("원", "").replace(/,/g, ""));
     var rate = 100 - ( ad_rate + fee_rate);
 
     // 수수료와 광고료 비율의 합이 100을 넘을 수 없음.
@@ -21,7 +22,7 @@ $(document).ready(function() {
     var fee_rate = $('input[name=input-fee-rate]').val() * 1;
 
     // var price = $('#general-price').text();
-    var price = parseInt($("#general-price").text().replace("원", "").replace(",", ""));
+    var price = parseInt($("#general-price").text().replace("원", "").replace(/,/g, ""));
 
     // 수수료 비율이 100을 넘을 수 없음.
     if( (fee_rate <= 0) || (fee_rate >= 1) ){
@@ -52,7 +53,7 @@ function cancel() {
 }
 
 function complete() {
-  var calculate_price = parseInt($('#result-price').text().replace("원", "").replace(",", ""));
+  var calculate_price = parseInt($('#result-price').text().replace("원", "").replace(/,/g, ""));
   var calculate_id = getParam('id');
 
   $.ajax({

@@ -15,7 +15,17 @@
     <link rel="stylesheet" href="stylesheets/admin/calculate_detail.css" />
 
 </head>
+<?php
+if (!isset($_GET['id'])) {
+  header('Location:./admin.php?page=calculate&type=creator');
+}
 
+$request = new Http();
+$response = $request->request('GET', 'http://api.siyeol.com/admin/calculate/'.$_GET['id'].'?token='.$_COOKIE['token']);
+$calculate = $response->data;
+$bank = $response->bank;
+$user = $response->user;
+?>
 <body>
 
     <div id="wrapper" class="toggled">
@@ -33,10 +43,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav">
                   <li class="nav-item">
-                    <a class="nav-link active" href="admin.php?page=calculate_seller">SELLER</a>
+                    <a class="nav-link active" href="admin.php?page=calculate&type=seller">SELLER</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="admin.php?page=calculate_creator">CREATOR</a>
+                    <a class="nav-link" href="admin.php?page=calculate&type=creator">CREATOR</a>
                   </li>
                   <div class="input-container">
                     <input type="input" name="search_input" value="" placeholder="">
@@ -51,24 +61,24 @@
 
                   <div class="tab-pane active" id="seller" role="tabpanel">
                     <div class="info-container">
-                      <span class="info-item username text-heavy-gray">진아영</span>
+                      <span class="info-item username text-heavy-gray"><?=$user->name?></span>
                       <span class="info-item user-id">
-                        <a href="#" class="user-id-link">abc</a>
+                        <a href="#" class="user-id-link"><?=$user->account?></a>
                       </span>
                       <span class="info-item final-amount">
-                        2,360,000원
+                        <?=number_format($calculate->calculate_price)?>원
                       </span>
                       <span class="info-item bank text-heavy-gray">
-                        농협
+                        <?=$bank->bank?>
                       </span>
                       <span class="info-item account-number text-heavy-gray">
-                        222-1111-2222-30
+                        <?=$bank->account?>
                       </span>
                       <span class="info-item account-holder text-heavy-gray">
-                        진아영
+                        <?=$bank->account_owner?>
                       </span>
                       <span class="info-item state text-heavy-gray">
-                        미완료
+                        <?=$calculate->status == "0" ? "미완료" : "완료"?>
                       </span>
                     </div>
                     </table>
@@ -76,7 +86,7 @@
                       <div class="wrapper">
                         <div class="term">
                           <p class="caption">총 매출</p>
-                          <p id="general-price"class="price">900,000원</p>
+                          <p id="general-price"class="price"><?=number_format($calculate->total_price)?>원</p>
                         </div>
                         <div class="operator">-</div>
                         <div class="term">
@@ -95,12 +105,12 @@
                         <div class="operator">=</div>
                          <div class="term">
                            <p class="caption">정산금액</p>
-                           <p id="result-price" class="price">882,000원</p>
+                           <p id="result-price" class="price"><?=number_format($calculate->calculate_price)?>원</p>
                          </div>
                        </div>
                      </div>
                     <div class="product-list">
-                      <h4 class="admin-header-peach">총 상품 5개</h4>
+                      <h4 class="admin-header-peach">총 상품 <?=number_format(sizeof($calculate->calculate_goods))?>개</h4>
                       <table class="table table-hover product-list-table">
                         <thead>
                           <tr>
@@ -114,89 +124,77 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="product-item">
-                            <th scope="row">1</th>
-                            <td >
-                              <div class="thumbnail-img">
-                                <img class="product-img" src="images/products/product1.png" alt="" />
-                              </div>
-                            </td>
-                            <td class="title">
-                              <p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p>
-                              <p>
-                                <span class="label">옵션 : </span>
-                                <span class="label-content">실버,골드</span>
-                              </p>
-                              <p>
-                                <span class="label">재고 : </span>
-                                <span class="label-conent">
-                                  211 - 실버(11), 골드(200)
-                                </span>
-                              </p>
-                            </td>
-                            <td class="creator">7</td>
-                            <td class="price">26,000원</td>
-                            <td class="count">56</td>
-                            <td class="total">2,326,000원</td>
-                          </tr>
-                          <tr class="product-item">
-                            <th scope="row">2</th>
-                            <td >
-                              <div class="thumbnail-img">
-                                <img class="product-img" src="images/products/product2.png" alt="" />
-                              </div>
-                            </td>
-                            <td class="title">
-                              <p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p>
-                              <p>
-                                <span class="label">옵션</span>
-                                <span class="label-content">실버,골드</span>
-                              </p>
-                              <p>
-                                <span class="label">재고 : </span>
-                                <span class="label-conent">
-                                  211 - 실버(11), 골드(200)
-                                </span>
-                              </p>
-                            </td>
-                            <td class="creator">6</td>
-                            <td class="price">26,000원</td>
-                            <td class="count">56</td>
-                            <td class="total">2,326,000원</td>
-                          </tr>
-                          <tr class="product-item">
-                            <th scope="row">3</th>
-                            <td >
-                              <div class="thumbnail-img">
-                                <img class="product-img" src="images/products/product3.png" alt="" />
-                              </div>
-                            </td>
-                            <td class="title">
-                              <p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p>
-                              <p>
-                                <span class="label">옵션</span>
-                                <span class="label-content">실버,골드</span>
-                              </p>
-                              <p>
-                                <span class="label">재고 : </span>
-                                <span class="label-conent">
-                                  211 - 실버(11), 골드(200)
-                                </span>
-                              </p>
-                            </td>
-                            <td class="creator">7</td>
-                            <td class="price">26,000원</td>
-                            <td class="count">56</td>
-                            <td class="total">2,326,000원</td>
-                          </tr>
+                          <?php
+                          foreach ($calculate->calculate_goods as $index => $goods) {
+                          ?>
+                            <tr class="product-item">
+                              <th scope="row"><?=$index+1?></th>
+                              <td >
+                                <div class="thumbnail-img">
+                                  <img class="product-img" src="http://api.siyeol.com/<?=$goods->goods->goods_image?>" alt="" />
+                                </div>
+                              </td>
+                              <td class="title">
+                                <p><a href="#"><?=$goods->goods->title?></a></p>
+                                <?php
+                                if (sizeof($goods->goods->options) > 1) {
+                                ?>
+                                <p>
+                                  <span class="label">옵션 : </span>
+                                  <span class="label-content">
+                                    <?php
+                                    foreach ($goods->goods->options as $option) {
+                                      if ($option != $goods->goods->options[0]) {
+                                        echo ", ";
+                                      }
+                                      echo $option->name;
+                                    }
+                                    ?>
+                                  </span>
+                                </p>
+                                <?php
+                                }
+                                ?>
+                                <p>
+                                  <span class="label">재고 : </span>
+                                  <span class="label-conent">
+                                    <?php
+                                      if (sizeof($goods->goods->options) == 1) {
+                                        echo $goods->goods->options[0]->stock_ea;
+                                      } else {
+                                        $stock = "";
+                                        $total_ea = 0;
+                                        foreach ($goods->goods->options as $option) {
+                                          if ($option != $goods->goods->options[0]) {
+                                            $stock .= ", ";
+                                          }
+                                          $stock .= $option->name."(".$option->stock_ea.")";
+
+                                          $total_ea += $option->stock_ea;
+                                        }
+
+                                        echo $total_ea." - ".$stock;
+                                      }
+                                    ?>
+                                  </span>
+                                </p>
+                              </td>
+                              <td class="creator"><?=$goods->goods->creator_count?></td>
+                              <td class="price"><?=number_format($goods->goods->options[0]->price)?>원</td>
+                              <td class="count"><?=number_format($goods->total_ea)?></td>
+                              <td class="total"><?=number_format($goods->total_price)?>원</td>
+                            </tr>
+                          <?php
+                          }
+                          ?>
                         </tbody>
                       </table>
                     </div>
 
 
                     <div class="btn-container">
-                      <button type="button" name="btn-delete" class="btn btn-gray btn-delete">정산취소</button>
-                      <button type="button" name="btn-delete" class="btn btn-peach btn-delete">정산완료</button>
+                      <button type="button" name="btn-delete" class="btn btn-gray btn-delete" onclick="cancel()">정산취소</button>
+                      <button type="button" name="btn-delete" class="btn btn-peach btn-delete" onclick="complete()">정산완료</button>
                     </div>
                   </div>
 

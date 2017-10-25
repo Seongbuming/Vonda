@@ -119,8 +119,6 @@ $user = $response->user;
                         <tbody>
                           <?php
                           foreach ($calculate->calculate_goods as $index => $goods) {
-                            // print_r($goods);
-                            // exit;
                           ?>
                             <tr class="product-item">
                               <th scope="row"><?=$index+1?></th>
