@@ -62,7 +62,6 @@
                     </thead>
                     <tbody>
                       <?php
-                        for ($i=0; $i < 10 ; $i++) {
                           $item_length = $i % 2 ? 1 : 2;
                           ?>
                           <tr class="product-item">
