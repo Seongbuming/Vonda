@@ -4,7 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:29
-success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:35
-error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:86
-getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:29
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:33
+success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:39
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:90
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:33

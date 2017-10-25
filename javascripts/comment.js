@@ -5,10 +5,14 @@ $(document).ready(function() {
     var index = id_str.indexOf("_");
     var id = id_str.slice(index*1+1,id_str.length);
 
-    console.log(id);
     $('#comment_'+id).toggle("slow");
 
   });
+
+  $(document).on('click', '.btn-cancel',function() {
+      $(this).parent().parent().toggle("slow");
+    });
+
 
     $('.pager .left').on('click',function () {
       var url = $('.pager .prev-page-url').val();
