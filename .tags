@@ -74,6 +74,18 @@ write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/
 success	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      success: function (res) {$/;"	function	line:15
 error	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^      error: function (err) {$/;"	function	line:25
 write_notice	/Users/hanboramjang/Sites/vonda/javascripts/creator/boardwrite.js	/^function write_notice(subject,content) {$/;"	function	line:1
+request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $request = new Http();$/;"	variable	line:16
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id']);$/;"	variable	line:17
+board	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $board = $response->data;$/;"	variable	line:19
+response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id'].'\/comment');$/;"	variable	line:21
+comments	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $comments = $response->data->data;$/;"	variable	line:22
+pager	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $pager = $response->data;$/;"	variable	line:23
+success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            success: function (res) {$/;"	function	line:36
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            error: function (err) {$/;"	function	line:46
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:75
+success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:81
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:132
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:75
 .category_menu	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu {$/;"	function	line:2
 .category_menu::after	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu::after {$/;"	function	line:10
 .category_menu li	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu li {$/;"	function	line:15
@@ -105,15 +117,8 @@ textarea	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^
 .user_add_answer .btn-cancel	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel{$/;"	function	line:166
 .user_add_answer .btn-finish	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-finish{$/;"	function	line:170
 .user_add_answer .btn-cancel	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel{$/;"	function	line:174
-request	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $request = new Http();$/;"	variable	line:16
-response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id']);$/;"	variable	line:17
-board	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $board = $response->data;$/;"	variable	line:19
-response	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $response = $request->request('GET', '\/board\/'.$_GET['id'].'\/comment');$/;"	variable	line:21
-comments	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $comments = $response->data->data;$/;"	variable	line:22
-pager	/Users/hanboramjang/Sites/vonda/views/pages/creator/board_detail.php	/^    $pager = $response->data;$/;"	variable	line:23
-success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            success: function (res) {$/;"	function	line:36
-error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            error: function (err) {$/;"	function	line:46
-getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:75
-success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:81
-error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:132
-getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:75
+.user_add_answer .btn-finish:hover	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-finish:hover,$/;"	function	line:178
+.user_add_answer .btn-cancel:hover	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel:hover,$/;"	function	line:179
+.add_answer_link:hover	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.add_answer_link:hover,$/;"	function	line:180
+.user_add_answer .btn-finish:focus	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-finish:focus,$/;"	function	line:181
+.user_add_answer .btn-cancel:focus	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel:focus,$/;"	function	line:182
