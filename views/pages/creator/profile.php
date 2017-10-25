@@ -65,7 +65,8 @@ $creator = $response->data;
 
                   if($is_matched){
 
-                    if($item->isVisible == '1'){?>
+                    if($item->isVisible == '1'){
+                      ?>
 
                       <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택" checked>
                       <label for="<?="select_".$i?>"></label>
@@ -74,13 +75,13 @@ $creator = $response->data;
                       <input id="<?= "input_". $sns_str[$i] ?>" class="item-url" type="text" name="name" value="<?=$item->link?>" disabled="false" placeholder="url을 입력해주세요.">
 
                     <?php
-                    }else{?>
-
+                    }else{
+                      ?>
                     <input id="<?="select_".$i?>" class="item-checkbox" type="checkbox" title="선택">
                     <label for="<?="select_".$i?>"></label>
                     <img src="<?= "images/icons/creator_profile/". $sns_str[$i] ."30.png" ?>" alt="<?= $sns_str[$i]?>" />
                     <label for="<?= "input_". $sns_str[$i] ?>" class="input-label"> <?=$sns_str[$i] ?></label>
-                    <input id="<?= "input_". $sns_str[$i] ?>" class="item-url" type="text" name="name" value="<?=$itme->link?>" disabled="true" placeholder="url을 입력해주세요.">
+                    <input id="<?= "input_". $sns_str[$i] ?>" class="item-url" type="text" name="name" value="<?=$item->link?>" disabled="true" placeholder="url을 입력해주세요.">
                     <?php
                     }
                     break;
@@ -110,7 +111,7 @@ $creator = $response->data;
 
 
     <div class="submit_cont">
-        <button class="submit"><a href="#">제출</a></button>
+        <button type="button"class="submit"><a href="#">제출</a></button>
     </div>
 </div>
 
