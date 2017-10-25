@@ -4,8 +4,25 @@ $(document).ready(function() {
                             "확인을 누르면 결제모듈로 이동해서 결제취소를 진행합니다.");
 
     if(is_confirmed){
+      var order_no = $("#request-return-modal").data("order_no");
       //상태 변경 data 업데이트
-      alert("결제 취소가 완료되었습니다.");
+      $.ajax({
+        type: "POST",
+        url: "http://api.siyeol.com/admin/order/"+order_no+"/return?token="+readCookie('token'),
+        dataType: "json",
+        async: false,
+        success: function (res) {
+          if (res.code != 200) {
+            alert(res.message);
+          } else {
+            alert("결제 취소가 완료되었습니다.");
+            location.reload();
+          }
+        },
+        error: function (err) {
+          alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        }
+      });
     }
   });
 
@@ -16,6 +33,8 @@ $(document).ready(function() {
     var item;
 
     var order_no = $(parent).find("a").first().text();
+
+    $("#request-return-modal").data("order_no", order_no);
 
     for (var i = 0; i < size; i++) {
       datas += "<tr class='product-item'>"+$(parent).html()+"</tr>";
