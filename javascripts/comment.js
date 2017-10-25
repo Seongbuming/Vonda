@@ -106,12 +106,12 @@ function getCommentItems(url) {
 
             if(value.answer !== null){
               var nickname = $('#board-nickname').val();
-              element_str += '<div class="user_link_omment">'+
+              element_str += '<div class="user_link_comment">'+
                   '<table class="board">'+
                       '<tbody>'+
                       '<tr class="row_subject">'+
                           '<td class="author">ㄴ @'+nickname+'</td>'+
-                          '<td class="subject">'+value.anwer+'</td>'+
+                          '<td class="subject">'+value.answer+'</td>'+
                           '<td class="time">'+ value.created_at.substring(0,16)+'</td>'+
                       '</tr>'+
                       '</tbody>'+
