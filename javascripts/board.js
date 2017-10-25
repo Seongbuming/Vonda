@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    function openPost(display_) {
+    function openPost(visible_) {
         var display = display_ || "table-row";
 
         if ($(this).hasClass("row_subject")) {
@@ -56,17 +56,17 @@ function getBoardItems(url) {
         });
 
         if(res.datas.next_page_url){
-          $('.pager .right').css("display","inline-block");
+          $('.pager .right').css("visibility","visible");
           $('.next-page-url').val(res.datas.next_page_url);
         }else{
-          $('.pager .right').css("display","none");
+          $('.pager .right').css("visibility","hidden");
         }
 
         if(res.datas.prev_page_url){
-          $('.pager .left').css("display","inline-block");
+          $('.pager .left').css("visibility","visible");
           $('.prev-page-url').val(res.datas.prev_page_url);
         }else{
-          $('.pager .left').css("display","none");
+          $('.pager .left').css("visibility","hidden");
         }
 
         $('#refresh-data').html(element_str);

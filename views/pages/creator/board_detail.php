@@ -99,7 +99,7 @@ if (isset($_GET['id'])) {
                       <button class="left">◀</button>
                   <?php
                 }else{?>
-                  <button class="left" style="display:none">◀</button>
+                  <button class="left" style="visibility:hidden">◀</button>
                   <?php
                 }
                 ?>
@@ -110,7 +110,7 @@ if (isset($_GET['id'])) {
                       <button class="right">▶</button>
                       <?php
                     }else{?>
-                      <button class="right" style="display:none">▶</button>
+                      <button class="right" style="visibility:hidden">▶</button>
                       <?php
                     }
                     ?>
