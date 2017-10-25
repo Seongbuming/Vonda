@@ -222,7 +222,7 @@ $search_result = $response->datas;
                     <img src="images/buttons/close.png" alt="닫기" />
                 </button>
 
-                <p>홍보를 신청할 상품을 선택해주세요.</p>
+                <p>이미 홍보중인 상품입니다.</p>
 
                 <button class="submit modal_close">확인</button>
             </div>
