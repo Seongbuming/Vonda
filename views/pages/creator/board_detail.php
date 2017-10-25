@@ -92,6 +92,7 @@ if (isset($_GET['id'])) {
                     ?>
                     <div id="<?="comment_".$comment->id?>" class="user_add_answer" style="display:none;">
                       <div class="comment">
+                          <input type="hidden" name="name" value="<?=$comment->id?>">
                           <span class="operator_comment">ㄴ</span>
                           <textarea cols="130" rows="5" placeholder="답글달기"></textarea>
                           <a class="btn-finish">작성완료</a>
