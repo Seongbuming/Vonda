@@ -12,8 +12,10 @@ $(document).ready(function() {
   $(document).on('click','.btn-request-return',function () {
     var parent = $(this).parent().parent()
     var size = $(parent).find("td").attr("rowspan");
-
     var datas = "";
+    var item;
+
+    var order_no = $(parent).find("a").first().text();
 
     for (var i = 0; i < size; i++) {
       datas += "<tr class='product-item'>"+$(parent).html()+"</tr>";
@@ -21,13 +23,28 @@ $(document).ready(function() {
       parent = $(parent).next();
     }
 
-    item = {
-      reason: "구매의사취소",
-      comment: "반품해주세요ㅜㅜ"
-    };
+    $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com/admin/order/"+order_no+"/return?token="+readCookie('token'),
+      dataType: "json",
+      async: false,
+      success: function (res) {
+        if (res.code != 200) {
+          alert(res.message);
+        } else {
+          item = {
+            reason: res.data.reason,
+            message: res.data.message
+          }
+        }
+      },
+      error: function (err) {
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+      }
+    });
 
     var element = '<p class="return-reason"> 반품사유 : '+item.reason+'</p>' +
-                  '<p class="comment">"'+item.comment+'"</p>';
+                  '<p class="comment">"'+item.message+'"</p>';
     $('#request-return-modal .contents').html(element);
     $('#request-return-modal .modal_body h4').text("반품");
     $('#request-return-modal .product-list-table').html(datas);
@@ -43,6 +60,9 @@ $(document).ready(function() {
     var parent = $(this).parent().parent()
     var size = $(parent).find("td").attr("rowspan");
     var datas = "";
+    var item;
+
+    var order_no = $(parent).find("a").first().text();
 
     for (var i = 0; i < size; i++) {
       datas += "<tr class='product-item'>"+$(parent).html()+"</tr>";
@@ -50,17 +70,32 @@ $(document).ready(function() {
       parent = $(parent).next();
     }
 
-    item = {
-      reason: "구매의사취소",
-      comment: "반품해주세요ㅜㅜ"
-    };
+    $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com/admin/order/"+order_no+"/return?token="+readCookie('token'),
+      dataType: "json",
+      async: false,
+      success: function (res) {
+        if (res.code != 200) {
+          alert(res.message);
+        } else {
+          item = {
+            reason: res.data.reason,
+            message: res.data.message
+          }
+        }
+      },
+      error: function (err) {
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+      }
+    });
 
     var element = '<p class="return-reason"> 반품사유 : '+item.reason+'</p>' +
-                  '<p class="comment">"'+item.comment+'"</p>';
+                  '<p class="comment">"'+item.message+'"</p>';
     $('#complete-return-modal .contents').html(element);
     $('#complete-return-modal .modal_body h4').text("반품");
-    $('#request-return-modal .product-list-table').html(datas);
-    $('#request-return-modal .product-list-table tr').each(function (){
+    $('#complete-return-modal .product-list-table').html(datas);
+    $('#complete-return-modal .product-list-table tr').each(function (){
       if ($(this).find("td").length > 3) {
         $(this).find("td").first().remove();
         $(this).find("td").last().remove();
