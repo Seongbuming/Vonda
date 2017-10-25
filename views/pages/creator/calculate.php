@@ -56,7 +56,7 @@ $bank_account = $response->bank_account;
           foreach ($calculates as $item) { ?>
             <tr>
               <td class="num">
-                  6차
+                  <?=$item->cnt."차"?>
               </td>
               <td class="date">
                   <?=$item->calculate_month?>
@@ -73,7 +73,7 @@ $bank_account = $response->bank_account;
                   <p><?=number_format($item->calculate_price)."원"?></p>
               </td>
               <td class="status">
-                  <p><?=$item->status?></p>
+                  <p><?php echo $item->status == '1' ? '정산완료' : '정산대기' ?></p>
               </td>
             </tr>
           <?php
