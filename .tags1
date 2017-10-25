@@ -4,39 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-.category_menu	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu {$/;"	function	line:2
-.category_menu::after	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu::after {$/;"	function	line:10
-.category_menu li	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu li {$/;"	function	line:15
-.category_menu li.actived	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu li.actived {$/;"	function	line:22
-.category_menu li:last-child	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu li:last-child {$/;"	function	line:27
-.category_menu li:nth-child(n+2):nth-last-child(n+2)	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu li:nth-child(n+2):nth-last-child(n+2) {$/;"	function	line:30
-.category_menu li:nth-child(n+2):nth-last-child(n+2)::before	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.category_menu li:nth-child(n+2):nth-last-child(n+2)::before {$/;"	function	line:33
-.creator_profile_bg_img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.creator_profile_bg_img {$/;"	function	line:39
-#profile_location	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^#profile_location {$/;"	function	line:44
-.creator_profile_img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.creator_profile_img {$/;"	function	line:49
-#contents .creator_profile, .creator_profile_name, .creator_profile_contents	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^#contents .creator_profile, .creator_profile_name, .creator_profile_contents {$/;"	function	line:58
-.creator_profile_name	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.creator_profile_name {$/;"	function	line:62
-.creator_profile_contents	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.creator_profile_contents {$/;"	function	line:66
-#contents .product_section img	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^#contents .product_section img{$/;"	function	line:71
-.profile_detail_board	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.profile_detail_board {$/;"	function	line:76
-.post .creator_title	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.post .creator_title {$/;"	function	line:79
-.comment_submit	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.comment_submit {$/;"	function	line:89
-.creator_detail_result	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.creator_detail_result {$/;"	function	line:103
-.c_line	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.c_line {$/;"	function	line:110
-.goback	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.goback {$/;"	function	line:114
-textarea	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^textarea {$/;"	function	line:128
-.user_comment .user_link_comment, .author	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_comment .user_link_comment, .author {$/;"	function	line:139
-.user_link_comment .author	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_link_comment .author {$/;"	function	line:144
-.user_link_comment .subject	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_link_comment .subject {$/;"	function	line:147
-.add_answer_link	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.add_answer_link{$/;"	function	line:151
-.user_add_answer .comment	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .comment{$/;"	function	line:156
-.operator_comment	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.operator_comment{$/;"	function	line:160
-.user_add_answer .btn-finish	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-finish,$/;"	function	line:165
-.user_add_answer .btn-cancel	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel{$/;"	function	line:166
-.user_add_answer .btn-finish	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-finish{$/;"	function	line:170
-.user_add_answer .btn-cancel	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel{$/;"	function	line:174
-.user_add_answer .btn-finish:hover	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-finish:hover,$/;"	function	line:178
-.user_add_answer .btn-cancel:hover	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel:hover,$/;"	function	line:179
-.add_answer_link:hover	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.add_answer_link:hover,$/;"	function	line:180
-.user_add_answer .btn-finish:focus	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-finish:focus,$/;"	function	line:181
-.user_add_answer .btn-cancel:focus	/Users/hanboramjang/Sites/vonda/stylesheets/creator/board_detail.css	/^.user_add_answer .btn-cancel:focus,$/;"	function	line:182
+success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            success: function (res) {$/;"	function	line:36
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^            error: function (err) {$/;"	function	line:48
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:77
+success	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    success: function (res) {$/;"	function	line:83
+error	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^    error: function (err) {$/;"	function	line:151
+getCommentItems	/Users/hanboramjang/Sites/vonda/javascripts/comment.js	/^function getCommentItems(url) {$/;"	function	line:77

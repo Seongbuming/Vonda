@@ -53,8 +53,9 @@ if (isset($_GET['id'])) {
             <textarea cols="154" rows="5" placeholder="댓글을 입력해주세요."></textarea>
             <button class="comment_submit">댓글 등록</button>
         </div>
-
+        <input type="hidden" id="board-nickname"name="name" value="<?=$board->nickname?>">
         <div id="refresh-data">
+
           <?php
               foreach ($comments as $comment) {
               ?>
