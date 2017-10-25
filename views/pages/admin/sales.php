@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/admin/common.css" />
-    <link rel="stylesheet" href="stylesheets/admin/table_product.css" />
+    <link rel="stylesheet" href="stylesheets/admin/table_product2.css" />
     <link rel="stylesheet" href="stylesheets/admin/sales.css" />
     <link rel="stylesheet" href="stylesheets/admin/product_detail_modal.css" />
 
@@ -69,126 +69,126 @@ $orders = $response->datas->data;
                     <tbody>
                       <?php
                       foreach ($orders as $order) {
-                      ?>
-                      <tr class="product-item">
-                            <td class="">
-                              <p class="sales-date text-center"><?=str_replace("-", ".", substr($order->created_at, 0, 10))?></p>
-                              <p class="sales-number text-center">
-                                <a href="#" data-toggle="modal" data-target="#order-detail-modal"><?=$order->order_no?></a>
-                              </p>
-                            </td>
-                            <td>
-                                <?php
-                                  foreach ($order->items as $item) {
-                                    $goods = $item->goods;
-                                    ?>
-                                    <div class="thumbnail-img">
-                                      <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
-                                        <img class="product-img" src="http://api.siyeol.com/<?=$goods->goods_image?>" alt="" />
-                                      </a>
-                                    </div>
-                                  <?php
-                                }
-                                ?>
-                            </td>
-                            <td class="title">
+                        $is_group = $order->step == '2' ? 1 : 0;
+                        foreach ($order->items as $item) {
+                          $goods = $item->goods;?>
+                          <tr class="product-item">
+                            <?php
+                            if($is_group-- > 0){?>
+                              <td style="width:200px;" rowspan="<?=sizeof($order->items)?>">
+                                <p class="sales-date text-center"><?=str_replace("-", ".", substr($order->created_at, 0, 10))?></p>
+                                <p class="sales-number text-center">
+                                  <a href="#" data-toggle="modal" data-target="#order-detail-modal"><?=$order->order_no?></a>
+                                </p>
+                              </td>
                               <?php
-                                foreach ($order->items as $item) {
-                                  $goods = $item->goods;
-                                  ?>
-                                  <div class="title-group">
-                                    <p><a href="#"><p><a href="#"><?=$goods->title?></a></p></a></p>
-                                    <?php
-                                    if ($item->option_name) {
-                                    ?>
-                                    <p>
-                                      <span class="label">옵션 : </span>
-                                      <span class="label-content"><?=$item->option_name?></span>
-                                    </p>
-                                    <?php
-                                    }
-                                    ?>
-                                    <p>
-                                      <span class="label">수량 : </span>
-                                      <span class="label-conent">
-                                        <?=$item->ea?>
-                                      </span>
-                                    </p>
-                                  </div>
-                                <?php
+                            }else if($order->step != '2'){?>
+                              <td class="">
+                                <p class="sales-date text-center"><?=str_replace("-", ".", substr($order->created_at, 0, 10))?></p>
+                                <p class="sales-number text-center">
+                                  <a href="#" data-toggle="modal" data-target="#order-detail-modal"><?=$order->order_no?></a>
+                                </p>
+                              </td>
+                          <?php }
+                          ?>
+                          <td style="width:110px;">
+                            <div class="thumbnail-img">
+                              <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
+                                <img class="product-img" src="http://api.siyeol.com/<?=$goods->goods_image?>" alt="" />
+                              </a>
+                            </div>
+                          </td>
+                          <td class="title">
+                            <div class="title-group">
+                              <p><a href="#"><p><a href="#"><?=$goods->title?></a></p></a></p>
+                              <?php
+                              if ($item->option_name) {
+                              ?>
+                              <p>
+                                <span class="label">옵션 : </span>
+                                <span class="label-content"><?=$item->option_name?></span>
+                              </p>
+                              <?php
                               }
                               ?>
-
-                            </td>
-                            <td class="price"><?=number_format($order->total_price)?>원</td>
-                            <td class="state text-center">
-                                <?php
-                                $state = $i % 9;
-                                $str_state = "";
-                                switch ($state) {
-                                  case 0:
-                                    $str_state = "상품준비중";
-                                    break;
-                                  case 1:
-                                    $str_state = "배송준비중";
-                                    break;
-                                  case 2:
-                                    $str_state = "배송중";
-                                    break;
-                                  case 3:
-                                    $str_state = "배송완료";
-                                    break;
-                                  case 4:
-                                    $str_state = "주문완료";
-                                    break;
-                                  case 5:
-                                    $str_state = "주문취소요청";
-                                    break;
-                                  case 6:
-                                    $str_state = "주문취소완료";
-                                    break;
-                                  case 7:
-                                    $str_state = "반품요청";
-                                    break;
-                                  case 8:
-                                    $str_state = "반품완료";
-                                    break;
-                                }
-
-
-                                if($state < 5){
-
-                                  echo $str_state;
-
-                                  ?>
-
-                                  <?php
-                                }else if($state == 7){?>
-                                  <button type="button" name="button" class="btn-sm btn-peach btn-request-return" data-toggle="modal" data-target="#request-return-modal">
-                                    반품요청
-                                  </button>
-                                <?
-                              }else if($state == 8){
-                                ?>
-                                <button type="button" name="button" class="btn-sm btn-peach btn-complete-return" data-toggle="modal" data-target="#complete-return-modal">
-                                  반품완료
-                                </button>
-                                <?php
-                              }else{
-                                ?>
-                                <?=$str_state?>
-                                <p class="text-center">
-                                  <!-- 결제 모듈로 이동, 결제 취소하기 위함 -->
-                                  <button class="btn btn-sm btn-peach"type="button" name="btn-cancel-order">결제취소</button>
-                                </p>
-                                <?php
-                              }
-                                ?>
+                              <p>
+                                <span class="label">수량 : </span>
+                                <span class="label-conent">
+                                  <?=$item->ea?>
+                                </span>
+                              </p>
+                            </div>
                           </td>
+                          <td class="price"><?=number_format($order->total_price)?>원</td>
+                          <td class="state text-center">
+                              <?php
+                              $state = $i % 9;
+                              $str_state = "";
+                              switch ($state) {
+                                case 0:
+                                  $str_state = "상품준비중";
+                                  break;
+                                case 1:
+                                  $str_state = "배송준비중";
+                                  break;
+                                case 2:
+                                  $str_state = "배송중";
+                                  break;
+                                case 3:
+                                  $str_state = "배송완료";
+                                  break;
+                                case 4:
+                                  $str_state = "주문완료";
+                                  break;
+                                case 5:
+                                  $str_state = "주문취소요청";
+                                  break;
+                                case 6:
+                                  $str_state = "주문취소완료";
+                                  break;
+                                case 7:
+                                  $str_state = "반품요청";
+                                  break;
+                                case 8:
+                                  $str_state = "반품완료";
+                                  break;
+                              }
+
+
+                              if($state < 5){
+
+                                echo $str_state;
+
+                                ?>
+
+                                <?php
+                              }else if($state == 7){?>
+                                <button type="button" name="button" class="btn-sm btn-peach btn-request-return" data-toggle="modal" data-target="#request-return-modal">
+                                  반품요청
+                                </button>
+                              <?
+                            }else if($state == 8){
+                              ?>
+                              <button type="button" name="button" class="btn-sm btn-peach btn-complete-return" data-toggle="modal" data-target="#complete-return-modal">
+                                반품완료
+                              </button>
+                              <?php
+                            }else{
+                              ?>
+                              <?=$str_state?>
+                              <p class="text-center">
+                                <!-- 결제 모듈로 이동, 결제 취소하기 위함 -->
+                                <button class="btn btn-sm btn-peach"type="button" name="btn-cancel-order">결제취소</button>
+                              </p>
+                              <?php
+                            }
+                              ?>
                           </tr>
-                      <?php
+                        </tr>
+                          <?php
+                        }
                       }
-                      ?>
+                        ?>
                     </tbody>
                   </table>
                   <!-- Modal -->
