@@ -34,9 +34,9 @@
     </ul>
 
     <div class="btn-custom-group" role="group" >
-      <button type="button" class="btn btn-sm btn-default">일간</button>
-      <button type="button" class="btn btn-sm btn-default">주간</button>
-      <button type="button" class="btn btn-sm btn-default">월간</button>
+      <button type="button" class="btn btn-sm btn-default btn-daily">일간</button>
+      <button type="button" class="btn btn-sm btn-default btn-weekly">주간</button>
+      <button type="button" class="btn btn-sm btn-default btn-monthly">월간</button>
     </div>
     <div class="chart-container" style="width:900px;">
       <canvas id="sales-chart" width="100%"></canvas>
