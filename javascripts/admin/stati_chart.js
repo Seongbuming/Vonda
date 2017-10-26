@@ -140,6 +140,10 @@ var sales_total_count = 0;
 var sales_total_price = 0;
 
   $('.btn-daily').on('click',function () {
+    test();
+  });
+
+  function test() {
     type = "daily";
     var data = getData("daily");
 
@@ -169,7 +173,7 @@ var sales_total_price = 0;
     chart_sales.data.labels = test_label;
     chart_sales.data.datasets[0].data = test_data;
     chart_sales.update();
-  });
+  }
 
   $('.btn-weekly').on('click',function () {
     type = "weekly";
@@ -211,6 +215,36 @@ var sales_total_price = 0;
     type = "monthly";
     var data = getData("monthly");
     console.log(type,data);
+
+    //이번주부터 , 총 8주
+    var calendar = getMonthlyDate();
+    console.log(type,data);
+    console.log(calendar);
+
+    var test_label =[];
+    var test_data = [];
+
+    $.each(calendar, function (key, value) {
+        test_label.push(value+"월");
+
+        if(data.length){
+          if(data[data.length -1].month == value){
+            test_data.push(data[data.length -1].total_count);
+            data.pop();
+          }else{
+            test_data.push(0);
+          }
+        }else{
+          test_data.push(0);
+        }
+    });
+
+    console.log(test_data);
+    console.log(test_label);
+
+    chart_sales.data.labels = test_label;
+    chart_sales.data.datasets[0].data = test_data;
+    chart_sales.update();
 
   });
 
@@ -298,6 +332,24 @@ var sales_total_price = 0;
       var term = index == 7 ? 0 : 7;
       today.setDate(today.getDate() - term );
     	range.push(getDateStr(today));
+    }
+    //최근부터 과거순 정렬
+    return range;
+  }
+
+  function getMonthlyDate() {
+    var today = new Date();
+    var month = today.getMonth();
+
+    var range = [];
+
+    for(var i = 1; i<= 12; i++){
+      if(++month <=12){
+        range.push(month);
+      }else{
+        month = 1;
+        range.push(month);
+      }
     }
     //최근부터 과거순 정렬
     return range;
