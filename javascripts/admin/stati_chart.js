@@ -217,10 +217,6 @@ function getDaysInMonth(month, year) {
 // 	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
 // }
 
-function getDateStr(myDate){
-	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
-}
-
 /* 오늘 날짜를 문자열로 반환 */
 function today() {
   var d = new Date();
@@ -243,7 +239,7 @@ function lastMonth() {
   return getDateStr(d);
 }
 
-function test(){
+function getDailyDate(){
   var today = new Date();
   var monthOfYear = today.getMonth();
 
@@ -253,6 +249,6 @@ function test(){
 
   var range = [];
   do{
-  	range.push(getDateStr(target));
+  	range.push(target.getDate());
   }while( target.setDate(target.getDate() + 1) != today.getTime());
 }
