@@ -132,6 +132,24 @@ $(document).ready(function() {
     });
   }
 
+
+var type = '';
+
+  $('.btn-daily').on('click',function () {
+    type = "daily";
+    getData("daily");
+  });
+
+  $('.btn-weekly').on('click',function () {
+    type = "weekly";
+    getData("weekly");
+  });
+
+  $('.btn-monthly').on('click',function () {
+    type = "monthly";
+    getData("monthly");
+  });
+
   if(valid_sales !== null){
     var ctx_sales = valid_sales.getContext("2d");
 
@@ -154,3 +172,43 @@ $(document).ready(function() {
     });
   }
 });
+
+function getData(type){
+  var href = window.location.href;
+  var page = href.substring(href.lastIndexOf("/")+1,href.indexOf(".php"));
+
+  $.ajax({
+    type: "GET",
+    url: "http://api.siyeol.com/"+page+"/statics?token="+ readCookie('token'),
+    dataType: "json",
+    data: {},
+    success: function (res) {
+      if (res.code == 200) {
+        console.log(res[type]);
+
+        // $.each( res.data.data, function (key, value) {
+          // });
+
+      }
+    },
+    error: function (err) {
+      alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+    }
+
+  });
+}
+
+/**
+ * @param {int} The month number, 0 based
+ * @param {int} The year, not zero based, required to account for leap years
+ * @return {Date[]} List with date objects for each day of the month
+ */
+function getDaysInMonth(month, year) {
+     var date = new Date(year, month, 1);
+     var days = [];
+     while (date.getMonth() === month) {
+        days.push(new Date(date));
+        date.setDate(date.getDate() + 1);
+     }
+     return days;
+}
