@@ -175,3 +175,12 @@ textarea {
   color: #797979;
   padding-right: 35px;
 }
+.user_add_answer .btn-finish:hover,
+.user_add_answer .btn-cancel:hover,
+.add_answer_link:hover,
+.user_add_answer .btn-finish:focus,
+.user_add_answer .btn-cancel:focus,
+.add_answer_link:focus
+{
+  cursor: pointer;
+}

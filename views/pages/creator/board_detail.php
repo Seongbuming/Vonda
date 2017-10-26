@@ -53,8 +53,9 @@ if (isset($_GET['id'])) {
             <textarea cols="154" rows="5" placeholder="댓글을 입력해주세요."></textarea>
             <button class="comment_submit">댓글 등록</button>
         </div>
-
+        <input type="hidden" id="board-nickname"name="name" value="<?=$board->nickname?>">
         <div id="refresh-data">
+
           <?php
               foreach ($comments as $comment) {
               ?>
@@ -65,7 +66,7 @@ if (isset($_GET['id'])) {
                               <td class="author"><?=$comment->user->account?></td>
                               <td class="subject" style="font-weight:normal">
                                 <?=$comment->comment?>
-                              <a href="#" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
+                              <a id="<?="link_".$comment->id?>" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
                             </td>
                               <td class="time"><?=substr($comment->created_at, 0, 16)?></td>
                           </tr>
@@ -90,12 +91,13 @@ if (isset($_GET['id'])) {
                       <?php
                   }else {
                     ?>
-                    <div class="user_add_answer">
+                    <div id="<?="comment_".$comment->id?>" class="user_add_answer" style="display:none;">
                       <div class="comment">
+                          <input type="hidden" name="name" value="<?=$comment->id?>">
                           <span class="operator_comment">ㄴ</span>
                           <textarea cols="130" rows="5" placeholder="답글달기"></textarea>
-                          <a href="#" class="btn-finish">작성완료</a>
-                          <a href="#" class="btn-cancel">취소</a>
+                          <a class="btn-finish">작성완료</a>
+                          <a class="btn-cancel">취소</a>
                       </div>
                     </div>
                     <?php
