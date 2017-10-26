@@ -164,7 +164,7 @@ $orders = $response->datas->data;
                                   <p class="text-center">
                                     주문취소요청<br>
                                     <!-- 결제 모듈로 이동, 결제 취소하기 위함 -->
-                                    <button class="btn btn-sm btn-peach"type="button" name="btn-cancel-order">결제취소</button>
+                                    <button class="btn btn-sm btn-peach btn-cancel-order" type="button" name="btn-cancel-order">결제취소</button>
                                   </p>
                                   <?php
                                   }

@@ -26,6 +26,34 @@ $(document).ready(function() {
     }
   });
 
+  $('.btn-cancel-order').click(function() {
+    var is_confirmed = confirm("반품 요청을 승인하시겠습니까?\n"+
+                            "확인을 누르면 결제모듈로 이동해서 결제취소를 진행합니다.");
+
+    if(is_confirmed){
+      var order_no = $(this).parent().parent().parent().find("a").first().text();
+
+      //상태 변경 data 업데이트
+      $.ajax({
+        type: "POST",
+        url: "http://api.siyeol.com/admin/order/"+order_no+"/cancel?token="+readCookie('token'),
+        dataType: "json",
+        async: false,
+        success: function (res) {
+          if (res.code != 200) {
+            alert(res.message);
+          } else {
+            alert("결제 취소가 완료되었습니다.");
+            location.reload();
+          }
+        },
+        error: function (err) {
+          alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        }
+      });
+    }
+  });
+
   $(document).on('click','.btn-request-return',function () {
     var parent = $(this).parent().parent()
     var size = $(parent).find("td").attr("rowspan");
