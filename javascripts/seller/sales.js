@@ -184,12 +184,29 @@ $(document).ready(function() {
   });
 
   $(document).on('change','.select-status',function(){
+    var order_no = $(this).data("order_no");
+    var order_item_id = $(this).data("order_item_id");
+    var step = $(this).val();
+
+    $.ajax({
+        type: "POST",
+        url: "http://api.siyeol.com/seller/order/"+order_no+"/"+order_item_id+"/"+step+"?token=" + readCookie('token'),
+        data: {_method:'PUT'},
+        success: function (res) {
+            alert(res.message);
+            location.reload();
+        },
+        error: function (err) {
+            alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        }
+    });
+    /*
     var delevery_complete_step_code = '40';
     if($(this).val() == delevery_complete_step_code){
       $(this).addClass('selected-complete-delivery');
     }else{
       $(this).removeClass('selected-complete-delivery');
-    }
+    }*/
   });
 
   //반품 요청 modal

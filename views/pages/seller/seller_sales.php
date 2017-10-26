@@ -88,15 +88,17 @@ $orders = $response->datas;
                                 } else if ($order->cancel) {
                                     echo "주문취소";
                                 }
+                            } else if (intval($item->step) == 25) {
+                                echo "배송중";
                             } else if(intval($item->step) < 40){
 
                                 ?>
-                                <select class="" name="" style="background-color:#e69a83;">
-
-                                  <option <?= $item->step == '20' ? "selected" : ""?>>주문완료</option>
-                                  <option <?= $item->step == '10' ? "selected" : ""?>>배송준비중</option>
-                                  <option <?= $item->step == '25' ? "selected" : ""?>>배송중</option>
-                                  <option <?= $item->step == '30' ? "selected" : ""?>>배송완료</option>
+                                <select class="select-status" name="" style="background-color:#e69a83;" data-order_no="<?=$order->order_no?>" data-order_item_id="<?=$item->order_item_id?>">
+                                  <option <?= $item->step == '1' ? "selected" : ""?> value="1">주문완료</option> 
+                                  <option <?= $item->step == '10' ? "selected" : ""?> value="10">상품준비중</option>
+                                  <option <?= $item->step == '20' ? "selected" : ""?> value="20">배송준비중</option>
+                                  <!-- <option <?= $item->step == '25' ? "selected" : ""?>>배송중</ option> -->
+                                  <option <?= $item->step == '30' ? "selected" : ""?> value="30">배송완료</option>
                                 </select>
                                 <?php
                               }else{
