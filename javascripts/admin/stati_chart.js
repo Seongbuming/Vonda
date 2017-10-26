@@ -180,30 +180,30 @@ var sales_total_price = 0;
     console.log(type,data);
     console.log(calendar);
 
-    // var test_label =[];
-    // var test_data = [];
-    //
-    // $.each(calendar, function (key, value) {
-    //     test_label.push(value);
-    //
-    //     if(data.length){
-    //       if(data[data.length -1].day == value){
-    //         test_data.push(data[data.length -1].total_count);
-    //         data.pop();
-    //       }else{
-    //         test_data.push(0);
-    //       }
-    //     }else{
-    //       test_data.push(0);
-    //     }
-    // });
-    //
-    // console.log(test_data);
-    // console.log(test_label);
-    //
-    // chart_sales.data.labels = test_label;
-    // chart_sales.data.datasets[0].data = test_data;
-    // chart_sales.update();
+    var test_label =[];
+    var test_data = [];
+
+    $.each(calendar, function (key, value) {
+        test_label.push(value);
+
+        if(data.length){
+          if(data[data.length -1].week == key){
+            test_data.push(data[data.length -1].total_count);
+            data.pop();
+          }else{
+            test_data.push(0);
+          }
+        }else{
+          test_data.push(0);
+        }
+    });
+
+    console.log(test_data);
+    console.log(test_label);
+
+    chart_sales.data.labels = test_label;
+    chart_sales.data.datasets[0].data = test_data;
+    chart_sales.update();
 
   });
 
