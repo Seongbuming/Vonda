@@ -24,7 +24,7 @@ $reviews = $response->datas->data;
     <div id="contents">
       <h3 class="category">Q&amp;A</h3>
 
-      <table id="table-qna" class="board review">
+      <table id="table-qna" class="board">
           <thead>
             <th>
               작성일자/문의번호
@@ -51,11 +51,21 @@ $reviews = $response->datas->data;
                     <td class="type">Q.</td>
                     <td class="result" colspan="3"><?=$qna->content?></td>
                 </tr>
+                <?php
+                if ($qna->answer) {
+                ?>
+                <tr class="row_post">
+                    <td class="type">A.</td>
+                    <td class="result" colspan="3"><?=$qna->answer?></td>
+                </tr>
+                <?php
+                }
+                ?>
                 <tr class="row_post">
                   <td class="type">
                   </td>
                   <td class="result">
-                    <div class="comment">
+                    <div class="comment" data-id="<?=$qna->id?>">
                         <textarea cols="125" rows="5" placeholder="답변을 입력해주세요."></textarea>
                         <button class="comment_submit">답변 등록</button>
                     </div>

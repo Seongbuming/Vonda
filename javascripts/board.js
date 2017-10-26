@@ -56,6 +56,36 @@ $(document).ready(function() {
 
     });
 
+    $("#table-qna .comment_submit").click(function() {
+      var id = $(this).parent().data("id");
+      var answer = $(this).parent().find("textarea").val();
+
+      if (answer == "") {
+        alert("답변을 입력 해 주세요.");
+        return false;
+      }
+
+      $.ajax({
+        type: "POST",
+        url: "http://api.siyeol.com/seller/goods/qna/"+id+"?token="+readCookie('token'),
+        dataType: "json",
+        data: {'answer':answer},
+        success: function (res) {
+          if (res.code == 200) {
+              alert("성공적으로 문의 답글을 작성하였습니다.");
+              location.reload();
+          } else {
+              // 답글 달기 실패
+              alert(res.message);
+          }
+        },
+        error: function (err) {
+          alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        }
+      });
+
+    });
+
     $("table.board .row_subject").click(openPost);
 
     $('.pager .left').on('click',function () {
