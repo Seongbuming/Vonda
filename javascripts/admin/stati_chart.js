@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   var data_creator = [];
   var creator_label = [];
-  var data_sales = [];
+  // var data_sales = [];
   var data_sales_label = [];
 
   $(".chart-item-value").each(function (){
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   //var data_creator = [79, 71, 25, 23, 2];
   var data_product= [2,25,79,25,71];
-  //var data_sales = [0,9,10,2,25,79,25,71,79, 71];
+  var data_sales = [0,9,10,2,25,79,25,71,79, 71];
 
   var valid_creator = document.getElementById("creator-chart");
   var valid_sales = document.getElementById("sales-chart");
@@ -207,8 +207,52 @@ function getDaysInMonth(month, year) {
      var date = new Date(year, month, 1);
      var days = [];
      while (date.getMonth() === month) {
-        days.push(new Date(date));
+        days.push(date.getDate());
         date.setDate(date.getDate() + 1);
      }
      return days;
+}
+
+// function getDateStr(myDate){
+// 	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
+// }
+
+function getDateStr(myDate){
+	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
+}
+
+/* 오늘 날짜를 문자열로 반환 */
+function today() {
+  var d = new Date();
+  return getDateStr(d);
+}
+
+/* 오늘로부터 1주일전 날짜 반환 */
+function lastWeek() {
+  var d = new Date();
+  var dayOfMonth = d.getDate();
+  d.setDate(dayOfMonth - 7);
+  return getDateStr(d);
+}
+
+/* 오늘로부터 1개월전 날짜 반환 */
+function lastMonth() {
+  var d = new Date();
+  var monthOfYear = d.getMonth();
+  d.setMonth(monthOfYear - 1);
+  return getDateStr(d);
+}
+
+function test(){
+  var today = new Date();
+  var monthOfYear = today.getMonth();
+
+  //한달 전 날짜.
+  var target = new Date();
+  target.setMonth(monthOfYear - 1);
+
+  var range = [];
+  do{
+  	range.push(getDateStr(target));
+  }while( target.setDate(target.getDate() + 1) != today.getTime());
 }
