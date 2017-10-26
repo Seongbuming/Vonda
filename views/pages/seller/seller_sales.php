@@ -88,7 +88,19 @@ $orders = $response->datas;
                                 } else if ($order->cancel) {
                                     echo "주문취소";
                                 }
-                            } else {
+                            } else if(intval($item->step) < 40){
+
+                                ?>
+                                <select class="" name="" style="background-color:#e69a83;">
+
+                                  <option <?= $item->step == '20' ? "selected" : ""?>>주문완료</option>
+                                  <option <?= $item->step == '10' ? "selected" : ""?>>배송준비중</option>
+                                  <option <?= $item->step == '25' ? "selected" : ""?>>배송중</option>
+                                  <option <?= $item->step == '30' ? "selected" : ""?>>배송완료</option>
+                                </select>
+                                <?php
+                              }else{
+
                                 switch ($item->step) {
                                     case '1':
                                         echo "결제완료";
@@ -119,7 +131,7 @@ $orders = $response->datas;
                         <?php
                     }
                 }
-                ?>  
+                ?>
                 <tr>
                     <td class="date_id" rowspan="2">
                         <p class="date">2017.09.10</p>
