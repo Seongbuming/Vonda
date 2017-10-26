@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   var data_creator = [];
   var creator_label = [];
-  var data_sales = [];
+  // var data_sales = [];
   var data_sales_label = [];
 
   $(".chart-item-value").each(function (){
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   //var data_creator = [79, 71, 25, 23, 2];
   var data_product= [2,25,79,25,71];
-  //var data_sales = [0,9,10,2,25,79,25,71,79, 71];
+  var data_sales = [0,9,10,2,25,79,25,71,79, 71];
 
   var valid_creator = document.getElementById("creator-chart");
   var valid_sales = document.getElementById("sales-chart");
@@ -198,17 +198,41 @@ function getData(type){
   });
 }
 
-/**
- * @param {int} The month number, 0 based
- * @param {int} The year, not zero based, required to account for leap years
- * @return {Date[]} List with date objects for each day of the month
- */
-function getDaysInMonth(month, year) {
-     var date = new Date(year, month, 1);
-     var days = [];
-     while (date.getMonth() === month) {
-        days.push(new Date(date));
-        date.setDate(date.getDate() + 1);
-     }
-     return days;
+function getDateStr(myDate){
+	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
+}
+
+function getDailyDate() {
+  var today = new Date();
+  var monthOfYear = today.getMonth();
+
+  //한달 전 날짜.
+  var target = new Date();
+  target.setMonth(monthOfYear - 1);
+
+  var range = [];
+  do{
+    range.push(today.getDate());
+  }while( today.setDate(today.getDate() - 1) != target.getTime());
+
+  //최근부터 과거순 정렬
+  return range;
+}
+
+function getWeeklyDate() {
+  var today = new Date();
+  var monthOfYear = today.getMonth();
+
+  var range = [];
+  //최근으로부터 2달 전까지라서, 8주로 잡음.
+  var index = 8;
+
+  while( index -- ){
+    //일주일전
+    var term = index == 7 ? 0 : 7;
+    today.setDate(today.getDate() - term );
+  	range.push(getDateStr(today));
+  }
+  //최근부터 과거순 정렬
+  return range;
 }
