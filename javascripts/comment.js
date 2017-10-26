@@ -13,6 +13,7 @@ $(document).ready(function() {
   //답글 취소
   $(document).on('click', '.btn-cancel',function() {
       $(this).parent().parent().toggle("slow");
+      $(this).siblings('textarea').val('');
     });
 
   //답글 작성완료

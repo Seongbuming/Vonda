@@ -161,6 +161,8 @@ textarea {
   display: inline-block;
   vertical-align: top;
   margin-top: 12px;
+  margin-right: 6px;
+  color: #ddd;
 }
 .user_add_answer .btn-finish,
 .user_add_answer .btn-cancel{
@@ -169,11 +171,11 @@ textarea {
 }
 .user_add_answer .btn-finish{
   color: #e69a83;
-  padding: 0 35px;
+  padding: 0 33px;
 }
 .user_add_answer .btn-cancel{
   color: #797979;
-  padding-right: 35px;
+  padding-right: 33px;
 }
 .user_add_answer .btn-finish:hover,
 .user_add_answer .btn-cancel:hover,
