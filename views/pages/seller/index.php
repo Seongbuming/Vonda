@@ -64,12 +64,12 @@ $statics = $res->datas->statics;
         <li style="color:#52CC5D">
             <i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i>
             <span class="chart-item-label">총 매출</span>
-            <span class="chart-item-value"><?=number_format($summary->total_price)?>원</span>
+            <span id="sales-total-price"class="chart-item-value"><?=number_format($summary->total_price)?>원</span>
         </li>
         <li style="color:black">
             <i class="glyphicon glyphicon-stop"></i>
             <span class="chart-item-label">총 주문건수</span>
-            <span class="chart-item-value"><?=number_format($summary->total_count)?>건</span>
+            <span id="sales-total-count"class="chart-item-value"><?=number_format($summary->total_count)?>건</span>
         </li>
         <li style="color:black">
             <i class="glyphicon glyphicon-stop"></i>

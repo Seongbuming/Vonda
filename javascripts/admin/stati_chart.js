@@ -136,8 +136,7 @@ $(document).ready(function() {
 
 
 var type = '';
-var sales_total_count = 0;
-var sales_total_price = 0;
+
 
 
   $('.btn-daily').on('click',function () {
@@ -269,12 +268,16 @@ var sales_total_price = 0;
       async: false,
       success: function (res, aJaxtatus) {
         if (res.code == 200) {
-
+          var sales_total_count = 0;
+          var sales_total_price = 0;
+          
           $.each(res[type],function (key, value) {
             sales_total_count += value.total_count * 1;
             sales_total_price += value.total_price * 1;
           });
 
+          $('#sales-total-price').text(numberWithCommas(sales_total_price)+"원");
+          $('#sales-total-count').text(sales_total_count+"건");
           data = res[type];
         }
       },
@@ -343,3 +346,8 @@ var sales_total_price = 0;
   }
 
 });
+
+// 돈콤마 정규식
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

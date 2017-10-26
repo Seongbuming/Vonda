@@ -45,19 +45,23 @@ $goods_statics = $response->datas;
                   <h4 class="admin-header-gray">전체 매출</h4>
                   <div class="graph-container">
                     <div class="btn-group" role="group" >
-                      <button type="button" class="btn btn-sm btn-default">일간</button>
-                      <button type="button" class="btn btn-sm btn-default">주간</button>
-                      <button type="button" class="btn btn-sm btn-default">월간</button>
+                      <button type="button" class="btn btn-sm btn-default btn-daily">일간</button>
+                      <button type="button" class="btn btn-sm btn-default btn-weekly">주간</button>
+                      <button type="button" class="btn btn-sm btn-default btn-monthly">월간</button>
                     </div>
                     <div class="chart-container" style="width:645px;">
                       <canvas id="sales-chart" width="100%"></canvas>
                     </div>
 
                     <ul class="chart-label ">
-                      <li style="color:#52CC5D"><i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span><span class="chart-item-value">9,069,000원</span></li>
-                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span><span class="chart-item-value">222건</span></li>
-                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span><span class="chart-item-value">9개</span></li>
-                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 크리에이터</span><span class="chart-item-value">11명</span></li>
+                      <li style="color:#52CC5D"><i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span>
+                        <span id="sales-total-price"class="chart-item-value">9,069,000원</span></li>
+                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span>
+                        <span id="sales-total-count"class="chart-item-value">222건</span></li>
+                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span>
+                        <span class="chart-item-value">9개</span></li>
+                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i>
+                        <span class="chart-item-label">현재 크리에이터</span><span class="chart-item-value">11명</span></li>
                     </ul>
                   </div>
                 </div>
@@ -240,7 +244,7 @@ $goods_statics = $response->datas;
                               <?php
                               }
                               ?>
-                              
+
                             </td>
                             <td class="creator"><?=number_format($goods->creator_count)?></td>
                             <td class="price"><?=number_format($goods->options[0]->price)?>원</td>

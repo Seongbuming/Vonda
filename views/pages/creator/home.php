@@ -45,10 +45,10 @@
     <ul class="chart-label ">
       <li style="color:#52CC5D">
         <i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span>
-        <span class="chart-item-value"><?=number_format($summary->total_price)?>원</span>
+        <span id="sales-total-price" class="chart-item-value"><?=number_format($summary->total_price)?>원</span>
       </li>
       <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span>
-        <span class="chart-item-value"><?=number_format($summary->total_ea)?>건</span>
+        <span id="sales_total_count"class="chart-item-value"><?=number_format($summary->total_ea)?>건</span>
       </li>
       <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span>
         <span class="chart-item-value"><?=number_format($summary->total_cnt)?>개</span>
