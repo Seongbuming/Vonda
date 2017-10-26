@@ -254,7 +254,7 @@ var sales_total_price = 0;
     });
 
     $('.btn-daily').trigger('click');
-    
+
   }
   function getData(type){
     var href = window.location.href;
