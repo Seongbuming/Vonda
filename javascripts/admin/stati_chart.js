@@ -213,33 +213,11 @@ function getDaysInMonth(month, year) {
      return days;
 }
 
-// function getDateStr(myDate){
-// 	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
-// }
-
-/* 오늘 날짜를 문자열로 반환 */
-function today() {
-  var d = new Date();
-  return getDateStr(d);
+function getDateStr(myDate){
+	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
 }
 
-/* 오늘로부터 1주일전 날짜 반환 */
-function lastWeek() {
-  var d = new Date();
-  var dayOfMonth = d.getDate();
-  d.setDate(dayOfMonth - 7);
-  return getDateStr(d);
-}
-
-/* 오늘로부터 1개월전 날짜 반환 */
-function lastMonth() {
-  var d = new Date();
-  var monthOfYear = d.getMonth();
-  d.setMonth(monthOfYear - 1);
-  return getDateStr(d);
-}
-
-function getDailyDate(){
+function getDailyDate() {
   var today = new Date();
   var monthOfYear = today.getMonth();
 
@@ -249,6 +227,27 @@ function getDailyDate(){
 
   var range = [];
   do{
-  	range.push(target.getDate());
-  }while( target.setDate(target.getDate() + 1) != today.getTime());
+    range.push(today.getDate());
+  }while( today.setDate(today.getDate() - 1) != target.getTime());
+
+  //최근부터 과거순 정렬
+  return range;
+}
+
+function getWeeklyDate() {
+  var today = new Date();
+  var monthOfYear = today.getMonth();
+
+  var range = [];
+  //최근으로부터 2달 전까지라서, 8주로 잡음.
+  var index = 8;
+
+  while( index -- ){
+    //일주일전
+    var term = index == 7 ? 0 : 7;
+    today.setDate(today.getDate() - term );
+  	range.push(getDateStr(today));
+  }
+  //최근부터 과거순 정렬
+  return range;
 }
