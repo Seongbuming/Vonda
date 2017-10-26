@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="stylesheets/seller/order_detail.css"/>
     <link rel="stylesheet" href="stylesheets/seller/sales.css"/>
 </head>
+<?php
+$request = new Http();
+$response = $request->request('GET', '/seller/orders?token='.$_COOKIE['token']);
 
+$orders = $response->datas;
+?>
 <body>
     <header>
         <?=$this->loadLayout("seller/header")?>
     </header>
 
     <div id="contents">
-		<div class="creatorCnt">총 주문 44건</div>
+		<div class="creatorCnt">총 주문 <?=number_format(sizeof($orders))?>건</div>
         <div class="period_select">
             <input id="today" name="period" type="radio" value="today" />
             <label for="today">오늘</label>
@@ -45,6 +50,76 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                foreach ($orders as $order) {
+                    foreach ($order->items as $item) {
+                        echo "<tr>";
+                        if ($item == $order->items[0]) {
+                        ?>
+                        <td class="date_id" rowspan="<?=sizeof($order->items)?>">
+                            <p class="date"><?=substr($order->created_at, 0, 10)?></p>
+                            <p class="id"><a href="#"><?=$order->order_no?></a></p>
+                        </td>
+                        <?php
+                        }
+                        ?>
+                        <td class="product">
+                            <div class="product_img">
+                                <img src="http://api.siyeol.com/<?=$item->goods_image?>" alt="상품사진" />
+                            </div>
+                            <div class="product_info">
+                                <p class="open product_detail"><?=$item->title?></p>
+                                <p>옵션: <span class="option"><?=$item->name?></span></p>
+                                <p>수량: <span class="amount"><?=$item->ea?></span></p>
+                            </div>
+                        </td>
+                        <td class="order_price">
+                            <p><?=number_format($item->price * $item->ea + $item->shipping_charge)?>원</p>
+                        </td>
+                        <td class="order_sell_status" >
+                            <?php
+                            if ($order->step == "2") {
+                                if ($order->return) {
+                                    if ($order->return->status == '1') {
+                                        echo '<button type="button" name="button" class="btn-complete-return">반품완료</button>';
+                                    } else {
+                                        echo '<button type="button" name="button" class="btn-complete-return">반품요청</button>';
+                                    }
+                                } else if ($order->cancel) {
+                                    echo "주문취소";
+                                }
+                            } else {
+                                switch ($item->step) {
+                                    case '1':
+                                        echo "결제완료";
+                                    break;
+                                    case '10':
+                                        echo "상품준비중";
+                                    break;
+                                    case '20':
+                                        echo "배송준비중";
+                                    break;
+                                    case "25":
+                                        echo "배송중";
+                                    break;
+                                    case "30":
+                                        echo "배송완료";
+                                    break;
+                                    case "40":
+                                        echo '<button type="button" name="button" class="btn-request-exchange">교환요청</button>';
+                                    break;
+                                    case "45":
+                                        echo '<button type="button" name="button" class="btn-complete-exchange">교환완료</button>';
+                                    break;
+                                }
+                            }
+                            ?>
+                        </td>
+                        </tr>
+                        <?php
+                    }
+                }
+                ?>  
                 <tr>
                     <td class="date_id" rowspan="2">
                         <p class="date">2017.09.10</p>
