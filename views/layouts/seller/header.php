@@ -6,7 +6,7 @@
 		</ul>
 		<ul class="menu menu_right">
 			<li><a href="./?page=login&type=logout">로그아웃</a></li>
-			<li><a href=".">마이페이지</a></li>
+			<li><a href="./seller.php?page=seller_mypage">마이페이지</a></li>
 		</ul>
 	</div>
 </div>
