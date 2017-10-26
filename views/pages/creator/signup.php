@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="acceptPS">개인정보취급방침에 동의합니다.</label>
 
             <div class="button_container">
-                <a class="goback" href=".?page=login">뒤로가기</a>
+                <a class="goback" href="creator.php?page=login">뒤로가기</a>
                 <input class="submit" type="submit" value="가입완료" />
             </div>
         </form>
