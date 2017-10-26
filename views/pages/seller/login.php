@@ -26,7 +26,7 @@
 
             <input type="submit" value="로그인" />
 
-            <a class="signup" href=".?page=seller_regist">회원가입</a>
+            <a class="signup" href="./seller.php?page=seller_regist">회원가입</a>
         </form>
     </div>
 

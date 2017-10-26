@@ -18,7 +18,7 @@
         <form class="signup_form">
             <div class="row">
                 <label for="id">아이디</label>
-                <input id="id" name="id" type="text" class="text" required />
+                <input id="id" name="account" type="text" class="text" required />
                 <p class="status">X</p>
                 <p class="status_message">hayefuk는 이미 사용중인 아이디입니다.</p>
             </div>
@@ -52,15 +52,15 @@
             </div>
 			<div class="row">
                 <label for="businessRegist">사업자등록증</label>
-                <input id="businessRegist" name="BusinessRegist" type="file" class="file" required />
+                <input id="businessRegist" name="business_certification" type="file" class="file" required />
             </div>
 			<div class="row">
                 <label for="bankBook">통장사본</label>
-                <input id="bankBook" name="BankBook" type="file" class="file" required />
+                <input id="bankBook" name="account_copy" type="file" class="file" required />
             </div>
 			<div class="row">
                 <label for="mailOrder">통신판매업신고증</label>
-                <input id="mailOrder" name="MailOrder business" type="file" class="file" required />
+                <input id="mailOrder" name="sell_certification" type="file" class="file" required />
             </div>
 
             <div class="terms">
@@ -127,5 +127,7 @@
     <footer>
         <?=$this->loadLayout("seller/footer")?>
     </footer>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/seller/join.js"></script>
 </body>
 </html>
