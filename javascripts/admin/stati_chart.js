@@ -142,13 +142,68 @@ var sales_total_price = 0;
   $('.btn-daily').on('click',function () {
     type = "daily";
     var data = getData("daily");
+
+    //오늘부터 한달 전 날짜까지.
+    var calendar = getDailyDate();
     console.log(type,data);
+    console.log(calendar);
+
+    var test_label =[];
+    var test_data = [];
+
+    $.each(calendar, function (key, value) {
+        test_label.push(value);
+
+        if(data.length){
+          if(data[data.length -1].day == value){
+            test_data.push(data[data.length -1].total_count);
+            data.pop();
+          }else{
+            test_data.push(0);
+          }
+        }else{
+          test_data.push(0);
+        }
+    });
+
+    chart_sales.data.labels = test_label;
+    chart_sales.data.datasets[0].data = test_data;
+    chart_sales.update();
   });
 
   $('.btn-weekly').on('click',function () {
     type = "weekly";
     var data = getData("weekly");
+
+    //이번주부터 , 총 8주
+    var calendar = getWeeklyDate();
     console.log(type,data);
+    console.log(calendar);
+
+    var test_label =[];
+    var test_data = [];
+
+    $.each(calendar, function (key, value) {
+        test_label.push(value);
+
+        if(data.length){
+          if(data[data.length -1].week == key){
+            test_data.push(data[data.length -1].total_count);
+            data.pop();
+          }else{
+            test_data.push(0);
+          }
+        }else{
+          test_data.push(0);
+        }
+    });
+
+    console.log(test_data);
+    console.log(test_label);
+
+    chart_sales.data.labels = test_label;
+    chart_sales.data.datasets[0].data = test_data;
+    chart_sales.update();
 
   });
 
@@ -195,8 +250,8 @@ var sales_total_price = 0;
         if (res.code == 200) {
 
           $.each(res[type],function (key, value) {
-            sales_total_count += value.total_count;
-            sales_total_price += value.total_price;
+            sales_total_count += value.total_count * 1;
+            sales_total_price += value.total_price * 1;
           });
 
           data = res[type];
