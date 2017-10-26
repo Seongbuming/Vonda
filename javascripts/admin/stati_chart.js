@@ -149,8 +149,6 @@ var sales_total_price = 0;
 
     //오늘부터 한달 전 날짜까지.
     var calendar = getDailyDate();
-    console.log(type,data);
-    console.log(calendar);
 
     var test_label =[];
     var test_data = [];
@@ -170,8 +168,8 @@ var sales_total_price = 0;
         }
     });
 
-    chart_sales.data.labels = test_label;
-    chart_sales.data.datasets[0].data = test_data;
+    chart_sales.data.labels = test_label.reverse();
+    chart_sales.data.datasets[0].data = test_data.reverse();
     chart_sales.update();
   }
 
@@ -181,8 +179,6 @@ var sales_total_price = 0;
 
     //이번주부터 , 총 8주
     var calendar = getWeeklyDate();
-    console.log(type,data);
-    console.log(calendar);
 
     var test_label =[];
     var test_data = [];
@@ -202,11 +198,8 @@ var sales_total_price = 0;
         }
     });
 
-    console.log(test_data);
-    console.log(test_label);
-
-    chart_sales.data.labels = test_label;
-    chart_sales.data.datasets[0].data = test_data;
+    chart_sales.data.labels = test_label.reverse();
+    chart_sales.data.datasets[0].data = test_data.reverse();
     chart_sales.update();
 
   });
@@ -214,12 +207,9 @@ var sales_total_price = 0;
   $('.btn-monthly').on('click',function () {
     type = "monthly";
     var data = getData("monthly");
-    console.log(type,data);
 
-    //이번주부터 , 총 8주
+    //이번달부터 , 1년간
     var calendar = getMonthlyDate();
-    console.log(type,data);
-    console.log(calendar);
 
     var test_label =[];
     var test_data = [];
@@ -239,11 +229,8 @@ var sales_total_price = 0;
         }
     });
 
-    console.log(test_data);
-    console.log(test_label);
-
-    chart_sales.data.labels = test_label;
-    chart_sales.data.datasets[0].data = test_data;
+    chart_sales.data.labels = test_label.reverse();
+    chart_sales.data.datasets[0].data = test_data.reverse();
     chart_sales.update();
 
   });
