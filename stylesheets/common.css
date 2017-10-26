@@ -446,7 +446,7 @@ select {
         -moz-border-radius:0px;
         -webkit-border-radius: 0px;
         border: none;
-        background-color: #e69a83;
+        /*background-color: #e69a83;*/
         font-size: 100%;
         border: 0;
         outline: 1px solid #e69a83;
