@@ -92,7 +92,7 @@ $reviews = $response->datas->data;
               <?php
               foreach ($reviews as $review) {
               ?>
-                <tr class="row_subject">
+                <tr class="row_subject" data-review_id="<?=$review->id?>">
                   <td class="time">
                         <p class="date"><?=substr($review->created_at, 0, 16)?></p>
                         <p class="id"><a href="."><?=$review->order_no?></a></p>
@@ -316,7 +316,7 @@ $reviews = $response->datas->data;
           </div>
       </div>
 
-        <div id="modal_review_detail" class="modal actived">
+        <div id="modal_review_detail" class="modal">
             <div class="close_section modal_close"></div>
             <div class="modal_body">
                 <button class="close_button modal_close">

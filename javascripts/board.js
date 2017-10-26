@@ -17,11 +17,43 @@ $(document).ready(function() {
 
     $("#table-review .row_subject").click(function (){
       var $modal = $("#modal_review_detail");
+      $modal.data("review_id", $(this).data("review_id"))
       $modal.find(".product").html($(this).find(".product").html());
       $modal.find(".order_price").html($(this).find(".order_price").html());
       $modal.find(".review_description").html($(this).find(".review_description").last().html());
 
       $modal.addClass('actived');
+    });
+
+    $("#modal_review_detail .submit").click(function (){
+      var $modal = $("#modal_review_detail");
+      var review_id = $modal.data("review_id");
+      var comment = $modal.find("textarea").val();
+
+      if (comment == "") {
+        alert("답변을 입력 해 주세요.");
+        return false;
+      }
+
+      $.ajax({
+        type: "POST",
+        url: "http://api.siyeol.com/seller/goods/review/"+review_id+"?token="+readCookie('token'),
+        dataType: "json",
+        data: {'answer':comment},
+        success: function (res) {
+          if (res.code == 200) {
+              alert("성공적으로 리뷰 답글을 작성하였습니다.");
+              location.reload();
+          } else {
+              // 답글 달기 실패
+              alert(res.message);
+          }
+        },
+        error: function (err) {
+          alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        }
+      });
+
     });
 
     $("table.board .row_subject").click(openPost);
