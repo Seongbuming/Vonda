@@ -19,9 +19,9 @@
 
 </head>
 <?php
-if (!isset($_COOKIE['token'])) {
-    echo "err";
-}
+$request = new Http();
+$response = $request->request('GET', '/admin/creator/rank?token='.$_COOKIE['token']);
+$creator_statics = $response->datas;
 ?>
 <body>
 
@@ -59,7 +59,7 @@ if (!isset($_COOKIE['token'])) {
                   </div>
                 </div>
 
-                <div id="creator-rank"class="content-panel">
+                <div id="creator-rank" class="content-panel">
                   <h4 class="admin-header-gray">크리에이터 매출 순위</h4>
                   <h5 class="admin-header-gray chart-from-to-date marginTop50">2017.08.21 ~ 2017.09.30</h5>
                   <div class="chart-container marginBottom50" style="width:645px;">
@@ -67,12 +67,20 @@ if (!isset($_COOKIE['token'])) {
                   </div>
 
                   <ul class="chart-label ">
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@ANOTHER A</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@reply</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@메종드드룸</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@Ditole</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@AMONG</span><span class="chart-item-value">9,069,000원</span></li>
+                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value total">
+                    <?php
+                    $total_price = 0;
+                    foreach ($creator_statics as $creator_static) {
+                      $total_price += $creator_static->total_price;
+                    }
+
+                    echo number_format($total_price);
+                    ?>원</span></li>
+                    <?php
+                    foreach ($creator_statics as $creator) {
+                      echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@'.$creator->nickname.'</span><span class="chart-item-value">'.number_format($creator->total_price).'원</span></li>';
+                    }
+                    ?>
                   </ul>
                   <a class="btn-open-content">
                     <h4 class="btn-inline text-peach">열기</h4>
@@ -89,32 +97,26 @@ if (!isset($_COOKIE['token'])) {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="creator-item">
-                          <th scope="row">1</th>
-                          <td >
-                            <div class="thumbnail-img">
-                              <img class="creator-img" src="images/creators/creator1.png" alt="" />
-                            </div>
-                          </td>
-                          <td class="creator-id">
-                            <p><a>@ANOTHER A</a></p>
-                          </td>
-                          <td class="count">56</td>
-                          <td class="total">2,326,000원</td>
-                        </tr>
-                        <tr class="creator-item">
-                          <th scope="row">2</th>
-                          <td >
-                            <div class="thumbnail-img">
-                              <img class="creator-img" src="images/creators/creator2.png" alt="" />
-                            </div>
-                          </td>
-                          <td class="creator-id">
-                            <p><a>@ANOTHER A</a></p>
-                          </td>
-                          <td class="count">56</td>
-                          <td class="total">2,326,000원</td>
-                        </tr>
+                        <?php
+                        foreach ($creator_statics as $creator_static) {
+                          $creator = $creator_static->creator;
+                        ?>
+                          <tr class="creator-item">
+                            <th scope="row"><?=$creator->id?></th>
+                            <td >
+                              <div class="thumbnail-img">
+                                <img class="creator-img" src="http://api.siyeol.com/<?=$creator->profile_image?>" alt="" />
+                              </div>
+                            </td>
+                            <td class="creator-id">
+                              <p><a>@<?=$creator->nickname?></a></p>
+                            </td>
+                            <td class="count"><?=number_format($creator->goods_count)?></td>
+                            <td class="total"><?=number_format($creator_static->total_price)?>원</td>
+                          </tr>
+                        <?php
+                        }
+                        ?>
                       </tbody>
                     </table>
 
