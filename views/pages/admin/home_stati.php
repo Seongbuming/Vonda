@@ -144,11 +144,11 @@ $goods_statics = $response->datas;
                 <div id="product-rank"class="content-panel">
                   <h4 class="admin-header-gray">상품 매출 순위</h4>
                   <h5 class="admin-header-gray chart-from-to-date marginTop50">2017.08.21 ~ 2017.09.30</h5>
-                  <div class="chart-container marginBottom50" style="width:645px;">
+                  <div class="chart-container marginBottom50" style="width:600px;">
                     <canvas id="product-chart" width="100%"></canvas>
                   </div>
 
-                  <ul class="chart-label ">
+                  <ul class="chart-label " style="width:280px">
                     <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value">
                       <?php
                       $total = 0;
@@ -161,7 +161,7 @@ $goods_statics = $response->datas;
                     </span></li>
                     <?php
                     foreach ($goods_statics as $goods_static) {
-                      echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">'.$goods_static->goods->title.'</span><span class="chart-item-value">'.number_format($goods_static->total_price).'원</span></li>';
+                      echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label" style="font-size:15px">'.$goods_static->goods->title.'</span><span class="chart-item-value">'.number_format($goods_static->total_price).'원</span></li>';
                     }
                     ?>
                   </ul>
