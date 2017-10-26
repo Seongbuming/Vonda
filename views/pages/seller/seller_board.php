@@ -97,45 +97,65 @@ $reviews = $response->datas->data;
                         <p class="date"><?=substr($review->created_at, 0, 16)?></p>
                         <p class="id"><a href="."><?=$review->order_no?></a></p>
                   </td>
-                    <td class="subject">
-                      <p class="product_name">
-                         <?=$review->goods->title?>
-                         <span class="review_state"><?=$review->answer ? "답변완료" : ""?></span>
-                      </p>
-                      <p class="review_description">
-                        <?=$review->content?>
-                        <?=$review->images ? '<img src="images/icons/camera.png" style="vertical-align:sub;"alt="카메라아이콘.png" />' : ''?>
-                      </p>
-
-                    </td>
-                    <td class="price"><?=number_format($review->info->total_price)?>원</td>
-                    <td class="state">
+                  <td class="subject">
+                    <p class="product_name">
+                       <?=$review->goods->title?>
+                       <span class="review_state"><?=$review->answer ? "답변완료" : ""?></span>
+                    </p>
+                    <p class="review_description">
+                      <?=$review->content?>
+                      <?=$review->images ? '<img src="images/icons/camera.png" style="vertical-align:sub;"alt="카메라아이콘.png" />' : ''?>
+                    </p>
+                  </td>
+                  <td class="price"><?=number_format($review->info->total_price)?>원</td>
+                  <td class="state">
+                    <?php
+                    switch ($review->info->step) {
+                        case '1':
+                            echo "결제완료";
+                        break;
+                        case '10':
+                            echo "상품준비중";
+                        break;
+                        case '20':
+                            echo "배송준비중";
+                        break;
+                        case "25":
+                            echo "배송중";
+                        break;
+                        case "30":
+                            echo "배송완료";
+                        break;
+                        case "40":
+                            echo '교환요청';
+                        break;
+                        case "45":
+                            echo '교환완료';
+                        break;
+                    }
+                    ?>
+                  </td>
+                  <td class="product" style="display: none">
+                    <div class="product_img">
+                      <img src="http://api.siyeol.com/<?=$review->goods->goods_image?>" alt="상품사진">
+                    </div>
+                    <div class="product_info">
+                      <p class="open product_detail"><?=$review->goods->title?></p>
+                      <p>옵션: <span class="option"><?=$review->info->name?></span></p>
+                      <p>수량 :<span class="amount"><?=$review->info->ea?></span></p>
+                    </div>
+                  </td>
+                  <td class="order_price" style="display: none;">
+                    <p><?=number_format($review->info->total_price)?>원</p>
+                  </td>
+                  <td class="review_description" style="display: none;">
+                      <?=$review->content?><br>
                       <?php
-                      switch ($review->info->step) {
-                          case '1':
-                              echo "결제완료";
-                          break;
-                          case '10':
-                              echo "상품준비중";
-                          break;
-                          case '20':
-                              echo "배송준비중";
-                          break;
-                          case "25":
-                              echo "배송중";
-                          break;
-                          case "30":
-                              echo "배송완료";
-                          break;
-                          case "40":
-                              echo '교환요청';
-                          break;
-                          case "45":
-                              echo '교환완료';
-                          break;
+                      foreach ($review->images as $image) {
+                        echo '<img src="http://api.siyeol.com/'.$image->file.'">';
                       }
                       ?>
-                    </td>
+                  </td>
                 </tr>
               <?php
               }

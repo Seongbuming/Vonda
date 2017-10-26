@@ -1,6 +1,6 @@
 $(document).ready(function() {
     function openPost(visible_) {
-        var display = display_ || "table-row";
+        var display = visible_ || "table-row";
 
         if ($(this).hasClass("row_subject")) {
             var opened = $(this).hasClass("opened");
@@ -14,6 +14,15 @@ $(document).ready(function() {
             openPost.call($next, display);
         }
     }
+
+    $("#table-review .row_subject").click(function (){
+      var $modal = $("#modal_review_detail");
+      $modal.find(".product").html($(this).find(".product").html());
+      $modal.find(".order_price").html($(this).find(".order_price").html());
+      $modal.find(".review_description").html($(this).find(".review_description").last().html());
+
+      $modal.addClass('actived');
+    });
 
     $("table.board .row_subject").click(openPost);
 
