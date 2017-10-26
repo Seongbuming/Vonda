@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     if(nickname.length > 0){
 
-      update_creator_info();
+      update_creator_info(nickname_str,introduce,profile_image,cover_image);
 
       // isVisible = '1'
       var selected = $('.item-checkbox:checked');
@@ -63,7 +63,7 @@ function update_creator_channel(channel,isVisible) {
         contentType: false,
         cache:false,
         success: function (res) {
-          console.log(res);
+          // console.log(res);
             // if (res.code == 200) {
             //   $('#modal_apply_finish').addClass("actived");
             // } else if (res.code == 401) {
@@ -76,7 +76,7 @@ function update_creator_channel(channel,isVisible) {
             // }
         },
         error: function (err) {
-          console.log(err);
+          // console.log(err);
             // alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
         }
       });
@@ -88,6 +88,8 @@ function update_creator_info(nickname,introduce,profile_image,cover_image) {
   var formData = new FormData();
   formData.append("nickname",nickname);
   formData.append("introduce",introduce);
+
+  console.log(nickname, introduce);
 
   var upload_profile_image = $('#creator-profile-upload');
   var upload_cover_image = $('#creator-bg-upload');
@@ -123,7 +125,7 @@ function update_creator_info(nickname,introduce,profile_image,cover_image) {
       contentType: false,
       cache:false,
       success: function (res) {
-        console.log(res.code);
+        console.log(res);
           if (res.code == 200) {
             location.reload();
           } else if (res.code == 401) {
