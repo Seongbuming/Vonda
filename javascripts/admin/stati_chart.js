@@ -6,6 +6,8 @@ $(document).ready(function() {
   // var data_sales = [];
   var data_sales_label = [];
 
+
+
   $(".chart-item-value").each(function (){
     if (!$(this).hasClass("total")) {
       creator_label.push($(this).parent().find(".chart-item-label").text());
@@ -13,14 +15,14 @@ $(document).ready(function() {
     }
   });
 
-  var month = 1;
-
-  $(".month_data").each(function (){
-    data_sales_label.push(month+"월");
-    data_sales.push($(this).val());
-
-    month++;
-  });
+  // var month = 1;
+  //
+  // $(".month_data").each(function (){
+  //   data_sales_label.push(month+"월");
+  //   data_sales.push($(this).val());
+  //
+  //   month++;
+  // });
 
   //var data_creator = [79, 71, 25, 23, 2];
   var data_product= [2,25,79,25,71];
@@ -134,20 +136,27 @@ $(document).ready(function() {
 
 
 var type = '';
+var sales_total_count = 0;
+var sales_total_price = 0;
 
   $('.btn-daily').on('click',function () {
     type = "daily";
-    getData("daily");
+    var data = getData("daily");
+    console.log(type,data);
   });
 
   $('.btn-weekly').on('click',function () {
     type = "weekly";
-    getData("weekly");
+    var data = getData("weekly");
+    console.log(type,data);
+
   });
 
   $('.btn-monthly').on('click',function () {
     type = "monthly";
-    getData("monthly");
+    var data = getData("monthly");
+    console.log(type,data);
+
   });
 
   if(valid_sales !== null){
@@ -171,68 +180,72 @@ var type = '';
       }
     });
   }
-});
+  function getData(type){
+    var href = window.location.href;
+    var page = href.substring(href.lastIndexOf("/")+1,href.indexOf(".php"));
+    var data = 0;
 
-function getData(type){
-  var href = window.location.href;
-  var page = href.substring(href.lastIndexOf("/")+1,href.indexOf(".php"));
+    $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com/"+page+"/statics?token="+ readCookie('token'),
+      dataType: "json",
+      data: {},
+      async: false,
+      success: function (res, aJaxtatus) {
+        if (res.code == 200) {
 
-  $.ajax({
-    type: "GET",
-    url: "http://api.siyeol.com/"+page+"/statics?token="+ readCookie('token'),
-    dataType: "json",
-    data: {},
-    success: function (res) {
-      if (res.code == 200) {
-        console.log(res[type]);
+          $.each(res[type],function (key, value) {
+            sales_total_count += value.total_count;
+            sales_total_price += value.total_price;
+          });
 
-        // $.each( res.data.data, function (key, value) {
-          // });
-
+          data = res[type];
+        }
+      },
+      error: function (err) {
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
       }
-    },
-    error: function (err) {
-      alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
-    }
-
-  });
-}
-
-function getDateStr(myDate){
-	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
-}
-
-function getDailyDate() {
-  var today = new Date();
-  var monthOfYear = today.getMonth();
-
-  //한달 전 날짜.
-  var target = new Date();
-  target.setMonth(monthOfYear - 1);
-
-  var range = [];
-  do{
-    range.push(today.getDate());
-  }while( today.setDate(today.getDate() - 1) != target.getTime());
-
-  //최근부터 과거순 정렬
-  return range;
-}
-
-function getWeeklyDate() {
-  var today = new Date();
-  var monthOfYear = today.getMonth();
-
-  var range = [];
-  //최근으로부터 2달 전까지라서, 8주로 잡음.
-  var index = 8;
-
-  while( index -- ){
-    //일주일전
-    var term = index == 7 ? 0 : 7;
-    today.setDate(today.getDate() - term );
-  	range.push(getDateStr(today));
+    });
+    return data;
   }
-  //최근부터 과거순 정렬
-  return range;
-}
+
+  function getDateStr(myDate){
+  	return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
+  }
+
+  function getDailyDate() {
+    var today = new Date();
+    var monthOfYear = today.getMonth();
+
+    //한달 전 날짜.
+    var target = new Date();
+    target.setMonth(monthOfYear - 1);
+
+    var range = [];
+    do{
+      range.push(today.getDate());
+    }while( today.setDate(today.getDate() - 1) != target.getTime());
+
+    //최근부터 과거순 정렬
+    return range;
+  }
+
+  function getWeeklyDate() {
+    var today = new Date();
+    var monthOfYear = today.getMonth();
+
+    var range = [];
+    //최근으로부터 2달 전까지라서, 8주로 잡음.
+    var index = 8;
+
+    while( index -- ){
+      //일주일전
+      var term = index == 7 ? 0 : 7;
+      today.setDate(today.getDate() - term );
+    	range.push(getDateStr(today));
+    }
+    //최근부터 과거순 정렬
+    return range;
+  }
+
+});
