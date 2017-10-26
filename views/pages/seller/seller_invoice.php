@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="stylesheets/client/orderlist.css" />
     <link rel="stylesheet" href="stylesheets/seller/invoice.css">
 </head>
-
+<?php
+$request = new Http();
+$response = $request->request('GET', '/seller/delivery?token='.$_COOKIE['token']);
+$invoces = $response->datas;
+?>
 <body>
     <header>
         <?=$this->loadLayout("seller/header")?>
@@ -34,58 +38,65 @@
             </div>
         </div>
 
-        <table id="table-invoice"class="productTable order_list noneMargin">
+        <table id="table-invoice" class="productTable order_list noneMargin">
             <thead>
                 <tr>
                     <th>주문일자/주문번호</th>
                     <th>택배사</th>
                     <th>송장번호</th>
-                    <th>발송일</th>
+                    <!-- <th>발송일</th> -->
                     <th>주문자</th>
                     <th>아이디</th>
                     <th>수취인</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="date_id" rowspan="2">
-                        <p class="date">2017.09.10</p>
-                        <p class="id"><a href=".">2018211119</a></p>
-                    </td>
-                    <td class="delivery_company">
-                      <select class="" name="" id="select_company">
-                        <option value="1">한진택배</option>
-                        <option value="2">현대택배</option>
-                        <option value="3">CJ대한통운택배</option>
-                        <option value="5">로젠택배</option>
-                        <option value="6">동부택배</option>
-                        <option value="7">우체국택배</option>
-                        <option value="8">직접입력</option>
-                      </select>
-                      <input type="text" name="input-delivery-company" value="" disabled="">
-                    </td>
-                    <td class="invoice_number">
-                      <input type="text" name="input-invoice-number" value="">
-                    </td>
-                    <td class="invoice_date">
-                      <div class="period_select">
-                          <div class="input_period">
-                              <input class="start" type="date" />
+                <?php
+                foreach ($invoces as $invoice) {
+                ?>
+                    <tr>
+                        <td class="date_id" rowspan="1">
+                            <p class="date"><?=substr($invoice->created_at, 0, 10)?></p>
+                            <p class="id"><a href="."><?=$invoice->order_no?></a></p>
+                        </td>
+                        <td class="delivery_company">
+                          <select class="select_company" name="" >
+                            <option value="한진택배">한진택배</option>
+                            <option value="현대택배">현대택배</option>
+                            <option value="CJ대한통운">CJ대한통운택배</option>
+                            <option value="로젠택배">로젠택배</option>
+                            <option value="동부택배">동부택배</option>
+                            <option value="우체국">우체국택배</option>
+                            <option value="8">직접입력</option>
+                          </select>
+                          <input type="text" class="direct_company" name="input-delivery-company" value="" disabled="">
+                        </td>
+                        <td class="invoice_number">
+                          <input type="text" name="input-invoice-number" value="">
+                        </td>
+                        <!--
+                        <td class="invoice_date">
+                          <div class="period_select">
+                              <div class="input_period">
+                                  <input class="start" type="date" />
+                              </div>
                           </div>
-                      </div>
-                    </td>
+                        </td>
+                    -->
 
-                    <td class="buyer_name">
-                        <p>진아영</p>
-                    </td>
-                    <td class="buyer_id">
-                        <p>hayefuk00000000</p>
-                    </td>
-                    <td class="reciever_name">
-                      진아영
-                    </td>
-                </tr>
-
+                        <td class="buyer_name">
+                            <p><?=$invoice->order_name?></p>
+                        </td>
+                        <td class="buyer_id">
+                            <p><?=$invoice->user_account?></p>
+                        </td>
+                        <td class="reciever_name">
+                          진아영
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
 
@@ -94,7 +105,7 @@
             <button class="right">▶</button>
         </div>
 
-        <button type="button" name="button" class="submit">제출</button>
+        <button type="button" name="button" class="submit" onclick="saveDelivery()">제출</button>
 
         <div id="modal_return" class="modal ">
             <div class="close_section modal_close"></div>

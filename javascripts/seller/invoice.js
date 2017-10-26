@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('#select_company').on('change', function() {
+  $('.select_company').on('change', function() {
     var inputDisabled = $(this).val() == 8 ? false : true;
       $(this).siblings('input').attr("disabled",inputDisabled);
   });
@@ -52,3 +52,47 @@ $(document).ready(function() {
   });
 
 });
+
+function saveDelivery()
+{
+  var err_count = 0;
+
+  $("#table-invoice").find("tbody tr").each(function() {
+    var order_no = $(this).find(".id").text();
+    var company_code = $(this).find(".select_company").val();
+    var post_number = $(this).find(".invoice_number input").val();
+
+    if (company_code == 8) {
+      company_code = $(this).find(".direct_company").val();
+    }
+
+    if (company_code != "" && post_number != "") {
+      console.log(order_no + " / " + company_code + " / " + post_number);
+      $.ajax({
+        type: "POST",
+        url: "http://api.siyeol.com/seller/delivery?token="+readCookie('token'),
+        dataType: "json",
+        async: false,
+        data: {'order_no': order_no, 'company': company_code, 'number': post_number},
+        success: function (res) {
+          if (res.code == 200) {
+              
+          } else {
+              err_count ++;
+          }
+        },
+        error: function (err) {
+          alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        }
+      });
+    }
+  });
+
+  if (err_count > 0) {
+    alert(err_count+"개의 송장등록에 오류가 발생하였습니다.");
+  } else {
+    alert("모든 송장 등록이 성공적으로 완료되었습니다.");
+  }
+
+  location.reload();
+}
