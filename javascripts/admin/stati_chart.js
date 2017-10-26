@@ -1,31 +1,11 @@
 $(document).ready(function() {
   var color_set = [  '#2FA5AB', '#718CB4',  '#69A17F','#CDC35D','#A8A8A8'];
 
-  var data_creator = [];
   var creator_label = [];
-  // var data_sales = [];
   var data_sales_label = [];
 
-
-
-  $(".chart-item-value").each(function (){
-    if (!$(this).hasClass("total")) {
-      creator_label.push($(this).parent().find(".chart-item-label").text());
-      data_creator.push($(this).attr("count"));
-    }
-  });
-
-  // var month = 1;
-  //
-  // $(".month_data").each(function (){
-  //   data_sales_label.push(month+"월");
-  //   data_sales.push($(this).val());
-  //
-  //   month++;
-  // });
-
-  //var data_creator = [79, 71, 25, 23, 2];
-  var data_product= [2,25,79,25,71];
+  var data_creator = [2, 0, 0, 0, 0];
+  var data_product= [1,2,0,0,0];
   var data_sales = [0,9,10,2,25,79,25,71,79, 71];
 
   var valid_creator = document.getElementById("creator-chart");
@@ -40,7 +20,7 @@ $(document).ready(function() {
       {
         type: 'horizontalBar',
         data: {
-          labels: creator_label,
+          labels: ["A", "B", "C", "D", "E"],
         datasets: [{
             label: '판매수',
             data: data_creator,
@@ -53,7 +33,14 @@ $(document).ready(function() {
             //hide labels 라벨 숨기기
             yAxes: [{
                display: false
-             }]
+             }],
+            xAxes: [{
+              ticks: {
+              min: 0,
+              // max: 6500,
+              stepSize: 10
+            }
+              }]
           },
           events: false,
           tooltips: {
@@ -103,7 +90,14 @@ $(document).ready(function() {
             //hide labels 라벨 숨기기
             yAxes: [{
                display: false
-             }]
+             }],
+             xAxes: [{
+               ticks: {
+               min: 0,
+               // max: 6500,
+               stepSize: 10
+             }
+               }]
           },
           events: false,
           tooltips: {
@@ -270,7 +264,7 @@ var type = '';
         if (res.code == 200) {
           var sales_total_count = 0;
           var sales_total_price = 0;
-          
+
           $.each(res[type],function (key, value) {
             sales_total_count += value.total_count * 1;
             sales_total_price += value.total_price * 1;
@@ -278,6 +272,12 @@ var type = '';
 
           $('#sales-total-price').text(numberWithCommas(sales_total_price)+"원");
           $('#sales-total-count').text(sales_total_count+"건");
+
+          if(page =="admin"){
+            $('#num-of-goods').text(res.goods_count+"개");
+            $('#num-of-creator').text(res.creator_count+"명");
+          }
+
           data = res[type];
         }
       },
