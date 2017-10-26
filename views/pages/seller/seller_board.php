@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="stylesheets/board.css">
     <link rel="stylesheet" href="stylesheets/seller/seller_board.css">
 </head>
+<?php
+$request = new Http();
+$response = $request->request('GET', '/seller/goods/qna?token='.$_COOKIE['token']);
+$qnas = $response->datas->data;
 
+$response = $request->request('GET', '/seller/goods/reviews?token='.$_COOKIE['token']);
+$reviews = $response->datas->data;
+?>
 <body>
     <header>
         <?=$this->loadLayout("seller/header")?>
@@ -20,39 +27,43 @@
       <table id="table-qna" class="board review">
           <thead>
             <th>
-              작성일자/주문번호
+              작성일자/문의번호
             </th>
             <th>
               상품명/문의내용
             </th>
           </thead>
           <tbody>
-              <tr class="row_subject">
-                  <td class="time">
-                        <p class="date">2017.08.22 13:20</p>
-                        <p class="id"><a href=".">2018211119</a></p>
+              <?php
+              foreach ($qnas as $qna) {
+              ?>
+                <tr class="row_subject">
+                    <td class="time">
+                          <p class="date"><?=substr($qna->created_at, 0, 16)?></p>
+                          <p class="id"><a href="."><?=$qna->id?></a></p>
+                    </td>
+                    <td class="subject">
+                      <span class="product_name"><?=$qna->goods->title?></span>
+                      <?=$qna->content?>
+                    </td>
+                </tr>
+                <tr class="row_post">
+                    <td class="type">Q.</td>
+                    <td class="result" colspan="3"><?=$qna->content?></td>
+                </tr>
+                <tr class="row_post">
+                  <td class="type">
                   </td>
-                  <td class="subject">
-                    <span class="product_name">베이직 라인 페니로퍼</span>
-                    저 6월 10일에 주문했는데... 언제 받아볼 수 있죠?
+                  <td class="result">
+                    <div class="comment">
+                        <textarea cols="125" rows="5" placeholder="답변을 입력해주세요."></textarea>
+                        <button class="comment_submit">답변 등록</button>
+                    </div>
                   </td>
-              </tr>
-              <tr class="row_post">
-                  <td class="type">Q.</td>
-                  <td class="result" colspan="3">저 6월 10일에 주문했는데... 언제 받아볼 수 있죠? 6월 11일 출고라고 했는데... 제가 6월 17일까지는 꼭 받아야해서ㅜㅜ
-                  </td>
-
-              </tr>
-              <tr class="row_post">
-                <td class="type">
-                </td>
-                <td class="result">
-                  <div class="comment">
-                      <textarea cols="125" rows="5" placeholder="답변을 입력해주세요."></textarea>
-                      <button class="comment_submit">답변 등록</button>
-                  </div>
-                </td>
-              </tr>
+                </tr>
+              <?php
+              }
+              ?>
           </tbody>
       </table>
       <div class="pager">
@@ -78,27 +89,57 @@
           </th>
         </thead>
           <tbody>
-              <tr class="row_subject">
-                <td class="time">
-                      <p class="date">2017.08.22 13:20</p>
-                      <p class="id"><a href=".">2018211119</a></p>
-                </td>
-                  <td class="subject">
-                    <p class="product_name">
-                       나이아신마이드
-                       <span class="review_state">답변완료</span>
-                    </p>
-                    <p class="review_description">
-                      제가 찍은 사진은..좀.. 안이쁘게 나왔지만 구두 너무너무 예뻐요~ 다른 상품평을 보고 구매했어요...
-                      <img src="images/icons/camera.png" style="vertical-align:sub;"alt="카메라아이콘.png" />
-                    </p>
+              <?php
+              foreach ($reviews as $review) {
+              ?>
+                <tr class="row_subject">
+                  <td class="time">
+                        <p class="date"><?=substr($review->created_at, 0, 16)?></p>
+                        <p class="id"><a href="."><?=$review->order_no?></a></p>
+                  </td>
+                    <td class="subject">
+                      <p class="product_name">
+                         <?=$review->goods->title?>
+                         <span class="review_state"><?=$review->answer ? "답변완료" : ""?></span>
+                      </p>
+                      <p class="review_description">
+                        <?=$review->content?>
+                        <?=$review->images ? '<img src="images/icons/camera.png" style="vertical-align:sub;"alt="카메라아이콘.png" />' : ''?>
+                      </p>
 
-                  </td>
-                  <td class="price">130,000원</td>
-                  <td class="state">
-                    배송완료
-                  </td>
-              </tr>
+                    </td>
+                    <td class="price"><?=number_format($review->info->total_price)?>원</td>
+                    <td class="state">
+                      <?php
+                      switch ($review->info->step) {
+                          case '1':
+                              echo "결제완료";
+                          break;
+                          case '10':
+                              echo "상품준비중";
+                          break;
+                          case '20':
+                              echo "배송준비중";
+                          break;
+                          case "25":
+                              echo "배송중";
+                          break;
+                          case "30":
+                              echo "배송완료";
+                          break;
+                          case "40":
+                              echo '교환요청';
+                          break;
+                          case "45":
+                              echo '교환완료';
+                          break;
+                      }
+                      ?>
+                    </td>
+                </tr>
+              <?php
+              }
+              ?>
           </tbody>
       </table>
       <div class="pager">
