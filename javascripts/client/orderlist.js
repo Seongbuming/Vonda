@@ -143,6 +143,79 @@ $(document).ready(function() {
         }
     });
 
+    // 구매후기 등록하기
+    $("#modal_review .submit").click(function() {
+        var $modal = $("#modal_review");
+        var item_id = $modal.find(".order_item_no").val();
+
+        var formData = new FormData();
+
+        formData.append("order_item_id", item_id);
+        formData.append("content", $modal.find("textarea").val());
+
+        var photo_index = 1;
+
+        $modal.find("input[type='file']").each(function() {
+            if ($(this).val() != "") {
+                formData.append("photo"+photo_index, $(this)[0].files[0]);
+                photo_index++;
+            }
+        });
+
+        $.ajax({
+          type: "POST",
+          url: "http://api.siyeol.com/goods/review?token="+readCookie('token'),
+          dataType: "json",
+          async: false,
+          processData: false,
+          contentType: false,
+          data: formData,
+          success: function (res) {
+            if (res.code != 200) {
+                alert(res.message);
+            }
+            location.reload();
+          },
+          error: function (err) {
+            alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+          }
+        });
+
+    });
+
+    $("#modal_review li").click(function () {
+        var $modal = $("#modal_review");
+
+        $modal.find(".product_info").html($(this).data('info'));
+        $modal.find(".order_price").html($(this).data('price'));
+    });
+
+    // 구매후기 모달 열기
+    $(".review").click(function() {
+        var $modal = $("#modal_review");
+        var size = $(this).parent().attr("rowspan");
+        var parent = $(this).parent().parent();
+        var datas = "";
+
+        var item_id = $(parent).find(".product_info").data("item_id");
+
+        $modal.find(".order_item_no").val(item_id);
+        $modal.find(".product_info").html($(parent).find(".product_info").html());
+        $modal.find(".order_price").html($(parent).find(".order_price").html());
+
+        for (var i = 0; i < size; i++) {
+            item_id = $(parent).find(".product_info").data("item_id");
+
+            datas += "<li data-item_id = '"+item_id+"' data-info='"+$(parent).find(".product_info").html()+"' data-price='"+$(parent).find(".order_price").html()+"' onclick='updateItem(this)'>"+$(parent).find(".product .product_img").html()+"</li>";
+            parent = $(parent).next();
+        }
+
+        // return false;
+        $modal.find(".bxslider").html(datas);
+
+        $modal.get(0).open();
+    });
+
     //후기 작성 모달 슬라이드
     $(" .bxslider").bxSlider({
         mode: 'vertical',
@@ -254,4 +327,15 @@ function getItems(order_no) {
         alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
       }
     });
+}
+
+function updateItem(goods)
+{
+    var $modal = $("#modal_review");
+
+    var item_id = $(goods).data("item_id");
+
+    $modal.find(".order_item_no").val(item_id);
+    $modal.find(".product_info").html($(goods).data('info'));
+    $modal.find(".order_price").html($(goods).data('price'));
 }

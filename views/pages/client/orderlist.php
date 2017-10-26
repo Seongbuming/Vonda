@@ -87,7 +87,7 @@ $orders = $response->datas->data;
                                 <div class="product_img">
                                     <img src="http://api.siyeol.com/<?=$item->goods->goods_image?>" alt="상품사진" />
                                 </div>
-                                <div class="product_info">
+                                <div class="product_info" data-item_id="<?=$item->id?>">
                                     <p class="open product_detail"><?=$item->goods->title?></p>
                                     <?php
                                     if (sizeof($item->goods->options) > 1) {
@@ -133,7 +133,7 @@ $orders = $response->datas->data;
                                     ?>
                                 </p>
                                 <?php
-                                if ($item->step == "30") {
+                                if ($item->step == "25" || $item->step == "30") {
                                     echo '<p class="carrier">'.$item->delivery->delivery_company.'</p>';
                                     echo '<p class="shippingnum">['.$item->delivery->delivery_number.']</p>';
                                 }
@@ -153,7 +153,7 @@ $orders = $response->datas->data;
                                 // if ($temp == "1") {
                                     echo '<button class="cancel">주문취소</button>';
                                 } else {
-                                    // echo '<button class="review">구매후기</button>';
+                                    echo '<button class="review">구매후기</button>';
                                     echo '<button class="return">반품/교환</button>';
                                 }
                                 ?>
@@ -419,8 +419,8 @@ $orders = $response->datas->data;
             </div>
         </div>
 
-        <div id="modal_review" class="modal actived">
-            <input type="hidden" class="order_no">
+        <div id="modal_review" class="modal">
+            <input type="hidden" class="order_item_no">
             <div class="close_section modal_close"></div>
             <div class="modal_body">
                 <button class="close_button modal_close">
