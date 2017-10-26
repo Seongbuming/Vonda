@@ -82,6 +82,8 @@ function getCommentItems(url) {
     success: function (res) {
       if (res.code == 200) {
         var element_str = '';
+        var nickname = $('#board-nickname').val();
+
         $.each( res.data.data, function (key, value) {
 
           var str = value.answer !== null ? "" : "답글달기";
@@ -89,20 +91,32 @@ function getCommentItems(url) {
           element_str += '<div class="user_comment">'+
               '<table class="board">'+
                   '<tbody>'+
-                  '<tr class="row_subject">'+
-                      '<td class="author">'+value.user.account+'</td>'+
-                      '<td class="subject" style="font-weight:normal">'+value.comment+
-                        '<a id="link_'+value.id+'" class="add_answer_link">'+ str +'</a>'+
-                      '</td>'+
-                      '<td class="time">'+ value.created_at.substring(0,16)+'</td>'+
-                  '</tr>'+
-                  '</tbody>'+
-              '</table>'+
-          '</div>';
+                  '<tr class="row_subject">';
+
+          //크리에이터의 댓글일 경우 "답글달기" 없음.
+          if(value.user.type == "creator"){
+            element_str += '<td class="author">@'+nickname+'</td>'+
+                          '<td class="subject" style="font-weight:normal">'+value.comment+
+                          '</td>';
+          }else{
+            element_str += '<td class="author">'+value.user.account+'</td>'+
+                          '<td class="subject" style="font-weight:normal">'+value.comment+
+                            '<a id="link_'+value.id+'" class="add_answer_link">'+ str +'</a>'+
+                          '</td>';
+
+          }
+
+          element_str += '<td class="time">'+ value.created_at.substring(0,16)+'</td>'+
+                      '</tr>'+
+                      '</tbody>'+
+                  '</table>'+
+                '</div>';
 
 
+          //크리에이터가 아니고,
+          if(value.user.type != "creator"){
+            //답글이 아직 없는 경우에만, 답글을 작성할 수 있음.
             if(value.answer !== null){
-              var nickname = $('#board-nickname').val();
               element_str += '<div class="user_link_comment">'+
                   '<table class="board">'+
                       '<tbody>'+
@@ -125,6 +139,7 @@ function getCommentItems(url) {
                 '</div>'+
               '</div>';
             }
+          }
 
           });
 

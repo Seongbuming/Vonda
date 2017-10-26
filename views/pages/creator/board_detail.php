@@ -67,16 +67,18 @@ if (isset($_GET['id'])) {
                                 if($comment->user->type == "creator"){
                                   ?>
                                   <td class="author"><?="@".$board->nickname?></td>
+                                  <td class="subject" style="font-weight:normal">
+                                    <?=$comment->comment?>
                                   <?php
                                 }else{?>
                                   <td class="author"><?=$comment->user->account?></td>
+                                  <td class="subject" style="font-weight:normal">
+                                    <?=$comment->comment?>
+                                  <a id="<?="link_".$comment->id?>" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
                                   <?php
                                 }
                             ?>
 
-                              <td class="subject" style="font-weight:normal">
-                                <?=$comment->comment?>
-                              <a id="<?="link_".$comment->id?>" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
                             </td>
                               <td class="time"><?=substr($comment->created_at, 0, 16)?></td>
                           </tr>
@@ -84,37 +86,40 @@ if (isset($_GET['id'])) {
                       </table>
                   </div>
               <?php
-                  if ($comment->answer != NULL) {
-                      ?>
-                      <div class="user_link_comment">
-                          <table class="board">
-                              <tbody>
-                              <tr class="row_subject">
-                                  <td class="author">ㄴ @<?=$board->nickname?></td>
-                                  <td class="subject">
-                                      <?=$comment->answer?></td>
-                                  <td class="time"><?=substr($comment->updated_at, 0, 16)?></td>
-                              </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                      <?php
-                  }else {
+              if ($comment->user->type != "creator") {
+                if ($comment->answer != NULL) {
                     ?>
-                    <div id="<?="comment_".$comment->id?>" class="user_add_answer" style="display:none;">
-                      <div class="comment">
-                          <input type="hidden" name="name" value="<?=$comment->id?>">
-                          <span class="operator_comment">ㄴ</span>
-                          <textarea cols="130" rows="5" placeholder="답글달기"></textarea>
-                          <a class="btn-finish">작성완료</a>
-                          <a class="btn-cancel">취소</a>
-                      </div>
+                    <div class="user_link_comment">
+                        <table class="board">
+                            <tbody>
+                            <tr class="row_subject">
+                                <td class="author">ㄴ @<?=$board->nickname?></td>
+                                <td class="subject">
+                                    <?=$comment->answer?></td>
+                                <td class="time"><?=substr($comment->updated_at, 0, 16)?></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <?php
-                  }
+                }else {
+                  ?>
+                  <div id="<?="comment_".$comment->id?>" class="user_add_answer" style="display:none;">
+                    <div class="comment">
+                        <input type="hidden" name="name" value="<?=$comment->id?>">
+                        <span class="operator_comment">ㄴ</span>
+                        <textarea cols="130" rows="5" placeholder="답글달기"></textarea>
+                        <a class="btn-finish">작성완료</a>
+                        <a class="btn-cancel">취소</a>
+                    </div>
+                  </div>
+                  <?php
+                }
+
               }
-              ?>
-        </div>
+            }?>
+        </div> <!-- refresh-data -->
+
             <div class="pager">
               <input type="hidden" name="name" class="prev-page-url" value="<?=$pager->prev_page_url?>">
               <input type="hidden" name="name" class="next-page-url" value="<?=$pager->next_page_url?>">
