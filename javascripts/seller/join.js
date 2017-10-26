@@ -44,3 +44,53 @@ $(document).ready(function() {
     });
 });
 
+
+function saveInfo() {
+    var formData = new FormData();
+
+    $(".signup_form input[type='file']").each(function (){
+        // 파일 파라미터 추가
+        if ($(this).val() != "") {
+            formData.append($(this).attr("name"), $(this)[0].files[0]);
+        }
+    });
+
+    if ($("#password").val() == $("#password_chk").val() && $("#password").val() != "") {
+        formData.append('password', $("#password"));
+    }
+
+    var tel = "";
+
+    $(".tel").each(function(){
+        tel += $(this).val();
+    });
+
+    formData.append('name') = $("#name").val();
+    formData.append('phone') = tel;
+    formData.append('email') = $("#email").val();
+
+    $.ajax({
+      type: "POST",
+      url: "http://api.siyeol.com/admin/goods?token="+readCookie('token'),
+      dataType: "json",
+      processData: false,
+      contentType: false,
+      data: formData,
+      success: function (res) {
+        console.log(res);
+        if (res.code != 200) {
+          alert(res.message);
+        } else {
+          alert('상품 등록이 완료되었습니다.');
+          location.href = "./admin.php?page=product_list";
+        }
+        return false;
+      },
+      error: function (err) {
+        console.log(err);
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        return false;
+      }
+    });
+
+}
