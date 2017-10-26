@@ -63,7 +63,17 @@ if (isset($_GET['id'])) {
                       <table class="board">
                           <tbody>
                           <tr class="row_subject">
-                              <td class="author"><?=$comment->user->account?></td>
+                            <?php
+                                if($comment->user->type == "creator"){
+                                  ?>
+                                  <td class="author"><?="@".$board->nickname?></td>
+                                  <?php
+                                }else{?>
+                                  <td class="author"><?=$comment->user->account?></td>
+                                  <?php
+                                }
+                            ?>
+
                               <td class="subject" style="font-weight:normal">
                                 <?=$comment->comment?>
                               <a id="<?="link_".$comment->id?>" class="add_answer_link"><?= $comment->answer != NULL ? "" : "답글달기"?></a>
