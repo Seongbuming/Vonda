@@ -49,7 +49,7 @@ $requests = $res->datas->data;
                     </td>
                     <td class="product creatorInfo">
                         <div class="product_img">
-                            <img src="<?=$request->creator->profile_image?>" alt="상품사진" style="height:100%;"/>
+                            <img src="http://api.siyeol.com/<?=$request->creator->profile_image?>" alt="상품사진" style="height:100%;"/>
                         </div>
                         <div class="product_info">
                             <p class="open product_detail">@<?=$request->creator->nickname?></p>
