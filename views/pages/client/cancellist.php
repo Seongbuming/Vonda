@@ -30,7 +30,7 @@ $orders = $response->datas->data;
 
             <ul class="category_menu">
                 <li ><a href=".?page=orderlist">주문내역</a></li>
-                <li class="actived"><a href=".?page=cancellist">취소/반품/교환</a></li>
+                <li class="actived"><a href=".?page=cancellist">취소/반품</a></li>
                 <li>transparent text</li>
             </ul>
 
@@ -66,8 +66,6 @@ $orders = $response->datas->data;
                 <tbody>
                     <?php
                     foreach ($orders as $order) {
-                            $cancel = $order;
-                            $order = $order->order;
                             foreach ($order->items as $item) {
                     ?>
                             <tr>
@@ -108,6 +106,13 @@ $orders = $response->datas->data;
                                         switch ($item->step) {
                                             case '1':
                                                 echo "결제완료";
+                                            break;
+                                            case '2':
+                                                if ($order->cancel) {
+                                                    echo "주문취소완료";
+                                                } else if ($order->return) {
+                                                    echo "반품완료";
+                                                }
                                             break;
                                             case '10':
                                                 echo "상품준비중";
@@ -160,13 +165,24 @@ $orders = $response->datas->data;
                                             echo "교환완료";
                                         break;
                                     }*/
-                                    switch ($cancel->status) {
-                                        case '0':
-                                            echo "주문취소신청";
-                                        break;
-                                        case '1':
-                                            echo "주문취소";
-                                        break;
+                                    if ($order->cancel) {
+                                        switch ($order->cancel->status) {
+                                            case '0':
+                                                echo "주문취소신청";
+                                            break;
+                                            case '1':
+                                                echo "주문취소완료";
+                                            break;
+                                        }
+                                    } else if ($order->return) {
+                                        switch ($order->return->status) {
+                                            case '0':
+                                                echo "반품신청";
+                                            break;
+                                            case '1':
+                                                echo "반품완료";
+                                            break;
+                                        }
                                     }
                                     ?>
                                   </p>

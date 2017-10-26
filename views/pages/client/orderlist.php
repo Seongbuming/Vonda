@@ -35,7 +35,7 @@ $orders = $response->datas->data;
 
         <ul class="category_menu">
             <li class="actived"><a href=".?page=orderlist">주문내역</a></li>
-            <li><a href=".?page=cancellist">취소/반품/교환</a></li>
+            <li><a href=".?page=cancellist">취소/반품</a></li>
         </ul>
 
         <div class="period_select">
@@ -117,11 +117,17 @@ $orders = $response->datas->data;
                                         case '20':
                                             echo "배송준비중";
                                         break;
-                                        case "30":
+                                        case "25":
                                             echo "배송중";
                                         break;
-                                        case "40":
+                                        case "30":
                                             echo "배송완료";
+                                        break;
+                                        case "40":
+                                            echo "교환요청";
+                                        break;
+                                        case "45":
+                                            echo "교환승인";
                                         break;
                                     }
                                     ?>
@@ -146,7 +152,7 @@ $orders = $response->datas->data;
                                 if ($item->step == "1") {
                                 // if ($temp == "1") {
                                     echo '<button class="cancel">주문취소</button>';
-                                } else if ($temp == "30") {
+                                } else {
                                     // echo '<button class="review">구매후기</button>';
                                     echo '<button class="return">반품/교환</button>';
                                 }

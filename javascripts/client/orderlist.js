@@ -37,6 +37,7 @@ $(document).ready(function() {
         var option = $modal.find("input[name=option]:checked").val();
         var $form = $modal.find(`.${option}_form`);
         var order_no = $modal.find(".order_no").val();
+        var type = $("#modal_return input[name=option]:checked").val();
 
         // 빈 칸 검사
         if ($form.find(".reason").val() === null) {
@@ -45,16 +46,26 @@ $(document).ready(function() {
             alert("반품 상세 사유를 입력해 주세요.");
         } else {
             // 반품/교환 작업을 여기에서 수행하세요.
-            if ($modal.find(".order_list").css("display") == "block") {
+            if (type == "exchange") {
                 // exchange
+                var datas = [];
+                $modal.find(".order_list tbody .select input[type='checkbox']:checked").each(function () {
+                    datas.push($(this).val());
+                });
+
+                if (datas.lenght == 0) {
+                    alert('교환 상품을 선택 해 주세요.');
+                    return false;
+                }
+
                 $.ajax({
                   type: "POST",
-                  url: "http://api.siyeol.com/order/"+order_no+"/cancel?token="+readCookie('token'),
+                  url: "http://api.siyeol.com/order/"+order_no+"/change?token="+readCookie('token'),
                   dataType: "json",
-                  data: {'reason':reason},
+                  data: {'message':$form.find("textarea").val(), 'order_item_no':datas},
                   success: function (res) {
                     if (res.code != 200) {
-                        alert("교환 신청에 실패하였습니다.");
+                        alert(res.message);
                     }
                     location.reload();
                   },
@@ -209,7 +220,7 @@ function getItems(order_no) {
             items.forEach(function (item){
                 html += '<tr>';;
                 html += '<td class="select">';
-                html += '<input id="select_'+item.id+'" type="checkbox" title="선택" />';
+                html += '<input id="select_'+item.id+'" type="checkbox" title="선택" value="'+item.id+'" />';
                 html += '<label for="select_'+item.id+'"></label>';
                 html += '</td>';
                 html += '<td class="product">';
