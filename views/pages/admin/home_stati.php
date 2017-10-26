@@ -22,6 +22,9 @@
 $request = new Http();
 $response = $request->request('GET', '/admin/creator/rank?token='.$_COOKIE['token']);
 $creator_statics = $response->datas;
+
+$response = $request->request('GET', '/admin/goods/rank?token='.$_COOKIE['token']);
+$goods_statics = $response->datas;
 ?>
 <body>
 
@@ -141,12 +144,21 @@ $creator_statics = $response->datas;
                   </div>
 
                   <ul class="chart-label ">
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@ANOTHER A</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@reply</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@메종드드룸</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@Ditole</span><span class="chart-item-value">9,069,000원</span></li>
-                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">@AMONG</span><span class="chart-item-value">9,069,000원</span></li>
+                    <li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">전체</span><span class="chart-item-value">
+                      <?php
+                      $total = 0;
+                      foreach ($goods_statics as $goods_static) {
+                        $total += $goods_static->total_price;
+                      }
+                      echo number_format($total);
+                      ?>
+                      원
+                    </span></li>
+                    <?php
+                    foreach ($goods_statics as $goods_static) {
+                      echo '<li><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">'.$goods_static->goods->title.'</span><span class="chart-item-value">'.number_format($goods_static->total_price).'원</span></li>';
+                    }
+                    ?>
                   </ul>
                   <a class="btn-open-content">
                     <h4 class="btn-inline text-peach">열기</h4>
@@ -165,87 +177,79 @@ $creator_statics = $response->datas;
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="product-item">
-                          <th scope="row">1</th>
-                          <td >
-                            <div class="thumbnail-img">
-                              <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
-                                <img class="product-img" src="images/products/product1.png" alt="" />
-                              </a>
-                            </div>
-                          </td>
-                          <td class="title">
-                            <p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p>
-                            <p>
-                              <span class="label">옵션 : </span>
-                              <span class="label-content">실버,골드</span>
-                            </p>
-                            <p>
-                              <span class="label">재고 : </span>
-                              <span class="label-conent">
-                                211 - 실버(11), 골드(200)
-                              </span>
-                            </p>
-                          </td>
-                          <td class="creator">7</td>
-                          <td class="price">26,000원</td>
-                          <td class="count">56</td>
-                          <td class="total">2,326,000원</td>
-                        </tr>
-                        <tr class="product-item">
-                          <th scope="row">2</th>
-                          <td >
-                            <div class="thumbnail-img">
-                              <a href="#" class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
-                                <img class="product-img" src="images/products/product2.png" alt="" />
-                              </a>
-                            </div>
-                          </td>
-                          <td class="title">
-                            <p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p>
-                            <p>
-                              <span class="label">옵션</span>
-                              <span class="label-content">실버,골드</span>
-                            </p>
-                            <p>
-                              <span class="label">재고 : </span>
-                              <span class="label-conent">
-                                211 - 실버(11), 골드(200)
-                              </span>
-                            </p>
-                          </td>
-                          <td class="creator">6</td>
-                          <td class="price">26,000원</td>
-                          <td class="count">56</td>
-                          <td class="total">2,326,000원</td>
-                        </tr>
-                        <tr class="product-item">
-                          <th scope="row">3</th>
-                          <td >
-                            <div class="thumbnail-img">
-                              <a href="#" class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
-                                <img class="product-img" src="images/products/product3.png" alt="" />
-                              </a>
-                            </div>
-                          </td>
-                          <td class="title">
-                            <p><a href="#">SINGLE-BREASTED OVERIZED BLAZER</a></p>
-                            <p>
-                              <span class="label">옵션</span>
-                              <span class="label-content">실버,골드</span>
-                            </p>
-                            <p>
-                              <span class="label">재고 : </span>
-                              <span class="label-conent">
-                                211 - 실버(11), 골드(200)
-                              </span>
-                            </p>
-                          </td>
-                          <td class="creator">7</td>
-                          <td class="price">26,000원</td>
-                          <td class="count">56</td>
-                          <td class="total">2,326,000원</td>
-                        </tr>
+                        <?php
+                        foreach ($goods_statics as $goods_static) {
+                          $goods = $goods_static->goods;
+                        ?>
+                          <tr class="product-item">
+                            <th scope="row"><?=$goods->id?></th>
+                            <td >
+                              <div class="thumbnail-img">
+                                <a class="product-detail-link" href="#" data-toggle="modal" data-target="#product-detail-modal">
+                                  <img class="product-img" src="http://api.siyeol.com/<?=$goods->goods_image?>" alt="" />
+                                </a>
+                              </div>
+                            </td>
+                            <td class="title">
+                              <p><a href="#"><?=$goods->title?></a></p>
+                              <?php
+                              if (sizeof($goods->options) > 1) {
+                              ?>
+                                <p>
+                                  <span class="label">옵션 : </span>
+                                  <span class="label-content">
+                                  <?php
+                                  foreach ($goods->options as $option) {
+                                    if ($option != $goods->options[0]) {
+                                      echo ",";
+                                    }
+                                    echo $option->name;
+                                  }
+                                  ?>
+                                  </span>
+                                </p>
+                                <p>
+                                  <span class="label">재고 : </span>
+                                  <span class="label-conent">
+                                    <?php
+                                    $options = "";
+                                    $total = 0;
+
+                                    foreach ($goods->options as $option) {
+                                      if ($option != $goods->options[0]) {
+                                        $options .= ", ";
+                                      }
+                                      $options .= $option->name."(".$option->stock_ea.")";
+
+                                      $total += $option->stock_ea;
+                                    }
+
+                                    echo $total." - ".$options;
+                                    ?>
+                                  </span>
+                                </p>
+                              <?php
+                              } else {
+                              ?>
+                                <p>
+                                  <span class="label">재고 : </span>
+                                  <span class="label-conent">
+                                    <?=$goods->options[0]->stock_ea?>
+                                  </span>
+                                </p>
+                              <?php
+                              }
+                              ?>
+                              
+                            </td>
+                            <td class="creator"><?=number_format($goods->creator_count)?></td>
+                            <td class="price"><?=number_format($goods->options[0]->price)?>원</td>
+                            <td class="count"><?=number_format($goods->order_count)?></td>
+                            <td class="total"><?=number_format($goods_static->total_price)?>원</td>
+                          </tr>
+                        <?php
+                        }
+                        ?>
                       </tbody>
                     </table>
 
