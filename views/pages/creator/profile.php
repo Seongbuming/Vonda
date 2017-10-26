@@ -102,14 +102,9 @@ $creator = $response->data;
             <?php
               }
             ?>
-
-
-
           </ul>
       </div>
     </div>
-
-
     <div class="submit_cont">
         <button type="button"class="submit"><a href="#">제출</a></button>
     </div>
