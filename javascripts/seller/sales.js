@@ -211,32 +211,12 @@ $(document).ready(function() {
 
   //반품 요청 modal
   $(document).on('click','.btn-request-return',function(){
-    item = {
-      reason: "구매의사취소",
-      comment: "반품해주세요ㅜㅜ"
-    };
-
-    var element = '<p class="return-reason"> 반품사유 : '+item.reason+'</p>' +
-                  '<p class="comment">"'+item.comment+'"</p>';
-    $('#modal_return_exchange .contents').html(element);
-    $('#modal_return_exchange .modal_body h4').text("반품");
-    $('#modal_return_exchange .submit').text("반품요청");
-    $('#modal_return_exchange').addClass('actived');
+    returnInfo($(this).data("order_no"));
   });
 
   //반품 완료 modal
   $(document).on('click','.btn-complete-return',function(){
-    item = {
-      reason: "구매의사취소",
-      comment: "반품해주세요ㅜㅜ"
-    };
-
-    var element = '<p class="return-reason"> 반품사유 : '+item.reason+'</p>' +
-                  '<p class="comment">"'+item.comment+'"</p>';
-    $('#modal_return_exchange .contents').html(element);
-    $('#modal_return_exchange .modal_body h4').text("반품");
-    $('#modal_return_exchange .submit').text("반품완료");
-    $('#modal_return_exchange').addClass('actived');
+    returnInfo($(this).data("order_no"));
   });
 
   //교환 요청 modal
@@ -304,6 +284,30 @@ $(document).ready(function() {
 
 
 });
+
+function returnInfo(order_no)
+{
+  $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com//seller/order/"+order_no+"/return?token=" + readCookie('token'),
+      async: false,
+      success: function (res) {
+          if (res.code == "200") {
+            var element = '<p class="return-reason"> 반품사유 : '+res.data.reason+'</p>' +
+                          '<p class="comment">"'+res.data.message+'"</p>';
+            $('#modal_return_exchange .contents').html(element);
+            $('#modal_return_exchange .modal_body h4').text("반품");
+            $('#modal_return_exchange .submit').text(res.data.status == "1" ? "반품완료" : "반품요청");
+            $('#modal_return_exchange').addClass('actived');
+          } else {
+            return false;
+          }
+      },
+      error: function (err) {
+          alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+      }
+  });
+}
 
 function changeInfo(id)
 {

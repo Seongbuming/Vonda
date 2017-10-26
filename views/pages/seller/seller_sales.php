@@ -81,9 +81,9 @@ $orders = $response->datas;
                             if ($order->step == "2") {
                                 if ($order->return) {
                                     if ($order->return->status == '1') {
-                                        echo '<button type="button" name="button" class="btn-complete-return">반품완료</button>';
+                                        echo '<button type="button" name="button" class="btn-complete-return" data-order_no="'.$order->order_no.'">반품완료</button>';
                                     } else {
-                                        echo '<button type="button" name="button" class="btn-complete-return">반품요청</button>';
+                                        echo '<button type="button" name="button" class="btn-complete-return" data-order_no="'.$order->order_no.'">반품요청</button>';
                                     }
                                 } else if ($order->cancel) {
                                     echo "주문취소";
