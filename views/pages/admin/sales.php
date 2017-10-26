@@ -79,7 +79,7 @@ $orders = $response->datas->data;
                               <td style="width:200px;" rowspan="<?=sizeof($order->items)?>">
                                 <p class="sales-date text-center"><?=str_replace("-", ".", substr($order->created_at, 0, 10))?></p>
                                 <p class="sales-number text-center">
-                                  <a href="#" data-toggle="modal" data-target="#order-detail-modal"><?=$order->order_no?></a>
+                                  <a href="#" data-toggle="modal" data-target="#order-detail-modal" onclick="getItems(<?=$order->order_no?>)"><?=$order->order_no?></a>
                                 </p>
                               </td>
                               <?php
@@ -87,7 +87,7 @@ $orders = $response->datas->data;
                               <td class="">
                                 <p class="sales-date text-center"><?=str_replace("-", ".", substr($order->created_at, 0, 10))?></p>
                                 <p class="sales-number text-center">
-                                  <a href="#" data-toggle="modal" data-target="#order-detail-modal"><?=$order->order_no?></a>
+                                  <a href="#" data-toggle="modal" data-target="#order-detail-modal" onclick="getItems(<?=$order->order_no?>)"><?=$order->order_no?></a>
                                 </p>
                               </td>
                           <?php }
@@ -271,19 +271,19 @@ $orders = $response->datas->data;
                           <table id="table-detail-table"style="width:100%" class="table order-detail-table">
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">주문번호</th>
-                              <td class="order-detail-item-content">2018211119</td>
+                              <td class="order-detail-item-content order_no">2018211119</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">주문일시</th>
-                              <td class="order-detail-item-content">2017.08.31</td>
+                              <td class="order-detail-item-content order_date">2017.08.31</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">주문자</th>
-                              <td class="order-detail-item-content">진아영</td>
+                              <td class="order-detail-item-content order_name">진아영</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">아이디</th>
-                              <td class="order-detail-item-content">dksfjl</td>
+                              <td class="order-detail-item-content order_account">dksfjl</td>
                             </tr>
                             <tr class="order-detail-item"
                             style="border-bottom: solid 1px #d8d8d8;">
@@ -322,33 +322,36 @@ $orders = $response->datas->data;
 
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">총 주문금액</th>
-                              <td class="order-detail-item-content">26,000원</td>
+                              <td class="order-detail-item-content origin_price">26,000원</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">배송비</th>
-                              <td class="order-detail-item-content">2500원</td>
+                              <td class="order-detail-item-content shipping_price">2500원</td>
                             </tr>
+                            <!--
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">총 할인금액</th>
                               <td class="order-detail-item-content">-1,000원(쿠폰할인)</td>
                             </tr>
+                          -->
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">총 결제금액</th>
-                              <td class="order-detail-item-content">27,500원</td>
+                              <td class="order-detail-item-content total_price">27,500원</td>
                             </tr>
+                            <!--
                             <tr class="order-detail-item"
                             style="border-bottom: solid 1px #d8d8d8;">
                               <th class="order-detail-item-label">결제수단</th>
                               <td class="order-detail-item-content">삼성카드 5112-3130-****-****</td>
                             </tr>
-
+                            -->
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">수령인</th>
-                              <td class="order-detail-item-content">진*영</td>
+                              <td class="order-detail-item-content receive_name">진*영</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">연락처</th>
-                              <td class="order-detail-item-content">010-2344-****</td>
+                              <td class="order-detail-item-content receive_phone">010-2344-****</td>
                             </tr>
                             <tr class="order-detail-item">
                               <th class="order-detail-item-label">배송지</th>
@@ -364,7 +367,7 @@ $orders = $response->datas->data;
                             <tr class="order-detail-item"
                             style="border-bottom: solid 1px #d8d8d8;">
                               <th class="order-detail-item-label">배송메세지</th>
-                              <td class="order-detail-item-content">-</td>
+                              <td class="order-detail-item-content delivery_message">-</td>
                             </tr>
                         </table>
 
