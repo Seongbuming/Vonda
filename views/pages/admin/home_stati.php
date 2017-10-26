@@ -69,7 +69,7 @@ $goods_statics = $response->datas;
 
                 <div id="creator-rank" class="content-panel">
                   <h4 class="admin-header-gray">크리에이터 매출 순위</h4>
-                  <h5 class="admin-header-gray chart-from-to-date marginTop50">2017.08.21 ~ 2017.09.30</h5>
+                  <h5 class="admin-header-gray chart-from-to-date marginTop50"><?= date("Y.m.d", strtotime("-1 month", time()))."~".date("Y.m.d")?></h5>
                   <div class="chart-container marginBottom50" style="width:645px;">
                     <canvas id="creator-chart" width="100%"></canvas>
                   </div>
@@ -143,7 +143,7 @@ $goods_statics = $response->datas;
 
                 <div id="product-rank"class="content-panel">
                   <h4 class="admin-header-gray">상품 매출 순위</h4>
-                  <h5 class="admin-header-gray chart-from-to-date marginTop50">2017.08.21 ~ 2017.09.30</h5>
+                  <h5 class="admin-header-gray chart-from-to-date marginTop50"><?= date("Y.m.d", strtotime("-1 month", time()))."~".date("Y.m.d")?></h5>
                   <div class="chart-container marginBottom50" style="width:600px;">
                     <canvas id="product-chart" width="100%"></canvas>
                   </div>
