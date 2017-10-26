@@ -139,11 +139,8 @@ var type = '';
 var sales_total_count = 0;
 var sales_total_price = 0;
 
-  $('.btn-daily').on('click',function () {
-    test();
-  });
 
-  function test() {
+  $('.btn-daily').on('click',function () {
     type = "daily";
     var data = getData("daily");
 
@@ -171,7 +168,7 @@ var sales_total_price = 0;
     chart_sales.data.labels = test_label.reverse();
     chart_sales.data.datasets[0].data = test_data.reverse();
     chart_sales.update();
-  }
+  });
 
   $('.btn-weekly').on('click',function () {
     type = "weekly";
@@ -255,6 +252,9 @@ var sales_total_price = 0;
           }]
       }
     });
+
+    $('.btn-daily').trigger('click');
+    
   }
   function getData(type){
     var href = window.location.href;
