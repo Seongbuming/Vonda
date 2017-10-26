@@ -1,5 +1,45 @@
 $(document).ready(function() {
 
+  //댓글 작성
+  $('.comment_submit').on('click',function () {
+    var content = $(this).siblings('textarea').val();
+
+
+    if(content.length > 0){
+      var board_id = $('#board_id').val();
+
+      var formData = new FormData();
+      formData.append("comment",content);
+
+      $.ajax({
+          type: "POST",
+          url: "http://api.siyeol.com/board/"+board_id +"/comment?token=" + readCookie('token'),
+          data: formData,
+          enctype: 'application/x-www-form-urlencoded',
+          processData: false,
+          contentType: false,
+          cache:false,
+          success: function (res) {
+            console.log(res);
+              if (res.code == 200) {
+                location.reload();
+              } else if (res.code == 401) {
+                  alert('비정상적인 요청입니다. 로그인을 다시 해주세요.');
+                  location.href="./?page=login";
+              } else {
+                  alert('댓글을 생성하는데 실패했습니다.\n다시 시도해 주세요.');
+              }
+          },
+          error: function (err) {
+              alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+          }
+      });
+
+    }else {
+      alert("등록할 댓글의 내용을 입력해주세요.");
+    }
+  });
+
   //답글창 보이기,숨기기
   $(document).on('click', '.add_answer_link',function () {
     var id_str = $(this).attr('id');

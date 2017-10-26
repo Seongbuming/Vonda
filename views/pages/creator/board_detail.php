@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
         <li><a href="./creator.php?page=profile">프로필 관리</a></li>
         <li><a href="./creator.php?page=calculate">정산내역</a></li>
     </ul>
-
+    <input id="board_id"type="hidden" name="name" value="<?=$_GET['id']?>">
     <h3 class="category">BOARD</h3>
     <div class="profile_detail_board">
         <div class="post">
