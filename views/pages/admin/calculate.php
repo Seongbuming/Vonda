@@ -95,8 +95,8 @@ $calculates = $response->datas->data;
                         foreach ($calculates as $calculate) {
                         ?>
                           <tr>
-                            <td class="select"> <input id="<?= "select_" . $calculate->id?>" type="checkbox" title="선택">
-                              <label for="<?= "select_" . $i?>"></label>
+                            <td class="select"> <input id="<?= "select_" . $calculate->id?>" type="checkbox" value="<?=$calculate->id?>" title="선택">
+                              <label for="<?= "select_" . $calculate->id?>"></label>
                             </td>
                             <td class="username text-heavy-gray"><?=$calculate->name?></td>
                             <td class="user-id">
@@ -125,8 +125,8 @@ $calculates = $response->datas->data;
                     </table>
 
                     <div class="btn-container">
-                      <button type="button" name="btn-delete" class="btn btn-gray btn-delete">정산취소</button>
-                      <button type="button" name="btn-delete" class="btn btn-peach btn-delete">정산완료</button>
+                      <button type="button" name="btn-delete" class="btn btn-gray btn-delete" onclick="select_process(0)">정산취소</button>
+                      <button type="button" name="btn-delete" class="btn btn-peach btn-delete" onclick="select_process(1)">정산완료</button>
                     </div>
                   </div>
 
@@ -146,5 +146,6 @@ $calculates = $response->datas->data;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="javascripts/admin/sidemenu_bar.js"></script>
     <script src="javascripts/select_all.js"></script>
+    <script src="javascripts/admin/calculate.js"></script>
 </body>
 </html>

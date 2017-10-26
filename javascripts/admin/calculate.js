@@ -52,6 +52,25 @@ function cancel() {
   });
 }
 
+function select_process(type) {
+  $("tbody .select input[type='checkbox']:checked").each(function () {
+    var calculate_id = $(this).val();
+    $.ajax({
+      type: "POST",
+      url: "http://api.siyeol.com/admin/calculate/"+calculate_id+"/"+type+"?token="+readCookie('token'),
+      dataType: "json",
+      async: false,
+      success: function (res) {
+      },
+      error: function (err) {
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+      }
+    });
+  });
+
+  location.reload();
+}
+
 function complete() {
   var calculate_price = parseInt($('#result-price').text().replace("원", "").replace(/,/g, ""));
   var calculate_id = getParam('id');
