@@ -120,10 +120,10 @@ $orders = $response->datas;
                                         echo "배송완료";
                                     break;
                                     case "40":
-                                        echo '<button type="button" name="button" class="btn-request-exchange">교환요청</button>';
+                                        echo '<button type="button" name="button" class="btn-request-exchange" data-id="'.$item->order_item_id.'">교환요청</button>';
                                     break;
                                     case "45":
-                                        echo '<button type="button" name="button" class="btn-complete-exchange">교환완료</button>';
+                                        echo '<button type="button" name="button" class="btn-complete-exchange" data-id="'.$item->order_item_id.'">교환완료</button>';
                                     break;
                                 }
                             }
@@ -240,42 +240,21 @@ $orders = $response->datas;
 
                   <table class="order_list">
                       <tbody>
-                          <?php
-                            for ($i=0; $i < 2; $i++) {
-                              ?>
-                              <tr>
-                                <td class="product">
-                                    <div class="product_img">
-                                        <img src="images/products/product1.png" alt="상품사진" />
-                                    </div>
-                                    <div class="product_info">
-                                        <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                                        <p>옵션: <span class="option">실버</span></p>
-                                        <p>수량: <span class="amount">1</span></p>
-                                    </div>
-                                </td>
-                                <td class="order_price">
-                                    <p>28,500원</p>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="product">
-                                    <div class="product_img">
-                                        <img src="images/products/product3.png" alt="상품사진" />
-                                    </div>
-                                    <div class="product_info">
-                                        <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
-                                        <p>옵션: <span class="option">실버</span></p>
-                                        <p>수량: <span class="amount">1</span></p>
-                                    </div>
-                                </td>
-                                <td class="order_price">
-                                    <p>11,500원</p>
-                                </td>
-                              </tr>
-                              <?php
-                            }
-                          ?>
+                          <tr>
+                            <td class="product">
+                                <div class="product_img">
+                                    <img src="images/products/product1.png" alt="상품사진" />
+                                </div>
+                                <div class="product_info">
+                                    <p>SINGLE-BREASTED OVERSIZED BLAZER</p>
+                                    <p>옵션: <span class="option">실버</span></p>
+                                    <p>수량: <span class="amount">1</span></p>
+                                </div>
+                            </td>
+                            <td class="order_price">
+                                <p>28,500원</p>
+                            </td>
+                          </tr>
                       </tbody>
                   </table>
 

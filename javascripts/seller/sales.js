@@ -241,25 +241,54 @@ $(document).ready(function() {
 
   //교환 요청 modal
   $(document).on('click','.btn-request-exchange',function(){
-    item = {
-      comment: "사이즈 교환해주세요ㅠㅠ"
-    };
-    var element = '<p class="comment">"'+item.comment+'"</p>';
-    $('#modal_return_exchange .contents').html(element);
-    $('#modal_return_exchange .modal_body h4').text("교환");
-    $('#modal_return_exchange .submit').text("교환요청");
-    $('#modal_return_exchange').addClass('actived');
+    var id = $(this).data("id");
+
+    changeInfo(id);
+
+    $("#modal_return_exchange").find(".product").html($(this).parent().parent().find(".product").html());
+    $("#modal_return_exchange").find(".order_price").html($(this).parent().parent().find(".order_price").html());
+
+    // item = {
+    //   comment: "사이즈 교환해주세요ㅠㅠ"
+    // };
+    // var element = '<p class="comment">"'+item.comment+'"</p>';
+    // $('#modal_return_exchange .contents').html(element);
+    // $('#modal_return_exchange .modal_body h4').text("교환");
+    // $('#modal_return_exchange .submit').text("교환요청");
+    // $('#modal_return_exchange').addClass('actived');
   });
   //교환 완료 modal
   $(document).on('click','.btn-complete-exchange',function(){
-    item = {
-      comment: "사이즈 교환해주세요ㅠㅠ"
-    };
-    var element = '<p class="comment">"'+item.comment+'"</p>';
-    $('#modal_return_exchange .contents').html(element);
-    $('#modal_return_exchange .modal_body h4').text("교환");
-    $('#modal_return_exchange .submit').text("교환완료");
-    $('#modal_return_exchange').addClass('actived');
+    var id = $(this).data("id");
+
+    changeInfo(id);
+
+    $("#modal_return_exchange").find(".product").html($(this).parent().parent().find(".product").html());
+    $("#modal_return_exchange").find(".order_price").html($(this).parent().parent().find(".order_price").html());
+    $("#modal_return_exchange").addClass('actived');
+  });
+
+  $("#modal_return_exchange .submit").click(function() {
+    if ($(this).text() == "교환요청") {
+      var id = $(this).data('id');
+
+      $.ajax({
+        type: "POST",
+        url: "http://api.siyeol.com/seller/order/change/"+id+"?token=" + readCookie('token'),
+        async: false,
+        success: function (res) {
+            if (res.code == "200") {
+              alert("성공적으로 교환요청을 허용하였습니다.");
+              location.reload();
+            } else {
+              return false;
+            }
+        },
+        error: function (err) {
+            alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        }
+    });
+    }
   });
 
   //order detail 모달 띄우기
@@ -275,3 +304,30 @@ $(document).ready(function() {
 
 
 });
+
+function changeInfo(id)
+{
+  $.ajax({
+      type: "GET",
+      url: "http://api.siyeol.com/seller/order/change/"+id+"?token=" + readCookie('token'),
+      async: false,
+      success: function (res) {
+          if (res.code == "200") {
+            var element = '<p class="comment">"'+res.data.change.message+'"</p>';
+            $('#modal_return_exchange .contents').html(element);
+            $('#modal_return_exchange .modal_body h4').text("교환");
+            $('#modal_return_exchange .submit').text(res.data.step == "40" ? "교환요청" : "교환완료");
+            $('#modal_return_exchange .submit').data('id', id);
+            $('#modal_return_exchange').addClass('actived');
+
+          } else {
+            return false;
+          }
+      },
+      error: function (err) {
+          alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+      }
+  });
+
+  return false;
+}
