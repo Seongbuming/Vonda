@@ -30,7 +30,7 @@ $(document).ready(function() {
             if (dest === undefined) {
                 $detail.slideDown("fast");
             } else {
-                $detail.show();
+                $detail.slideDown("fast");
             }
         }
     }

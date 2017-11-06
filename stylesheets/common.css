@@ -289,9 +289,12 @@ input[type=radio].radio:nth-of-type(n+2) + label {
 }
 .product_section .item {
     float: left;
+    margin: 7px;
 }
 .product_section .item > img {
     float: left;
+    width: 280px;
+    height: 280px;
 }
 .product_section .item .overlay .product_name {
     margin-bottom: .3em;
