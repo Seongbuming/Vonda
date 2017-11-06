@@ -10,6 +10,7 @@
             echo '<li><a href="./?page=orderlist">마이페이지</a></li>';
         } else {
             echo '<li><a href=".?page=login">로그인</a></li>';
+            echo '<li><a href=".?page=signup">회원가입</a></li>';
         }
         ?>
     </ul>
