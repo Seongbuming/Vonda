@@ -57,7 +57,7 @@ $banners = $response->datas;
             foreach ($new_items as $item) {
             ?>
                 <a class="item overlay_container" href="./?page=product_detail&id=<?=$item->id?>">
-                    <img src="http://api.siyeol.com/<?=$item->goods_image?>" alt="상품 이미지" />
+                    <img src="http://api.siyeol.com/<?=$item->goods_image?>" alt="상품 이미지" class="<?=$item==$new_items[0] ? 'first' : ''?>" />
                     <div class="overlay">
                         <p class="product_name"><?=$item->title?></p>
                         <p class="product_price"><?=number_format($item->price)?>won</p>
