@@ -50,8 +50,13 @@
                     </button>
                   </div>
                   <div class="form-group">
-                    <label class="label form-item">가격</label>
+                    <label class="label form-item">판매가</label>
                     <input type="input" name="price" value=""
+                            class="form-item text-right">
+                  </div>
+                  <div class="form-group">
+                    <label class="label form-item">도매가</label>
+                    <input type="input" name="origin_price" value=""
                             class="form-item text-right">
                   </div>
                   <div class="form-group">
