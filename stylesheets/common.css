@@ -314,16 +314,15 @@ input[type=radio].radio:nth-of-type(n+2) + label {
 .creator_section .item {
     float: left;
     position: relative;
-    border: 1px solid #e1e1e1;
     padding: 3px;
     margin: 0 7px 20px 7px;
     cursor: pointer;
 }
 .creator_section .item > img {
     border: 1px solid #e1e1e1;
-    padding: 5px;
-    width: 260px;
-    height: 260px;
+    padding: 3px;
+    width: 262px;
+    height: 262px;
 }
 .creator_section .item.actived {
     border: 1px solid #383838;
