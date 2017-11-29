@@ -21,7 +21,7 @@
         <form id="vd-login-form" class="" action="index.html" method="post">
           <div class="form-header">
             <p class="text-gray">ADMIN</p>
-            <img src="images/logo2.png" alt="" />
+            <img src="images/logo3.png" alt="" />
           </div>
           <div class="form-item">
             <input type="input" class="account" name="input-id" value="" placeholder="아이디">
