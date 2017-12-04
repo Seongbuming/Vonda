@@ -45,7 +45,7 @@
           type: "POST",
           url: "http://api.siyeol.com/auth",
           dataType: "json",
-          data: {"account":$(".account").val(), "password":$(".password").val()},
+          data: {"account":$(".account").val(), "password":$(".password").val(), "type":"admin"},
           success: function (res) {
             if (res.code == "200") {
               if (res.user.type == "admin") {

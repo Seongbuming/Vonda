@@ -34,6 +34,6 @@
         <?=$this->loadLayout("seller/footer")?>
     </footer>
     <script src="libraries/jquery-3.2.1.min.js"></script>
-    <script src="javascripts/client/login.js"></script>
+    <script src="javascripts/seller/login.js"></script>
 </body>
 </html>

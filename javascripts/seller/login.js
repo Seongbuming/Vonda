@@ -5,7 +5,7 @@ $(document).ready(function() {
           type: "POST",
           url: "http://api.siyeol.com/auth",
           dataType: "json",
-          data: {'account':$(".login_form").find("input[name='id']").val(), 'password':$(".login_form").find("input[name='password']").val(), 'type':'general'},
+          data: {'account':$(".login_form").find("input[name='id']").val(), 'password':$(".login_form").find("input[name='password']").val(), 'type':'seller'},
           success: function (res) {
             if (res.code == 200) {
                 // 토큰 저장

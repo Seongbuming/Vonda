@@ -41,6 +41,6 @@
         <?=$this->loadLayout("creator/footer")?>
     </footer>
     <script src="libraries/jquery-3.2.1.min.js"></script>
-    <script src="javascripts/client/login.js"></script>
+    <script src="javascripts/creator/login.js"></script>
 </body>
 </html>
