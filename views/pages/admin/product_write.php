@@ -81,6 +81,7 @@
                       <li class="option-item option-item-template new-option-item" style="display:none">
                         <input class="option-item-input text-heavy-gray border-gray" type="text" name="name[]" value="" placeholder="새로운 옵션값" />
                         <input class="option-item-input text-heavy-gray border-gray" type="text" name="total_ea[]" value="" placeholder="재고량" />
+                        <input class="option-item-input text-heavy-gray border-gray" type="text" name="add_prices[]" value="" placeholder="추가 옵션가" />
                         <button type="button" name="" class="btn-remove btn btn-default btn-sm">
                             <span class="text-heavy-gray">&times;</span>
                         </button>
