@@ -18,7 +18,12 @@
 </head>
 <?php
 $request = new http();
-$response = $request->request('GET', '/admin/goods?token='.$_COOKIE['token']);
+
+if (isset($_GET['keyword'])) {
+  $response = $request->request('GET', '/admin/goods?keyword='.$_GET['keyword'].'&token='.$_COOKIE['token']);
+} else {
+  $response = $request->request('GET', '/admin/goods?token='.$_COOKIE['token']);
+}
 
 $goods = $response->datas->data;
 ?>
@@ -36,22 +41,16 @@ $goods = $response->datas->data;
         <div id="page-content-wrapper">
           <section id="vd-product-list">
             <div class="container-fluid">
-              <div class="nav">
-                <!--
-                <div class="period_select">
-                    <div class="input_period">
-                        <input class="start" type="date" style="width:130px" />
-                        <span>~</span>
-                        <input class="end" type="date" style="width:130px" />
-                        <button class="search btn-sm btn-peach">조회</button>
-                    </div>
-                </div>
-              -->
+              <div class="nav" style="height:30px;">
+                
                 <div class="input-container">
-                  <input type="input" name="search_input" value="" placeholder="">
-                  <button type="button" name="btn-search" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-search"></span>
-                  </button>
+                  <form action="/admin.php" method="GET">
+                    <input type="hidden" name="page" value="product_list"/>
+                    <input type="input" name="keyword" value="<?=$_GET['keyword']?>" placeholder="">
+                    <button type="submit" class="btn btn-default btn-sm">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </form>
                 </div>
               </div><!--/# Nav tabs -->
 
