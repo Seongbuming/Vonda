@@ -12,6 +12,7 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/admin/common.css" />
     <link rel="stylesheet" href="stylesheets/admin/member.css" />
+    <link rel="stylesheet" href="stylesheets/admin/notice.css" />
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker3.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css"/>
@@ -78,6 +79,10 @@ $members = $response->datas->data;
                   <table class="table table-hover">
                     <thead>
                       <tr >
+                        <th class="select">
+                          <input id="select_all" class="select-all-by-creator" type="checkbox" name="" value="">
+                          <label for="select_all"></label>
+                        </th>
                         <th>#</th>
                         <th>가입일자</th>
                         <th>이름</th>
@@ -88,11 +93,14 @@ $members = $response->datas->data;
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- todo: for each로 data 넣기 -->
                       <?php
                       foreach ($members as $member) {
                       ?>
                         <tr class="table-item">
+                          <td class="select">
+                            <input type="checkbox" id="select-<?=$member->id?>" value="<?=$member->id?>">
+                            <label for="select-<?=$member->id?>"></label>
+                          </td>
                           <th scope="row" class="id text-heavy-gray"><?=$member->id?></th>
                           <td class="date text-heavy-gray"><?=substr($member->created_at, 0, 16)?></td>
                           <td class="username">
@@ -122,6 +130,7 @@ $members = $response->datas->data;
                     <button type="button" class="btn-pager btn btn-default" aria-label="Previous Page">
                       <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
                     </button>
+                    <button type="button" name="btn-delete" class="btn btn-gray btn-delete" onclick="deleteMembers()">삭제</button>
                   </div>
 
                 </div>
@@ -137,6 +146,34 @@ $members = $response->datas->data;
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <script src="javascripts/admin/sidemenu_bar.js"></script>
     <!-- <script src="javascripts/admin/datepicker.js"></script> -->
+    </script>
+    <script src="javascripts/select_all.js"></script>
+    <script>
+      function deleteMembers()
+      {
+        if (confirm("정말로 삭제하시겠습니까?")) {
+          
+          $("tbody .select input[type='checkbox']:checked").each(function (){
+            var member_id = $(this).val();
+
+            $.ajax({
+              type: "POST",
+              async: false,
+              url: "http://api.siyeol.com/admin/member/"+member_id+"?token="+readCookie('token'),
+              dataType: "json",
+              data: {_method: 'DELETE'},
+              success: function (res) {
+              },
+              error: function (req,status,err) {
+                console.log(req.responseText);
+                alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+              }
+            });
+          });
+
+          location.reload();
+        }
+      }
     </script>
 </body>
 </html>
