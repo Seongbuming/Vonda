@@ -235,7 +235,7 @@ function nicepayClose(){
             <div class="row">
                 <p class="required">*</p>
                 <label for="name">수령인 이름</label>
-                <input id="name" name="receive_name" type="text" class="text" required/>
+                <input id="name" name="receive_name" type="text" class="text" <?=isset($order->default_address->receive_name) ? "value='".$order->default_address->receive_name."'" : ""?> required/>
             </div>
             <div class="row pnumber">
                 <p class="required">*</p>
@@ -258,7 +258,7 @@ function nicepayClose(){
             <div class="row">
               <p class="required">*</p>
               <label for="name">배송지</label>
-              <input id="postcode" name="zipcode" type="text" class="text" required/>
+              <input id="postcode" name="zipcode" type="text" class="text" <?=isset($order->default_address->zipcode) ? "value='".$order->default_address->zipcode."'" : ""?> required/>
               <input class="address_button" type="button" onclick="execDaumPostcode()"value="주소 검색">
               <div class="post_section">
                 <input class="savepost" name="savepost" type="checkbox" checked="">
@@ -267,16 +267,16 @@ function nicepayClose(){
             </div>
             <div class="row">
                 <input id="address" name="address" type="text" class="text" required
-                style="margin-left:158px;"/>
+                style="margin-left:158px;" <?=isset($order->default_address->address) ? "value='".$order->default_address->address."'" : ""?>/>
             </div>
             <div class="row">
                 <input id="address2" name="address_detail" type="text" class="text" placeholder="상세주소입력" required
-                style="margin-left:158px;"/>
+                style="margin-left:158px;" <?=isset($order->default_address->address_detail) ? "value='".$order->default_address->address_detail."'" : ""?>/>
             </div>
             <div class="row">
                 <p>&nbsp;&nbsp;</p>
                 <label for="name">배송 메세지</label>
-                <input id="order_bbig" name="delivery_memo" type="text" class="text" placeholder="20자 이내로 입력"/>
+                <input id="order_bbig" name="delivery_memo" type="text" class="text" placeholder="20자 이내로 입력" <?=isset($order->default_address->delivery_message) ? "value='".$order->default_address->delivery_message."'" : ""?>/>
             </div>
             <div class="row">
                 <p class="order_message">도서산간지역의 경우 추후 수령 시 추가 배송비가 발생할 수 있으며, 해외배송은 불가합니다.</p>
