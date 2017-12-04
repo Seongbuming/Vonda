@@ -12,7 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = $_POST['pnumber_1'].$_POST['pnumber_2'].$_POST['pnumber_3'];
     $email = $_POST['email'];
     $type = 'general';
-    $sendData = compact('account', 'name', 'password', 'phone', 'email', 'type');
+
+    // Delivery Info
+    $receive_name = $_POST['receive_name'];
+    $zipcode = $_POST['zipcode'];
+    $address = $_POST['address'];
+    $address_detail = $_POST['address_detail'];
+    $delivery_message = $_POST['delivery_memo'];
+    $pnumber = $_POST['dnumber_1'].$_POST['dnumber_2'].$_POST['dnumber_3'];
+    $anumber = $_POST['anumber_1'].$_POST['anumber_2'].$_POST['anumber_3'];
+
+    $sendData = compact('account', 'name', 'password', 'phone', 'email', 'type', 'receive_name', 'zipcode', 'address', 'address_detail', 'delivery_message', 'pnumber', 'anumber');
 
     $request = new Http();
     $res = $request->requestEx('POST', $url, [
@@ -31,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <?=$this->loadLayout("head")?>
     <link rel="stylesheet" href="stylesheets/client/signup.css" />
+    <link rel="stylesheet" href="stylesheets/client/order.css" />
 </head>
 <body>
     <header>
@@ -79,6 +90,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="email">이메일</label>
                 <input id="email" name="email" type="email" class="email" value="<?=$is_post?$_POST['email']:''?>" required />
             </div>
+
+            <h3 class="category order_form">기본 배송지(옵션) </h3>
+                <div class="row">
+                    <label for="name">수령인 이름</label>
+                    <input id="name" name="receive_name" type="text" class="text"/>
+                </div>
+                <div class="row pnumber">
+                    <label for="dnumber">연락처</label>
+                    <input id="dnumber" name="dnumber_1" type="tel" class="tel"/>
+                    <span>-</span>
+                    <input name="dnumber_2" type="tel" class="tel"/>
+                    <span>-</span>
+                    <input name="dnumber_3" type="tel" class="tel"/>
+                </div>
+                <div class="row pnumber">
+                    <p>&nbsp;&nbsp;</p>
+                    <label for="pnumber">추가 연락처</label>
+                    <input id="pnumber" name="anumber_1" type="tel" class="tel"/>
+                    <span>-</span>
+                    <input name="anumber_2" type="tel" class="tel"/>
+                    <span>-</span>
+                    <input name="anumber_3" type="tel" class="tel"/>
+                </div>
+                <div class="row">
+                  <label for="name">배송지</label>
+                  <input id="postcode" name="zipcode" type="text" class="text"/>
+                  <input class="address_button" type="button" onclick="execDaumPostcode()"value="주소 검색">
+                </div>
+                <div class="row">
+                    <input id="address" name="address" type="text" class="text"
+                    style="margin-left:158px;"/>
+                </div>
+                <div class="row">
+                    <input id="address2" name="address_detail" type="text" class="text" placeholder="상세주소입력"
+                    style="margin-left:158px;"/>
+                </div>
+                <div class="row">
+                    <p>&nbsp;&nbsp;</p>
+                    <label for="name">배송 메세지</label>
+                    <input id="order_bbig" name="delivery_memo" type="text" class="text" placeholder="20자 이내로 입력"/>
+                </div>
 
             <div class="terms">
                 <p class="title">이용약관</p>
