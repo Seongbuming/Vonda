@@ -76,7 +76,7 @@ $members = $response->datas->data;
               <!-- Tab panes -->
               <div class="tab-content">
                 <div class="tab-pane active" id="customer" role="tabpanel">
-                  <table class="table table-hover">
+                  <table id="sheet1" class="table table-hover">
                     <thead>
                       <tr >
                         <th class="select">
@@ -130,6 +130,7 @@ $members = $response->datas->data;
                     <button type="button" class="btn-pager btn btn-default" aria-label="Previous Page">
                       <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
                     </button>
+                    <button type="button" name="btn-download" class="btn btn-gray btn-download" onclick="doit('xlsx');">엑셀 다운로드</button>
                     <button type="button" name="btn-delete" class="btn btn-gray btn-delete" onclick="deleteMembers()">삭제</button>
                   </div>
 
@@ -148,7 +149,50 @@ $members = $response->datas->data;
     <!-- <script src="javascripts/admin/datepicker.js"></script> -->
     </script>
     <script src="javascripts/select_all.js"></script>
+    <!-- SheetJS js-xlsx library -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.11.10/xlsx.full.min.js"></script>
+    <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
     <script>
+      function s2ab(s) {
+        if(typeof ArrayBuffer !== 'undefined') {
+          var buf = new ArrayBuffer(s.length);
+          var view = new Uint8Array(buf);
+          for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+          return buf;
+        } else {
+          var buf = new Array(s.length);
+          for (var i=0; i!=s.length; ++i) buf[i] = s.charCodeAt(i) & 0xFF;
+          return buf;
+        }
+      }
+
+      function export_table_to_excel(id, type, fn) {
+        var wb = XLSX.utils.table_to_book(document.getElementById(id), {sheet:"Sheet JS", raw:true});
+
+        var wscols = [
+            {wch:1},
+            {wch:10},
+            {wch:30},
+            {wch:20},
+            {wch:40},
+            {wch:50},
+            {wch:45},
+            {wch:10}
+        ];
+
+        wb.Sheets["Sheet JS"]["!cols"] = wscols;
+
+        var wbout = XLSX.write(wb, {bookType:type, bookSST:true, type: 'binary'});
+        var fname = fn || '<?=$type?>.' + type;
+
+        try {
+          saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), fname);
+        } catch(e) { if(typeof console != 'undefined') console.log(e, wbout); }
+        return wbout;
+      }
+
+      function doit(type, fn) { return export_table_to_excel('sheet1', type || 'xlsx', fn); }
+
       function deleteMembers()
       {
         if (confirm("정말로 삭제하시겠습니까?")) {
