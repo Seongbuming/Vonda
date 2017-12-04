@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="stylesheets/client/login.css" />
 </head>
 
-<body>
+<body style="background: #e4e5e7;">
     <header>
         <?=$this->loadLayout("creator/header")?>
     </header>

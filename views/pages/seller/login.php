@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="stylesheets/client/login.css" />
 </head>
 
-<body>
+<body style="background-color: #f5f6f8;">
     <header>
         <?=$this->loadLayout("seller/header")?>
     </header>

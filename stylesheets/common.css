@@ -144,7 +144,6 @@ input[type=checkbox] + label {
     color: #3d3d3d;
     background-image: url("../images/buttons/check_off.png");
     background-repeat: no-repeat;
-    background-color: white;
     cursor: pointer;
 }
 input[type=checkbox]:checked + label {

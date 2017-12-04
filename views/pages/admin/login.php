@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #d8b525;">
     <section id="vd-login">
       <div class="container">
         <form id="vd-login-form" class="" action="index.html" method="post">
