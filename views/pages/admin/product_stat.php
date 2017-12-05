@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="stylesheets/admin/product_stati.css">
     <link rel="stylesheet" href="stylesheets/admin/layer_popup.css">
     <link rel="stylesheet" href="stylesheets/admin/product_detail_modal.css" />
+    <link rel="stylesheet" href="stylesheets/admin/calculate_detail.css" />
 
 </head>
 <?php
@@ -43,7 +44,7 @@ $creators = $response->datas;
             <div class="container-fluid">
 
               <div class="tab-pane active" id="product-stati" role="tabpanel">
-                  <a href="admin.php?page=product_write" class="btn-product-write btn-write">
+                  <a href="#" class="btn-product-write btn-write" onclick="addCreator()">
                     <img src="images/buttons/admin/plus.png" alt="plus.png" />
                   </a>
                   <h4 class="page-title">
@@ -157,7 +158,33 @@ $creators = $response->datas;
                   </ul>
 
                   <div class="creator-list marginTop50">
-                    <h4 class="admin-header-peach">총 크리에터 <span class="num-of-creator"><?=sizeof($creators)?></span>명</h3>
+                    <h4 class="admin-header-peach">크리에이터 정산</h4>
+
+                    <div class="sum_price">
+                      <div class="wrapper">
+                        <div class="term">
+                          <p class="caption">순이익</p>
+                          <p id="general-price" class="price"><?=number_format($goods->options[0]->price - $goods->options[0]->origin_price)?>원</p>
+                        </div>
+                        <div class="operator">X</div>
+                        <div class="term">
+                          <p class="caption">배분율</p>
+                          <p class="price">
+                            <input type="input" name="input-fee-rate" value="0" class="input-item">
+                          </p>
+                        </div>
+                        <div class="operator">=</div>
+                         <div class="term">
+                           <p class="caption">개당 정산금액</p>
+                           <p id="result-price" class="price"><?=number_format($calculate->calculate_price)?>원</p>
+                         </div>
+                       </div>
+                     </div>
+                     <button type="button" name="btn-delete" class="btn btn-peach btn-delete" onclick="saveCalculate()" style="position: absolute; right: 40px; top: 970px;">저장</button>
+                  </div>
+
+                  <div class="creator-list marginTop50">
+                    <h4 class="admin-header-peach">총 크리에터 <span class="num-of-creator"><?=sizeof($creators)?></span>명</h4>
                   </div>
                   <table class="table product-creator-table">
                     <thead>
@@ -215,5 +242,23 @@ $creators = $response->datas;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
     <script src="javascripts/admin/stati_chart.js"></script>
     <script src="javascripts/admin/product_detail_modal.js"></script>
+    <script>
+      function addCreator()
+      {
+        alert('add!');
+      }
+
+      function saveCalculate()
+      {
+
+      }
+
+      $(".price input").change(function(){
+        var price = parseInt($("#general-price").html().replace(",", "").replace("원", ""));
+        var percentage = parseFloat($(this).val());
+
+        $("#result-price").html((price * percentage).format() + "원");
+      });
+    </script>
 </body>
 </html>
