@@ -9,3 +9,56 @@
 .page-title span{
   padding-left: 15px;
 }
+#search-creator-modal .modal-header{
+  border: 0;
+  padding: 0;
+}
+#search-creator-modal .input-container{
+  border: solid 1px #ddd;
+  width: 300px;
+  margin: auto;
+}
+
+#search-creator-modal .input-container input,
+#search-creator-modal .input-container button{
+  border: 0;
+  color: #797979;
+}
+
+#search-creator-modal .input-container input{
+  padding: 5px;
+  width: 266px;
+}
+
+#search-creator-modal .input-container button{
+  float: right;
+}
+#search-creator-modal .search-creator-list{
+  width: 300px;
+  margin: 15px auto;
+  max-height: 215px;
+  overflow-y: scroll;
+}
+#search-creator-modal .search-creator-list .list-item{
+  font-size: 1.5em;
+}
+#search-creator-modal .search-creator-list .list-item:focus,
+#search-creator-modal .search-creator-list .list-item:hover{
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+#search-creator-modal .search-creator-list .list-item a,
+#search-creator-modal .search-creator-list .list-item a:hover,
+#search-creator-modal .search-creator-list .list-item a:focus
+{
+  color: #797979;
+  text-decoration: none;
+}
+#search-creator-modal .btn-submit{
+  width: 300px;
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+.selected{
+  background-color: #f5f5f5;
+}

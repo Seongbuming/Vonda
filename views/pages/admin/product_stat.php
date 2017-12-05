@@ -44,7 +44,7 @@ $creators = $response->datas;
             <div class="container-fluid">
 
               <div class="tab-pane active" id="product-stati" role="tabpanel">
-                  <a href="#" class="btn-product-write btn-write" onclick="addCreator()">
+                  <a href="#" class="btn-product-write btn-write" data-toggle="modal" data-target="#search-creator-modal">
                     <img src="images/buttons/admin/plus.png" alt="plus.png" />
                   </a>
                   <h4 class="page-title">
@@ -229,6 +229,33 @@ $creators = $response->datas;
               </div>
             </div>
         </div>
+        <div class="modal fade " id="search-creator-modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <button type="button" class="close btn-close text-right" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <div class="modal-header">
+                    <h4 class="text-heavy-gray">크리에이터 검색</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="input-container">
+                      <input type="input" name="search_input" class="creator_name" value="" placeholder="">
+                      <button type="button" name="btn-search" class="btn btn-default btn-sm btn-search">
+                        <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </div>
+
+                    <ul id="creator-list" class="search-creator-list">
+                    </ul>
+                    <div class="btn-container text-center">
+                      <button type="button" name="button" class="button btn-peach btn-submit" onclick="addCreator()">완료</button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+        </div>
         <!-- /#page-content-wrapper -->
 
     </div>
@@ -243,11 +270,6 @@ $creators = $response->datas;
     <script src="javascripts/admin/stati_chart.js"></script>
     <script src="javascripts/admin/product_detail_modal.js"></script>
     <script>
-      function addCreator()
-      {
-        alert('add!');
-      }
-
       function saveCalculate()
       {
 
