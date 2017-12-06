@@ -72,3 +72,30 @@ function addCreator()
 		$("#search-creator-modal").removeClass('show');
 	}
 }
+
+function saveCalculate()
+{
+	var creator_percentage = parseFloat($(".price input").val());
+
+	$.ajax({
+      type: "POST",
+      url: "http://api.siyeol.com//admin/goods/"+getParam('id')+"/calculate?token="+readCookie('token'),
+      dataType: "json",
+      data: {'creator_percentage':creator_percentage},
+      success: function (res) {
+        console.log(res);
+        if (res.code != 200) {
+          alert(res.message);
+        } else {
+          alert('크리에이터 정산 정보 업데이트가 완료되었습니다.');
+          location.reload();
+        }
+        return false;
+      },
+      error: function (err) {
+        console.log(err);
+        alert("알수없는 오류입니다.\n관리자에게 문의하세요.");
+        return false;
+      }
+    });
+}

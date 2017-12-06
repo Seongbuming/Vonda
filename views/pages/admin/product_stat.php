@@ -170,13 +170,13 @@ $creators = $response->datas;
                         <div class="term">
                           <p class="caption">배분율</p>
                           <p class="price">
-                            <input type="input" name="input-fee-rate" value="0" class="input-item">
+                            <input type="input" name="input-fee-rate" value="<?=$goods->creator_percentage?>" class="input-item">
                           </p>
                         </div>
                         <div class="operator">=</div>
                          <div class="term">
                            <p class="caption">개당 정산금액</p>
-                           <p id="result-price" class="price"><?=number_format($calculate->calculate_price)?>원</p>
+                           <p id="result-price" class="price"><?=number_format(($goods->options[0]->price - $goods->options[0]->origin_price) * $goods->creator_percentage)?>원</p>
                          </div>
                        </div>
                      </div>
@@ -270,11 +270,6 @@ $creators = $response->datas;
     <script src="javascripts/admin/stati_chart.js"></script>
     <script src="javascripts/admin/product_detail_modal.js"></script>
     <script>
-      function saveCalculate()
-      {
-
-      }
-
       $(".price input").change(function(){
         var price = parseInt($("#general-price").html().replace(",", "").replace("원", ""));
         var percentage = parseFloat($(this).val());
