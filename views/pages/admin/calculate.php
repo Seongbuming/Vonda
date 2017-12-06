@@ -19,7 +19,7 @@
 $type = $_GET['type'] ? $_GET['type'] : 'seller';
 
 $request = new Http();
-$response = $request->request('GET', 'http://api.siyeol.com/admin/calculate/'.$type.'/2017-09?token='.$_COOKIE['token']);
+$response = $request->request('GET', 'http://api.siyeol.com/admin/calculate/'.$type.'/all?token='.$_COOKIE['token']);
 
 $calculates = $response->datas->data;
 ?>
@@ -81,6 +81,7 @@ $calculates = $response->datas->data;
                             <input id="select_all" class="select-all-by-creator" type="checkbox" name="" value="">
                             <label for="select_all"></label>
                           </th>
+                          <th>정산기준</th>
                           <th>이름</th>
                           <th>아이디</th>
                           <th>정산금액</th>
@@ -98,6 +99,7 @@ $calculates = $response->datas->data;
                             <td class="select"> <input id="<?= "select_" . $calculate->id?>" type="checkbox" value="<?=$calculate->id?>" title="선택">
                               <label for="<?= "select_" . $calculate->id?>"></label>
                             </td>
+                            <td><?=$calculate->calculate_month?></td>
                             <td class="username text-heavy-gray"><?=$calculate->name?></td>
                             <td class="user-id">
                               <a href="admin.php?page=calculate_detail_<?=$calculate->type?>&id=<?=$calculate->id?>" class="user-id-link"><?=$calculate->account?></a>

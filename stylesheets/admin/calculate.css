@@ -22,21 +22,6 @@
   border-bottom: none;
 }
 
-#creator table th:nth-child(2),
-#creator table td:nth-child(2),
-#seller table th:nth-child(2),
-#seller table td:nth-child(2),
-{
-  width: 60px;
-}
-
-#creator table th:nth-child(3),
-#creator table td:nth-child(3),
-#seller table th:nth-child(3),
-#seller table td:nth-child(3){
-  width: 400px;
-}
-
 #creator .user-id a,
 #creator .user-id a:focus,
 #creator .user-id a:hover,

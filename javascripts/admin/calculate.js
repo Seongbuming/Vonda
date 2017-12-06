@@ -79,7 +79,6 @@ function complete() {
     type: "POST",
     url: "http://api.siyeol.com/admin/calculate/"+calculate_id+"/1?token="+readCookie('token'),
     dataType: "json",
-    data: {calculate_price: calculate_price},
     success: function (res) {
       alert(res.message);
       location.reload();
