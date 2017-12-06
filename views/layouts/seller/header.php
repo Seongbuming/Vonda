@@ -20,5 +20,6 @@
 	<li><a href="./seller.php?page=seller_myproduct_list">나의상품</a><span class="rightLine"></span></li>
 	<li><a href="./seller.php?page=seller_creator">크리에이터</a><span class="rightLine"></span></li>
 	<li><a href="./seller.php?page=seller_invoice">송장관리</a><span class="rightLine"></span></li>
+	<li><a href="./seller.php?page=seller_calculate">정산내역</a><span class="rightLine"></span></li>
 	<li><a href="./seller.php?page=seller_board">문의/후기</a></li>
 </ul>
