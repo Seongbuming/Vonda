@@ -370,6 +370,7 @@ input[type=radio].radio:nth-of-type(n+2) + label {
 }
 .creator_section .creator_detail .creator_image img {
     width: 100%;
+    height: 100%;
 }
 .creator_section .creator_detail .creator_profile {
     display: inline-block;
