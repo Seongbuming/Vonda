@@ -84,25 +84,6 @@ $user = $response->user;
                     </table>
                     <div class="sum_price">
                       <div class="wrapper">
-                        <div class="term">
-                          <p class="caption">총 매출</p>
-                          <p id="general-price"class="price"><?=number_format($calculate->total_price)?>원</p>
-                        </div>
-                        <div class="operator">-</div>
-                        <div class="term">
-                          <p class="caption">수수료</p>
-                          <p class="price">
-                            <input type="input" name="input-fee-rate" value="10" class="input-item">%
-                          </p>
-                        </div>
-                        <div class="operator">-</div>
-                        <div class="term">
-                          <p class="caption">광고료</p>
-                          <p class="price">
-                            <input type="input" name="input-ad-rate" value="10" class="input-item">%
-                          </p>
-                        </div>
-                        <div class="operator">=</div>
                          <div class="term">
                            <p class="caption">정산금액</p>
                            <p id="result-price" class="price"><?=number_format($calculate->calculate_price)?>원</p>
