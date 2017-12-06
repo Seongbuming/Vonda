@@ -26,6 +26,9 @@
 .chart-label .chart-item-label{
   padding-right: 30px;
 }
+.chart-label .chart-item-label.none-icon{
+  padding-left: 14px;
+}
 .chart-label .chart-item-value{
   float: right;
   color: #A8A8A8;

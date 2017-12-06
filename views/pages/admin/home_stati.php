@@ -56,12 +56,12 @@ $goods_statics = $response->datas;
                     <ul class="chart-label ">
                       <li style="color:#52CC5D"><i style="color:#52CC5D;"class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 매출</span>
                         <span id="sales-total-price"class="chart-item-value"></span></li>
-                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">총 주문건수</span>
+                      <li style="color:black"><span class="chart-item-label none-icon">총 주문건수</span>
                         <span id="sales-total-count"class="chart-item-value"></span></li>
-                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i><span class="chart-item-label">현재 등록된 상품</span>
+                      <li style="color:black"><span class="chart-item-label none-icon">현재 등록된 상품</span>
                         <span id="num-of-goods"class="chart-item-value"></span></li>
-                      <li style="color:black"><i class="glyphicon glyphicon-stop"></i>
-                        <span class="chart-item-label">현재 크리에이터</span>
+                      <li style="color:black">
+                        <span class="chart-item-label none-icon">현재 크리에이터</span>
                         <span id="num-of-creator"class="chart-item-value"></span></li>
                     </ul>
                   </div>
