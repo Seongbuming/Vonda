@@ -19,10 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'form_params' => $sendData,
     ]);
 
-    // 회원가입 완료하면 토큰이 반환됨.
-    if ($res->token) {
-        header("location:./creator.php?page=signup_finish");
-        exit;
+    if ($res->code == 400) {
+        echo "<script>alert('{$res->message}');</script>";
+    } else {
+        // 회원가입 완료하면 토큰이 반환됨.
+        if ($res->token) {
+            header("location:./creator.php?page=signup_finish");
+            exit;
+        }
     }
 }
 ?>
