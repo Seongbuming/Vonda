@@ -19,8 +19,6 @@
             <div class="row">
                 <label for="id">아이디</label>
                 <input id="id" name="account" type="text" class="text" required />
-                <p class="status">X</p>
-                <p class="status_message">hayefuk는 이미 사용중인 아이디입니다.</p>
             </div>
             <div class="row">
                 <label for="name">이름</label>
@@ -128,6 +126,7 @@
         <?=$this->loadLayout("seller/footer")?>
     </footer>
     <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/client/signup.js"></script>
     <script src="javascripts/seller/join.js"></script>
 </body>
 </html>
