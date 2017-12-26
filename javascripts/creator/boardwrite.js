@@ -2,7 +2,7 @@ function write_notice(subject,content) {
   var formData = new FormData();
   formData.append("subject",subject);
   formData.append("content",content);
-  formData.appen("is_top","n");
+  formData.append("is_top","n");
 
   $.ajax({
       type: "POST",
